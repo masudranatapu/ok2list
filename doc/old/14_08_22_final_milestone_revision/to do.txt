@@ -1,0 +1,21 @@
+1. terms and condition page a ads banner --done
+2. sitme map alignment --done
+
+3. promotion page content 
+4. membership page content
+
+5. Sitemap limit and top rated location limit
+  --- order_id desc limit 8 -- done
+
+6. customer list desc order a asbe --done
+
+7. Admin not receiving a notification after user posting an ad.
+
+8. Provision for images to increase at least 6-8 images to be (size and resolution be defined properly)
+
+9. User will be able save the posts and start later time for any reason.
+
+10. product type delete korte hobe -- done
+11. modal and brand create hosse na --done
+12. mail notification to admin and user (1. ads post korle admin mail pabe & customer akta mail pabe, 2. ads ar status change hole customer mail pabe with status, 3. customer delete hole customer mail pabe & admin mail pabe 4. new user registration korle admin mail pabe and user mail pabe)
+

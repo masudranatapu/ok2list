@@ -1,0 +1,13 @@
+Task for Gogoads 
+
+1.Banner ads dyanmic
+2.Srilanka and English lang use korte hobe
+3.login with FB 
+4.login with google 
+5.forget password 
+6.Ads details page a desc ar "Less/More" button  ---done 
+7.Ads details page a recommended ads 4 ta asbe    ---done
+8.Ads Expire korte parbe user 
+9.Profile picture dynamic korte hobe
+10.User plan upgrade korte parbe
+ 
