@@ -1,8 +1,0 @@
-MAIL_DRIVER=sendmail
-MAIL_HOST=smtp.gmail.com
-MAIL_PORT=465
-MAIL_USERNAME=info@ridepudo.com
-MAIL_PASSWORD=October4*01
-MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=info@ridepudo.com
-MAIL_FROM_NAME="${APP_NAME}"
