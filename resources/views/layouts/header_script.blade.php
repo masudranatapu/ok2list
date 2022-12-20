@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/css/font-awesome.min.css?v=0') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/icofont.css?v=0') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/owl.carousel.css?v=0') }}">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css?v=0" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css?v=1" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('/assets/css/slidr.css?v=0') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/forms/validation/form-validation.css')}}">
     <link rel="stylesheet" href="{{ asset('/assets/css/main.css?v=2') }}">
