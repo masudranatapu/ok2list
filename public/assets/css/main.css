@@ -133,7 +133,7 @@ select:focus,
 
 .parallax-section:before {
     position: absolute;
-    background: linear-gradient(to top right, #ed9020 33%, #156eb6 100%);
+    background: linear-gradient(to top right, #ee1d23 33%, #000 100%);
     top: 0;
     left: 0;
     width: 100%;
@@ -185,7 +185,7 @@ textarea {
     font-size: 18px;
     font-weight: 400;
     text-transform: capitalize;
-    background-color: #156eb6;
+    background-color: #000;
     padding: 10px 40px 12px;
     border: 0;
     -webkit-transition: all 0.3s ease-in-out;
@@ -196,7 +196,7 @@ textarea {
 }
 
 .btn.btn-primary:hover {
-    background-color: #f79422;
+    background-color: #ee1d23;
     color: #fff;
 }
 
@@ -422,7 +422,7 @@ textarea {
 #header a.btn,
 .download-button a.btn {
     padding: 5px 25px 7px;
-    background-color: #ED9020;
+    background-color: #ee1d23;
     font-weight: 400;
     font-size: 14px;
     color: #fff;
@@ -482,7 +482,7 @@ textarea {
     height: 50px;
     padding: 0;
     transition: 0.3s;
-    background: #ED9020;
+    background: #ee1d23;
     position: absolute;
     right: 0;
     top: 0px;
@@ -737,11 +737,11 @@ textarea {
     right: -2px;
     bottom: -1px;
     max-width: 114px;
-    background-color: #156EB6;
+    background-color: #000;
     border-radius: 0 5px 5px 0;
     color: #fff;
     text-transform: uppercase;
-    border-color: #156EB6;
+    border-color: #000;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
@@ -752,8 +752,8 @@ textarea {
 }
 
 .banner-form button:hover {
-    background-color: #f79422;
-    border-color: #f79422;
+    background-color: #ee1d23;
+    border-color: #ee1d23;
 }
 
 .banner-socail li {
@@ -1135,7 +1135,7 @@ textarea {
 
 .ad-meta .user-option a {
     font-size: 18px;
-    color: #ed9020;
+    color: #ee1d23;
     display: inline-block;
     width: 30px;
     height: 35px;
@@ -1208,7 +1208,7 @@ a.verified i {
     left: -30px;
     padding: 5px 15px;
     color: #fff;
-    background-color: #ff740d;
+    background-color: #ee1d23;
     -moz-transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
@@ -1692,7 +1692,7 @@ div#page-content p {
 }
 
 .home-one .parallax-section:before {
-    background: #ed9020;
+    background: #ee1d23;
 }
 
 #download.parallax-section:before {
@@ -2102,15 +2102,15 @@ section#home-two-info {
 
 #something-sell .btn.btn-primary {
     margin-top: 15px;
-    border: 1px solid #ed9020;
+    border: 1px solid #ee1d23;
     font-family: "Montserrat-Bold";
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
-    background: #ed9020;
+    background: #ee1d23;
 }
 
 #something-sell a.btn:hover {
     background-color: transparent;
-    border: 1px solid #156EB6;
+    border: 1px solid #000;
 }
 
 
@@ -2356,7 +2356,7 @@ i.fa.fa-chevron-up {
 }
 
 #something-sell.parallax-section:before {
-    background-color: #156EB6d4;
+    background-color: #000;
 }
 
 
@@ -2686,7 +2686,7 @@ i.fa.fa-chevron-up {
 }
 
 .contact-with .btn-red {
-    background-color: #f36d2d;
+    background-color: #ed1c24;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
@@ -2707,9 +2707,9 @@ i.fa.fa-chevron-up {
 }
 
 .contact-with .btn-red:hover {
-    color: #f36d2d;
+    color: #ed1c24;
     background-color: transparent;
-    border: 1px solid #f36d2d;
+    border: 1px solid #ed1c24;
 }
 
 .social-links li a {
@@ -2774,7 +2774,7 @@ i.fa.fa-chevron-up {
 .slider-text .show-number span:hover,
 .slider-text .show-number:hover span,
 .contact-with .show-number .btn-red:hover {
-    color: #f36d2d;
+    color: #ed1c24;
 }
 
 span.typewrite {
@@ -4126,10 +4126,10 @@ p.mt-2.loginor {
 
 .profile a.btn,
 .buttons a.btn {
-    background-color: #156EB6;
+    background-color: #000;
     color: #fff;
     padding: 6px 26px 7px;
-    border: 1px solid #156EB6;
+    border: 1px solid #000;
     margin: 9px 0 0;
     margin-bottom: 30px;
 }
@@ -4148,8 +4148,8 @@ p.mt-2.loginor {
 .profile a.btn:hover,
 .buttons a.btn:hover {
     background-color: transparent;
-    color: #156EB6;
-    border: 1px solid #156EB6;
+    color: #000;
+    border: 1px solid #000;
 }
 
 
@@ -4593,7 +4593,7 @@ section#main h2.h3.title {
 
 .location-article h4 i {
     padding-right: 3px;
-    color: #156EB6;
+    color: #ee1d23;
 }
 
 .our-location .location {
@@ -4604,7 +4604,7 @@ section#main h2.h3.title {
 }
 
 .our-location .location:hover {
-    background: #156EB6;
+    background: #000;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
@@ -4625,9 +4625,10 @@ section#main h2.h3.title {
 .our-location .location h3 {
     font-size: 16px;
     font-family: "Montserrat-Bold";
-    color: #ed9020;
+    color: #ee1d23;
     font-weight: bold;
 }
+
 
 .feedback {
     background-color: #fff;
@@ -4670,15 +4671,15 @@ section#main h2.h3.title {
 
 .feedback .btn {
     padding: 6px 15px;
-    background-color: #156EB6;
+    background-color: #ee1d23;
     color: #fff;
-    border: 1px solid #156EB6;
+    border: 1px solid #ee1d23;
 }
 
 .feedback .btn:hover {
     background-color: transparent;
-    border: 1px solid #156EB6;
-    color: #156EB6;
+    border: 1px solid #ee1d23;
+    color: #ee1d23;
 }
 
 .feedback .form-control::placeholder {
@@ -5941,7 +5942,7 @@ textarea.ctext:-moz-placeholder {
     font-size: 20px;
     font-weight: 400;
     padding-bottom: 15px;
-    border-bottom: 2px solid #ED9020;
+    border-bottom: 2px solid #ee1d23;
     display: inline-block;
     margin-bottom: 29px;
 }
@@ -5990,7 +5991,7 @@ textarea.ctext:-moz-placeholder {
 }
 
 .social_login p a {
-    color: #ED9020;
+    color: #ee1d23;
 }
 
 .social_login_btn {
@@ -6084,13 +6085,13 @@ textarea.ctext:-moz-placeholder {
 }
 
 .forgot_pass a {
-    color: #ED9020;
+    color: #ee1d23;
     font-weight: 600;
     font-size: 14px;
 }
 
 .login_btn button {
-    background: #ED9020;
+    background: #ee1d23;
     border: none;
     border-radius: 0px;
     padding: 12px 0px;
@@ -6110,12 +6111,12 @@ textarea.ctext:-moz-placeholder {
 
 .sign_up p {
     margin: 0;
-    color: #ED9020;
+    color: #ee1d23;
     font-size: 15px;
 }
 
 .sign_up p a {
-    color: #ED9020;
+    color: #ee1d23;
     font-size: 15px;
 }
 
@@ -6329,10 +6330,10 @@ h3.alert.alert-danger.pendinguser {
 
 .language_menu {
     font-size: 14px;
-    border: 1px solid #ff980054;
+    border: 1px solid #ee1d23;
     padding: 5px 11px;
     border-radius: 50px;
-    background: #ff980014;
+    background: #e7edee;
 }
 
 .modal-content.customized_content .modal-body {
@@ -6364,7 +6365,7 @@ h3.alert.alert-danger.pendinguser {
 }
 
 .site_item_list li a i {
-    color: #ED9020;
+    color: #ee1d23;
     padding-right: 3px;
 }
 
@@ -6380,7 +6381,7 @@ h3.alert.alert-danger.pendinguser {
 }
 
 .like_ads:hover {
-    background: #ED9020;
+    background: #ee1d23;
     color: #fff !important;
 }
 

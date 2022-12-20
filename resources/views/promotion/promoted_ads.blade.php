@@ -3,13 +3,13 @@
 @push('custom_css')
 
 <style type="text/css">
-	.c-btn{color: #F79422; font-weight: bold; font-weight: 400; font-size: 14px; background: #b9e2e8;padding: 0px 10px;}
+	.c-btn{color: #ee1d23; font-weight: bold; font-weight: 400; font-size: 14px; background: #b9e2e8;padding: 0px 10px;}
 	.ad-info .item-price{margin-bottom: 8px;}
 	.c-btn {
     color: #fff;
     font-weight: 400;
     font-size: 14px;
-    background: #ea710a;
+    background: #ee1d23;
     padding: 4px 10px;
     border-radius: 2px;
 }

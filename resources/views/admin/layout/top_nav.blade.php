@@ -8,7 +8,7 @@
         <li class="nav-item mr-auto">
             <a class="navbar-brand" href="{{ route('admin.dashboard') }}">
                {{--  <img class="brand-logo" alt="modern admin logo" src="{{asset($setting->logo ?? '')}}"> --}}
-                <h3 class="brand-text" style="font-size: 20px; padding-left: 36px;">Gogoads</h3>
+                <h3 class="brand-text" style="font-size: 20px; padding-left: 36px;">Ok2List</h3>
             </a>
         </li>
 
