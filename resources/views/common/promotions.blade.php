@@ -78,7 +78,7 @@
 								</div>
 								<div class="single-cta">
 									<h4>@lang('web.need_help')</h4>
-									<p>info@gogoads.lk</p>
+									<p>info@ok2list.com</p>
 								</div>
 							</div>
 						</div>

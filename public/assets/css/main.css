@@ -83,7 +83,7 @@ a:focus,
 input:focus {
     text-decoration: none;
     outline: none;
-    color: #db5050;
+    color: #ee1d23;
 }
 
 img {
@@ -115,7 +115,7 @@ select:focus,
 }
 
 .form-control:focus {
-    border-color: #156EB6;
+    border-color: #000;
 }
 
 .title {
@@ -278,7 +278,8 @@ textarea {
 .dropdown-menu>.active>a:focus,
 .dropdown-menu>.active>a:hover {
     background-color: transparent;
-    color: #156EB6;
+    color: #000
+    ;
 }
 
 .dropdown-menu {
@@ -361,13 +362,13 @@ textarea {
 .language-dropdown i.fa-globe,
 .sign-in li i {
     font-size: 14px;
-    color: #156EB6;
+    color: #000;
     margin-right: 5px;
 }
 
 .chat li i {
     font-size: 14px;
-    color: #156EB6;
+    color: #000;
     margin-right: 5px;
     cursor: pointer;
 }
@@ -406,7 +407,7 @@ textarea {
 }
 
 .nav-right .dropdown-menu li a:hover {
-    color: #156EB6;
+    color: #000;
     background-color: transparent;
 }
 
@@ -416,7 +417,7 @@ textarea {
 }
 
 .sign-in li a:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 #header a.btn,
@@ -432,11 +433,11 @@ textarea {
 
 #header a.btn:hover,
 .download-button a.btn:hover {
-    background-color: #156EB6;
+    background-color: #000;
 }
 
 .badge {
-    background-color: #156EB6;
+    background-color: #000;
     margin-left: 5px;
     font-size: 10px;
     font-weight: 500;
@@ -460,7 +461,7 @@ textarea {
 
 .category-title h3 {
     margin: 0 !important;
-    color: #156EB6 !important;
+    color: #000 !important;
     font-size: 16px !important;
     padding-bottom: 14px;
     font-family: 'Ubuntu', sans-serif;
@@ -493,7 +494,7 @@ textarea {
 }
 
 .all-category-list button.close:hover {
-    background-color: #156EB6 !important;
+    background-color: #000 !important;
     color: #fff !important;
 }
 
@@ -513,13 +514,13 @@ textarea {
 
 .all-category-list .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
-    color: #156EB6 !important;
+    color: #000 !important;
     background: none;
 }
 
 .all-category-list .nav-pills .nav-link:hover,
 .nav-pills .show>.nav-link {
-    color: #156EB6 !important;
+    color: #000 !important;
 }
 
 .tabs-cat-list h3 {
@@ -530,7 +531,7 @@ textarea {
 .tabs-cat-list h3 a {
     font-size: 16px;
     font-weight: 300;
-    color: #156EB6;
+    color: #000;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -552,13 +553,13 @@ textarea {
 }
 
 .tabs-cat-list ul li a:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 .back-btn h5 {
     font-size: 18px;
     font-weight: 500;
-    color: #156EB6;
+    color: #000;
     font-family: 'Ubuntu', sans-serif;
     border-bottom: 1px solid #ddd;
     cursor: pointer;
@@ -615,7 +616,7 @@ textarea {
     top: 14px;
     left: 213px;
     z-index: 90;
-    color: #156EB6;
+    color: #000;
 }
 
 .banner-form-full i.fa.fa-tag {
@@ -627,7 +628,7 @@ textarea {
     top: 14px;
     left: 15px;
     z-index: 90;
-    color: #156EB6;
+    color: #000;
 }
 
 .breadcrumb-section {
@@ -847,7 +848,7 @@ textarea {
     height: 50px;
     background: #fff;
     text-align: center;
-    color: #156EB6;
+    color: #000;
     border-radius: 100%;
     padding: 6px 0px;
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.2);
@@ -860,7 +861,7 @@ textarea {
     height: 50px;
     background: #fff;
     text-align: center;
-    color: #156EB6;
+    color: #000;
     border-radius: 100%;
     padding: 6px 0px;
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, 0.2);
@@ -919,7 +920,7 @@ textarea {
 
 .category-item:hover .category-quantity,
 .category-item:hover .category-title {
-    color: #156EB6;
+    color: #000;
 }
 
 .featureds {
@@ -935,7 +936,7 @@ textarea {
 
 .featured .bottom p {
     margin: 0;
-    background: #ed90203d;
+    background: #ed90202b;
     padding: 0px 12px 11px 12px;
     border-radius: 0px 0px 6px 8px;
 }
@@ -1023,7 +1024,7 @@ textarea {
 }
 
 .ad-info .item-cat .views {
-    color: #156EB6 !important;
+    color: #000 !important;
     padding: 3px;
     font-size: 12px;
 }
@@ -1047,11 +1048,11 @@ textarea {
 
 .freatured_card .ad-info .item-cat a:hover,
 .freatured_card .ad-info .item-price {
-    color: #156EB6;
+    color: #000;
 }
 
 .freatured_card .item-price {
-    color: #156EB6;
+    color: #000;
     font-size: 15px;
     margin-bottom: 9px;
 }
@@ -1080,17 +1081,17 @@ textarea {
     padding-left: 13px;
 }
 .freatured_card .bottom p a {
-    color: #db5050;
+    color: #ee1d23;
     margin: 0;
     font-size: 14px;
 }
 
 .freatured_card .bottom p span a i {
-    color: #db5050 !important;
+    color: #ee1d23 !important;
 }
 
 .freatured_card .card-body {
-    background: #ed90203d;
+    background: #ed90202b;
     padding: 25px 12px 58px 12px;
 }
 
@@ -1130,7 +1131,7 @@ textarea {
 }
 
 .ad-meta .meta-content a:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 .ad-meta .user-option a {
@@ -1149,7 +1150,7 @@ textarea {
 
 .ad-meta .user-option a:hover {
     background-color: #fff;
-    color: #156EB6;
+    color: #000;
 }
 
 .ad-meta .user-option a.edit-item:hover {
@@ -1181,7 +1182,7 @@ a.verified {
 a.verified i {
     height: 20px;
     width: 20px;
-    background-color: #156EB6;
+    background-color: #000;
     color: #fff;
     line-height: 25px;
     text-align: center;
@@ -1194,7 +1195,7 @@ a.verified i {
 
 .featured-image a i:after {
     position: absolute;
-    border-right: 40px solid #156EB6;
+    border-right: 40px solid #000;
     border-bottom: 40px solid transparent;
     border-left: 40px solid transparent;
     top: 0px;
@@ -1243,7 +1244,7 @@ a.verified i {
 
 .owl-carousel .owl-next:hover,
 .owl-carousel .owl-prev:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 .owl-carousel .owl-next {
@@ -1433,7 +1434,7 @@ ul.howtosell li {
 
 .ad-item .ad-info span,
 .featured .ad-info span {
-    color: #3a3a3c;
+    color: #fff;
     font-size: 14px;
     line-height: 17px;
 }
@@ -1478,7 +1479,7 @@ ul.howtosell li {
     background-color: #fcfcfc;
     border-bottom: #f2f2f2;
     border-radius: 0;
-    color: #156EB6;
+    color: #000;
 }
 
 .my-ads .ad-meta .pending {
@@ -1572,7 +1573,7 @@ ul.howtosell li {
  ========================================================================== */
 
 .promo h4 {
-    color: #156EB6;
+    color: #000;
     font-size: 16px;
 }
 
@@ -1591,7 +1592,7 @@ ul.howtosell li {
 .promote p {
     font-weight: bold;
     font-size: 16px;
-    color: #156EB6;
+    color: #000;
     text-align: center;
 }
 
@@ -1870,7 +1871,7 @@ section#home-two-info {
 }
 
 #home-section h1 {
-    color: #156EB6;
+    color: #000;
     margin: 65px 0 0;
 }
 
@@ -1969,7 +1970,7 @@ section#home-two-info {
 }
 
 .single-service li a:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 #services-ad .featured {
@@ -2090,7 +2091,7 @@ section#home-two-info {
 }
 
 .recommended-cta .single-cta a:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 #something-sell h4 {
@@ -2141,7 +2142,7 @@ section#home-two-info {
 }
 
 .card-header button.collapsed:after:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 .card-header button.collapsed {
@@ -2149,7 +2150,7 @@ section#home-two-info {
 }
 
 .card-header button {
-    color: #156EB6;
+    color: #000;
     font-weight: 500;
     font-size: 20px;
     border: 0;
@@ -2178,11 +2179,11 @@ section#home-two-info {
 }
 
 .card-body h5 i {
-    color: #156EB6;
+    color: #000;
 }
 
 .card-body a {
-    color: #000000;
+    color: #fff;
     font-weight: 500;
     font-size: 16px;
     line-height: 28px;
@@ -2200,7 +2201,7 @@ section#home-two-info {
 
 .card-body a:hover,
 .card-body a:hover i {
-    color: #156EB6;
+    color: #000;
 }
 
 .card-body ul li a span {
@@ -2247,7 +2248,7 @@ section#home-two-info {
 .card-body label.checked:before,
 .checkbox label.checked:before {
     content: "\f046";
-    color: #156EB6;
+    color: #000;
 }
 
 .card-body ul .subdropdowncss i.fa.fa-chevron-right {
@@ -2274,7 +2275,7 @@ i.fa.fa-chevron-up {
 }
 
 .tr-accordion a.see-more:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 .tr-accordion .card-body .category-change li a {
@@ -2333,7 +2334,7 @@ i.fa.fa-chevron-up {
 .pagination>.active>a:focus,
 .pagination>.active>a:hover {
     color: #fff;
-    background-color: #156EB6;
+    background-color: #000;
 }
 
 .pagination>li:nth-child(7) a,
@@ -2524,7 +2525,7 @@ i.fa.fa-chevron-up {
 }
 
 .jobadbg {
-    background: #156EB6 !important;
+    background: #000 !important;
 }
 
 #product-carousel .carousel-indicators {
@@ -2590,7 +2591,7 @@ i.fa.fa-chevron-up {
 }
 
 .slider-text h2 {
-    color: #156EB6;
+    color: #000;
     font-size: 22px;
     font-weight: 500;
     margin: 0;
@@ -2659,7 +2660,7 @@ i.fa.fa-chevron-up {
 
 .slider-text span.icon a strong {
     font-weight: 400;
-    color: #156EB6;
+    color: #000;
 }
 
 .short-info strong {
@@ -2678,7 +2679,7 @@ i.fa.fa-chevron-up {
 }
 
 .contact-with .btn {
-    background-color: #0d79bf;
+    background-color: #000;
     color: #fff;
     margin-right: 5px;
     border: 1px solid transparent;
@@ -2701,9 +2702,9 @@ i.fa.fa-chevron-up {
 }
 
 .contact-with a.btn:hover {
-    color: #0d79bf;
+    color: #ee1d23;
     background-color: transparent;
-    border: 1px solid #0d79bf;
+    border: 1px solid #ee1d23;
 }
 
 .contact-with .btn-red:hover {
@@ -2750,7 +2751,7 @@ i.fa.fa-chevron-up {
 
 .slider-text span a:hover,
 .slider-text a:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 .hide-number,
@@ -2839,11 +2840,11 @@ span.typewrite {
 }
 
 .short-info li a:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 .short-info li a span {
-    color: #156EB6;
+    color: #000;
     font-weight: 400;
 }
 
@@ -3213,7 +3214,7 @@ span.typewrite {
 .postdetails li a:hover,
 .postdetails li.active a,
 .postdetails .edit:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 .selected-product {
@@ -3327,11 +3328,11 @@ span.typewrite {
 }
 
 .adpost-details input[type="radio"]+label:before {
-    border: 2px solid #156EB6;
+    border: 2px solid #000;
 }
 
 .adpost-details input[type="radio"]:checked+label:after {
-    border: 5px solid #156EB6;
+    border: 5px solid #000;
 }
 
 .required {
@@ -3380,7 +3381,7 @@ span.typewrite {
     left: 0;
     top: 3px;
     font-size: 36px;
-    color: #156EB6;
+    color: #000;
 }
 
 .add-image label.upload-image {
@@ -3418,7 +3419,7 @@ span.typewrite {
 }
 
 .add-image label.upload-image:hover:before {
-    color: #156EB6;
+    color: #000;
 }
 
 .add-image label.upload-image input {
@@ -3498,7 +3499,7 @@ span.typewrite {
 
 .adpost-details .agreement label a:hover,
 .quick-rules .lead a:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 .quick-rules .lead {
@@ -3520,7 +3521,7 @@ span.typewrite {
 
 .quick-rules li:before {
     position: absolute;
-    color: #156EB6;
+    color: #000;
     font-size: 16px;
     content: "\f105";
     font-family: 'FontAwesome';
@@ -3546,13 +3547,13 @@ span.typewrite {
 
 .congratulations i {
     font-size: 72px;
-    color: #156EB6;
+    color: #000;
     margin-bottom: 18px;
 }
 
 .congratulations h2 {
     font-weight: 700;
-    color: #156EB6;
+    color: #000;
     margin: 0 0 4px;
 }
 
@@ -3631,7 +3632,7 @@ p.mt-2.loginor {
 }
 
 .user-account .btn {
-    background-color: #156EB6;
+    background-color: #000;
     color: #fff;
     padding: 10px 19px;
     margin-top: 10px;
@@ -3664,7 +3665,7 @@ p.mt-2.loginor {
 
 .user-account .checkbox label:hover,
 .forgot-password a:hover {
-    color: #156EB6;
+    color: #000;
 }
 
 .user-account .user-option {
@@ -3724,7 +3725,7 @@ p.mt-2.loginor {
     font-size: 30px;
     content: "\f105";
     font-family: 'FontAwesome';
-    color: #156EB6;
+    color: #000;
     opacity: 0;
     cursor: pointer;
     margin-top: -22px;
@@ -3744,7 +3745,7 @@ p.mt-2.loginor {
 .post-option li a:hover,
 .post-option li.active a,
 .post-option li.link-active a {
-    color: #156EB6;
+    color: #000;
 }
 
 .select-category li a img {
@@ -3767,7 +3768,7 @@ p.mt-2.loginor {
 }
 
 .next-stap h2 span {
-    color: #156EB6;
+    color: #ee1d23;
 }
 
 .next-stap .btn-section {
@@ -3991,7 +3992,7 @@ p.mt-2.loginor {
 
 .ad-profile .user h2 a {
     font-weight: 700;
-    color: #156EB6;
+    color: #ee1d23;
     font-size: 16px;
 }
 
@@ -4030,12 +4031,12 @@ p.mt-2.loginor {
 
 .ad-profile .favorites-user a {
     font-size: 30px;
-    color: #156EB6;
+    color: #ee1d23;
     display: block;
 }
 
 .ad-profile .favorites-user small:hover {
-    color: #156EB6;
+    color: #ee1d23;
 }
 
 .user-menu .logoutbtn {
@@ -4069,7 +4070,7 @@ p.mt-2.loginor {
 }
 .ad-profile .user-menu li.active a,
 .ad-profile .user-menu li a:hover {
-    border-color: #156EB6;
+    border-color: #000;
     background: #156eb626;
     color:#111;
 }
@@ -4414,7 +4415,7 @@ section#main h2.h3.title {
  ========================================================================== */
 
 .form-group.error .help-block ul li {
-    color: #156EB6 !important;
+    color: #000 !important;
 }
 
 #main.contact-us {
@@ -5369,7 +5370,7 @@ section#main h2.h3.title {
     text-align: center;
 }
 
-.contac-section .touch-content {}
+
 
 .contac-section .form-control {
     height: 60px;
@@ -5830,8 +5831,8 @@ a,
 .navbar-toggler {
     position: absolute;
     padding: 5px 8px;
-    border: 1px solid #db5050;
-    color: #db5050;
+    border: 1px solid #ee1d23;
+    color: #ee1d23;
     top: 10px;
     right: 0;
 }
@@ -6157,17 +6158,17 @@ textarea.ctext:-moz-placeholder {
 }
 
 .premier_ads .member {
-    background: #0080005e;
-    color: #000 !important;
+    background: #ee1d23;
+    color: #fff !important;
 }
 
 .premier_ads .verified {
-    background: #e91e633d !important;
-    color: #000 !important;
+    background: #000 !important;
+    color: #fff !important;
 }
 
 .premim_ads .ad-info {
-    background: #ed90203d;
+    background: #ed90202b;
 }
 
 .premim_ads .ad-meta {
@@ -6193,7 +6194,7 @@ focus {
 }
 
 .verified_ads {
-    background: #ed90203d;
+    background: #ed90202b;
 }
 
 .premier_ads span i {
@@ -6376,7 +6377,7 @@ h3.alert.alert-danger.pendinguser {
 
 .like_ads {
     color: #000000 !important;
-    background-color: #ed90203d;
+    background-color: #ed90202b;
     font-weight: bold;
 }
 

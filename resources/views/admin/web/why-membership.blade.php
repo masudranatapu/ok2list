@@ -45,7 +45,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="package">Description ( SL )</label>
+                                                <label for="package">Description ( En )</label>
                                                 <textarea cols="30" rows="5" class="form-control" name="desc"  placeholder="Details English">{{$membership->description}}</textarea>
                                             </div>
                                             <div class="form-group">
@@ -71,7 +71,7 @@
                             <h4>Demo Image</h4>
                         </div>
                         <div class="card-body">
-                            <img width="650" height="1000" src="{{asset('assets/direction/membership.png')}}" alt="">
+                            <img width="650" height="1000" src="{{asset('assets/images/about-us/about.jpg')}}" alt="">
                         </div>
                     </div>
                 </div>

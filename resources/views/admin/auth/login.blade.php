@@ -40,7 +40,7 @@
                                     </div>
                                 @endif
                                 <div class="card-title text-center">
-                                    <div  class="p-1"><img width="150" src="{{url('app-assets/images/logo/logo.png')}}" alt="branding logo" ></div>
+                                    <div  class="p-1"><img width="150" src="{{url('app-assets/images/logo/logo2.png')}}" alt="branding logo" ></div>
                                 </div>
                                  @if ($errors->any())
                                         <div class="alert alert-danger">

@@ -80,7 +80,7 @@
                             <h4>Demo Image</h4>
                         </div>
                         <div class="card-body">
-                            <img width="650" height="1000" src="{{asset('assets/direction/privacy.png')}}" alt="">
+                            <img width="650" height="1000" src="{{asset('assets/images/about-us/about.jpg')}}" alt="">
                         </div>
                     </div>
                 </div>
