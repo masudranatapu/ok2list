@@ -6518,24 +6518,56 @@ text-align: left;
 
     
 }
+@media(max-width: 576px) {
+    .buyer-protection {
+        height: 150px;
+        width: 200px;
+        background-color: #fbf6d5;
+        border: 1px solid #ffc800;
+        border-radius: 4px;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .buyer-protection-title {
+            color: #0074ba;
+            line-height: 5px;
+            justify-content: center;
+            align-items: center;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            font-weight: 500;
+            padding-left: 3px;
+            font-size: 8px;
+    
+        }
+}
+
 .buyer-protection-title{
     color: #0074ba;
-        line-height: 20px;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -ms-flex-align: center;
-        align-items: center;
-        display: -ms-inline-flexbox;
-        display: inline-flex;
-        font-weight: 700;
-        padding-left: 6px;
-        font-size: 20px;
+    line-height: 20px;
+    justify-content: center;
+    align-items: center;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    font-weight: 700;
+    padding-left: 6px;
+    font-size: 20px;
     
 }
 .buyer-protection-details{
     padding-left: 38px;
         font-size: 14px;
         line-height: 20px;
+}
+
+@media (max-width: 576px){
+    .buyer-protection-details {
+            padding-left: 5px;
+            font-size: 10px;
+            line-height: 10px;
+        }
 }
 .section-doorstep-delivery{
     background-color: #fff;
