@@ -46,6 +46,8 @@ Route::get('/payment/gateway', 'CommonController@payment_gateway')->name('paymen
 Route::get('promotion/payment/gateway', 'CommonController@promotion_payment_gateway')->name('promotion.payment.gateway');
 Route::get('/package/free', 'PackageController@getFreePackage')->name('package.free');
 Route::get('/site-map', 'CommonController@getSiteMap')->name('site-map');
+Route::get('/doorstep-delivery', 'CommonController@getDoorstepDelivery')->name('doorstep-delivery');
+
 
 //Ad post
 Route::get('/ad-post/{subcategory?}', 'AdPostController@getAdPost')->name('ad-post');
@@ -73,9 +75,9 @@ Route::get('/ads/{area?}/{category?}', 'AdsController@getAdsList')->name('ads.li
 //Route::get('/ads/{area?}/{category?}', 'AdsController@getAdsList')->name('ads.area');
 
 //user shop route
-Route::get('/create-shop',['as'=>'create-shop', 'uses'=>'ShopController@getCreateShop', 'middleware'=>'checkPackage']);
+Route::get('/create-shop', ['as' => 'create-shop', 'uses' => 'ShopController@getCreateShop', 'middleware' => 'checkPackage']);
 
-Route::post('/store-shop', ['as' => 'store-shop', 'uses'=>'ShopController@getStoreShop', 'middleware'=>'checkPackage']);
+Route::post('/store-shop', ['as' => 'store-shop', 'uses' => 'ShopController@getStoreShop', 'middleware' => 'checkPackage']);
 
 Route::get('/my-shop', 'ShopController@getMyShop')->name('my-shop');
 Route::get('/modify-shop', 'ShopController@getModifyShop')->name('modify-shop');
@@ -146,7 +148,7 @@ Route::get('admin/logout', ['as' => 'admin.logout', 'uses' => 'Admin\AdminAuthCo
 Route::get('stripe', ['as' => 'stripe.payment', 'uses' => 'StripePaymentController@stripe']);
 Route::post('stripe/post', ['as' => 'stripe.post', 'uses' => 'StripePaymentController@stripePost']);
 
-Route::group(['prefix'=>'admin','namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
     // Dashboard
     //Route::get('dashboard', ['middleware' => 'acl:dashboard', 'as' => 'admin.dashboard', 'uses' => 'DashboardController@index']);
     Route::get('dashboard', ['as' => 'admin.dashboard', 'uses' => 'DashboardController@getIndex']);
@@ -228,15 +230,15 @@ Route::group(['prefix'=>'admin','namespace' => 'Admin', 'middleware' => 'auth:ad
     // Route::get('workout-item/{id}/delete', ['as' => 'admin.workout-item.delete', 'uses' => 'WorkoutItemController@getDelete']);
 
     //product
-    Route::get('product',['middleware' => 'acl:view_product', 'as' => 'admin.product.list', 'uses' => 'ProductController@getIndex']);
-    Route::get('product/{id}/reports',['middleware' => 'acl:view_product', 'as' => 'product.reports', 'uses' => 'ProductController@getReport']);
-    Route::get('product/{id}/edit',['middleware' => 'acl:edit_product', 'as' => 'admin.product.edit', 'uses' => 'ProductController@getEdit']);
-    Route::get('product/{id}/view',['middleware' => 'acl:view_product', 'as' => 'admin.product.view', 'uses' => 'ProductController@getView']);
-    Route::get('product/get-url-slug',[ 'middleware' => 'acl:edit_product', 'as' => 'get-url-slug', 'uses' => 'ProductController@getUrlSlug']);
-    Route::post('product/{id}/update',['middleware' => 'acl:edit_product', 'as' => 'admin.product.update', 'uses' => 'ProductController@putUpdate']);
-    Route::get('product/{id}/delete',['middleware' => 'acl:delete_product', 'as' => 'admin.product.delete.single', 'uses' => 'ProductController@getDelete']);
-    Route::get('product/{id}/delete_all',['middleware' => 'acl:delete_product', 'as' => 'admin.product.delete', 'uses' => 'ProductController@getDeleteall']);
-    Route::get('product-select-deleted',['middleware' => 'acl:delete_product', 'as' => 'admin.product.selecteddelete', 'uses' => 'ProductController@getDeleteallSelected']);
+    Route::get('product', ['middleware' => 'acl:view_product', 'as' => 'admin.product.list', 'uses' => 'ProductController@getIndex']);
+    Route::get('product/{id}/reports', ['middleware' => 'acl:view_product', 'as' => 'product.reports', 'uses' => 'ProductController@getReport']);
+    Route::get('product/{id}/edit', ['middleware' => 'acl:edit_product', 'as' => 'admin.product.edit', 'uses' => 'ProductController@getEdit']);
+    Route::get('product/{id}/view', ['middleware' => 'acl:view_product', 'as' => 'admin.product.view', 'uses' => 'ProductController@getView']);
+    Route::get('product/get-url-slug', ['middleware' => 'acl:edit_product', 'as' => 'get-url-slug', 'uses' => 'ProductController@getUrlSlug']);
+    Route::post('product/{id}/update', ['middleware' => 'acl:edit_product', 'as' => 'admin.product.update', 'uses' => 'ProductController@putUpdate']);
+    Route::get('product/{id}/delete', ['middleware' => 'acl:delete_product', 'as' => 'admin.product.delete.single', 'uses' => 'ProductController@getDelete']);
+    Route::get('product/{id}/delete_all', ['middleware' => 'acl:delete_product', 'as' => 'admin.product.delete', 'uses' => 'ProductController@getDeleteall']);
+    Route::get('product-select-deleted', ['middleware' => 'acl:delete_product', 'as' => 'admin.product.selecteddelete', 'uses' => 'ProductController@getDeleteallSelected']);
 
     //product-model
     Route::get('product-model', ['middleware' => 'acl:view_model', 'as' => 'admin.product-model', 'uses' => 'ProductModelController@getIndex']);
@@ -255,7 +257,7 @@ Route::group(['prefix'=>'admin','namespace' => 'Admin', 'middleware' => 'auth:ad
     Route::post('product-brand/{id}/update', ['middleware' => 'acl:edit_brand', 'as' => 'admin.brand.update', 'uses' => 'BrandController@postUpdate']);
     Route::get('product-brand/{id}/delete', ['middleware' => 'acl:delete_brand', 'as' => 'admin.brand.delete', 'uses' => 'BrandController@getDelete']);
     Route::get('get_brand/{sub_category_id}', ['middleware' => 'acl:new_brand', 'as' => 'admin.get_brand', 'uses' => 'BrandController@getBrandBySubCat']);
-    Route::get('prod_subcategory/{id}',[ 'middleware' => 'acl:new_brand', 'as' => 'product.prod_subcategory.', 'uses' => 'ProductController@getSubcat']);
+    Route::get('prod_subcategory/{id}', ['middleware' => 'acl:new_brand', 'as' => 'product.prod_subcategory.', 'uses' => 'ProductController@getSubcat']);
 
     //Package
     Route::get('package-list', ['middleware' => 'acl:view_package', 'as' => 'admin.package.lists', 'uses' => 'PackageController@getIndex']);
@@ -376,37 +378,37 @@ Route::group(['prefix'=>'admin','namespace' => 'Admin', 'middleware' => 'auth:ad
 
     Route::post('faq-store', ['middleware' => 'acl:new_faq', 'as' => 'admin.faq.store', 'uses' => 'FaqController@postStore']);
 
-     Route::get('faq/{id}/edit', ['middleware' => 'acl:edit_faq', 'as' => 'admin.faq.edit', 'uses' => 'FaqController@getEdit']);
-     Route::post('faq/{id}/update', ['middleware' => 'acl:edit_faq', 'as' => 'admin.faq.update', 'uses' => 'FaqController@postUpdate']);
-     Route::get('faq/{id}/view', ['middleware' => 'acl:view_faq', 'as' => 'admin.faq.view', 'uses' => 'FaqController@getView']);
-     Route::get('faq/{id}/delete', ['middleware' => 'acl:delete_faq', 'as' => 'admin.faq.delete', 'uses' => 'FaqController@getDelete']);
+    Route::get('faq/{id}/edit', ['middleware' => 'acl:edit_faq', 'as' => 'admin.faq.edit', 'uses' => 'FaqController@getEdit']);
+    Route::post('faq/{id}/update', ['middleware' => 'acl:edit_faq', 'as' => 'admin.faq.update', 'uses' => 'FaqController@postUpdate']);
+    Route::get('faq/{id}/view', ['middleware' => 'acl:view_faq', 'as' => 'admin.faq.view', 'uses' => 'FaqController@getView']);
+    Route::get('faq/{id}/delete', ['middleware' => 'acl:delete_faq', 'as' => 'admin.faq.delete', 'uses' => 'FaqController@getDelete']);
 
-     //site-setting
-     // Route::get('site-setting', ['middleware' => 'acl:edit_faq', 'as' => 'admin.site.setting', 'uses' => 'SettingController@site_setting']);
-     Route::post('site-setting/store', ['middleware' => 'acl:edit_faq', 'as' => 'admin.site-setting.store', 'uses' => 'SettingController@site_setting_store']);
+    //site-setting
+    // Route::get('site-setting', ['middleware' => 'acl:edit_faq', 'as' => 'admin.site.setting', 'uses' => 'SettingController@site_setting']);
+    Route::post('site-setting/store', ['middleware' => 'acl:edit_faq', 'as' => 'admin.site-setting.store', 'uses' => 'SettingController@site_setting_store']);
 
-   Route::get('website', [App\Http\Controllers\Admin\SettingController::class, 'site_website'])->name('site.website');
-   Route::post('website/{id}', [App\Http\Controllers\Admin\SettingController::class, 'websiteUpdate'])->name('website.update');
-   Route::post('website-socile/{id}', [App\Http\Controllers\Admin\SettingController::class, 'websiteUpdateSocile'])->name('website.update.socile');
-   Route::get('system', [App\Http\Controllers\Admin\SettingController::class, 'site_system'])->name('site.system');
-   Route::get('mail', [App\Http\Controllers\Admin\SettingController::class, 'site_mail'])->name('site.mail');
-   Route::get('payment', [App\Http\Controllers\Admin\SettingController::class, 'site_payment'])->name('site.payment');
-   Route::get('seo', [App\Http\Controllers\Admin\SettingController::class, 'site_seo'])->name('site.seo');
-   Route::get('cms', [App\Http\Controllers\Admin\SettingController::class, 'site_cms'])->name('site.cms');
+    Route::get('website', [App\Http\Controllers\Admin\SettingController::class, 'site_website'])->name('site.website');
+    Route::post('website/{id}', [App\Http\Controllers\Admin\SettingController::class, 'websiteUpdate'])->name('website.update');
+    Route::post('website-socile/{id}', [App\Http\Controllers\Admin\SettingController::class, 'websiteUpdateSocile'])->name('website.update.socile');
+    Route::get('system', [App\Http\Controllers\Admin\SettingController::class, 'site_system'])->name('site.system');
+    Route::get('mail', [App\Http\Controllers\Admin\SettingController::class, 'site_mail'])->name('site.mail');
+    Route::get('payment', [App\Http\Controllers\Admin\SettingController::class, 'site_payment'])->name('site.payment');
+    Route::get('seo', [App\Http\Controllers\Admin\SettingController::class, 'site_seo'])->name('site.seo');
+    Route::get('cms', [App\Http\Controllers\Admin\SettingController::class, 'site_cms'])->name('site.cms');
 
-   Route::get('ads', [App\Http\Controllers\Admin\SettingController::class, 'adsList'])->name('site.ads');
-   Route::get('ads/create', [App\Http\Controllers\Admin\SettingController::class, 'site_ads_create'])->name('site.ads.create');
-   Route::post('ads/store', [App\Http\Controllers\Admin\SettingController::class, 'site_ads_store'])->name('site.ads.store');
-   Route::get('ads/{id}/edit', [App\Http\Controllers\Admin\SettingController::class, 'site_ads_edit'])->name('site.ads.edit');
-   Route::get('ads/{id}/delete', [App\Http\Controllers\Admin\SettingController::class, 'site_ads_delete'])->name('site.ads.delete');
-   Route::put('ads/{id}/update', [App\Http\Controllers\Admin\SettingController::class, 'site_ads_update'])->name('site.ads.update');
-   Route::get('ads/{id}/deletephoto', [App\Http\Controllers\Admin\SettingController::class, 'site_ads_deletephoto'])->name('site.ads.deletephoto');
+    Route::get('ads', [App\Http\Controllers\Admin\SettingController::class, 'adsList'])->name('site.ads');
+    Route::get('ads/create', [App\Http\Controllers\Admin\SettingController::class, 'site_ads_create'])->name('site.ads.create');
+    Route::post('ads/store', [App\Http\Controllers\Admin\SettingController::class, 'site_ads_store'])->name('site.ads.store');
+    Route::get('ads/{id}/edit', [App\Http\Controllers\Admin\SettingController::class, 'site_ads_edit'])->name('site.ads.edit');
+    Route::get('ads/{id}/delete', [App\Http\Controllers\Admin\SettingController::class, 'site_ads_delete'])->name('site.ads.delete');
+    Route::put('ads/{id}/update', [App\Http\Controllers\Admin\SettingController::class, 'site_ads_update'])->name('site.ads.update');
+    Route::get('ads/{id}/deletephoto', [App\Http\Controllers\Admin\SettingController::class, 'site_ads_deletephoto'])->name('site.ads.deletephoto');
 
-   // transaction history
-   Route::get('transaction-history', [App\Http\Controllers\Admin\DashboardController::class, 'transaction_history'])->name('transaction.history');
-   Route::get('delete-transaction-history/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'delete_transaction_history'])->name('admin.delete-transaction-history');
-   Route::get('edit/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'edit_transaction'])->name('admin.transaction.edit');
-   Route::post('update/transaction', [App\Http\Controllers\Admin\DashboardController::class, 'update_transaction'])->name('admin.transaction.update');
+    // transaction history
+    Route::get('transaction-history', [App\Http\Controllers\Admin\DashboardController::class, 'transaction_history'])->name('transaction.history');
+    Route::get('delete-transaction-history/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'delete_transaction_history'])->name('admin.delete-transaction-history');
+    Route::get('edit/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'edit_transaction'])->name('admin.transaction.edit');
+    Route::post('update/transaction', [App\Http\Controllers\Admin\DashboardController::class, 'update_transaction'])->name('admin.transaction.update');
 });
 
 Auth::routes();

@@ -299,7 +299,9 @@ class CommonController extends Controller
     }
 
 
-
+    public function getDoorstepDelivery(){
+        return view('common.doorstep_delivery');
+    }
 
 
 }
