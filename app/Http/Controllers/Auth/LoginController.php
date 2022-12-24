@@ -83,12 +83,12 @@ class LoginController extends Controller
            $password = 'N/A';
 
            $details = [
-                'subject' => 'Welcome to Gogoads',
+                'subject' => 'Welcome to ok2list',
                 'greeting' => 'Hi '.$user->name.',',
-                'body' => 'Welcome to Gogoads.com',
+                'body' => 'Welcome to ok2list.com',
                 'email' => 'Your email is : '.$user->email,
                 'password' => 'Your Password is : '.$password,
-                'thanks' => 'Thank you for using Gogoads.com',
+                'thanks' => 'Thank you for using ok2list.com',
                 'actionText' => 'Click Here to Visit',
                 'actionURL' => url('/'),
                 'user_id' => $user->id

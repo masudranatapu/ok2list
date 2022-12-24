@@ -10,7 +10,7 @@
         <meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
         <meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
         <meta name="author" content="PIXINVENT">
-        <title>{{$setting->website_title ?? 'The Online Mega Mall'}}</title>
+        <title>{{$setting->website_title ?? 'to buy/sell anything'}}</title>
         <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/images/favicon/favicon.png') }}">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
         <input type="hidden" name="base_url" id="base_url" value="{{url('/')}}">

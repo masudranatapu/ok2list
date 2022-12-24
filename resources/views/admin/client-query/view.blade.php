@@ -60,7 +60,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="package">Message</label>
-                                        <textarea readonly="" name="desc">hello Gogoads, this is rony</textarea>
+                                        <textarea readonly="" name="desc">hello ok2list, this is rony</textarea>
                                     </div>
                                 </div>
                             </div>

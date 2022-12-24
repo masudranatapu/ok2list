@@ -14,6 +14,6 @@ return [
     */
 
     'copyright' => 'Copyright &copy; 2020',
-    'organization' => 'Gogoads'
+    'organization' => 'Ok2list'
 
 ];

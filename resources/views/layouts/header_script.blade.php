@@ -10,7 +10,7 @@ $setting = DB::table('site_settings')->first();
         content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <meta name="description"
         content="Buy and sell everything from second-hand cars to mobile phones, or even find a new home. Find a great deal close to you.">
-    <title>{{ $setting->website_title ?? 'The Online Mega Mall' }}</title>
+    <title>{{ $setting->website_title ?? 'to buy/sell anything' }}</title>
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/images/favicon/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css?v=1') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/font-awesome.min.css?v=0') }}">

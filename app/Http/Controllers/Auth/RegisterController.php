@@ -51,12 +51,12 @@ class RegisterController extends Controller
            $password = Session::get('secret');
 
            $details = [
-               'subject' => 'Welcome to Gogoads',
+               'subject' => 'Welcome to ok2list',
                'greeting' => 'Hi '.$user->name.',',
-               'body' => 'Welcome to gogoads.lk',
+               'body' => 'Welcome to ok2list.lk',
                'email' => 'Your email is : '.$user->email,
                'password' => 'Your Password is : '.$password,
-               'thanks' => 'Thank you for using gogoads.lk',
+               'thanks' => 'Thank you for using ok2list.lk',
                'actionText' => 'Click Here to Verify',
                'actionURL' => url('verify/user/'.$user->random_token),
                'user_id' => $user->id

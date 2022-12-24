@@ -38,7 +38,7 @@
 					</div>
 					<div class="col-lg-6">
 						<div class="about-text">
-							<h3>@lang('web.about_us') @lang('web.gogoads_title')</h3>
+							<h3>@lang('web.about_us') @lang('web.ok2list_title')</h3>
 							<div class="description-paragraph">
 								@if($data['about'])
 									@if(app()->getLocale() == 'en')

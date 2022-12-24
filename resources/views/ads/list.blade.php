@@ -384,7 +384,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <h2 class="title">@lang('web.something_to_sel')</h2>
-                    <h4>@lang('web.free_on_gogoads')</h4>
+                    <h4>@lang('web.free_on_ok2list')</h4>
                     @if (!empty($payments))
                         @if ($payments->status != 'Due')
                             <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop"

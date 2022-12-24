@@ -138,7 +138,7 @@ class PaymentController extends Controller
         $post_data['tran_id'] = "SSLCZ_TEST_".uniqid();
         $post_data['success_url'] = route('payment.success');
         $post_data['fail_url'] = route('payment.failed');
-        $post_data['cancel_url'] = "https://www.gogoads.com/new_sslcz_gw/cancel.php";
+        $post_data['cancel_url'] = "https://www.ok2list.com/new_sslcz_gw/cancel.php";
         # $post_data['multi_card_name'] = "mastercard,visacard,amexcard";  # DISABLE TO DISPLAY ALL AVAILABLE
 
         # EMI INFO

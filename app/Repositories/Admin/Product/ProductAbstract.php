@@ -103,11 +103,11 @@ class ProductAbstract implements ProductInterface
             }
             $user = DB::table('ss_customers')->find($product->customer_pk_no);
             $details = [
-                'subject' => 'Message from Gogoads',
+                'subject' => 'Message from ok2list',
                 'greeting' => 'Hi ' . $user->name . ', ',
                 'body' => $user->name . ' your posted ads status is now '. $status,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you and stay with gogoads.lk',
+                'thanks' => 'Thank you and stay with ok2list.lk',
             ];
             // Notification::send($user, new UserPostAdNotification($details));
             Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
@@ -117,11 +117,11 @@ class ProductAbstract implements ProductInterface
         if ($request->is_delete == 1) {
             $user = DB::table('ss_customers')->find($product->customer_pk_no);
             $details = [
-                'subject' => 'Message from Gogoads',
+                'subject' => 'Message from ok2list',
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => $user->name . ' your posted ads was delete by Gogoads authority. The resion is ' . $request->rejected_reason . ' Please ads a post with our trams and condition.',
+                'body' => $user->name . ' your posted ads was delete by ok2list authority. The resion is ' . $request->rejected_reason . ' Please ads a post with our trams and condition.',
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you and stay with gogoads.lk',
+                'thanks' => 'Thank you and stay with ok2list.lk',
             ];
             // Notification::send($user, new UserPostAdNotification($details));
             Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));

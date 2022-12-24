@@ -180,11 +180,11 @@ class AdPostController extends Controller
            $user = Auth::user();
 
            $details = [
-               'subject' => 'Posting ads on Gogoads',
+               'subject' => 'Posting ads on ok2list',
                'greeting' => 'Hi '.$user->name.', ',
-               'body' => 'You posted an job ads on gogoads.lk ',
+               'body' => 'You posted an job ads on ok2list.lk ',
                'email' => 'Your email is : '.$user->email,
-               'thanks' => 'Thank you for using gogoads.lk',
+               'thanks' => 'Thank you for using ok2list.lk',
            ];
 
            Notification::send($user, new UserPostAdNotification($details));
@@ -196,11 +196,11 @@ class AdPostController extends Controller
         if ($admin) {
             $user = Auth::user();
             $admindetails = [
-                'subject' => 'Message from Gogoads',
+                'subject' => 'Message from ok2list',
                 'greeting' => 'Hi '.$admin->username.', ',
-                'body' => $user->name. ' was posted an job on gogoads.lk. Please see what he posted on gogoads. And Approved ' .$user->name. ' ads.',
+                'body' => $user->name. ' was posted an job on ok2list.lk. Please see what he posted on ok2list. And Approved ' .$user->name. ' ads.',
                 'email' => 'His email is : '.$user->email,
-                'thanks' => 'Thank you and stay with gogoads.lk',
+                'thanks' => 'Thank you and stay with ok2list.lk',
             ];
 
             Notification::send($user, new AdminPostAdNotification($admindetails));
@@ -239,11 +239,11 @@ class AdPostController extends Controller
            $user = Auth::user();
 
            $details = [
-               'subject' => 'Posting ads on Gogoads',
+               'subject' => 'Posting ads on ok2list',
                'greeting' => 'Hi '.$user->name.', ',
-               'body' => 'You posted a property ads on gogoads.lk ',
+               'body' => 'You posted a property ads on ok2list.lk ',
                'email' => 'Your email is : '.$user->email,
-               'thanks' => 'Thank you for using gogoads.lk',
+               'thanks' => 'Thank you for using ok2list.lk',
            ];
 
            Notification::send($user, new UserPostAdNotification($details));
@@ -255,11 +255,11 @@ class AdPostController extends Controller
         if ($admin) {
             $user = Auth::user();
             $admindetails = [
-                'subject' => 'Message from Gogoads',
+                'subject' => 'Message from ok2list',
                 'greeting' => 'Hi '.$admin->username.', ',
-                'body' => $user->name. ' was posted an job on gogoads.lk. Please see what he posted on gogoads. And Approved ' .$user->name. ' ads.',
+                'body' => $user->name. ' was posted an job on ok2list.lk. Please see what he posted on ok2list. And Approved ' .$user->name. ' ads.',
                 'email' => 'His email is : '.$user->email,
-                'thanks' => 'Thank you and stay with gogoads.lk',
+                'thanks' => 'Thank you and stay with ok2list.lk',
             ];
 
             Notification::send($user, new AdminPostAdNotification($admindetails));
@@ -301,11 +301,11 @@ class AdPostController extends Controller
            $user = Auth::user();
 
            $details = [
-               'subject' => 'Posting ads on Gogoads',
+               'subject' => 'Posting ads on ok2list',
                'greeting' => 'Hi '.$user->name.', ',
-               'body' => 'You posted a service ads on gogoads.lk ',
+               'body' => 'You posted a service ads on ok2list.lk ',
                'email' => 'Your email is : '.$user->email,
-               'thanks' => 'Thank you for using gogoads.lk',
+               'thanks' => 'Thank you for using ok2list.lk',
            ];
 
            Notification::send($user, new UserPostAdNotification($details));
@@ -317,11 +317,11 @@ class AdPostController extends Controller
         if ($admin) {
             $user = Auth::user();
             $admindetails = [
-                'subject' => 'Message from Gogoads',
+                'subject' => 'Message from ok2list',
                 'greeting' => 'Hi '.$admin->username.', ',
-                'body' => $user->name. ' was posted an Service ads on gogoads.lk. Please see what he posted on gogoads. And Approved ' .$user->name. ' ads.',
+                'body' => $user->name. ' was posted an Service ads on ok2list.lk. Please see what he posted on ok2list. And Approved ' .$user->name. ' ads.',
                 'email' => 'His email is : '.$user->email,
-                'thanks' => 'Thank you and stay with gogoads.lk',
+                'thanks' => 'Thank you and stay with ok2list.lk',
             ];
 
             Notification::send($user, new AdminPostAdNotification($admindetails));
@@ -363,11 +363,11 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Update ads on Gogoads',
+                'subject' => 'Update ads on ok2list',
                 'greeting' => 'Hi '.$user->name.', ',
-                'body' => 'You updated an ads on gogoads.lk ',
+                'body' => 'You updated an ads on ok2list.lk ',
                 'email' => 'Your email is : '.$user->email,
-                'thanks' => 'Thank you for using gogoads.lk',
+                'thanks' => 'Thank you for using ok2list.lk',
             ];
 
             Notification::send($user, new UserPostAdNotification($details));
@@ -402,11 +402,11 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Update ads on Gogoads',
+                'subject' => 'Update ads on ok2list',
                 'greeting' => 'Hi '.$user->name.', ',
-                'body' => 'You updated an ads on gogoads.lk ',
+                'body' => 'You updated an ads on ok2list.lk ',
                 'email' => 'Your email is : '.$user->email,
-                'thanks' => 'Thank you for using gogoads.lk',
+                'thanks' => 'Thank you for using ok2list.lk',
             ];
 
             Notification::send($user, new UserPostAdNotification($details));
@@ -439,11 +439,11 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Update ads on Gogoads',
+                'subject' => 'Update ads on ok2list',
                 'greeting' => 'Hi '.$user->name.', ',
-                'body' => 'You updated an ads on gogoads.lk ',
+                'body' => 'You updated an ads on ok2list.lk ',
                 'email' => 'Your email is : '.$user->email,
-                'thanks' => 'Thank you for using gogoads.lk',
+                'thanks' => 'Thank you for using ok2list.lk',
             ];
 
             Notification::send($user, new UserPostAdNotification($details));
@@ -475,11 +475,11 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Update ads on Gogoads',
+                'subject' => 'Update ads on ok2list',
                 'greeting' => 'Hi '.$user->name.', ',
-                'body' => 'You updated an ads on gogoads.lk ',
+                'body' => 'You updated an ads on ok2list.lk ',
                 'email' => 'Your email is : '.$user->email,
-                'thanks' => 'Thank you for using gogoads.lk',
+                'thanks' => 'Thank you for using ok2list.lk',
             ];
 
             Notification::send($user, new UserPostAdNotification($details));
@@ -511,11 +511,11 @@ class AdPostController extends Controller
            $user = Auth::user();
 
            $details = [
-               'subject' => 'Delete ads from Gogoads',
+               'subject' => 'Delete ads from ok2list',
                'greeting' => 'Hi '.$user->name.', ',
-               'body' => 'You ware deleted an ads form gogoads.lk ',
+               'body' => 'You ware deleted an ads form ok2list.lk ',
                'email' => 'Your email is : '.$user->email,
-               'thanks' => 'Thank you for using gogoads.lk',
+               'thanks' => 'Thank you for using ok2list.lk',
            ];
 
            Notification::send($user, new UserPostAdNotification($details));
@@ -527,11 +527,11 @@ class AdPostController extends Controller
         if ($admin) {
             $user = Auth::user();
             $admindetails = [
-                'subject' => 'Message from Gogoads',
+                'subject' => 'Message from ok2list',
                 'greeting' => 'Hi '.$admin->username.', ',
-                'body' => $user->name. ' was deleted an ads form gogoads.lk',
+                'body' => $user->name. ' was deleted an ads form ok2list.lk',
                 'email' => 'His email is : '.$user->email,
-                'thanks' => 'Thank you and stay with gogoads.lk',
+                'thanks' => 'Thank you and stay with ok2list.lk',
             ];
 
             Notification::send($user, new AdminPostAdNotification($admindetails));

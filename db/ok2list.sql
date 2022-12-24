@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 20, 2022 at 04:31 AM
--- Server version: 10.3.37-MariaDB-log-cll-lve
--- PHP Version: 7.4.30
+-- Host: 127.0.0.1
+-- Generation Time: Dec 24, 2022 at 11:53 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gogozxjw_gogoadsdb`
+-- Database: `ok2list`
 --
 
 -- --------------------------------------------------------
@@ -30,15 +29,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `auths` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `username` varchar(50) DEFAULT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `email` varchar(150) DEFAULT NULL,
-  `address` text DEFAULT NULL,
-  `mobile_no` varchar(14) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `salt` varchar(20) DEFAULT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile_no` varchar(14) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `salt` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `model_id` bigint(20) UNSIGNED NOT NULL COMMENT '1 = Admin',
-  `mobile1` varchar(100) DEFAULT NULL,
+  `mobile1` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `mobile1_is_verified` tinyint(4) DEFAULT 0,
   `gender` tinyint(4) NOT NULL DEFAULT 1,
   `dob` date DEFAULT NULL,
@@ -46,8 +45,8 @@ CREATE TABLE `auths` (
   `google_id` bigint(20) DEFAULT NULL,
   `package_id` int(10) DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 0,
-  `seller_type` varchar(255) NOT NULL DEFAULT 'Individual Seller',
-  `activation_code` varchar(255) DEFAULT NULL,
+  `seller_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Individual Seller',
+  `activation_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `activation_code_expire` datetime DEFAULT NULL,
   `is_first_login` tinyint(4) NOT NULL DEFAULT 1,
   `user_type` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0 = Admin',
@@ -55,18 +54,18 @@ CREATE TABLE `auths` (
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1 = Active, 0 = Inactive',
   `created_by` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `updated_by` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `city` varchar(100) DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `total_post` int(10) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `web_setting_access` int(1) NOT NULL DEFAULT 0,
-  `profile_pic` varchar(100) DEFAULT NULL,
-  `profile_pic_url` varchar(100) DEFAULT NULL,
-  `pic_mime_type` varchar(20) DEFAULT NULL,
-  `first_name` varchar(100) DEFAULT NULL,
-  `last_name` varchar(100) DEFAULT NULL,
-  `designation` varchar(100) DEFAULT NULL
+  `profile_pic` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_pic_url` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pic_mime_type` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `first_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -74,8 +73,8 @@ CREATE TABLE `auths` (
 --
 
 INSERT INTO `auths` (`id`, `username`, `name`, `email`, `address`, `mobile_no`, `password`, `salt`, `model_id`, `mobile1`, `mobile1_is_verified`, `gender`, `dob`, `facebook_id`, `google_id`, `package_id`, `is_active`, `seller_type`, `activation_code`, `activation_code_expire`, `is_first_login`, `user_type`, `can_login`, `status`, `created_by`, `updated_by`, `remember_token`, `city`, `total_post`, `created_at`, `updated_at`, `web_setting_access`, `profile_pic`, `profile_pic_url`, `pic_mime_type`, `first_name`, `last_name`, `designation`) VALUES
-(1, 'sadmin', NULL, 'arobil@gmail.com', NULL, '01681944126', '$2y$10$VFm643nOKw7wq.0N9mUKyeUA4wfq0igfJE0QXP5Q0qZhcUO7Nn0Ty', NULL, 0, NULL, 0, 1, NULL, NULL, NULL, NULL, 0, 'Individual Seller', NULL, NULL, 1, 0, 1, 1, 0, 0, NULL, NULL, 0, NULL, '2022-12-13 18:49:56', 1, 'profile_06082022_1659775736.jpg', 'https://gogoads.lk/media/images/profile/profile_06082022_1659775736.jpg', NULL, 'Maidul', 'Maidul', 'Developer'),
-(21, 'Manager', NULL, 'Manager@gmail.com', NULL, '01681944126', '$2y$10$X5TDs4BFzFGOXx9qh/ZW2.rHmHIcLB.WhhPRp586Tn4VIZ2l9WKi6', NULL, 0, NULL, 0, 1, NULL, NULL, NULL, NULL, 0, 'Individual Seller', NULL, NULL, 1, 0, 1, 1, 0, 0, NULL, NULL, 0, '2022-07-28 14:39:03', '2022-07-28 14:40:37', 0, 'profile_28072022_1659019143.jpg', 'http://localhost/test/gogoads/public/media/images/profile/profile_28072022_1659019143.jpg', NULL, 'Manager', 'Manager', 'Manager');
+(1, 'sadmin', NULL, 'arobil@gmail.com', NULL, '01681944126', '$2y$10$VFm643nOKw7wq.0N9mUKyeUA4wfq0igfJE0QXP5Q0qZhcUO7Nn0Ty', NULL, 0, NULL, 0, 1, NULL, NULL, NULL, NULL, 0, 'Individual Seller', NULL, NULL, 1, 0, 1, 1, 0, 0, NULL, NULL, 0, NULL, '2022-12-13 18:49:56', 1, 'profile_06082022_1659775736.jpg', 'https://ok2list.com/media/images/profile/profile_06082022_1659775736.jpg', NULL, 'Maidul', 'Maidul', 'Developer'),
+(21, 'Manager', NULL, 'Manager@gmail.com', NULL, '01681944126', '$2y$10$X5TDs4BFzFGOXx9qh/ZW2.rHmHIcLB.WhhPRp586Tn4VIZ2l9WKi6', NULL, 0, NULL, 0, 1, NULL, NULL, NULL, NULL, 0, 'Individual Seller', NULL, NULL, 1, 0, 1, 1, 0, 0, NULL, NULL, 0, '2022-07-28 14:39:03', '2022-07-28 14:40:37', 0, 'profile_28072022_1659019143.jpg', 'http://localhost/test/ok2list/public/media/images/profile/profile_28072022_1659019143.jpg', NULL, 'Manager', 'Manager', 'Manager');
 
 -- --------------------------------------------------------
 
@@ -88,7 +87,7 @@ CREATE TABLE `auth_role` (
   `auth_id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL,
   `user_group_id` int(11) DEFAULT NULL,
-  `custom_permission` text DEFAULT NULL,
+  `custom_permission` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -109,13 +108,13 @@ INSERT INTO `auth_role` (`id`, `auth_id`, `role_id`, `user_group_id`, `custom_pe
 
 CREATE TABLE `backup_admin_users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `designation` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `auth_id` bigint(20) UNSIGNED NOT NULL,
-  `profile_pic` varchar(255) DEFAULT NULL,
-  `profile_pic_url` varchar(255) DEFAULT NULL,
-  `pic_mime_type` varchar(50) DEFAULT NULL,
+  `profile_pic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_pic_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pic_mime_type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -140,10 +139,10 @@ INSERT INTO `backup_admin_users` (`id`, `first_name`, `last_name`, `designation`
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -155,15 +154,15 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `gyms` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(50) DEFAULT NULL,
-  `moto` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `established` varchar(255) NOT NULL DEFAULT '',
-  `logo` varchar(255) NOT NULL,
-  `logo_url` varchar(255) NOT NULL,
-  `banner` varchar(255) NOT NULL,
-  `banner_url` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `moto` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `established` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logo_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `banner` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `banner_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `updated_by` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
@@ -188,7 +187,7 @@ INSERT INTO `gyms` (`id`, `name`, `code`, `moto`, `address`, `established`, `log
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -223,9 +222,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `models` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `display_name` varchar(255) NOT NULL,
-  `model_key` varchar(10) NOT NULL,
-  `model_class_name` varchar(255) NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_key` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_class_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -238,11 +237,11 @@ CREATE TABLE `models` (
 --
 
 CREATE TABLE `notifications` (
-  `id` char(36) NOT NULL,
-  `type` varchar(191) NOT NULL,
-  `notifiable_type` varchar(191) NOT NULL,
+  `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `notifiable_id` bigint(20) UNSIGNED NOT NULL,
-  `data` text NOT NULL,
+  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `read_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -347,14 +346,14 @@ CREATE TABLE `page_about_us` (
   `our_values_sl` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_about_us`
 --
 
 INSERT INTO `page_about_us` (`id`, `image`, `details_en`, `details_sl`, `mission_en`, `mission_sl`, `vision_en`, `vision_sl`, `our_values_en`, `our_values_sl`, `created_at`, `updated_at`) VALUES
-(1, 'media/about/about-62fa6ef1955de.jpg', '<p>The gogoads.lk was launched in December 2018 to full fill the need of those looking for an alternative to site current market online classified websites. Our vision is to build the best online classified site. To accomplish this, we took the best features of the most popular sites and combined them with many new custom features, not invented and offered by other competitors, and put them into one place. That&rsquo;s gogoads.lk.</p>\r\n\r\n<p>Gogoads.lk delivers a better user experience while allowing more user control over your ads. We offer FREE Classified Ads, along with the ability to upgrade to our premium features (paid services) for a small fee. We encourage our business users to use our membership and promote your ad subscription services. Gogoads.lk allows your business to have custom presence on our site.</p>\r\n\r\n<p>gogoads.lk made users to find exactly what users looking in a fast way and users be able to post an ad within 2 minutes. Users can sign up for a free account and post ads easily every time.</p>\r\n\r\n<p>Currently, we are still working on improving further as per latest technology available and to provide the Mobile applications.</p>\r\n\r\n<p>We respect your voice, opinion and recommendation and let us know your thought at&nbsp;<strong>contacts@theqsweek.com.</strong></p>\r\n\r\n<p>Thank you for using gogoads.lk</p>', '<p>gogoads.lk 2018 දෙසැම්බර් මාසයේදී දියත් කරන ලද්දේ වෙබ් අඩවි වත්මන් වෙළඳපොල සමඟ අමුත්තන් වර්ගීකරණය කරන ලද වෙබ් අඩවි සඳහා විකල්පයක් සොයන අයගේ අවශ්&zwj;යතා සම්පූර්ණ කිරීම සඳහා ය. අපගේ දැක්ම වන්නේ හොඳම මාර්ගගත වර්ගීකරණය කරන ලද වෙබ් අඩවියක් තැනීමයි. මෙය සාක්ෂාත් කර ගැනීම සඳහා, අපි වඩාත් ජනප්&zwj;රිය වෙබ් අඩවි වල හොඳම විශේෂාංග ගෙන ඒවා වෙනත් තරඟකරුවන් විසින් සොයා නොගත් සහ ඉදිරිපත් නොකළ බොහෝ නව අභිරුචි විශේෂාංග සමඟ ඒකාබද්ධ කර ඒවා එක තැනකට තැබුවෙමු. ඒ gogoads.lk ය.</p>\r\n\r\n<p>Gogoads.lk ඔබේ දැන්වීම් කෙරෙහි වැඩි පරිශීලක පාලනයකට ඉඩ දෙන අතරම වඩා හොඳ පරිශීලක අත්දැකීමක් ලබා දෙයි. අපි කුඩා ගාස්තුවකට අපගේ වාරික විශේෂාංග (ගෙවුම් සේවා) වෙත උත්ශ්&zwj;රේණි කිරීමේ හැකියාව සමඟින් නොමිලේ වර්ගීකරණය කළ දැන්වීම් පිරිනමන්නෙමු. අපගේ සාමාජිකත්වය භාවිතා කිරීමට සහ ඔබේ දැන්වීම් දායක සේවා ප්&zwj;රවර්ධනය කිරීමට අපි අපගේ ව්&zwj;යාපාරික පරිශීලකයින් දිරිමත් කරමු. Gogoads.lk ඔබගේ ව්&zwj;යාපාරයට අපගේ වෙබ් අඩවියේ අභිරුචි පැවතීමට ඉඩ සලසයි.</p>\r\n\r\n<p>gogoads.lk මඟින් පරිශීලකයින්ට වේගයෙන් පෙනෙන දේ හරියටම සොයා ගැනීමට හැකි වූ අතර පරිශීලකයින්ට මිනිත්තු 2 ක් තුළ දැන්වීමක් පළ කිරීමට හැකි විය. පරිශීලකයින්ට නොමිලේ ගිණුමක් සඳහා ලියාපදිංචි විය හැකි අතර සෑම විටම පහසුවෙන් දැන්වීම් පළ කළ හැකිය.</p>\r\n\r\n<p>දැනට, පවතින නවීන තාක්&zwj;ෂණය අනුව තව දුරටත් වැඩිදියුණු කිරීමට සහ ජංගම යෙදුම් සැපයීමට අපි තවමත් කටයුතු කරමින් සිටිමු.</p>\r\n\r\n<p>අපි ඔබේ හඬට, අදහසට සහ නිර්දේශයට ගරු කරන අතර contacts@theqsweek.com හි ඔබේ අදහස අපට දන්වන්නෙමු.</p>\r\n\r\n<p>gogoads.lk භාවිතා කිරීම ගැන ඔබට ස්තුතියි</p>', 'We lead the way in providing value to our customers, by building our position as the reference gogoads.lk is the leading online classified in srilanka and in the region.', 'පුද්ගල පද්ධති සහ තාක්‍ෂණය සඳහා ඇති කැපවීම තුළින්, gogoads.lk ශ්‍රී ලංකාවේ සහ කලාපයේ ප්‍රමුඛ පෙළේ මාර්ගගත වර්ගීකරණයක් ලෙස අපගේ තත්ත්වය ගොඩනඟා ගනිමින්, අපගේ ගනුදෙනුකරුවන්ට වටිනාකමක් ලබා දීමට අපි පෙරමුණ ගනිමු.', 'Through commitment to people systems and technologylding our position as the reference gogoads.lk is the leading online classified in srilanka and in the region.', 'පුද්ගල පද්ධති සහ තාක්‍ෂණය සඳහා ඇති කැපවීම තුළින්, gogoads.lk ශ්‍රී ලංකාවේ සහ කලාපයේ ප්‍රමුඛ පෙළේ මාර්ගගත වර්ගීකරණයක් ලෙස අපගේ තත්ත්වය ගොඩනඟා ගනිමින්, අපගේ ගනුදෙනුකරුවන්ට වටිනාකමක් ලබා දීමට අපි පෙරමුණ ගනිමු.', 'Building our position as the reference gogoads.lk is the leading online classified in srilanka and in the region.', 'පුද්ගල පද්ධති සහ තාක්‍ෂණය සඳහා ඇති කැපවීම තුළින්, gogoads.lk ශ්‍රී ලංකාවේ සහ කලාපයේ ප්‍රමුඛ පෙළේ මාර්ගගත වර්ගීකරණයක් ලෙස අපගේ තත්ත්වය ගොඩනඟා ගනිමින්, අපගේ ගනුදෙනුකරුවන්ට වටිනාකමක් ලබා දීමට අපි පෙරමුණ ගනිමු.', NULL, NULL);
+(1, 'media/about/about-62fa6ef1955de.jpg', '<p>The ok2list.com was launched in December 2018 to full fill the need of those looking for an alternative to site current market online classified websites. Our vision is to build the best online classified site. To accomplish this, we took the best features of the most popular sites and combined them with many new custom features, not invented and offered by other competitors, and put them into one place. That&rsquo;s ok2list.com.</p>\r\n\r\n<p>Ok2list.com delivers a better user experience while allowing more user control over your ads. We offer FREE Classified Ads, along with the ability to upgrade to our premium features (paid services) for a small fee. We encourage our business users to use our membership and promote your ad subscription services. Ok2list.com allows your business to have custom presence on our site.</p>\r\n\r\n<p>ok2list.com made users to find exactly what users looking in a fast way and users be able to post an ad within 2 minutes. Users can sign up for a free account and post ads easily every time.</p>\r\n\r\n<p>Currently, we are still working on improving further as per latest technology available and to provide the Mobile applications.</p>\r\n\r\n<p>We respect your voice, opinion and recommendation and let us know your thought at&nbsp;<strong>contacts@theqsweek.com.</strong></p>\r\n\r\n<p>Thank you for using ok2list.com</p>', '<p>ok2list.com 2018 දෙසැම්බර් මාසයේදී දියත් කරන ලද්දේ වෙබ් අඩවි වත්මන් වෙළඳපොල සමඟ අමුත්තන් වර්ගීකරණය කරන ලද වෙබ් අඩවි සඳහා විකල්පයක් සොයන අයගේ අවශ්&zwj;යතා සම්පූර්ණ කිරීම සඳහා ය. අපගේ දැක්ම වන්නේ හොඳම මාර්ගගත වර්ගීකරණය කරන ලද වෙබ් අඩවියක් තැනීමයි. මෙය සාක්ෂාත් කර ගැනීම සඳහා, අපි වඩාත් ජනප්&zwj;රිය වෙබ් අඩවි වල හොඳම විශේෂාංග ගෙන ඒවා වෙනත් තරඟකරුවන් විසින් සොයා නොගත් සහ ඉදිරිපත් නොකළ බොහෝ නව අභිරුචි විශේෂාංග සමඟ ඒකාබද්ධ කර ඒවා එක තැනකට තැබුවෙමු. ඒ ok2list.com ය.</p>\r\n\r\n<p>Ok2list.com ඔබේ දැන්වීම් කෙරෙහි වැඩි පරිශීලක පාලනයකට ඉඩ දෙන අතරම වඩා හොඳ පරිශීලක අත්දැකීමක් ලබා දෙයි. අපි කුඩා ගාස්තුවකට අපගේ වාරික විශේෂාංග (ගෙවුම් සේවා) වෙත උත්ශ්&zwj;රේණි කිරීමේ හැකියාව සමඟින් නොමිලේ වර්ගීකරණය කළ දැන්වීම් පිරිනමන්නෙමු. අපගේ සාමාජිකත්වය භාවිතා කිරීමට සහ ඔබේ දැන්වීම් දායක සේවා ප්&zwj;රවර්ධනය කිරීමට අපි අපගේ ව්&zwj;යාපාරික පරිශීලකයින් දිරිමත් කරමු. Ok2list.com ඔබගේ ව්&zwj;යාපාරයට අපගේ වෙබ් අඩවියේ අභිරුචි පැවතීමට ඉඩ සලසයි.</p>\r\n\r\n<p>ok2list.com මඟින් පරිශීලකයින්ට වේගයෙන් පෙනෙන දේ හරියටම සොයා ගැනීමට හැකි වූ අතර පරිශීලකයින්ට මිනිත්තු 2 ක් තුළ දැන්වීමක් පළ කිරීමට හැකි විය. පරිශීලකයින්ට නොමිලේ ගිණුමක් සඳහා ලියාපදිංචි විය හැකි අතර සෑම විටම පහසුවෙන් දැන්වීම් පළ කළ හැකිය.</p>\r\n\r\n<p>දැනට, පවතින නවීන තාක්&zwj;ෂණය අනුව තව දුරටත් වැඩිදියුණු කිරීමට සහ ජංගම යෙදුම් සැපයීමට අපි තවමත් කටයුතු කරමින් සිටිමු.</p>\r\n\r\n<p>අපි ඔබේ හඬට, අදහසට සහ නිර්දේශයට ගරු කරන අතර contacts@theqsweek.com හි ඔබේ අදහස අපට දන්වන්නෙමු.</p>\r\n\r\n<p>ok2list.com භාවිතා කිරීම ගැන ඔබට ස්තුතියි</p>', 'We lead the way in providing value to our customers, by building our position as the reference ok2list.com is the leading online classified in srilanka and in the region.', 'පුද්ගල පද්ධති සහ තාක්‍ෂණය සඳහා ඇති කැපවීම තුළින්, ok2list.com ශ්‍රී ලංකාවේ සහ කලාපයේ ප්‍රමුඛ පෙළේ මාර්ගගත වර්ගීකරණයක් ලෙස අපගේ තත්ත්වය ගොඩනඟා ගනිමින්, අපගේ ගනුදෙනුකරුවන්ට වටිනාකමක් ලබා දීමට අපි පෙරමුණ ගනිමු.', 'Through commitment to people systems and technologylding our position as the reference ok2list.com is the leading online classified in srilanka and in the region.', 'පුද්ගල පද්ධති සහ තාක්‍ෂණය සඳහා ඇති කැපවීම තුළින්, ok2list.com ශ්‍රී ලංකාවේ සහ කලාපයේ ප්‍රමුඛ පෙළේ මාර්ගගත වර්ගීකරණයක් ලෙස අපගේ තත්ත්වය ගොඩනඟා ගනිමින්, අපගේ ගනුදෙනුකරුවන්ට වටිනාකමක් ලබා දීමට අපි පෙරමුණ ගනිමු.', 'Building our position as the reference ok2list.com is the leading online classified in srilanka and in the region.', 'පුද්ගල පද්ධති සහ තාක්‍ෂණය සඳහා ඇති කැපවීම තුළින්, ok2list.com ශ්‍රී ලංකාවේ සහ කලාපයේ ප්‍රමුඛ පෙළේ මාර්ගගත වර්ගීකරණයක් ලෙස අපගේ තත්ත්වය ගොඩනඟා ගනිමින්, අපගේ ගනුදෙනුකරුවන්ට වටිනාකමක් ලබා දීමට අපි පෙරමුණ ගනිමු.', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -366,14 +365,14 @@ CREATE TABLE `page_how_sell_fast` (
   `id` int(10) NOT NULL,
   `description` text DEFAULT NULL,
   `description_sl` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_how_sell_fast`
 --
 
 INSERT INTO `page_how_sell_fast` (`id`, `description`, `description_sl`) VALUES
-(1, '<h3>1. Asszign the market price as applicable</h3>\r\n\r\n<p>Price is one of very important factor to decide the transaction.</p>\r\n\r\n<ul>\r\n	<li>GogoAds.lk advise user to browse similar ads and assign an appropriate and competitive price.</li>\r\n	<li>Keep in mind that the buyer will decide the transection based on the price and how much willing to pay. The basic is lower the price, the higher the demand.</li>\r\n</ul>', '<h3>1.sl&nbsp; Asszign the market price as applicable</h3>\r\n\r\n<p>Price is one of very important factor to decide the transaction.</p>\r\n\r\n<ul>\r\n	<li>GogoAds.lk advise user to browse similar ads and assign an appropriate and competitive price.</li>\r\n	<li>Keep in mind that the buyer will decide the transection based on the price and how much willing to pay. The basic is lower the price, the higher the demand.</li>\r\n</ul>');
+(1, '<h3>1. Asszign the market price as applicable</h3>\r\n\r\n<p>Price is one of very important factor to decide the transaction.</p>\r\n\r\n<ul>\r\n	<li>Ok2list.com advise user to browse similar ads and assign an appropriate and competitive price.</li>\r\n	<li>Keep in mind that the buyer will decide the transection based on the price and how much willing to pay. The basic is lower the price, the higher the demand.</li>\r\n</ul>', '<h3>1.sl&nbsp; Asszign the market price as applicable</h3>\r\n\r\n<p>Price is one of very important factor to decide the transaction.</p>\r\n\r\n<ul>\r\n	<li>Ok2list.com advise user to browse similar ads and assign an appropriate and competitive price.</li>\r\n	<li>Keep in mind that the buyer will decide the transection based on the price and how much willing to pay. The basic is lower the price, the higher the demand.</li>\r\n</ul>');
 
 -- --------------------------------------------------------
 
@@ -385,7 +384,7 @@ CREATE TABLE `page_membership` (
   `id` int(10) NOT NULL,
   `description` text DEFAULT NULL,
   `description_sl` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_membership`
@@ -408,14 +407,14 @@ CREATE TABLE `page_privacy_policy` (
   `rules_sl` longtext DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_privacy_policy`
 --
 
 INSERT INTO `page_privacy_policy` (`id`, `details_en`, `details_sl`, `rules_en`, `rules_sl`, `created_at`, `updated_at`) VALUES
-(1, '<p>GogoAds.lk Privacy Policy Statement</p>\r\n\r\n<p>These Privacy Policy Statement were written and updated on January 2019. The Company (&ldquo;The QS Week (Pvt) Ltd&rdquo;) reserve the right to change any or all of contents in order to make sure a safe and useful usage of the Website (&ldquo;gogoads.lk&rdquo;). We respect the privacy of User and Advertiser and committed to protecting User and Advertiser personal data. This privacy statement will describe how the Company or Website manage User/Advertiser personal data. Please read this privacy policy statement carefully before using our Web Site.</p>\r\n\r\n<p>Definitions:</p>\r\n\r\n<p>In this Privacy Policy Statement used words that starts with caps lock (as explained in Terms and Conditions under the title of &ldquo;Definitions&rdquo;) shall be the same meaning /expression are respectively assigned to them.</p>\r\n\r\n<p>Who are we:</p>\r\n\r\n<p>The QS Week (PVT) LTD is the main body controlling the any date in relation to the Web Site.</p>\r\n\r\n<p>What data do we collect about you?</p>\r\n\r\n<p>Data provided through direct interactions</p>\r\n\r\n<p>Registration and other account information: When the User register to use our Web Site we may collect the following information about you which included name (first and last as applicable), email address, telephone number, gender, age (depending on the permission granted by User) and location.</p>\r\n\r\n<p>When you interact with our platform or use our Web Site, we automatically collect the following information about you:</p>\r\n\r\n<ul>\r\n	<li>Device Information: specific information such as operating system version and unique identifiers</li>\r\n	<li>Location information: depending on your device permissions, if you post an item on our platform, we automatically collect and process information about your actual location.</li>\r\n	<li>User Log data: Technical details, including the Internet Protocol (IP) address of your device, time zone and operating system. We will also store your login information (registration date, date of last password change, date of last successful login), type and version of your browser.</li>\r\n</ul>\r\n\r\n<p>Clickstream data</p>\r\n\r\n<p>We collect information about your activity on our Platform which includes the sites from which you accessed our Platform, date and time stamp of each visit, searches you have performed, listings or advertisement banners you clicked, your interaction with such advertisements or listings, duration of your visit and the order in which you visit the content on our Platform.</p>\r\n\r\n<p>Cookies and Similar Technologies</p>\r\n\r\n<p>We use cookies to manage our users&rsquo; sessions, to store your preferences language selection and deliver you relevant advertisements. &ldquo;Cookies&rdquo; are small text files transferred by a web server to the hard drive of your device. Cookies may be used to collect the date and time of your visit, your browsing history, your preferences, and your username. You can set your browser to refuse all or some cookies, or to alert you when websites set or access cookies. If you disable or refuse cookies, please note that some parts of our Services/Platform may become inaccessible or not function properly. For more information on the cookies we use, please see our Policy on Cookies and Similar Technologies, the terms of which are incorporated into, and form part of, this Privacy Policy by reference.</p>', '<p>රහස්යතා ප්රතිපත්තිය<br />\r\nGogoAds.lk රහස්&zwj;යතා ප්&zwj;රතිපත්ති ප්&zwj;රකාශය</p>\r\n\r\n<p>මෙම රහස්&zwj;යතා ප්&zwj;රතිපත්ති ප්&zwj;රකාශය ලියා යාවත්කාලීන කරන ලද්දේ 2019 ජනවාරි මාසයේදීය. (&ldquo;The QS Week (Pvt) Ltd&rdquo;) වෙබ් අඩවියේ ආරක්ෂිත සහ ප්&zwj;රයෝජනවත් භාවිතයක් සහතික කර ගැනීම සඳහා ඕනෑම හෝ සියලුම අන්තර්ගතයන් වෙනස් කිරීමේ අයිතිය රඳවා තබා ගනී. gogoads.lk&rdquo;). අපි පරිශීලකයාගේ සහ ප්&zwj;රචාරකයාගේ පෞද්ගලිකත්වයට ගරු කරන අතර පරිශීලක සහ දැන්වීම්කරුගේ පුද්ගලික දත්ත ආරක්ෂා කිරීමට කැපවී සිටිමු. මෙම රහස්&zwj;යතා ප්&zwj;රකාශය සමාගම හෝ වෙබ් අඩවිය පරිශීලක/දැන්වීම්කරුගේ පුද්ගලික දත්ත කළමනාකරණය කරන ආකාරය විස්තර කරයි. අපගේ වෙබ් අඩවිය භාවිතා කිරීමට පෙර කරුණාකර මෙම රහස්&zwj;යතා ප්&zwj;රතිපත්ති ප්&zwj;රකාශය හොඳින් කියවන්න.</p>\r\n\r\n<p>අර්ථ දැක්වීම්:</p>\r\n\r\n<p>මෙම රහස්&zwj;යතා ප්&zwj;රතිපත්ති ප්&zwj;රකාශයේ භාවිත කර ඇති කැප්ස් ලොක් සමඟින් ආරම්භ වන වචන (&quot;නිර්වචන&quot; යන මාතෘකාව යටතේ නියමයන් සහ කොන්දේසි වල පැහැදිලි කර ඇති පරිදි) ඒවාට පිළිවෙලින් එකම අර්ථය / ප්&zwj;රකාශනය පවරනු ලැබේ.</p>\r\n\r\n<p>අපි කවුද:</p>\r\n\r\n<p>QS Week (PVT) LTD යනු වෙබ් අඩවියට අදාළව ඕනෑම දිනයක් පාලනය කරන ප්&zwj;රධාන ආයතනයයි.</p>\r\n\r\n<p>අපි ඔබ ගැන රැස් කරන දත්ත මොනවාද?</p>\r\n\r\n<p>සෘජු අන්තර්ක්&zwj;රියා හරහා දත්ත සපයනු ලැබේ</p>\r\n\r\n<p>ලියාපදිංචිය සහ අනෙකුත් ගිණුම් තොරතුරු: අපගේ වෙබ් අඩවිය භාවිතා කිරීමට පරිශීලක ලියාපදිංචි වූ විට, නම (අදාළ වන පරිදි පළමු සහ අවසාන), විද්&zwj;යුත් තැපැල් ලිපිනය, දුරකථන අංකය, ස්ත්&zwj;රී පුරුෂ භාවය, වයස (අවසරය මත පදනම්ව) ඇතුළත් පහත තොරතුරු අපි රැස්කර ගත හැක. පරිශීලක) සහ ස්ථානය.</p>\r\n\r\n<p>ඔබ අපගේ වේදිකාව සමඟ අන්තර් ක්&zwj;රියා කරන විට හෝ අපගේ වෙබ් අඩවිය භාවිතා කරන විට, අපි ඔබ ගැන පහත තොරතුරු ස්වයංක්&zwj;රීයව රැස්කර ගනිමු:</p>\r\n\r\n<p>උපාංග තොරතුරු: මෙහෙයුම් පද්ධති අනුවාදය සහ අද්විතීය හඳුනාගැනීම් වැනි නිශ්චිත තොරතුරු<br />\r\nස්ථාන තොරතුරු: ඔබගේ උපාංග අවසර මත පදනම්ව, ඔබ අපගේ වේදිකාවේ අයිතමයක් පළ කරන්නේ නම්, අපි ඔබගේ සත්&zwj;ය ස්ථානය පිළිබඳ තොරතුරු ස්වයංක්&zwj;රීයව රැස් කර සකසමු.<br />\r\nපරිශීලක ලොග් දත්ත: ඔබගේ උපාංගයේ අන්තර්ජාල ප්&zwj;රොටෝකෝලය (IP) ලිපිනය, වේලා කලාපය සහ මෙහෙයුම් පද්ධතිය ඇතුළු තාක්ෂණික විස්තර. අපි ඔබගේ පිවිසුම් තොරතුරු (ලියාපදිංචි දිනය, අවසන් මුරපද වෙනස් කළ දිනය, අවසන් වරට සාර්ථක පුරනය වූ දිනය), ඔබගේ බ්&zwj;රවුසරයේ වර්ගය සහ අනුවාදය ද ගබඩා කරන්නෙමු.<br />\r\nක්ලික් ප්&zwj;රවාහ දත්ත</p>\r\n\r\n<p>ඔබ අපගේ වේදිකාවට ප්&zwj;රවේශ වූ අඩවි, එක් එක් සංචාරයේ දිනය සහ වේලා මුද්&zwj;රාව, ඔබ සිදු කර ඇති සෙවීම්, ඔබ ක්ලික් කළ ලැයිස්තුගත කිරීම් හෝ වෙළඳ දැන්වීම් බැනර්, එවැනි වෙළඳ දැන්වීම් හෝ ලැයිස්තුගත කිරීම් සමඟ ඔබේ අන්තර්ක්&zwj;රියා, කාලසීමාව ඇතුළත් අපගේ වේදිකාවේ ඔබේ ක්&zwj;රියාකාරකම් පිළිබඳ තොරතුරු අපි රැස් කරමු. ඔබගේ සංචාරය සහ ඔබ අපගේ වේදිකාවේ අන්තර්ගතයට පිවිසෙන අනුපිළිවෙල.</p>\r\n\r\n<p>කුකීස් සහ සමාන තාක්ෂණයන්</p>\r\n\r\n<p>අපගේ පරිශීලකයින්ගේ සැසි කළමනාකරණය කිරීමට, ඔබේ මනාප භාෂා තේරීම ගබඩා කිරීමට සහ ඔබට අදාළ වෙළඳ දැන්වීම් ලබා දීමට අපි කුකීස් භාවිතා කරමු. &quot;කුකීස්&quot; යනු ඔබගේ උපාංගයේ දෘඪ තැටියට වෙබ් සේවාදායකයක් විසින් මාරු කරන ලද කුඩා පෙළ ගොනු වේ. ඔබගේ සංචාරයේ දිනය සහ වේලාව, ඔබගේ ගවේෂණ ඉතිහාසය, ඔබගේ මනාපයන් සහ ඔබගේ පරිශීලක නාමය එකතු කිරීමට කුකීස් භාවිතා කළ හැක. ඔබට ඔබගේ බ්&zwj;රවුසරය සියල්ලම හෝ සමහර කුකීස් ප්&zwj;රතික්ෂේප කිරීමට හෝ වෙබ් අඩවි කුකීස් සකසන විට හෝ ප්&zwj;රවේශ වන විට ඔබව දැනුවත් කිරීමට සැකසිය හැක. ඔබ කුකීස් අක්&zwj;රිය කරන්නේ නම් හෝ ප්&zwj;රතික්ෂේප කරන්නේ නම්, අපගේ සේවා/වේදිකාවේ සමහර කොටස් ප්&zwj;රවේශ විය නොහැකි හෝ නිසි ලෙස ක්&zwj;රියා නොකරන බව කරුණාවෙන් සලකන්න. අප භාවිතා කරන කුකීස් පිළිබඳ වැඩි විස්තර සඳහා, කරුණාකර අපගේ කුකීස් සහ ඒ හා සමාන තාක්ෂණයන් පිළිබඳ ප්&zwj;රතිපත්තිය බලන්න, මෙම රහස්&zwj;යතා ප්&zwj;රතිපත්තිය වෙත යොමු කර ඇති සහ එහි කොටසක් ලෙස ඇතුළත් කර ඇත.</p>', 'Posting an ad on gogoads.lk is free! However, all ads must follow our rules:\r\n\r\nMake sure you post in the correct category.\r\nDo not post the same ad more than once or repost an ad within 48 hours.\r\nDo not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.', 'gogoads.lk හි දැන්වීමක් පළ කිරීම නොමිලේ! කෙසේ වෙතත්, සියලුම දැන්වීම් අපගේ නීති අනුගමනය කළ යුතුය:\r\n\r\nඔබ නිවැරදි ප්‍රවර්ගයේ පළ කිරීමට වග බලා ගන්න.\r\nඑකම දැන්වීම එක වරකට වඩා පළ නොකරන්න හෝ පැය 48ක් ඇතුළත දැන්වීමක් නැවත පළ නොකරන්න.\r\nජල සලකුණු සහිත පින්තූර උඩුගත නොකරන්න.\r\nපැකේජ ගනුදෙනුවක් නම් මිස අයිතම කිහිපයක් අඩංගු දැන්වීම් පළ නොකරන්න.\r\nමාතෘකාවේ හෝ විස්තරයේ ඔබේ විද්‍යුත් තැපෑල හෝ දුරකථන අංක දමන්න එපා.', '2022-08-15 18:38:25', NULL);
+(1, '<p>Ok2list.com Privacy Policy Statement</p>\r\n\r\n<p>These Privacy Policy Statement were written and updated on January 2019. The Company (&ldquo;The QS Week (Pvt) Ltd&rdquo;) reserve the right to change any or all of contents in order to make sure a safe and useful usage of the Website (&ldquo;ok2list.com&rdquo;). We respect the privacy of User and Advertiser and committed to protecting User and Advertiser personal data. This privacy statement will describe how the Company or Website manage User/Advertiser personal data. Please read this privacy policy statement carefully before using our Web Site.</p>\r\n\r\n<p>Definitions:</p>\r\n\r\n<p>In this Privacy Policy Statement used words that starts with caps lock (as explained in Terms and Conditions under the title of &ldquo;Definitions&rdquo;) shall be the same meaning /expression are respectively assigned to them.</p>\r\n\r\n<p>Who are we:</p>\r\n\r\n<p>The QS Week (PVT) LTD is the main body controlling the any date in relation to the Web Site.</p>\r\n\r\n<p>What data do we collect about you?</p>\r\n\r\n<p>Data provided through direct interactions</p>\r\n\r\n<p>Registration and other account information: When the User register to use our Web Site we may collect the following information about you which included name (first and last as applicable), email address, telephone number, gender, age (depending on the permission granted by User) and location.</p>\r\n\r\n<p>When you interact with our platform or use our Web Site, we automatically collect the following information about you:</p>\r\n\r\n<ul>\r\n	<li>Device Information: specific information such as operating system version and unique identifiers</li>\r\n	<li>Location information: depending on your device permissions, if you post an item on our platform, we automatically collect and process information about your actual location.</li>\r\n	<li>User Log data: Technical details, including the Internet Protocol (IP) address of your device, time zone and operating system. We will also store your login information (registration date, date of last password change, date of last successful login), type and version of your browser.</li>\r\n</ul>\r\n\r\n<p>Clickstream data</p>\r\n\r\n<p>We collect information about your activity on our Platform which includes the sites from which you accessed our Platform, date and time stamp of each visit, searches you have performed, listings or advertisement banners you clicked, your interaction with such advertisements or listings, duration of your visit and the order in which you visit the content on our Platform.</p>\r\n\r\n<p>Cookies and Similar Technologies</p>\r\n\r\n<p>We use cookies to manage our users&rsquo; sessions, to store your preferences language selection and deliver you relevant advertisements. &ldquo;Cookies&rdquo; are small text files transferred by a web server to the hard drive of your device. Cookies may be used to collect the date and time of your visit, your browsing history, your preferences, and your username. You can set your browser to refuse all or some cookies, or to alert you when websites set or access cookies. If you disable or refuse cookies, please note that some parts of our Services/Platform may become inaccessible or not function properly. For more information on the cookies we use, please see our Policy on Cookies and Similar Technologies, the terms of which are incorporated into, and form part of, this Privacy Policy by reference.</p>', '<p>රහස්යතා ප්රතිපත්තිය<br />\r\nOk2list.com රහස්&zwj;යතා ප්&zwj;රතිපත්ති ප්&zwj;රකාශය</p>\r\n\r\n<p>මෙම රහස්&zwj;යතා ප්&zwj;රතිපත්ති ප්&zwj;රකාශය ලියා යාවත්කාලීන කරන ලද්දේ 2019 ජනවාරි මාසයේදීය. (&ldquo;The QS Week (Pvt) Ltd&rdquo;) වෙබ් අඩවියේ ආරක්ෂිත සහ ප්&zwj;රයෝජනවත් භාවිතයක් සහතික කර ගැනීම සඳහා ඕනෑම හෝ සියලුම අන්තර්ගතයන් වෙනස් කිරීමේ අයිතිය රඳවා තබා ගනී. ok2list.com&rdquo;). අපි පරිශීලකයාගේ සහ ප්&zwj;රචාරකයාගේ පෞද්ගලිකත්වයට ගරු කරන අතර පරිශීලක සහ දැන්වීම්කරුගේ පුද්ගලික දත්ත ආරක්ෂා කිරීමට කැපවී සිටිමු. මෙම රහස්&zwj;යතා ප්&zwj;රකාශය සමාගම හෝ වෙබ් අඩවිය පරිශීලක/දැන්වීම්කරුගේ පුද්ගලික දත්ත කළමනාකරණය කරන ආකාරය විස්තර කරයි. අපගේ වෙබ් අඩවිය භාවිතා කිරීමට පෙර කරුණාකර මෙම රහස්&zwj;යතා ප්&zwj;රතිපත්ති ප්&zwj;රකාශය හොඳින් කියවන්න.</p>\r\n\r\n<p>අර්ථ දැක්වීම්:</p>\r\n\r\n<p>මෙම රහස්&zwj;යතා ප්&zwj;රතිපත්ති ප්&zwj;රකාශයේ භාවිත කර ඇති කැප්ස් ලොක් සමඟින් ආරම්භ වන වචන (&quot;නිර්වචන&quot; යන මාතෘකාව යටතේ නියමයන් සහ කොන්දේසි වල පැහැදිලි කර ඇති පරිදි) ඒවාට පිළිවෙලින් එකම අර්ථය / ප්&zwj;රකාශනය පවරනු ලැබේ.</p>\r\n\r\n<p>අපි කවුද:</p>\r\n\r\n<p>QS Week (PVT) LTD යනු වෙබ් අඩවියට අදාළව ඕනෑම දිනයක් පාලනය කරන ප්&zwj;රධාන ආයතනයයි.</p>\r\n\r\n<p>අපි ඔබ ගැන රැස් කරන දත්ත මොනවාද?</p>\r\n\r\n<p>සෘජු අන්තර්ක්&zwj;රියා හරහා දත්ත සපයනු ලැබේ</p>\r\n\r\n<p>ලියාපදිංචිය සහ අනෙකුත් ගිණුම් තොරතුරු: අපගේ වෙබ් අඩවිය භාවිතා කිරීමට පරිශීලක ලියාපදිංචි වූ විට, නම (අදාළ වන පරිදි පළමු සහ අවසාන), විද්&zwj;යුත් තැපැල් ලිපිනය, දුරකථන අංකය, ස්ත්&zwj;රී පුරුෂ භාවය, වයස (අවසරය මත පදනම්ව) ඇතුළත් පහත තොරතුරු අපි රැස්කර ගත හැක. පරිශීලක) සහ ස්ථානය.</p>\r\n\r\n<p>ඔබ අපගේ වේදිකාව සමඟ අන්තර් ක්&zwj;රියා කරන විට හෝ අපගේ වෙබ් අඩවිය භාවිතා කරන විට, අපි ඔබ ගැන පහත තොරතුරු ස්වයංක්&zwj;රීයව රැස්කර ගනිමු:</p>\r\n\r\n<p>උපාංග තොරතුරු: මෙහෙයුම් පද්ධති අනුවාදය සහ අද්විතීය හඳුනාගැනීම් වැනි නිශ්චිත තොරතුරු<br />\r\nස්ථාන තොරතුරු: ඔබගේ උපාංග අවසර මත පදනම්ව, ඔබ අපගේ වේදිකාවේ අයිතමයක් පළ කරන්නේ නම්, අපි ඔබගේ සත්&zwj;ය ස්ථානය පිළිබඳ තොරතුරු ස්වයංක්&zwj;රීයව රැස් කර සකසමු.<br />\r\nපරිශීලක ලොග් දත්ත: ඔබගේ උපාංගයේ අන්තර්ජාල ප්&zwj;රොටෝකෝලය (IP) ලිපිනය, වේලා කලාපය සහ මෙහෙයුම් පද්ධතිය ඇතුළු තාක්ෂණික විස්තර. අපි ඔබගේ පිවිසුම් තොරතුරු (ලියාපදිංචි දිනය, අවසන් මුරපද වෙනස් කළ දිනය, අවසන් වරට සාර්ථක පුරනය වූ දිනය), ඔබගේ බ්&zwj;රවුසරයේ වර්ගය සහ අනුවාදය ද ගබඩා කරන්නෙමු.<br />\r\nක්ලික් ප්&zwj;රවාහ දත්ත</p>\r\n\r\n<p>ඔබ අපගේ වේදිකාවට ප්&zwj;රවේශ වූ අඩවි, එක් එක් සංචාරයේ දිනය සහ වේලා මුද්&zwj;රාව, ඔබ සිදු කර ඇති සෙවීම්, ඔබ ක්ලික් කළ ලැයිස්තුගත කිරීම් හෝ වෙළඳ දැන්වීම් බැනර්, එවැනි වෙළඳ දැන්වීම් හෝ ලැයිස්තුගත කිරීම් සමඟ ඔබේ අන්තර්ක්&zwj;රියා, කාලසීමාව ඇතුළත් අපගේ වේදිකාවේ ඔබේ ක්&zwj;රියාකාරකම් පිළිබඳ තොරතුරු අපි රැස් කරමු. ඔබගේ සංචාරය සහ ඔබ අපගේ වේදිකාවේ අන්තර්ගතයට පිවිසෙන අනුපිළිවෙල.</p>\r\n\r\n<p>කුකීස් සහ සමාන තාක්ෂණයන්</p>\r\n\r\n<p>අපගේ පරිශීලකයින්ගේ සැසි කළමනාකරණය කිරීමට, ඔබේ මනාප භාෂා තේරීම ගබඩා කිරීමට සහ ඔබට අදාළ වෙළඳ දැන්වීම් ලබා දීමට අපි කුකීස් භාවිතා කරමු. &quot;කුකීස්&quot; යනු ඔබගේ උපාංගයේ දෘඪ තැටියට වෙබ් සේවාදායකයක් විසින් මාරු කරන ලද කුඩා පෙළ ගොනු වේ. ඔබගේ සංචාරයේ දිනය සහ වේලාව, ඔබගේ ගවේෂණ ඉතිහාසය, ඔබගේ මනාපයන් සහ ඔබගේ පරිශීලක නාමය එකතු කිරීමට කුකීස් භාවිතා කළ හැක. ඔබට ඔබගේ බ්&zwj;රවුසරය සියල්ලම හෝ සමහර කුකීස් ප්&zwj;රතික්ෂේප කිරීමට හෝ වෙබ් අඩවි කුකීස් සකසන විට හෝ ප්&zwj;රවේශ වන විට ඔබව දැනුවත් කිරීමට සැකසිය හැක. ඔබ කුකීස් අක්&zwj;රිය කරන්නේ නම් හෝ ප්&zwj;රතික්ෂේප කරන්නේ නම්, අපගේ සේවා/වේදිකාවේ සමහර කොටස් ප්&zwj;රවේශ විය නොහැකි හෝ නිසි ලෙස ක්&zwj;රියා නොකරන බව කරුණාවෙන් සලකන්න. අප භාවිතා කරන කුකීස් පිළිබඳ වැඩි විස්තර සඳහා, කරුණාකර අපගේ කුකීස් සහ ඒ හා සමාන තාක්ෂණයන් පිළිබඳ ප්&zwj;රතිපත්තිය බලන්න, මෙම රහස්&zwj;යතා ප්&zwj;රතිපත්තිය වෙත යොමු කර ඇති සහ එහි කොටසක් ලෙස ඇතුළත් කර ඇත.</p>', 'Posting an ad on ok2list.com is free! However, all ads must follow our rules:\r\n\r\nMake sure you post in the correct category.\r\nDo not post the same ad more than once or repost an ad within 48 hours.\r\nDo not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.', 'ok2list.com හි දැන්වීමක් පළ කිරීම නොමිලේ! කෙසේ වෙතත්, සියලුම දැන්වීම් අපගේ නීති අනුගමනය කළ යුතුය:\r\n\r\nඔබ නිවැරදි ප්‍රවර්ගයේ පළ කිරීමට වග බලා ගන්න.\r\nඑකම දැන්වීම එක වරකට වඩා පළ නොකරන්න හෝ පැය 48ක් ඇතුළත දැන්වීමක් නැවත පළ නොකරන්න.\r\nජල සලකුණු සහිත පින්තූර උඩුගත නොකරන්න.\r\nපැකේජ ගනුදෙනුවක් නම් මිස අයිතම කිහිපයක් අඩංගු දැන්වීම් පළ නොකරන්න.\r\nමාතෘකාවේ හෝ විස්තරයේ ඔබේ විද්‍යුත් තැපෑල හෝ දුරකථන අංක දමන්න එපා.', '2022-08-15 18:38:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -427,14 +426,14 @@ CREATE TABLE `page_promote` (
   `id` int(10) NOT NULL,
   `description` text DEFAULT NULL,
   `description_sl` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_promote`
 --
 
 INSERT INTO `page_promote` (`id`, `description`, `description_sl`) VALUES
-(1, '<p>Promote Your Ad</p>\r\n\r\n<p>Promote your ad and make an attention to buyers and other users and sell fast on gogoads.lk is the srilankas&rsquo; largest online classified.</p>\r\n\r\n<ul>\r\n	<li>A largest and popular online classified like gogoads.lk has thousands of buyers and sellers, so it is a distinction advantage to reach more customers and sell your product fast.</li>\r\n	<li>The basic service of posting an ad remains free on gogoads.lk, we now offer extra paid options for our posters who want to stand out and reach more interested buyers quickly and easily.</li>\r\n</ul>\r\n\r\n<p>Need to sell urgently?</p>\r\n\r\n<p>We made it and our promotions are an excellent way to get your products sold quickly</p>\r\n\r\n<p>To promote an ad simply:</p>\r\n\r\n<ul>\r\n	<li>Ad your post and click the &ldquo;Membership&rdquo; button on top left side of the home page, or</li>\r\n	<li>go to an ad you have already posted and click the &ldquo;Promote Your Ad&rdquo; option.</li>\r\n</ul>\r\n\r\n<p>Get more views</p>\r\n\r\n<p>Our promotions are designed to get more people to see your ad. So by promoting your ad, you save time and effort &ndash; and still get more replies to your ad.</p>\r\n\r\n<p>Sell fast for a good price</p>\r\n\r\n<p>More replies means more interested buyers. With lots of interested buyers, you have a better chance of selling for the price that you want.</p>\r\n\r\n<p>Our Ad Promotions</p>\r\n\r\n<p>Featured Ad</p>\r\n\r\n<p>At the top of every ad listing page, there are up to 4 (four) slots reserved for Featured Ads. By adding a Featured Ad promotion to your ad, you are getting the chance for your ad to be displayed in one of these Featured Ad slots &ndash; which can get you more views.</p>\r\n\r\n<p>Featured Ads stand out and highlighted in red, and clearly marked as a &ldquo;Featured Ad&rdquo;.</p>\r\n\r\n<p>Each Feature Ad is given an equal chance of being shown in the Featured Ad slots. This feature makes extra appearances for each Featured Ad on our most viewed pages. Also, this ad appears in regular post and stand in top of the page.</p>\r\n\r\n<p>Daily Refresh to top</p>\r\n\r\n<p>The daily refresh up promotion moves your ad to the top of the regular ad listings once a day for up to 21 days. It has the same effect as reposting your ad every day and attracts for more views. Ads with daily refresh to top are given a fresh start once a day, to get your ad more views with no extra effort.</p>\r\n\r\n<p>Expand your business with Membership</p>\r\n\r\n<p>Memberships include bonus Top Ad and Bump Up promotions, and are loaded with extra features to give your business a bigger presence on gogoads.lk.</p>', '<p>ඔබේ දැන්වීම ප්&zwj;රවර්ධනය කරන්න<br />\r\nඔබේ දැන්වීම ප්&zwj;රවර්ධනය කරන්න</p>\r\n\r\n<p>ඔබගේ දැන්වීම ප්&zwj;රවර්ධනය කර ගැනුම්කරුවන් සහ අනෙකුත් පරිශීලකයින් වෙත අවධානය යොමු කර gogoads.lk හි වේගයෙන් විකිණීම ශ්&zwj;රී ලංකාවේ විශාලතම අන්තර්ජාල වර්ගීකරණය වේ.</p>\r\n\r\n<p>gogoads.lk වැනි විශාලතම සහ ජනප්&zwj;රිය සබැඳි වර්ගීකරණයකට ගැනුම්කරුවන් සහ විකුණුම්කරුවන් දහස් ගණනක් ඇත, එබැවින් වැඩි ගනුදෙනුකරුවන් වෙත ළඟා වීමට සහ ඔබේ නිෂ්පාදනය වේගයෙන් විකිණීමට එය සුවිශේෂී වාසියකි.<br />\r\nදැන්වීමක් පළ කිරීමේ මූලික සේවාව gogoads.lk හි නොමිලයේ පවතී, අපි දැන් කැපී පෙනෙන සහ වඩාත් උනන්දුවක් දක්වන ගැනුම්කරුවන් වෙත ඉක්මනින් සහ පහසුවෙන් ළඟා වීමට කැමති අපගේ පෝස්ටර් සඳහා අමතර ගෙවන විකල්ප ලබා දෙන්නෙමු.<br />\r\nඉක්මනින් විකිණීමට අවශ්&zwj;යද?</p>\r\n\r\n<p>අපි එය සෑදූ අතර අපගේ ප්&zwj;රවර්ධන ඔබේ නිෂ්පාදන ඉක්මනින් අලෙවි කර ගැනීමට විශිෂ්ට ක්&zwj;රමයකි</p>\r\n\r\n<p>දැන්වීමක් ප්&zwj;රවර්ධනය කිරීම සඳහා සරලව:</p>\r\n\r\n<p>ඔබේ පළ කිරීම දැන්වීම සහ මුල් පිටුවේ ඉහළ වම් පැත්තේ ඇති &quot;සාමාජිකත්වය&quot; බොත්තම ක්ලික් කරන්න, හෝ<br />\r\nඔබ දැනටමත් පළ කර ඇති දැන්වීමක් වෙත ගොස් &quot;ඔබේ දැන්වීම ප්&zwj;රවර්ධනය කරන්න&quot; විකල්පය ක්ලික් කරන්න.<br />\r\nතවත් බැලීම් ලබා ගන්න</p>\r\n\r\n<p>අපගේ ප්&zwj;රවර්ධන සැලසුම් කර ඇත්තේ ඔබේ දැන්වීම වැඩි පිරිසකට නැරඹීම සඳහා ය. එබැවින් ඔබේ දැන්වීම ප්&zwj;රවර්ධනය කිරීමෙන්, ඔබ කාලය සහ ශ්&zwj;රමය ඉතිරි කරයි - සහ ඔබේ දැන්වීමට තව පිළිතුරු ලබා ගනී.</p>\r\n\r\n<p>හොඳ මිලකට ඉක්මනින් විකුණන්න</p>\r\n\r\n<p>වැඩි පිළිතුරු යනු වැඩි උනන්දුවක් දක්වන ගැනුම්කරුවන් ය. බොහෝ උනන්දුවක් දක්වන ගැනුම්කරුවන් සමඟ, ඔබට අවශ්&zwj;ය මිලට විකිණීමට ඔබට වඩා හොඳ අවස්ථාවක් තිබේ.</p>\r\n\r\n<p>අපගේ දැන්වීම් ප්&zwj;රවර්ධන</p>\r\n\r\n<p>විශේෂාංගගත දැන්වීම</p>\r\n\r\n<p>සෑම දැන්වීම් ලැයිස්තුගත කිරීමේ පිටුවකම ඉහළින්ම, විශේෂාංගගත දැන්වීම් සඳහා වෙන් කර ඇති තව් 4 (හතර) දක්වා ඇත. ඔබේ දැන්වීමට විශේෂාංගගත දැන්වීම් ප්&zwj;රවර්ධනයක් එක් කිරීමෙන්, ඔබට තවත් බැලීම් ලබා ගත හැකි මෙම විශේෂාංගගත දැන්වීම් තව් එකක ඔබේ දැන්වීම ප්&zwj;රදර්ශනය කිරීමට ඔබට අවස්ථාව ලැබේ.</p>\r\n\r\n<p>විශේෂාංගගත දැන්වීම් කැපී පෙනෙන අතර රතු පැහැයෙන් උද්දීපනය කර ඇති අතර පැහැදිලිවම &ldquo;විශේෂාංග දැන්වීමක්&rdquo; ලෙස සලකුණු කර ඇත.</p>\r\n\r\n<p>සෑම විශේෂාංග දැන්වීමක්ම විශේෂාංගගත දැන්වීම් තව් තුළ පෙන්වීමට සමාන අවස්ථාවක් ලබා දී ඇත. මෙම විශේෂාංගය අපගේ වැඩිපුරම නරඹන පිටුවල එක් එක් විශේෂාංගගත දැන්වීම සඳහා අමතර පෙනී සිටීම් සිදු කරයි. එසේම, මෙම දැන්වීම සාමාන්&zwj;ය පෝස්ට් වල දිස්වන අතර පිටුවේ ඉහළින්ම සිටින්න.</p>\r\n\r\n<p>ඉහළට දිනපතා නැවුම් කරන්න</p>\r\n\r\n<p>දෛනික ප්&zwj;රබෝධමත් ප්&zwj;රවර්ධනය මඟින් ඔබේ දැන්වීම දින 21ක් දක්වා දිනකට වරක් සාමාන්&zwj;ය දැන්වීම් ලැයිස්තුගත කිරීම්වල ඉහළට ගෙන යයි. එය සෑම දිනකම ඔබේ දැන්වීම නැවත පළ කිරීම හා සමාන බලපෑමක් ඇති අතර වැඩි බැලීම් සඳහා ආකර්ෂණය කරයි. අමතර උත්සාහයකින් තොරව ඔබේ දැන්වීම වැඩි බැලීම් ලබා ගැනීමට, දිනපතා නැවුම් කිරීම සහිත දැන්වීම් දිනකට වරක් නැවුම් ආරම්භයක් ලබා දෙනු ලැබේ.</p>\r\n\r\n<p>සාමාජිකත්වය සමඟ ඔබේ ව්&zwj;යාපාරය පුළුල් කරන්න</p>\r\n\r\n<p>සාමාජිකත්වයන්ට ප්&zwj;රසාද Top Ad සහ Bump Up ප්&zwj;රවර්ධන ඇතුළත් වන අතර, gogoads.lk හි ඔබේ ව්&zwj;යාපාරයට විශාල පැවැත්මක් ලබා දීම සඳහා අමතර විශේෂාංගවලින් පිරී ඇත.</p>');
+(1, '<p>Promote Your Ad</p>\r\n\r\n<p>Promote your ad and make an attention to buyers and other users and sell fast on ok2list.com is the srilankas&rsquo; largest online classified.</p>\r\n\r\n<ul>\r\n	<li>A largest and popular online classified like ok2list.com has thousands of buyers and sellers, so it is a distinction advantage to reach more customers and sell your product fast.</li>\r\n	<li>The basic service of posting an ad remains free on ok2list.com, we now offer extra paid options for our posters who want to stand out and reach more interested buyers quickly and easily.</li>\r\n</ul>\r\n\r\n<p>Need to sell urgently?</p>\r\n\r\n<p>We made it and our promotions are an excellent way to get your products sold quickly</p>\r\n\r\n<p>To promote an ad simply:</p>\r\n\r\n<ul>\r\n	<li>Ad your post and click the &ldquo;Membership&rdquo; button on top left side of the home page, or</li>\r\n	<li>go to an ad you have already posted and click the &ldquo;Promote Your Ad&rdquo; option.</li>\r\n</ul>\r\n\r\n<p>Get more views</p>\r\n\r\n<p>Our promotions are designed to get more people to see your ad. So by promoting your ad, you save time and effort &ndash; and still get more replies to your ad.</p>\r\n\r\n<p>Sell fast for a good price</p>\r\n\r\n<p>More replies means more interested buyers. With lots of interested buyers, you have a better chance of selling for the price that you want.</p>\r\n\r\n<p>Our Ad Promotions</p>\r\n\r\n<p>Featured Ad</p>\r\n\r\n<p>At the top of every ad listing page, there are up to 4 (four) slots reserved for Featured Ads. By adding a Featured Ad promotion to your ad, you are getting the chance for your ad to be displayed in one of these Featured Ad slots &ndash; which can get you more views.</p>\r\n\r\n<p>Featured Ads stand out and highlighted in red, and clearly marked as a &ldquo;Featured Ad&rdquo;.</p>\r\n\r\n<p>Each Feature Ad is given an equal chance of being shown in the Featured Ad slots. This feature makes extra appearances for each Featured Ad on our most viewed pages. Also, this ad appears in regular post and stand in top of the page.</p>\r\n\r\n<p>Daily Refresh to top</p>\r\n\r\n<p>The daily refresh up promotion moves your ad to the top of the regular ad listings once a day for up to 21 days. It has the same effect as reposting your ad every day and attracts for more views. Ads with daily refresh to top are given a fresh start once a day, to get your ad more views with no extra effort.</p>\r\n\r\n<p>Expand your business with Membership</p>\r\n\r\n<p>Memberships include bonus Top Ad and Bump Up promotions, and are loaded with extra features to give your business a bigger presence on ok2list.com.</p>', '<p>ඔබේ දැන්වීම ප්&zwj;රවර්ධනය කරන්න<br />\r\nඔබේ දැන්වීම ප්&zwj;රවර්ධනය කරන්න</p>\r\n\r\n<p>ඔබගේ දැන්වීම ප්&zwj;රවර්ධනය කර ගැනුම්කරුවන් සහ අනෙකුත් පරිශීලකයින් වෙත අවධානය යොමු කර ok2list.com හි වේගයෙන් විකිණීම ශ්&zwj;රී ලංකාවේ විශාලතම අන්තර්ජාල වර්ගීකරණය වේ.</p>\r\n\r\n<p>ok2list.com වැනි විශාලතම සහ ජනප්&zwj;රිය සබැඳි වර්ගීකරණයකට ගැනුම්කරුවන් සහ විකුණුම්කරුවන් දහස් ගණනක් ඇත, එබැවින් වැඩි ගනුදෙනුකරුවන් වෙත ළඟා වීමට සහ ඔබේ නිෂ්පාදනය වේගයෙන් විකිණීමට එය සුවිශේෂී වාසියකි.<br />\r\nදැන්වීමක් පළ කිරීමේ මූලික සේවාව ok2list.com හි නොමිලයේ පවතී, අපි දැන් කැපී පෙනෙන සහ වඩාත් උනන්දුවක් දක්වන ගැනුම්කරුවන් වෙත ඉක්මනින් සහ පහසුවෙන් ළඟා වීමට කැමති අපගේ පෝස්ටර් සඳහා අමතර ගෙවන විකල්ප ලබා දෙන්නෙමු.<br />\r\nඉක්මනින් විකිණීමට අවශ්&zwj;යද?</p>\r\n\r\n<p>අපි එය සෑදූ අතර අපගේ ප්&zwj;රවර්ධන ඔබේ නිෂ්පාදන ඉක්මනින් අලෙවි කර ගැනීමට විශිෂ්ට ක්&zwj;රමයකි</p>\r\n\r\n<p>දැන්වීමක් ප්&zwj;රවර්ධනය කිරීම සඳහා සරලව:</p>\r\n\r\n<p>ඔබේ පළ කිරීම දැන්වීම සහ මුල් පිටුවේ ඉහළ වම් පැත්තේ ඇති &quot;සාමාජිකත්වය&quot; බොත්තම ක්ලික් කරන්න, හෝ<br />\r\nඔබ දැනටමත් පළ කර ඇති දැන්වීමක් වෙත ගොස් &quot;ඔබේ දැන්වීම ප්&zwj;රවර්ධනය කරන්න&quot; විකල්පය ක්ලික් කරන්න.<br />\r\nතවත් බැලීම් ලබා ගන්න</p>\r\n\r\n<p>අපගේ ප්&zwj;රවර්ධන සැලසුම් කර ඇත්තේ ඔබේ දැන්වීම වැඩි පිරිසකට නැරඹීම සඳහා ය. එබැවින් ඔබේ දැන්වීම ප්&zwj;රවර්ධනය කිරීමෙන්, ඔබ කාලය සහ ශ්&zwj;රමය ඉතිරි කරයි - සහ ඔබේ දැන්වීමට තව පිළිතුරු ලබා ගනී.</p>\r\n\r\n<p>හොඳ මිලකට ඉක්මනින් විකුණන්න</p>\r\n\r\n<p>වැඩි පිළිතුරු යනු වැඩි උනන්දුවක් දක්වන ගැනුම්කරුවන් ය. බොහෝ උනන්දුවක් දක්වන ගැනුම්කරුවන් සමඟ, ඔබට අවශ්&zwj;ය මිලට විකිණීමට ඔබට වඩා හොඳ අවස්ථාවක් තිබේ.</p>\r\n\r\n<p>අපගේ දැන්වීම් ප්&zwj;රවර්ධන</p>\r\n\r\n<p>විශේෂාංගගත දැන්වීම</p>\r\n\r\n<p>සෑම දැන්වීම් ලැයිස්තුගත කිරීමේ පිටුවකම ඉහළින්ම, විශේෂාංගගත දැන්වීම් සඳහා වෙන් කර ඇති තව් 4 (හතර) දක්වා ඇත. ඔබේ දැන්වීමට විශේෂාංගගත දැන්වීම් ප්&zwj;රවර්ධනයක් එක් කිරීමෙන්, ඔබට තවත් බැලීම් ලබා ගත හැකි මෙම විශේෂාංගගත දැන්වීම් තව් එකක ඔබේ දැන්වීම ප්&zwj;රදර්ශනය කිරීමට ඔබට අවස්ථාව ලැබේ.</p>\r\n\r\n<p>විශේෂාංගගත දැන්වීම් කැපී පෙනෙන අතර රතු පැහැයෙන් උද්දීපනය කර ඇති අතර පැහැදිලිවම &ldquo;විශේෂාංග දැන්වීමක්&rdquo; ලෙස සලකුණු කර ඇත.</p>\r\n\r\n<p>සෑම විශේෂාංග දැන්වීමක්ම විශේෂාංගගත දැන්වීම් තව් තුළ පෙන්වීමට සමාන අවස්ථාවක් ලබා දී ඇත. මෙම විශේෂාංගය අපගේ වැඩිපුරම නරඹන පිටුවල එක් එක් විශේෂාංගගත දැන්වීම සඳහා අමතර පෙනී සිටීම් සිදු කරයි. එසේම, මෙම දැන්වීම සාමාන්&zwj;ය පෝස්ට් වල දිස්වන අතර පිටුවේ ඉහළින්ම සිටින්න.</p>\r\n\r\n<p>ඉහළට දිනපතා නැවුම් කරන්න</p>\r\n\r\n<p>දෛනික ප්&zwj;රබෝධමත් ප්&zwj;රවර්ධනය මඟින් ඔබේ දැන්වීම දින 21ක් දක්වා දිනකට වරක් සාමාන්&zwj;ය දැන්වීම් ලැයිස්තුගත කිරීම්වල ඉහළට ගෙන යයි. එය සෑම දිනකම ඔබේ දැන්වීම නැවත පළ කිරීම හා සමාන බලපෑමක් ඇති අතර වැඩි බැලීම් සඳහා ආකර්ෂණය කරයි. අමතර උත්සාහයකින් තොරව ඔබේ දැන්වීම වැඩි බැලීම් ලබා ගැනීමට, දිනපතා නැවුම් කිරීම සහිත දැන්වීම් දිනකට වරක් නැවුම් ආරම්භයක් ලබා දෙනු ලැබේ.</p>\r\n\r\n<p>සාමාජිකත්වය සමඟ ඔබේ ව්&zwj;යාපාරය පුළුල් කරන්න</p>\r\n\r\n<p>සාමාජිකත්වයන්ට ප්&zwj;රසාද Top Ad සහ Bump Up ප්&zwj;රවර්ධන ඇතුළත් වන අතර, ok2list.com හි ඔබේ ව්&zwj;යාපාරයට විශාල පැවැත්මක් ලබා දීම සඳහා අමතර විශේෂාංගවලින් පිරී ඇත.</p>');
 
 -- --------------------------------------------------------
 
@@ -446,7 +445,7 @@ CREATE TABLE `page_promotions` (
   `id` int(10) NOT NULL,
   `description` text DEFAULT NULL,
   `description_sl` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_promotions`
@@ -469,14 +468,14 @@ CREATE TABLE `page_sidebar` (
   `support_sl` text DEFAULT NULL,
   `easy_trading_en` text DEFAULT NULL,
   `easy_trading_sl` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_sidebar`
 --
 
 INSERT INTO `page_sidebar` (`id`, `secure_trading_en`, `secure_trading_sl`, `support_en`, `support_sl`, `easy_trading_en`, `easy_trading_sl`) VALUES
-(1, 'gogoads.lk is determined to maintain privacy of users during the time of trading and even users can make a report if someone try to fraud.', 'gogoads.lk is determined to maintain privacy of users during the time of trading and even users can make a report if someone try to fraud.', 'gogoads.lk provides service 24 hours a day and 7 days a week for reducing wait times and increasing loyalty of users', 'gogoads.lk provides service 24 hours a day and 7 days a week for reducing wait times and increasing loyalty of users', 'gogoads.lk is online marketplace where users can easily sell or purchase almost everything.', 'gogoads.lk is online marketplace where users can easily sell or purchase almost everything.');
+(1, 'ok2list.com is determined to maintain privacy of users during the time of trading and even users can make a report if someone try to fraud.', 'ok2list.com is determined to maintain privacy of users during the time of trading and even users can make a report if someone try to fraud.', 'ok2list.com provides service 24 hours a day and 7 days a week for reducing wait times and increasing loyalty of users', 'ok2list.com provides service 24 hours a day and 7 days a week for reducing wait times and increasing loyalty of users', 'ok2list.com is online marketplace where users can easily sell or purchase almost everything.', 'ok2list.com is online marketplace where users can easily sell or purchase almost everything.');
 
 -- --------------------------------------------------------
 
@@ -492,14 +491,14 @@ CREATE TABLE `page_sidebar_info` (
   `support_sl` text DEFAULT NULL,
   `easy_trading_en` text DEFAULT NULL,
   `easy_trading_sl` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_sidebar_info`
 --
 
 INSERT INTO `page_sidebar_info` (`id`, `secure_trading_en`, `secure_trading_sl`, `support_en`, `support_sl`, `easy_trading_en`, `easy_trading_sl`) VALUES
-(1, 'gogoads.lk is determined to maintain privacy of users during the time of trading and even users can make a report if someone try to fraud.', 'gogoads.lk is determined to maintain privacy of users during the time of trading and even users can make a report if someone try to fraud.', 'gogoads.lk provides service 24 hours a day and 7 days a week for reducing wait times and increasing loyalty of users', 'gogoads.lk provides service 24 hours a day and 7 days a week for reducing wait times and increasing loyalty of users', 'gogoads.lk is online marketplace where users can easily sell or purchase almost everything.', 'gogoads.lk is online marketplace where users can easily sell or purchase almost everything.');
+(1, 'ok2list.com is determined to maintain privacy of users during the time of trading and even users can make a report if someone try to fraud.', 'ok2list.com is determined to maintain privacy of users during the time of trading and even users can make a report if someone try to fraud.', 'ok2list.com provides service 24 hours a day and 7 days a week for reducing wait times and increasing loyalty of users', 'ok2list.com provides service 24 hours a day and 7 days a week for reducing wait times and increasing loyalty of users', 'ok2list.com is online marketplace where users can easily sell or purchase almost everything.', 'ok2list.com is online marketplace where users can easily sell or purchase almost everything.');
 
 -- --------------------------------------------------------
 
@@ -515,14 +514,14 @@ CREATE TABLE `page_terms_conditions` (
   `rules_sl` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_terms_conditions`
 --
 
 INSERT INTO `page_terms_conditions` (`id`, `details_en`, `details_sl`, `rules_en`, `rules_sl`, `created_at`, `updated_at`) VALUES
-(1, '<p><strong>Introduction</strong></p>\r\n\r\n<p>The QS Week (Pvt.) Ltd is a limited liability company, it&rsquo;s registration number is PV89070 (hereafter the &ldquo;Company&rdquo;) and provides an online classified service which include classified advertisements and chat services through the website www.gogoads.lk (hereafter referred &ldquo;Website&rdquo;).</p>\r\n\r\n<p>The services provided through the Website are subject to User and Advertiser compliance with the set-up Terms and Conditions (hereafter &ldquo;Terms&rdquo;) set forth below.</p>\r\n\r\n<p>How to use the Terms</p>\r\n\r\n<ul>\r\n	<li>Step 1: It is User&rsquo;s responsibility to read and understand the Terms prior to use this Website.</li>\r\n	<li>Step 2: By using this Website, the User agrees and bound to the Terms of this Website.</li>\r\n	<li>Step 3: If the User do not agree the Terms, such User do not use this Website.</li>\r\n</ul>\r\n\r\n<p>Terms &amp; Conditions (&ldquo;Terms&rdquo;)</p>\r\n\r\n<p>These Terms were written and updated on January 2019. The Company reserve the right to change any or all of our Terms of use or other conditions for using the Website at any time by publishing the new Terms on our Website.</p>\r\n\r\n<p>Definitions:</p>\r\n\r\n<p>In this Terms included following words and expressions shall have the meanings as are respectively assigned to them;</p>\r\n\r\n<p>&ldquo;Advertiser&rdquo; means the person or persons who uploading Contents on the Website.</p>\r\n\r\n<p>&ldquo;Company&rdquo; means the QS Week (Pvt) Ltd</p>\r\n\r\n<p>&ldquo;Contents&rdquo; means all postings, messages, text, files, images, photos, video, sounds, or other materials uploaded (by Advertiser) for inclusion on Website with fully compliance to all applicable laws of the country. The Company and Website assumes no responsibility for any illegality or any inaccuracy of the Content.</p>\r\n\r\n<p>&ldquo;User&rdquo; means the person or persons who uses, browsing or access any content, data or information on the Website.</p>\r\n\r\n<p>&ldquo;Website&rdquo; means the www.gogoads.lk</p>\r\n\r\n<p>&ldquo;Watermark&rdquo; means the mark appears in the images (www.gogoads.lk), which prevents the images to be used for the other purposes, without consent of the Advertiser.</p>\r\n\r\n<p>Content</p>\r\n\r\n<p>Advertiser agree that all postings, messages, text, files, images, photos, video, sounds, or other materials (&ldquo;Content&rdquo;) posted on, transmitted through, or linked from the Webs Site, are the sole responsibility of the Advertiser from whom such Content originated. More specifically, Advertiser is entirely responsible for all Content that he or she posts, email or otherwise make available via the Website. Advertiser agree that Company does not control and is not responsible for Content made available through the Website, and that by using the Website, Advertiser may be exposed to Content that is offensive, indecent, inaccurate, misleading, or otherwise objectionable. Advertiser agree that he or she must evaluate, and bear all risks associated with, the use of any Content, that he or she may not rely on said Content, and that under no circumstances will Website not pre-screen or approve Content, but that Website shall have the right (but not the obligation) in its sole discretion to refuse, delete or move any Content that is available via the Website, for violating the letter or spirit of the Terms or for any other reason.</p>\r\n\r\n<p>Advertiser acknowledge and agree that Website may, in its sole discretion, preserve or disclose Content, as well as email addresses, IP addresses, timestamps, and other user information, if required to do so by law or in the good faith belief that such preservation or disclosure is reasonably necessary to: comply with legal process; enforce the Terms; respond to claims that any Content violates the rights of third-parties; or protect the rights, property, or personal safety of Website, its Users or the general public.</p>\r\n\r\n<p>Content displayed on or through the Website is protected by copyright as a collective work and/or compilation, pursuant to copyrights laws, and international conventions. Advertiser and the User agree not to reproduce, duplicate or copy Content from the Website, and agree to abide by any and all copyright notices displayed on the Website.</p>\r\n\r\n<p>User, Advertiser Conduct</p>\r\n\r\n<p>Advertiser and User agree not to post otherwise make available Content:</p>\r\n\r\n<ul>\r\n	<li>that is pornographic, adult, mature or sexual orientation;</li>\r\n	<li>that refers to gambling or is casino-related;</li>\r\n	<li>that includes illicit drugs, drug paraphernalia or sales of prescription drugs</li>\r\n	<li>that includes hacking/cracking information.</li>\r\n	<li>Violent content;</li>\r\n	<li>Content regarding programs which compensate users for clicking ads or offers, performing searches, surfing websites or reading emails;</li>\r\n	<li>Any other content that is illegal, promotes illegal activity or infringes on the legal rights of others;</li>\r\n	<li>Sales of products that are replicas or imitations of designer or other goods;</li>\r\n	<li>Sales of weapons or ammunition (e.g. firearms, firearm components, fighting knives, stun guns);</li>\r\n	<li>that is unlawful, harmful, threatening, abusive, harassing, defamatory, pornographic,</li>\r\n	<li>libelous, invasive of another&rsquo;s privacy, or harms minors in any way;</li>\r\n	<li>that harasses, degrades, intimidates or is hateful toward an individual or individuals on the basis of religion, gender, race, ethnicity, age, or disability;</li>\r\n	<li>that impersonates any person or entity, including, but not limited to, a Website employee, or falsely states or otherwise misrepresents your affiliation with a person or entity;</li>\r\n	<li>that includes personal or identifying information about another person without that person&rsquo;s explicit consent.</li>\r\n	<li>that employs misleading email addresses, or forged headers or otherwise manipulated identifiers in order to disguise the origin of Content transmitted through the Website;</li>\r\n	<li>that infringes any patent, trademark, trade secret, copyright or other proprietary rights of any party, or Content that you do not have a right to make available under any law or under contractual or fiduciary relationships.</li>\r\n	<li>that constitutes or contains unauthorized advertising, promotional materials, &ldquo;junk mail,&rdquo; &ldquo;spam,&rdquo; &ldquo;chain letters, &ldquo;pyramid schemes,&rdquo; or any other form of solicitation.</li>\r\n	<li>that advertises for sale weapons or explosives; controlled substances (including but not limited to) tobacco products, alcoholic beverages, pharmaceuticals, illegal drugs; stolen or counterfeit items; goods or services that do not in fact exist; items that violate or infringe the rights of others; any items you do not have the right to sell; any dangerous items.</li>\r\n	<li>that contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer software or hardware or telecommunications equipment;</li>\r\n	<li>that disrupts the normal flow of dialogue with an excessive number of messages (flooding attack) to the Service, or that otherwise negatively affects other users&rsquo; ability to use the Service;</li>\r\n	<li>intentionally collect personal data about other Users for commercial or unlawful purposes</li>\r\n</ul>\r\n\r\n<p>Appropriateness of images</p>\r\n\r\n<p>Website reserves the right to change the title of the Content, for editorial purposes. Website reserves the right not to publish images that are irrelevant or images that violate Website Terms.</p>\r\n\r\n<p>Information to Authorities:</p>\r\n\r\n<p>Website has the right to cooperate with authorities in the case any Content violates the law. The identity of Advertisers, Users or buyers may be determined, for example by an ISP. IP addresses may also be registered in order to ensure compliance with the Terms.</p>\r\n\r\n<p>Valid email address:</p>\r\n\r\n<p>Advertiser and Users are required to provide a valid email address, before they are grand access to post advertisements. The email address of the User shall not be publicly displayed, and other Users are permitted to send email to the User through Website.</p>\r\n\r\n<p>Website accessibility:</p>\r\n\r\n<p>The Company and Website does not guarantee the availability of Website continuous or secure access. The Website is only available as on available.</p>\r\n\r\n<p>Links to third party websites:</p>\r\n\r\n<p>Website may contain links or references to other websites (&lsquo;Third Party Websites&rsquo;). Website shall not be responsible for the contents in Third Party Websites. Third Party Websites are not investigated or monitored. In the event the user decides to leave Website and access Third Party Sites, the User does so at his/her own risk.</p>\r\n\r\n<p>Paid services:</p>\r\n\r\n<p>Website is set out to use free in some categories and certain facilities that only available for paid basis. The paid services are membership packages, posting of ads and promoting an add that already posted. Users and Advertiser may purchase above paid facilities by making a payment or can make inquiry with Website customer care to get to know the exact requirements.</p>\r\n\r\n<p>Paid service by memberships:</p>\r\n\r\n<p>As part of a membership package, the Website will publish the Advertiser&rsquo;s Contents on behalf of the User. A dedicated team always available support and handle the Advertiser&rsquo;s clarification and queries. The Content provided by the Advertiser, Website has the right to any Content added to the Website by the User and has the right to remove or not publish the Content if it violates any aspect of the Terms.</p>\r\n\r\n<p>The Company or Website reserves the right to modify or change membership packages, including the price and the contents of the membership package. The Company or Website is not obligated to refund money or services if a membership package is cancelled early, for any reason.</p>\r\n\r\n<p>Privacy:</p>\r\n\r\n<p>The Company or Website will collect information from Users and Advertisers. It is a condition of use of the Website that each User and Advertiser consents and authorises The Company or Website to collect and use this information. The Company or Website also reserves the right to disclose it to Company affiliates and any other person for the purposes of administering, supporting and maintaining Website, as well as for improving Website, for example by using the information for research, marketing, product development and planning.</p>\r\n\r\n<p>Cookies:</p>\r\n\r\n<p>This site uses cookies, which means that you must have cookies enabled on your computer in order for all functionality on this Website to work properly. A cookie is a small data file that is written to your hard drive when you visit certain Websites. Cookie files contain certain information, such as a random number user ID that the site assigns to a visitor to track the pages visited. A cookie cannot read data off your hard disk or read cookie files created by other sites. Cookies, by themselves, cannot be used to find out the identity of any user.</p>\r\n\r\n<p>Disclaimer:</p>\r\n\r\n<p>www.gogoads.lk and the Company assume no responsibility what so ever for the use of www.gogoads.lk and disclaims all responsibility for any injury, claim, liability, or damage of any kind resulting from or arising out of or any way related to (i) any errors on www.gogoads.lk or the Content, including but not limited to technical errors and typographical errors, (ii) any third party Websites or content directly or indirectly accessed through links in www.gogoads.lk, (iii) the unavailability of www.gogoads.lk, (iv) your use of www.gogoads.lk or the Content, or (v) your use of any equipment (or software) in connection with www.gogoads.lk</p>\r\n\r\n<p>Indemnification:</p>\r\n\r\n<p>Advertisers and Users agree to indemnify www.gogoads.lk &amp; the Company as well as its officers, directors, employees, agents, from and against all losses, expenses, damages and costs, including attorney&rsquo;s fees, resulting from any violation of this Terms (including negligent or wrongful conduct).</p>\r\n\r\n<p>Modifications:</p>\r\n\r\n<p>www.gogoads.lk &amp; the Company reserves the right to amend the part or full contents of the Terms. Such amendments shall be effective immediately upon posting on www.gogoads.lk. User and Advertiser are responsible for the reviewing of such amendment. Advertiser and User continued access or use of www.gogoads.lk shall be deemed your acceptance of the amended Terms.</p>\r\n\r\n<p>Governing law:</p>\r\n\r\n<p>Website is operated under the laws and regulations of srilanka. Advertisers and Users agree that it is User and Advertisers responsibility to understand the provisions.</p>', '<p>නියම සහ කොන්දේසි<br />\r\nහැදින්වීම</p>\r\n\r\n<p>QS Week (Pvt.) Ltd යනු සීමිත වගකීම් සහිත සමාගමකි, එහි ලියාපදිංචි අංකය PV89070 (මෙතැන් සිට &quot;සමාගම&quot;) වන අතර www.gogoads.lk වෙබ් අඩවිය හරහා ලුහුඬු දැන්වීම් සහ කතාබස් සේවා ඇතුළත් මාර්ගගත ලුහුබැඳීම් සේවාවක් සපයයි (මින් ඉදිරියට යොමු කෙරේ. &quot;වෙබ් අඩවිය&quot;).</p>\r\n\r\n<p>වෙබ් අඩවිය හරහා සපයනු ලබන සේවාවන් පහත දක්වා ඇති සැකසුම් නියමයන් සහ කොන්දේසි (මෙතැන් සිට &quot;කොන්දේසි&quot;) සමඟ පරිශීලක සහ දැන්වීම්කරුගේ අනුකූලතාවයට යටත් වේ.</p>\r\n\r\n<p>නියමයන් භාවිතා කරන්නේ කෙසේද</p>\r\n\r\n<p>පියවර 1: මෙම වෙබ් අඩවිය භාවිතා කිරීමට පෙර කොන්දේසි කියවා අවබෝධ කර ගැනීම පරිශීලකයාගේ වගකීමකි.<br />\r\nපියවර 2: මෙම වෙබ් අඩවිය භාවිතා කිරීමෙන්, පරිශීලකයා මෙම වෙබ් අඩවියේ කොන්දේසි වලට එකඟ වන අතර ඒවාට බැඳී සිටී.<br />\r\nපියවර 3: පරිශීලකයා කොන්දේසි වලට එකඟ නොවන්නේ නම්, එවැනි පරිශීලකයෙකු මෙම වෙබ් අඩවිය භාවිතා නොකරයි.<br />\r\nනියම සහ කොන්දේසි (&quot;නියම&quot;)</p>\r\n\r\n<p>මෙම නියමයන් ලියා යාවත්කාලීන කරන ලද්දේ 2019 ජනවාරි මාසයේදීය. අපගේ වෙබ් අඩවියේ නව නියමයන් ප්&zwj;රකාශයට පත් කිරීමෙන් ඕනෑම වේලාවක වෙබ් අඩවිය භාවිතා කිරීම සඳහා අපගේ ඕනෑම හෝ සියලුම භාවිත නියමයන් හෝ වෙනත් කොන්දේසි වෙනස් කිරීමට සමාගමට අයිතිය ඇත.</p>\r\n\r\n<p>අර්ථ දැක්වීම්:</p>\r\n\r\n<p>මෙම නියමයන් තුළ පහත සඳහන් වචන සහ ප්&zwj;රකාශනවලට පිළිවෙළින් පවරා ඇති අර්ථයන් තිබිය යුතුය;</p>\r\n\r\n<p>&ldquo;දැන්වීම්කරු&rdquo; යන්නෙන් අදහස් වන්නේ වෙබ් අඩවියේ අන්තර්ගතය උඩුගත කරන පුද්ගලයා හෝ පුද්ගලයන්ය.</p>\r\n\r\n<p>&quot;සමාගම&quot; යන්නෙන් අදහස් වන්නේ QS Week (Pvt) Ltd</p>\r\n\r\n<p>&ldquo;අන්තර්ගතය&rdquo; යන්නෙන් අදහස් වන්නේ රටේ සියලුම අදාළ නීතිවලට සම්පූර්ණයෙන්ම අනුකූල වන පරිදි වෙබ් අඩවියට ඇතුළත් කිරීම සඳහා උඩුගත කරන ලද (දැන්වීම්කරු විසින්) සියලුම පළ කිරීම්, පණිවිඩ, පෙළ, ගොනු, පින්තූර, ඡායාරූප, වීඩියෝ, ශබ්ද හෝ වෙනත් ද්&zwj;රව්&zwj;ය ය. සමාගම සහ වෙබ් අඩවිය කිසියම් නීතිවිරෝධී හෝ අන්තර්ගතයේ සාවද්&zwj;ය භාවයක් සඳහා කිසිදු වගකීමක් භාර නොගනී.</p>\r\n\r\n<p>&quot;පරිශීලක&quot; යන්නෙන් අදහස් වන්නේ වෙබ් අඩවියේ ඕනෑම අන්තර්ගතයක්, දත්තයක් හෝ තොරතුරක් භාවිතා කරන, බ්&zwj;රවුස් කරන හෝ ප්&zwj;රවේශ කරන පුද්ගලයා හෝ පුද්ගලයන්ය.</p>\r\n\r\n<p>&quot;වෙබ් අඩවිය&quot; යන්නෙන් අදහස් වන්නේ www.gogoads.lk යන්නයි</p>\r\n\r\n<p>&ldquo;Watermark&rdquo; යන්නෙන් අදහස් වන්නේ, වෙළඳ ප්&zwj;රචාරකයාගේ අනුමැතියකින් තොරව රූප වෙනත් අරමුණු සඳහා භාවිත කිරීම වළක්වන (www.gogoads.lk) සලකුණ රූපවල දිස් වීමයි.</p>\r\n\r\n<p>අන්තර්ගතය</p>\r\n\r\n<p>සියලුම පළ කිරීම්, පණිවිඩ, පෙළ, ලිපිගොනු, පින්තූර, ඡායාරූප, වීඩියෝ, ශබ්ද, හෝ වෙනත් ද්&zwj;රව්&zwj;ය (&quot;අන්තර්ගතය&quot;) වෙබ් අඩවිය හරහා සම්ප්&zwj;රේෂණය කරන ලද හෝ සබැඳි කර ඇති අතර, ඒවා දැන්වීම්කරුගේ සම්පූර්ණ වගකීම බව දැන්වීම්කරු එකඟ වේ. එවැනි අන්තර්ගතයක් ආරම්භ විය. වඩාත් නිශ්චිතව, ඔහු හෝ ඇය පළ කරන, විද්&zwj;යුත් තැපෑල හෝ වෙනත් ආකාරයකින් වෙබ් අඩවිය හරහා ලබා ගත හැකි සියලුම අන්තර්ගතයන් සඳහා දැන්වීම්කරු සම්පූර්ණයෙන්ම වගකිව යුතුය. වෙබ් අඩවිය හරහා ලබා ගත හැකි අන්තර්ගතයන් සමාගම විසින් පාලනය නොකරන බවත් ඒවාට වගකිව යුතු නොවන බවත්, වෙබ් අඩවිය භාවිතා කිරීමෙන්, අහිතකර, අශෝභන, සාවද්&zwj;ය, නොමඟ යවන හෝ වෙනත් ආකාරයකින් විරුද්ධ විය හැකි අන්තර්ගතයන්ට දැන්වීම්කරු නිරාවරණය විය හැකි බවට දැන්වීම්කරු එකඟ වේ. ප්&zwj;රචාරකයා ඔහු හෝ ඇය යම්කිසි අන්තර්ගතයක භාවිතය ඇගයීමට ලක් කළ යුතු බවටත්, ඒ හා සම්බන්ධ සියලු අවදානම් දරාගත යුතු බවටත් එකඟ වන අතර, ඔහු හෝ ඇය එම අන්තර්ගතය මත විශ්වාසය නොතැබිය යුතු අතර, කිසිම අවස්ථාවක වෙබ් අඩවිය අන්තර්ගතය පූර්ව-තිරීක්ෂණ හෝ අනුමත නොකරන නමුත්, වෙබ් අඩවිය හරහා ලබා ගත හැකි ඕනෑම අන්තර්ගතයක් ප්&zwj;රතික්ෂේප කිරීමට, මකා දැමීමට හෝ ගෙන යාමට, නියමවල ලිපිය හෝ ආත්මය උල්ලංඝනය කිරීම හෝ වෙනත් හේතුවක් නිසා වෙබ් අඩවියට එහි තනි අභිමතය පරිදි අයිතියක් ඇත (නමුත් වගකීමක් නොවේ).</p>\r\n\r\n<p>නීතියෙන් හෝ සද්භාවයෙන් එසේ කිරීමට අවශ්&zwj;ය නම්, වෙබ් අඩවියට එහි තනි අභිමතය පරිදි, අන්තර්ගතය සංරක්ෂණය හෝ හෙළිදරව් කිරීම මෙන්ම විද්&zwj;යුත් තැපැල් ලිපින, IP ලිපින, වේලා මුද්&zwj;රා, සහ වෙනත් පරිශීලක තොරතුරු ද කළ හැකි බව දැන්වීම්කරු පිළිගෙන එකඟ වේ. හෝ හෙළිදරව් කිරීම සාධාරණ ලෙස අවශ්&zwj;ය වේ: නීතිමය ක්&zwj;රියාවලියට අනුකූල වීම; නියමයන් ක්රියාත්මක කිරීම; ඕනෑම අන්තර්ගතයක් තෙවන පාර්ශ්වයන්ගේ අයිතිවාසිකම් උල්ලංඝනය කරන බවට ප්&zwj;රතිචාර දක්වන්න; හෝ වෙබ් අඩවියේ, එහි පරිශීලකයන්ගේ හෝ සාමාන්&zwj;ය ජනතාවගේ අයිතිවාසිකම්, දේපළ හෝ පුද්ගලික ආරක්ෂාව ආරක්ෂා කිරීම.</p>\r\n\r\n<p>ප්&zwj;රකාශන හිමිකම් නීති සහ ජාත්&zwj;යන්තර සම්මුතීන්ට අනුකූලව සාමූහික කාර්යයක් සහ/හෝ සම්පාදනයක් ලෙස ප්&zwj;රකාශන හිමිකම මගින් වෙබ් අඩවිය හරහා හෝ ප්&zwj;රදර්ශනය කෙරෙන අන්තර්ගතය ආරක්ෂා කෙරේ. ප්&zwj;රචාරකයා සහ පරිශීලකයා වෙබ් අඩවියෙන් අන්තර්ගතය ප්&zwj;රතිනිෂ්පාදනය කිරීම, අනුපිටපත් කිරීම හෝ පිටපත් නොකිරීමට එකඟ වන අතර, වෙබ් අඩවියේ ප්&zwj;රදර්ශනය කර ඇති ඕනෑම සහ සියලුම ප්&zwj;රකාශන හිමිකම් දැන්වීම්වලට අවනත වීමට එකඟ වේ.</p>\r\n\r\n<p>පරිශීලක, දැන්වීම්කරු හැසිරීම</p>\r\n\r\n<p>ප්&zwj;රචාරකයා සහ පරිශීලකයා වෙනත් ආකාරයකින් පළ නොකිරීමට එකඟ වන පරිදි අන්තර්ගතය ලබා ගත හැකිය:</p>\r\n\r\n<p>එනම් කාමුක දර්ශන, වැඩිහිටි, පරිණත හෝ ලිංගික දිශානතිය;<br />\r\nසූදුවට යොමු වන හෝ කැසිනෝ ආශ්&zwj;රිත;<br />\r\nනීතිවිරෝධී ඖෂධ, ඖෂධ උපකරණ හෝ බෙහෙත් වට්ටෝරු අලෙවි කිරීම ඇතුළත් වේ<br />\r\nඑයට අනවසරයෙන් ඇතුළුවීමේ/ක්&zwj;රැක් කිරීමේ තොරතුරු ඇතුළත් වේ.<br />\r\nප්&zwj;රචණ්ඩ අන්තර්ගතය;<br />\r\nදැන්වීම් හෝ දීමනා ක්ලික් කිරීම, සෙවීම් සිදු කිරීම, වෙබ් අඩවිවල සැරිසැරීම හෝ ඊමේල් කියවීම සඳහා පරිශීලකයින්ට වන්දි ලබා දෙන වැඩසටහන් සම්බන්ධ අන්තර්ගතය;<br />\r\nනීතිවිරෝධී, නීතිවිරෝධී ක්&zwj;රියාකාරකම් ප්&zwj;රවර්ධනය කරන හෝ අන් අයගේ නීත්&zwj;යානුකූල අයිතිවාසිකම් උල්ලංඝනය කරන වෙනත් ඕනෑම අන්තර්ගතයක්;<br />\r\nනිර්මාණකරුගේ හෝ වෙනත් භාණ්ඩවල අනුරූ හෝ අනුකරණය කරන නිෂ්පාදන විකිණීම;<br />\r\nආයුධ හෝ පතොරම් විකිණීම (උදා: ගිනි අවි, ගිනි අවි සංරචක, සටන් පිහි, ස්ටන් තුවක්කු);<br />\r\nඑය නීති විරෝධී, හානිකර, තර්ජනාත්මක, අපවාදාත්මක, හිරිහැර කරන, අපහාසාත්මක, අසභ්&zwj;ය,<br />\r\nනින්දා සහගත, වෙනත් කෙනෙකුගේ පෞද්ගලිකත්වය ආක්&zwj;රමණය කිරීම හෝ බාල වයස්කරුවන්ට ඕනෑම ආකාරයකින් හානි කිරීම;<br />\r\nආගම, ස්ත්&zwj;රී පුරුෂ භාවය, ජාතිය, වාර්ගිකත්වය, වයස හෝ ආබාධිත පදනම මත පුද්ගලයෙකුට හෝ පුද්ගලයන්ට හිරිහැර කිරීම, පහත් කිරීම, බිය ගැන්වීම හෝ වෛර කිරීම;<br />\r\nබව අපගමනය</p>', 'Posting an ad on gogoads.lk is free! However, all ads must follow our rules:\r\n\r\nMake sure you post in the correct category.\r\nDo not post the same ad more than once or repost an ad within 48 hours.\r\nDo not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.', 'gogoads.lk හි දැන්වීමක් පළ කිරීම නොමිලේ! කෙසේ වෙතත්, සියලුම දැන්වීම් අපගේ නීති අනුගමනය කළ යුතුය:\r\n\r\nඔබ නිවැරදි ප්‍රවර්ගයේ පළ කිරීමට වග බලා ගන්න.\r\nඑකම දැන්වීම එක වරකට වඩා පළ නොකරන්න හෝ පැය 48ක් ඇතුළත දැන්වීමක් නැවත පළ නොකරන්න.\r\nජල සලකුණු සහිත පින්තූර උඩුගත නොකරන්න.\r\nපැකේජ ගනුදෙනුවක් නම් මිස අයිතම කිහිපයක් අඩංගු දැන්වීම් පළ නොකරන්න.\r\nමාතෘකාවේ හෝ විස්තරයේ ඔබේ විද්‍යුත් තැපෑල හෝ දුරකථන අංක දමන්න එපා.', NULL, NULL);
+(1, '<p><strong>Introduction</strong></p>\r\n\r\n<p>The QS Week (Pvt.) Ltd is a limited liability company, it&rsquo;s registration number is PV89070 (hereafter the &ldquo;Company&rdquo;) and provides an online classified service which include classified advertisements and chat services through the website www.ok2list.com (hereafter referred &ldquo;Website&rdquo;).</p>\r\n\r\n<p>The services provided through the Website are subject to User and Advertiser compliance with the set-up Terms and Conditions (hereafter &ldquo;Terms&rdquo;) set forth below.</p>\r\n\r\n<p>How to use the Terms</p>\r\n\r\n<ul>\r\n	<li>Step 1: It is User&rsquo;s responsibility to read and understand the Terms prior to use this Website.</li>\r\n	<li>Step 2: By using this Website, the User agrees and bound to the Terms of this Website.</li>\r\n	<li>Step 3: If the User do not agree the Terms, such User do not use this Website.</li>\r\n</ul>\r\n\r\n<p>Terms &amp; Conditions (&ldquo;Terms&rdquo;)</p>\r\n\r\n<p>These Terms were written and updated on January 2019. The Company reserve the right to change any or all of our Terms of use or other conditions for using the Website at any time by publishing the new Terms on our Website.</p>\r\n\r\n<p>Definitions:</p>\r\n\r\n<p>In this Terms included following words and expressions shall have the meanings as are respectively assigned to them;</p>\r\n\r\n<p>&ldquo;Advertiser&rdquo; means the person or persons who uploading Contents on the Website.</p>\r\n\r\n<p>&ldquo;Company&rdquo; means the QS Week (Pvt) Ltd</p>\r\n\r\n<p>&ldquo;Contents&rdquo; means all postings, messages, text, files, images, photos, video, sounds, or other materials uploaded (by Advertiser) for inclusion on Website with fully compliance to all applicable laws of the country. The Company and Website assumes no responsibility for any illegality or any inaccuracy of the Content.</p>\r\n\r\n<p>&ldquo;User&rdquo; means the person or persons who uses, browsing or access any content, data or information on the Website.</p>\r\n\r\n<p>&ldquo;Website&rdquo; means the www.ok2list.com</p>\r\n\r\n<p>&ldquo;Watermark&rdquo; means the mark appears in the images (www.ok2list.com), which prevents the images to be used for the other purposes, without consent of the Advertiser.</p>\r\n\r\n<p>Content</p>\r\n\r\n<p>Advertiser agree that all postings, messages, text, files, images, photos, video, sounds, or other materials (&ldquo;Content&rdquo;) posted on, transmitted through, or linked from the Webs Site, are the sole responsibility of the Advertiser from whom such Content originated. More specifically, Advertiser is entirely responsible for all Content that he or she posts, email or otherwise make available via the Website. Advertiser agree that Company does not control and is not responsible for Content made available through the Website, and that by using the Website, Advertiser may be exposed to Content that is offensive, indecent, inaccurate, misleading, or otherwise objectionable. Advertiser agree that he or she must evaluate, and bear all risks associated with, the use of any Content, that he or she may not rely on said Content, and that under no circumstances will Website not pre-screen or approve Content, but that Website shall have the right (but not the obligation) in its sole discretion to refuse, delete or move any Content that is available via the Website, for violating the letter or spirit of the Terms or for any other reason.</p>\r\n\r\n<p>Advertiser acknowledge and agree that Website may, in its sole discretion, preserve or disclose Content, as well as email addresses, IP addresses, timestamps, and other user information, if required to do so by law or in the good faith belief that such preservation or disclosure is reasonably necessary to: comply with legal process; enforce the Terms; respond to claims that any Content violates the rights of third-parties; or protect the rights, property, or personal safety of Website, its Users or the general public.</p>\r\n\r\n<p>Content displayed on or through the Website is protected by copyright as a collective work and/or compilation, pursuant to copyrights laws, and international conventions. Advertiser and the User agree not to reproduce, duplicate or copy Content from the Website, and agree to abide by any and all copyright notices displayed on the Website.</p>\r\n\r\n<p>User, Advertiser Conduct</p>\r\n\r\n<p>Advertiser and User agree not to post otherwise make available Content:</p>\r\n\r\n<ul>\r\n	<li>that is pornographic, adult, mature or sexual orientation;</li>\r\n	<li>that refers to gambling or is casino-related;</li>\r\n	<li>that includes illicit drugs, drug paraphernalia or sales of prescription drugs</li>\r\n	<li>that includes hacking/cracking information.</li>\r\n	<li>Violent content;</li>\r\n	<li>Content regarding programs which compensate users for clicking ads or offers, performing searches, surfing websites or reading emails;</li>\r\n	<li>Any other content that is illegal, promotes illegal activity or infringes on the legal rights of others;</li>\r\n	<li>Sales of products that are replicas or imitations of designer or other goods;</li>\r\n	<li>Sales of weapons or ammunition (e.g. firearms, firearm components, fighting knives, stun guns);</li>\r\n	<li>that is unlawful, harmful, threatening, abusive, harassing, defamatory, pornographic,</li>\r\n	<li>libelous, invasive of another&rsquo;s privacy, or harms minors in any way;</li>\r\n	<li>that harasses, degrades, intimidates or is hateful toward an individual or individuals on the basis of religion, gender, race, ethnicity, age, or disability;</li>\r\n	<li>that impersonates any person or entity, including, but not limited to, a Website employee, or falsely states or otherwise misrepresents your affiliation with a person or entity;</li>\r\n	<li>that includes personal or identifying information about another person without that person&rsquo;s explicit consent.</li>\r\n	<li>that employs misleading email addresses, or forged headers or otherwise manipulated identifiers in order to disguise the origin of Content transmitted through the Website;</li>\r\n	<li>that infringes any patent, trademark, trade secret, copyright or other proprietary rights of any party, or Content that you do not have a right to make available under any law or under contractual or fiduciary relationships.</li>\r\n	<li>that constitutes or contains unauthorized advertising, promotional materials, &ldquo;junk mail,&rdquo; &ldquo;spam,&rdquo; &ldquo;chain letters, &ldquo;pyramid schemes,&rdquo; or any other form of solicitation.</li>\r\n	<li>that advertises for sale weapons or explosives; controlled substances (including but not limited to) tobacco products, alcoholic beverages, pharmaceuticals, illegal drugs; stolen or counterfeit items; goods or services that do not in fact exist; items that violate or infringe the rights of others; any items you do not have the right to sell; any dangerous items.</li>\r\n	<li>that contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer software or hardware or telecommunications equipment;</li>\r\n	<li>that disrupts the normal flow of dialogue with an excessive number of messages (flooding attack) to the Service, or that otherwise negatively affects other users&rsquo; ability to use the Service;</li>\r\n	<li>intentionally collect personal data about other Users for commercial or unlawful purposes</li>\r\n</ul>\r\n\r\n<p>Appropriateness of images</p>\r\n\r\n<p>Website reserves the right to change the title of the Content, for editorial purposes. Website reserves the right not to publish images that are irrelevant or images that violate Website Terms.</p>\r\n\r\n<p>Information to Authorities:</p>\r\n\r\n<p>Website has the right to cooperate with authorities in the case any Content violates the law. The identity of Advertisers, Users or buyers may be determined, for example by an ISP. IP addresses may also be registered in order to ensure compliance with the Terms.</p>\r\n\r\n<p>Valid email address:</p>\r\n\r\n<p>Advertiser and Users are required to provide a valid email address, before they are grand access to post advertisements. The email address of the User shall not be publicly displayed, and other Users are permitted to send email to the User through Website.</p>\r\n\r\n<p>Website accessibility:</p>\r\n\r\n<p>The Company and Website does not guarantee the availability of Website continuous or secure access. The Website is only available as on available.</p>\r\n\r\n<p>Links to third party websites:</p>\r\n\r\n<p>Website may contain links or references to other websites (&lsquo;Third Party Websites&rsquo;). Website shall not be responsible for the contents in Third Party Websites. Third Party Websites are not investigated or monitored. In the event the user decides to leave Website and access Third Party Sites, the User does so at his/her own risk.</p>\r\n\r\n<p>Paid services:</p>\r\n\r\n<p>Website is set out to use free in some categories and certain facilities that only available for paid basis. The paid services are membership packages, posting of ads and promoting an add that already posted. Users and Advertiser may purchase above paid facilities by making a payment or can make inquiry with Website customer care to get to know the exact requirements.</p>\r\n\r\n<p>Paid service by memberships:</p>\r\n\r\n<p>As part of a membership package, the Website will publish the Advertiser&rsquo;s Contents on behalf of the User. A dedicated team always available support and handle the Advertiser&rsquo;s clarification and queries. The Content provided by the Advertiser, Website has the right to any Content added to the Website by the User and has the right to remove or not publish the Content if it violates any aspect of the Terms.</p>\r\n\r\n<p>The Company or Website reserves the right to modify or change membership packages, including the price and the contents of the membership package. The Company or Website is not obligated to refund money or services if a membership package is cancelled early, for any reason.</p>\r\n\r\n<p>Privacy:</p>\r\n\r\n<p>The Company or Website will collect information from Users and Advertisers. It is a condition of use of the Website that each User and Advertiser consents and authorises The Company or Website to collect and use this information. The Company or Website also reserves the right to disclose it to Company affiliates and any other person for the purposes of administering, supporting and maintaining Website, as well as for improving Website, for example by using the information for research, marketing, product development and planning.</p>\r\n\r\n<p>Cookies:</p>\r\n\r\n<p>This site uses cookies, which means that you must have cookies enabled on your computer in order for all functionality on this Website to work properly. A cookie is a small data file that is written to your hard drive when you visit certain Websites. Cookie files contain certain information, such as a random number user ID that the site assigns to a visitor to track the pages visited. A cookie cannot read data off your hard disk or read cookie files created by other sites. Cookies, by themselves, cannot be used to find out the identity of any user.</p>\r\n\r\n<p>Disclaimer:</p>\r\n\r\n<p>www.ok2list.com and the Company assume no responsibility what so ever for the use of www.ok2list.com and disclaims all responsibility for any injury, claim, liability, or damage of any kind resulting from or arising out of or any way related to (i) any errors on www.ok2list.com or the Content, including but not limited to technical errors and typographical errors, (ii) any third party Websites or content directly or indirectly accessed through links in www.ok2list.com, (iii) the unavailability of www.ok2list.com, (iv) your use of www.ok2list.com or the Content, or (v) your use of any equipment (or software) in connection with www.ok2list.com</p>\r\n\r\n<p>Indemnification:</p>\r\n\r\n<p>Advertisers and Users agree to indemnify www.ok2list.com &amp; the Company as well as its officers, directors, employees, agents, from and against all losses, expenses, damages and costs, including attorney&rsquo;s fees, resulting from any violation of this Terms (including negligent or wrongful conduct).</p>\r\n\r\n<p>Modifications:</p>\r\n\r\n<p>www.ok2list.com &amp; the Company reserves the right to amend the part or full contents of the Terms. Such amendments shall be effective immediately upon posting on www.ok2list.com. User and Advertiser are responsible for the reviewing of such amendment. Advertiser and User continued access or use of www.ok2list.com shall be deemed your acceptance of the amended Terms.</p>\r\n\r\n<p>Governing law:</p>\r\n\r\n<p>Website is operated under the laws and regulations of srilanka. Advertisers and Users agree that it is User and Advertisers responsibility to understand the provisions.</p>', '<p>නියම සහ කොන්දේසි<br />\r\nහැදින්වීම</p>\r\n\r\n<p>QS Week (Pvt.) Ltd යනු සීමිත වගකීම් සහිත සමාගමකි, එහි ලියාපදිංචි අංකය PV89070 (මෙතැන් සිට &quot;සමාගම&quot;) වන අතර www.ok2list.com වෙබ් අඩවිය හරහා ලුහුඬු දැන්වීම් සහ කතාබස් සේවා ඇතුළත් මාර්ගගත ලුහුබැඳීම් සේවාවක් සපයයි (මින් ඉදිරියට යොමු කෙරේ. &quot;වෙබ් අඩවිය&quot;).</p>\r\n\r\n<p>වෙබ් අඩවිය හරහා සපයනු ලබන සේවාවන් පහත දක්වා ඇති සැකසුම් නියමයන් සහ කොන්දේසි (මෙතැන් සිට &quot;කොන්දේසි&quot;) සමඟ පරිශීලක සහ දැන්වීම්කරුගේ අනුකූලතාවයට යටත් වේ.</p>\r\n\r\n<p>නියමයන් භාවිතා කරන්නේ කෙසේද</p>\r\n\r\n<p>පියවර 1: මෙම වෙබ් අඩවිය භාවිතා කිරීමට පෙර කොන්දේසි කියවා අවබෝධ කර ගැනීම පරිශීලකයාගේ වගකීමකි.<br />\r\nපියවර 2: මෙම වෙබ් අඩවිය භාවිතා කිරීමෙන්, පරිශීලකයා මෙම වෙබ් අඩවියේ කොන්දේසි වලට එකඟ වන අතර ඒවාට බැඳී සිටී.<br />\r\nපියවර 3: පරිශීලකයා කොන්දේසි වලට එකඟ නොවන්නේ නම්, එවැනි පරිශීලකයෙකු මෙම වෙබ් අඩවිය භාවිතා නොකරයි.<br />\r\nනියම සහ කොන්දේසි (&quot;නියම&quot;)</p>\r\n\r\n<p>මෙම නියමයන් ලියා යාවත්කාලීන කරන ලද්දේ 2019 ජනවාරි මාසයේදීය. අපගේ වෙබ් අඩවියේ නව නියමයන් ප්&zwj;රකාශයට පත් කිරීමෙන් ඕනෑම වේලාවක වෙබ් අඩවිය භාවිතා කිරීම සඳහා අපගේ ඕනෑම හෝ සියලුම භාවිත නියමයන් හෝ වෙනත් කොන්දේසි වෙනස් කිරීමට සමාගමට අයිතිය ඇත.</p>\r\n\r\n<p>අර්ථ දැක්වීම්:</p>\r\n\r\n<p>මෙම නියමයන් තුළ පහත සඳහන් වචන සහ ප්&zwj;රකාශනවලට පිළිවෙළින් පවරා ඇති අර්ථයන් තිබිය යුතුය;</p>\r\n\r\n<p>&ldquo;දැන්වීම්කරු&rdquo; යන්නෙන් අදහස් වන්නේ වෙබ් අඩවියේ අන්තර්ගතය උඩුගත කරන පුද්ගලයා හෝ පුද්ගලයන්ය.</p>\r\n\r\n<p>&quot;සමාගම&quot; යන්නෙන් අදහස් වන්නේ QS Week (Pvt) Ltd</p>\r\n\r\n<p>&ldquo;අන්තර්ගතය&rdquo; යන්නෙන් අදහස් වන්නේ රටේ සියලුම අදාළ නීතිවලට සම්පූර්ණයෙන්ම අනුකූල වන පරිදි වෙබ් අඩවියට ඇතුළත් කිරීම සඳහා උඩුගත කරන ලද (දැන්වීම්කරු විසින්) සියලුම පළ කිරීම්, පණිවිඩ, පෙළ, ගොනු, පින්තූර, ඡායාරූප, වීඩියෝ, ශබ්ද හෝ වෙනත් ද්&zwj;රව්&zwj;ය ය. සමාගම සහ වෙබ් අඩවිය කිසියම් නීතිවිරෝධී හෝ අන්තර්ගතයේ සාවද්&zwj;ය භාවයක් සඳහා කිසිදු වගකීමක් භාර නොගනී.</p>\r\n\r\n<p>&quot;පරිශීලක&quot; යන්නෙන් අදහස් වන්නේ වෙබ් අඩවියේ ඕනෑම අන්තර්ගතයක්, දත්තයක් හෝ තොරතුරක් භාවිතා කරන, බ්&zwj;රවුස් කරන හෝ ප්&zwj;රවේශ කරන පුද්ගලයා හෝ පුද්ගලයන්ය.</p>\r\n\r\n<p>&quot;වෙබ් අඩවිය&quot; යන්නෙන් අදහස් වන්නේ www.ok2list.com යන්නයි</p>\r\n\r\n<p>&ldquo;Watermark&rdquo; යන්නෙන් අදහස් වන්නේ, වෙළඳ ප්&zwj;රචාරකයාගේ අනුමැතියකින් තොරව රූප වෙනත් අරමුණු සඳහා භාවිත කිරීම වළක්වන (www.ok2list.com) සලකුණ රූපවල දිස් වීමයි.</p>\r\n\r\n<p>අන්තර්ගතය</p>\r\n\r\n<p>සියලුම පළ කිරීම්, පණිවිඩ, පෙළ, ලිපිගොනු, පින්තූර, ඡායාරූප, වීඩියෝ, ශබ්ද, හෝ වෙනත් ද්&zwj;රව්&zwj;ය (&quot;අන්තර්ගතය&quot;) වෙබ් අඩවිය හරහා සම්ප්&zwj;රේෂණය කරන ලද හෝ සබැඳි කර ඇති අතර, ඒවා දැන්වීම්කරුගේ සම්පූර්ණ වගකීම බව දැන්වීම්කරු එකඟ වේ. එවැනි අන්තර්ගතයක් ආරම්භ විය. වඩාත් නිශ්චිතව, ඔහු හෝ ඇය පළ කරන, විද්&zwj;යුත් තැපෑල හෝ වෙනත් ආකාරයකින් වෙබ් අඩවිය හරහා ලබා ගත හැකි සියලුම අන්තර්ගතයන් සඳහා දැන්වීම්කරු සම්පූර්ණයෙන්ම වගකිව යුතුය. වෙබ් අඩවිය හරහා ලබා ගත හැකි අන්තර්ගතයන් සමාගම විසින් පාලනය නොකරන බවත් ඒවාට වගකිව යුතු නොවන බවත්, වෙබ් අඩවිය භාවිතා කිරීමෙන්, අහිතකර, අශෝභන, සාවද්&zwj;ය, නොමඟ යවන හෝ වෙනත් ආකාරයකින් විරුද්ධ විය හැකි අන්තර්ගතයන්ට දැන්වීම්කරු නිරාවරණය විය හැකි බවට දැන්වීම්කරු එකඟ වේ. ප්&zwj;රචාරකයා ඔහු හෝ ඇය යම්කිසි අන්තර්ගතයක භාවිතය ඇගයීමට ලක් කළ යුතු බවටත්, ඒ හා සම්බන්ධ සියලු අවදානම් දරාගත යුතු බවටත් එකඟ වන අතර, ඔහු හෝ ඇය එම අන්තර්ගතය මත විශ්වාසය නොතැබිය යුතු අතර, කිසිම අවස්ථාවක වෙබ් අඩවිය අන්තර්ගතය පූර්ව-තිරීක්ෂණ හෝ අනුමත නොකරන නමුත්, වෙබ් අඩවිය හරහා ලබා ගත හැකි ඕනෑම අන්තර්ගතයක් ප්&zwj;රතික්ෂේප කිරීමට, මකා දැමීමට හෝ ගෙන යාමට, නියමවල ලිපිය හෝ ආත්මය උල්ලංඝනය කිරීම හෝ වෙනත් හේතුවක් නිසා වෙබ් අඩවියට එහි තනි අභිමතය පරිදි අයිතියක් ඇත (නමුත් වගකීමක් නොවේ).</p>\r\n\r\n<p>නීතියෙන් හෝ සද්භාවයෙන් එසේ කිරීමට අවශ්&zwj;ය නම්, වෙබ් අඩවියට එහි තනි අභිමතය පරිදි, අන්තර්ගතය සංරක්ෂණය හෝ හෙළිදරව් කිරීම මෙන්ම විද්&zwj;යුත් තැපැල් ලිපින, IP ලිපින, වේලා මුද්&zwj;රා, සහ වෙනත් පරිශීලක තොරතුරු ද කළ හැකි බව දැන්වීම්කරු පිළිගෙන එකඟ වේ. හෝ හෙළිදරව් කිරීම සාධාරණ ලෙස අවශ්&zwj;ය වේ: නීතිමය ක්&zwj;රියාවලියට අනුකූල වීම; නියමයන් ක්රියාත්මක කිරීම; ඕනෑම අන්තර්ගතයක් තෙවන පාර්ශ්වයන්ගේ අයිතිවාසිකම් උල්ලංඝනය කරන බවට ප්&zwj;රතිචාර දක්වන්න; හෝ වෙබ් අඩවියේ, එහි පරිශීලකයන්ගේ හෝ සාමාන්&zwj;ය ජනතාවගේ අයිතිවාසිකම්, දේපළ හෝ පුද්ගලික ආරක්ෂාව ආරක්ෂා කිරීම.</p>\r\n\r\n<p>ප්&zwj;රකාශන හිමිකම් නීති සහ ජාත්&zwj;යන්තර සම්මුතීන්ට අනුකූලව සාමූහික කාර්යයක් සහ/හෝ සම්පාදනයක් ලෙස ප්&zwj;රකාශන හිමිකම මගින් වෙබ් අඩවිය හරහා හෝ ප්&zwj;රදර්ශනය කෙරෙන අන්තර්ගතය ආරක්ෂා කෙරේ. ප්&zwj;රචාරකයා සහ පරිශීලකයා වෙබ් අඩවියෙන් අන්තර්ගතය ප්&zwj;රතිනිෂ්පාදනය කිරීම, අනුපිටපත් කිරීම හෝ පිටපත් නොකිරීමට එකඟ වන අතර, වෙබ් අඩවියේ ප්&zwj;රදර්ශනය කර ඇති ඕනෑම සහ සියලුම ප්&zwj;රකාශන හිමිකම් දැන්වීම්වලට අවනත වීමට එකඟ වේ.</p>\r\n\r\n<p>පරිශීලක, දැන්වීම්කරු හැසිරීම</p>\r\n\r\n<p>ප්&zwj;රචාරකයා සහ පරිශීලකයා වෙනත් ආකාරයකින් පළ නොකිරීමට එකඟ වන පරිදි අන්තර්ගතය ලබා ගත හැකිය:</p>\r\n\r\n<p>එනම් කාමුක දර්ශන, වැඩිහිටි, පරිණත හෝ ලිංගික දිශානතිය;<br />\r\nසූදුවට යොමු වන හෝ කැසිනෝ ආශ්&zwj;රිත;<br />\r\nනීතිවිරෝධී ඖෂධ, ඖෂධ උපකරණ හෝ බෙහෙත් වට්ටෝරු අලෙවි කිරීම ඇතුළත් වේ<br />\r\nඑයට අනවසරයෙන් ඇතුළුවීමේ/ක්&zwj;රැක් කිරීමේ තොරතුරු ඇතුළත් වේ.<br />\r\nප්&zwj;රචණ්ඩ අන්තර්ගතය;<br />\r\nදැන්වීම් හෝ දීමනා ක්ලික් කිරීම, සෙවීම් සිදු කිරීම, වෙබ් අඩවිවල සැරිසැරීම හෝ ඊමේල් කියවීම සඳහා පරිශීලකයින්ට වන්දි ලබා දෙන වැඩසටහන් සම්බන්ධ අන්තර්ගතය;<br />\r\nනීතිවිරෝධී, නීතිවිරෝධී ක්&zwj;රියාකාරකම් ප්&zwj;රවර්ධනය කරන හෝ අන් අයගේ නීත්&zwj;යානුකූල අයිතිවාසිකම් උල්ලංඝනය කරන වෙනත් ඕනෑම අන්තර්ගතයක්;<br />\r\nනිර්මාණකරුගේ හෝ වෙනත් භාණ්ඩවල අනුරූ හෝ අනුකරණය කරන නිෂ්පාදන විකිණීම;<br />\r\nආයුධ හෝ පතොරම් විකිණීම (උදා: ගිනි අවි, ගිනි අවි සංරචක, සටන් පිහි, ස්ටන් තුවක්කු);<br />\r\nඑය නීති විරෝධී, හානිකර, තර්ජනාත්මක, අපවාදාත්මක, හිරිහැර කරන, අපහාසාත්මක, අසභ්&zwj;ය,<br />\r\nනින්දා සහගත, වෙනත් කෙනෙකුගේ පෞද්ගලිකත්වය ආක්&zwj;රමණය කිරීම හෝ බාල වයස්කරුවන්ට ඕනෑම ආකාරයකින් හානි කිරීම;<br />\r\nආගම, ස්ත්&zwj;රී පුරුෂ භාවය, ජාතිය, වාර්ගිකත්වය, වයස හෝ ආබාධිත පදනම මත පුද්ගලයෙකුට හෝ පුද්ගලයන්ට හිරිහැර කිරීම, පහත් කිරීම, බිය ගැන්වීම හෝ වෛර කිරීම;<br />\r\nබව අපගමනය</p>', 'Posting an ad on ok2list.com is free! However, all ads must follow our rules:\r\n\r\nMake sure you post in the correct category.\r\nDo not post the same ad more than once or repost an ad within 48 hours.\r\nDo not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.', 'ok2list.com හි දැන්වීමක් පළ කිරීම නොමිලේ! කෙසේ වෙතත්, සියලුම දැන්වීම් අපගේ නීති අනුගමනය කළ යුතුය:\r\n\r\nඔබ නිවැරදි ප්‍රවර්ගයේ පළ කිරීමට වග බලා ගන්න.\r\nඑකම දැන්වීම එක වරකට වඩා පළ නොකරන්න හෝ පැය 48ක් ඇතුළත දැන්වීමක් නැවත පළ නොකරන්න.\r\nජල සලකුණු සහිත පින්තූර උඩුගත නොකරන්න.\r\nපැකේජ ගනුදෙනුවක් නම් මිස අයිතම කිහිපයක් අඩංගු දැන්වීම් පළ නොකරන්න.\r\nමාතෘකාවේ හෝ විස්තරයේ ඔබේ විද්‍යුත් තැපෑල හෝ දුරකථන අංක දමන්න එපා.', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -531,8 +530,8 @@ INSERT INTO `page_terms_conditions` (`id`, `details_en`, `details_sl`, `rules_en
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -544,8 +543,8 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `permissions` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `display_name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `permission_group_id` bigint(20) UNSIGNED NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -628,7 +627,7 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `permission_group_id`, 
 
 CREATE TABLE `permission_groups` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `group_name` varchar(255) NOT NULL,
+  `group_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -674,7 +673,7 @@ CREATE TABLE `prd_ads` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_ads`
@@ -710,7 +709,7 @@ CREATE TABLE `prd_ad_details` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_ad_details`
@@ -718,18 +717,18 @@ CREATE TABLE `prd_ad_details` (
 
 INSERT INTO `prd_ad_details` (`pk_no`, `prd_ad_id`, `name`, `link`, `photo`, `is_active`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
 (2, 4, 'home page two', 'https://www.facebook.com/', 'uploads/ads/1660893975-sell-(1).png', 1, NULL, '2022-08-09 11:35:18', NULL, '2022-08-19 13:26:15'),
-(3, 5, 'home page three', 'https://gogoads.lk/ad-post?type=general', 'uploads/ads/1660894056-sell-(1).png', 1, NULL, '2022-08-09 11:35:36', NULL, '2022-08-19 13:27:36'),
+(3, 5, 'home page three', 'https://ok2list.com/ad-post?type=general', 'uploads/ads/1660894056-sell-(1).png', 1, NULL, '2022-08-09 11:35:36', NULL, '2022-08-19 13:27:36'),
 (4, 6, 'list page one', 'https://www.facebook.com/', 'uploads/ads/1661023841-sell-(4).png', 1, NULL, '2022-08-09 11:37:12', NULL, '2022-08-21 01:30:41'),
 (5, 7, 'All ads', 'https://www.facebook.com/', 'uploads/ads/1660616682-post-(1).png', 1, NULL, '2022-08-09 11:38:28', NULL, '2022-08-16 08:24:42'),
 (6, 8, 'Horizon 1', 'https://www.facebook.com/', 'uploads/ads/1660912697-sell.png', 1, NULL, '2022-08-09 12:05:44', NULL, '2022-08-19 18:38:17'),
 (7, 9, 'sdfsdf', 'https://www.facebook.com/', 'uploads/ads/1660593589-post.png', 1, NULL, '2022-08-09 12:06:46', NULL, '2022-08-16 01:59:50'),
 (8, 10, 'Ad3', 'https://www.facebook.com/', 'uploads/ads/1661023752-sell-(2).png', 1, NULL, '2022-08-09 12:17:25', NULL, '2022-08-21 01:29:12'),
 (9, 11, 'list page three', 'https://www.facebook.com/', 'uploads/ads/1661023941-sell-(2).png', 1, NULL, '2022-08-09 17:02:35', NULL, '2022-08-21 01:32:21'),
-(10, 12, 'Ad 1', 'https://gogoads.lk/ad-post?type=general', 'uploads/ads/1660893793-sell.png', 1, NULL, '2022-08-13 20:54:26', NULL, '2022-08-19 13:25:25'),
+(10, 12, 'Ad 1', 'https://ok2list.com/ad-post?type=general', 'uploads/ads/1660893793-sell.png', 1, NULL, '2022-08-13 20:54:26', NULL, '2022-08-19 13:25:25'),
 (14, 10, 'Ad1', NULL, 'uploads/ads/1661023752-sell-(4).png', 1, NULL, '2022-08-21 01:29:12', NULL, '2022-08-21 01:29:12'),
 (15, 10, 'Ads2', NULL, 'uploads/ads/1661023752-sell-(3).png', 1, NULL, '2022-08-21 01:29:12', NULL, '2022-08-21 01:29:12'),
-(16, 13, 'ads', 'https://gogoads.lk/', 'uploads/ads/1670932355-1.png', 1, NULL, '2022-12-13 17:22:35', NULL, '2022-12-13 17:22:35'),
-(17, 14, 'ads', 'https://gogoads.lk/', 'uploads/ads/1670932377-2.png', 1, NULL, '2022-12-13 17:22:57', NULL, '2022-12-13 17:22:57');
+(16, 13, 'ads', 'https://ok2list.com/', 'uploads/ads/1670932355-1.png', 1, NULL, '2022-12-13 17:22:35', NULL, '2022-12-13 17:22:35'),
+(17, 14, 'ads', 'https://ok2list.com/', 'uploads/ads/1670932377-2.png', 1, NULL, '2022-12-13 17:22:57', NULL, '2022-12-13 17:22:57');
 
 -- --------------------------------------------------------
 
@@ -752,7 +751,7 @@ CREATE TABLE `prd_brand` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Brand Master Setup Table' ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Brand Master Setup Table' ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_brand`
@@ -895,7 +894,7 @@ CREATE TABLE `prd_category` (
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `is_highlight` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='category master setup table' ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='category master setup table' ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_category`
@@ -1165,7 +1164,7 @@ CREATE TABLE `prd_features` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Brand Master Setup Table' ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Brand Master Setup Table' ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1182,7 +1181,7 @@ CREATE TABLE `prd_img_library` (
   `updated_by` int(10) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_img_library`
@@ -1323,7 +1322,7 @@ CREATE TABLE `prd_like_count` (
   `prd_id` int(50) NOT NULL,
   `customer_id` int(50) NOT NULL,
   `counter` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `prd_like_count`
@@ -1422,30 +1421,30 @@ CREATE TABLE `prd_master` (
   `promotion_to` date DEFAULT NULL,
   `thumb` varchar(55) DEFAULT NULL,
   `search_key` longtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_master`
 --
 
 INSERT INTO `prd_master` (`pk_no`, `ad_type`, `area_id`, `city_division`, `city_division_pk_no`, `area_url_slug`, `city_division_url_slug`, `customer_pk_no`, `main_category`, `f_cat_pk_no`, `cat_url_slug`, `f_scat_pk_no`, `scat_url_slug`, `code`, `ad_title`, `url_slug`, `f_brand`, `brand_name`, `f_model`, `model_name`, `prod_feature`, `price`, `price_unit`, `is_negotiable`, `price_to`, `vacanci`, `business_function`, `deadline`, `company_name`, `logo`, `description`, `edition`, `authenticity`, `using_condition`, `prod_type`, `mobile1`, `mobile2`, `is_hide_mobile1`, `is_hide_mobile2`, `model_year`, `registration_year`, `transmission`, `address`, `body_type`, `fuel_type`, `engine_capacity`, `kilometers_run`, `bed_no`, `bath_no`, `land_size`, `land_unit`, `house_size`, `house_unit`, `property_address`, `flat_size`, `gender`, `user_name`, `is_terms_condition`, `comments`, `is_active`, `approved_by`, `approved_at`, `created_by`, `created_at`, `updated_by`, `updated_at`, `total_view`, `is_delete`, `deleted_by`, `deleted_at`, `promotion`, `promotion_to`, `thumb`, `search_key`) VALUES
-(29, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 46, 'general', 1, 'cars-vehicles', 13, 'cars--buses', 104, 'BMW Blue Coupe', 'bmw-blue-coupe', 20, 'BMW', 2, 'Other model', NULL, 286532, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BMW 2 Series Gran Coupe is available in Misano Blue Metallic. BMW 2 Series Gran Coupe is also available in 5 colours, namely, Apine White Non Metallic, Black Sapphire Metallic, Melbourne Red Metallic, Snapper Rocks Blue Metallic, Storm Bay.', 'BMW 2 SERIES COUPE 2018', 'original', 'new', NULL, '94743488449', NULL, 0, 0, 2018, 2018, 'Manual', 'Colombo', 'Estate', 'Diseel, Petrol', 3200, 48000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:08', NULL, '2022-12-13 17:38:37', NULL, '2022-12-19 18:16:12', 11, 0, NULL, NULL, 'Basic', NULL, '7051671447399.jpg', 'nugegoda colombo general cars--buses BMW Blue Coupe BMW Other model286532 new94743488449ColomboBMW 2 Series Gran Coupe is available in Misano Blue Metallic. BMW 2 Series Gran Coupe is also available in 5 colours, namely, Apine White Non Metallic, Black Sapphire Metallic, Melbourne Red Metallic, Snapper Rocks Blue Metallic, Storm Bay.'),
+(29, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 46, 'general', 1, 'cars-vehicles', 13, 'cars--buses', 104, 'BMW Blue Coupe', 'bmw-blue-coupe', 20, 'BMW', 2, 'Other model', NULL, 286532, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BMW 2 Series Gran Coupe is available in Misano Blue Metallic. BMW 2 Series Gran Coupe is also available in 5 colours, namely, Apine White Non Metallic, Black Sapphire Metallic, Melbourne Red Metallic, Snapper Rocks Blue Metallic, Storm Bay.', 'BMW 2 SERIES COUPE 2018', 'original', 'new', NULL, '94743488449', NULL, 0, 0, 2018, 2018, 'Manual', 'Colombo', 'Estate', 'Diseel, Petrol', 3200, 48000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:08', NULL, '2022-12-13 17:38:37', NULL, '2022-12-24 16:12:08', 12, 0, NULL, NULL, 'Basic', NULL, '7051671447399.jpg', 'nugegoda colombo general cars--buses BMW Blue Coupe BMW Other model286532 new94743488449ColomboBMW 2 Series Gran Coupe is available in Misano Blue Metallic. BMW 2 Series Gran Coupe is also available in 5 colours, namely, Apine White Non Metallic, Black Sapphire Metallic, Melbourne Red Metallic, Snapper Rocks Blue Metallic, Storm Bay.'),
 (30, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 46, 'general', 2, 'electronics-gedgets', 113, 'tablets-accessories', 105, 'Acer Laptop', 'acer-laptop', NULL, NULL, NULL, NULL, NULL, 23645, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Acer Aspire is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\n\r\nGraphics are powered by Intel HD Graphics 620. Connectivity options include Wi-Fi 802.11 ac and it comes with 3 USB ports (2 x USB 2.0, 1 x USB 3.0), HDMI Port, Multi Card Slot, Headphone and Mic Combo Jack, RJ45 (LAN) ports.\r\n\r\nAs of 13th December 2022, Acer Aspire price in India starts at Rs. 79,979', NULL, 'original', 'new', NULL, '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:18', NULL, '2022-12-13 17:45:43', NULL, '2022-12-19 18:29:18', 11, 0, NULL, NULL, 'Basic', NULL, '69421671447426.jpg', 'nugegoda colombo general tablets-accessories Acer Laptop  23645 new94743488449ColomboAcer Aspire is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\n\r\nGraphics are powered by Intel HD Graphics 620. Connectivity options include Wi-Fi 802.11 ac and it comes with 3 USB ports (2 x USB 2.0, 1 x USB 3.0), HDMI Port, Multi Card Slot, Headphone and Mic Combo Jack, RJ45 (LAN) ports.\r\n\r\nAs of 13th December 2022, Acer Aspire price in India starts at Rs. 79,979'),
 (31, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 46, 'general', 5, 'fashion-beauty', 183, 'clothing', 106, 'Polo T-Shirt', 'polo-t-shirt', NULL, NULL, NULL, NULL, NULL, 1250, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Material : 100% Cotton Single Jersey( Weight : 220-240 gsm ), Pique( Weight : 180-220 gsm )\r\nSize : S-2XL\r\nQuantity : 1000-2000 Pcs / style\r\nDelivery Destination : Marseille Port & Le Havre port, France, Barcelona Port Spain, Montreal port, Canada\r\nPayment Mode : D/P, D/A, L/C\r\nImport Market : India( Tirupur )', NULL, 'original', 'new', NULL, '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:23', NULL, '2022-12-13 17:48:11', NULL, '2022-12-19 18:49:10', 10, 1, NULL, NULL, 'Basic', NULL, '684401671447456.jpg', 'nugegoda colombo general clothing Polo T-Shirt  1250 new94743488449ColomboMaterial : 100% Cotton Single Jersey( Weight : 220-240 gsm ), Pique( Weight : 180-220 gsm )\r\nSize : S-2XL\r\nQuantity : 1000-2000 Pcs / style\r\nDelivery Destination : Marseille Port & Le Havre port, France, Barcelona Port Spain, Montreal port, Canada\r\nPayment Mode : D/P, D/A, L/C\r\nImport Market : India( Tirupur )'),
 (32, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 46, 'general', 4, 'sports-responsive', 36, 'sports', 107, 'Premium Football 2022', 'premium-football-2022', NULL, NULL, NULL, NULL, NULL, 1850, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, '1. Qualities and Measurements\r\n\r\nAll balls must be:\r\n\r\nspherical\r\nmade of suitable material\r\nof a circumference of between 68 cm (27 ins) and 70 cm (28 ins)\r\nbetween 410 g (14 oz) and 450 g (16 oz) in weight at the start of the match\r\nof a pressure equal to 0.6 – 1.1 atmosphere (600 – 1,100g/cm2) at sea level (8.5 lbs/sq in – 15.6 lbs/sq in)\r\nAll balls used in matches played in an official competition organised under the auspices of FIFA or confederations must meet the requirements and bear one\r\nof the marks of the FIFA Quality Programme for Footballs.\r\n\r\nEach mark indicates that it has been officially tested and meets the specific technical requirements for that mark which are additional to the minimum specifications stipulated in Law 2 and must be approved by The IFAB.\r\n\r\nNational FA competitions may require the use of balls bearing one of these marks.\r\n\r\nIn matches played in an official competition organised under the auspices of FIFA, confederations or national football associations, no form of commercial advertising is permitted on the ball, except for the logo/emblem of the competition, the competition organiser and the authorised manufacturer’s trademark. The competition regulations may restrict the size and number of such markings.\r\n\r\n2. Replacement of a defective ball\r\n\r\nIf the ball becomes defective:\r\n\r\nplay is stopped and\r\nrestarted with a dropped ball\r\nIf the ball becomes defective at a kick-off, goal kick, corner kick, free kick, penalty kick or throw-in, the restart is re-taken.\r\n\r\nIf the ball becomes defective during a penalty kick or kicks from the penalty mark as it moves forward and before it touches a player, crossbar or goalposts the penalty kick is retaken.\r\n\r\nThe ball may not be changed during the match without the referee’s permission.\r\n\r\n3. Additional Balls\r\n\r\nAdditional balls which meet the requirements of Law 2 may be placed around the field of play and their use is under the referee’s control.', NULL, 'original', 'new', '214', '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:28', NULL, '2022-12-13 17:53:33', NULL, '2022-12-20 14:24:41', 21, 0, NULL, NULL, 'Basic', NULL, '434261671447484.jpg', 'nugegoda colombo general sports Premium Football 2022  1850 new94743488449Colombo1. Qualities and Measurements\r\n\r\nAll balls must be:\r\n\r\nspherical\r\nmade of suitable material\r\nof a circumference of between 68 cm (27 ins) and 70 cm (28 ins)\r\nbetween 410 g (14 oz) and 450 g (16 oz) in weight at the start of the match\r\nof a pressure equal to 0.6 – 1.1 atmosphere (600 – 1,100g/cm2) at sea level (8.5 lbs/sq in – 15.6 lbs/sq in)\r\nAll balls used in matches played in an official competition organised under the auspices of FIFA or confederations must meet the requirements and bear one\r\nof the marks of the FIFA Quality Programme for Footballs.\r\n\r\nEach mark indicates that it has been officially tested and meets the specific technical requirements for that mark which are additional to the minimum specifications stipulated in Law 2 and must be approved by The IFAB.\r\n\r\nNational FA competitions may require the use of balls bearing one of these marks.\r\n\r\nIn matches played in an official competition organised under the auspices of FIFA, confederations or national football associations, no form of commercial advertising is permitted on the ball, except for the logo/emblem of the competition, the competition organiser and the authorised manufacturer’s trademark. The competition regulations may restrict the size and number of such markings.\r\n\r\n2. Replacement of a defective ball\r\n\r\nIf the ball becomes defective:\r\n\r\nplay is stopped and\r\nrestarted with a dropped ball\r\nIf the ball becomes defective at a kick-off, goal kick, corner kick, free kick, penalty kick or throw-in, the restart is re-taken.\r\n\r\nIf the ball becomes defective during a penalty kick or kicks from the penalty mark as it moves forward and before it touches a player, crossbar or goalposts the penalty kick is retaken.\r\n\r\nThe ball may not be changed during the match without the referee’s permission.\r\n\r\n3. Additional Balls\r\n\r\nAdditional balls which meet the requirements of Law 2 may be placed around the field of play and their use is under the referee’s control.'),
 (34, 'jobs', 82, 'city', 2, 'katugastota', 'kandy', 48, 'jobs', 7, 'jobs', 57, 'it-telecom', 108, 'Laravel Developer need for arjent', 'laravel-developer-need-for-arjent', NULL, NULL, NULL, NULL, NULL, 23423, NULL, NULL, 43242, NULL, NULL, NULL, 'Arobil', NULL, 'Do not post ads contpackage deal.\r\nDo not post the same ad more than once or repost an ad within 48 hours.\r\nDo not upload pictures with watermarks and title or description.\r\nDo not put your email or phone numbers in the', NULL, NULL, NULL, NULL, '94776628443', NULL, 0, 0, NULL, NULL, NULL, 'New Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Masud Rana Tapu', 0, NULL, 2, 1, '2022-12-19 16:52:41', NULL, '2022-12-15 13:54:15', NULL, '2022-12-19 16:50:47', 6, 0, NULL, NULL, 'Urgent', '2022-12-30', NULL, 'katugastota kandy jobs it-telecom Laravel Developer need for arjent  23423Arobil94776628443New ColomboDo not post ads contpackage deal.\r\nDo not post the same ad more than once or repost an ad within 48 hours.\r\nDo not upload pictures with watermarks and title or description.\r\nDo not put your email or phone numbers in the'),
-(35, 'rent', 81, 'city', 2, 'gampola', 'kandy', 48, 'property', 3, 'property', 152, 'house-for-rentals', 109, 'Couple House', 'couple-house', NULL, NULL, NULL, NULL, NULL, 2023, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Do not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.\r\nMake sure you post in the correct category.\r\nDo not post ads contpackage deal.', NULL, 'original', 'new', NULL, '94776628443', NULL, 0, 0, NULL, NULL, NULL, 'New Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Masud Rana Tapu', 0, NULL, 1, NULL, NULL, NULL, '2022-12-15 13:56:34', NULL, '2022-12-19 19:40:29', 12, 0, NULL, NULL, 'Feature', '2022-12-30', '54731671092794.jpg', 'gampola kandy property house-for-rentals Couple House  2023 new94776628443New ColomboDo not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.\r\nMake sure you post in the correct category.\r\nDo not post ads contpackage deal.'),
+(35, 'rent', 81, 'city', 2, 'gampola', 'kandy', 48, 'property', 3, 'property', 152, 'house-for-rentals', 109, 'Couple House', 'couple-house', NULL, NULL, NULL, NULL, NULL, 2023, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Do not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.\r\nMake sure you post in the correct category.\r\nDo not post ads contpackage deal.', NULL, 'original', 'new', NULL, '94776628443', NULL, 0, 0, NULL, NULL, NULL, 'New Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Masud Rana Tapu', 0, NULL, 1, NULL, NULL, NULL, '2022-12-15 13:56:34', NULL, '2022-12-24 13:50:25', 14, 0, NULL, NULL, 'Feature', '2022-12-30', '54731671092794.jpg', 'gampola kandy property house-for-rentals Couple House  2023 new94776628443New ColomboDo not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.\r\nMake sure you post in the correct category.\r\nDo not post ads contpackage deal.'),
 (36, 'sell', 218, 'city', 1, 'maharagama', 'colombo', 50, 'general', 8, 'home-appliances', 120, 'refrigerators-freezers', 110, 'Walton  Refrigerators', 'walton-refrigerators', NULL, NULL, NULL, NULL, NULL, 45554, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'MEASURING REFRIGERATOR DEPTH\r\nWhen measuring for a refrigerator, you’ll want to decide what depth style you’d prefer.\r\n\r\nStandard-Depth: Measure from your wall with a little room to extend past your cabinets.\r\n\r\nCounter-Depth: Measure from your wall to the edge of your counter. Learn about counter-depth refrigerators. \r\n\r\nDOES YOUR KITCHEN HAVE AN ISLAND?\r\nMeasure the space in front of the refrigerator so doors and drawers can open without getting dinged.\r\n\r\nMeasure: \r\nDepth with drawer open\r\nDepth with doors open\r\nNot including handles\r\nIncluding handles', NULL, 'original', 'new', NULL, '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Kandy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak', 0, NULL, 0, 1, '2022-12-15 16:27:47', NULL, '2022-12-15 16:21:58', NULL, '2022-12-19 16:33:49', 3, 0, NULL, NULL, 'Basic', NULL, NULL, 'maharagama colombo general refrigerators-freezers Walton  Refrigerators  45554 new94743488449KandyMEASURING REFRIGERATOR DEPTH\r\nWhen measuring for a refrigerator, you’ll want to decide what depth style you’d prefer.\r\n\r\nStandard-Depth: Measure from your wall with a little room to extend past your cabinets.\r\n\r\nCounter-Depth: Measure from your wall to the edge of your counter. Learn about counter-depth refrigerators. \r\n\r\nDOES YOUR KITCHEN HAVE AN ISLAND?\r\nMeasure the space in front of the refrigerator so doors and drawers can open without getting dinged.\r\n\r\nMeasure: \r\nDepth with drawer open\r\nDepth with doors open\r\nNot including handles\r\nIncluding handles'),
 (37, 'sell', 15, 'city', 1, 'dehiwala', 'colombo', 46, 'general', 5, 'fashion-beauty', 186, 'sunglasses-opticians', 111, 'Premium Sunglass', 'premium-sunglass', NULL, NULL, NULL, NULL, NULL, 4562, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'Semi-Rimless Frame\r\nRectangular Shape\r\nSingle Bridge\r\nGrey Plastic Lenses\r\nMatte Black Finish', NULL, 'original', 'new', NULL, '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:32', NULL, '2022-12-15 16:55:50', NULL, '2022-12-19 16:31:13', 4, 0, NULL, NULL, 'Basic', NULL, '992161671447673.jpg', 'dehiwala colombo general sunglasses-opticians Premium Sunglass  4562 new94743488449ColomboSemi-Rimless Frame\r\nRectangular Shape\r\nSingle Bridge\r\nGrey Plastic Lenses\r\nMatte Black Finish'),
-(38, 'sell', 80, 'city', 2, 'kandy-city', 'kandy', 51, 'general', 2, 'electronics-gedgets', 168, 'mobile-phone-accessories', 112, 'Dell core-i5 6th Gen 8GB DDR4 Ram', 'dell-core-i5-6th-gen-8gb-ddr4-ram', NULL, NULL, NULL, NULL, NULL, 250, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:33:58', NULL, '2022-12-15 19:31:49', NULL, '2022-12-19 20:05:25', 19, 0, NULL, NULL, 'Basic', NULL, '632441671455017.jpg', 'kandy-city kandy general mobile-phone-accessories Dell core-i5 6th Gen 8GB DDR4 Ram  250 new94776628446colomboLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-(39, 'sell', 119, 'city', 3, 'galle-city', 'galle', 51, 'general', 2, 'electronics-gedgets', 110, 'desktop-computers', 113, 'Transcent 8gb DDR4 ram,Corei5 6th Gen,22', 'transcent-8gb-ddr4-ram-corei5-6th-gen-22', NULL, NULL, NULL, NULL, NULL, 500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Vai ami 100% Orginal Photo Upload Koresi Amr nijer Table Er uporer photo 100% Gaming Computer khub heavy kore build kora hoise.\r\n\r\n*gaming Casing Onk Sundor valo maner 4 Set RGB Light Soho.\r\n\r\n*Gaming Powersupply khub Valo 550 Watt 2500 taka dami.\r\n\r\n*Gaming Motherboard onk valo maner HDMi & USB3 Soho.\r\n\r\n*Corei5 6th Generation proscessor Orginal  intel.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Galle', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 15:39:45', NULL, '2022-12-19 13:19:47', NULL, '2022-12-19 16:46:31', 2, 0, NULL, NULL, 'Basic', NULL, '770841671444426.jpg', 'galle-city galle general desktop-computers Transcent 8gb DDR4 ram,Corei5 6th Gen,22  500 new94776628446GalleVai ami 100% Orginal Photo Upload Koresi Amr nijer Table Er uporer photo 100% Gaming Computer khub heavy kore build kora hoise.\r\n\r\n*gaming Casing Onk Sundor valo maner 4 Set RGB Light Soho.\r\n\r\n*Gaming Powersupply khub Valo 550 Watt 2500 taka dami.\r\n\r\n*Gaming Motherboard onk valo maner HDMi & USB3 Soho.\r\n\r\n*Corei5 6th Generation proscessor Orginal  intel.'),
+(38, 'sell', 80, 'city', 2, 'kandy-city', 'kandy', 51, 'general', 2, 'electronics-gedgets', 168, 'mobile-phone-accessories', 112, 'Dell core-i5 6th Gen 8GB DDR4 Ram', 'dell-core-i5-6th-gen-8gb-ddr4-ram', NULL, NULL, NULL, NULL, NULL, 250, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:33:58', NULL, '2022-12-15 19:31:49', NULL, '2022-12-24 13:33:08', 20, 0, NULL, NULL, 'Basic', NULL, '632441671455017.jpg', 'kandy-city kandy general mobile-phone-accessories Dell core-i5 6th Gen 8GB DDR4 Ram  250 new94776628446colomboLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+(39, 'sell', 119, 'city', 3, 'galle-city', 'galle', 51, 'general', 2, 'electronics-gedgets', 110, 'desktop-computers', 113, 'Transcent 8gb DDR4 ram,Corei5 6th Gen,22', 'transcent-8gb-ddr4-ram-corei5-6th-gen-22', NULL, NULL, NULL, NULL, NULL, 500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Vai ami 100% Orginal Photo Upload Koresi Amr nijer Table Er uporer photo 100% Gaming Computer khub heavy kore build kora hoise.\r\n\r\n*gaming Casing Onk Sundor valo maner 4 Set RGB Light Soho.\r\n\r\n*Gaming Powersupply khub Valo 550 Watt 2500 taka dami.\r\n\r\n*Gaming Motherboard onk valo maner HDMi & USB3 Soho.\r\n\r\n*Corei5 6th Generation proscessor Orginal  intel.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Galle', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 15:39:45', NULL, '2022-12-19 13:19:47', NULL, '2022-12-24 13:51:41', 3, 0, NULL, NULL, 'Basic', NULL, '770841671444426.jpg', 'galle-city galle general desktop-computers Transcent 8gb DDR4 ram,Corei5 6th Gen,22  500 new94776628446GalleVai ami 100% Orginal Photo Upload Koresi Amr nijer Table Er uporer photo 100% Gaming Computer khub heavy kore build kora hoise.\r\n\r\n*gaming Casing Onk Sundor valo maner 4 Set RGB Light Soho.\r\n\r\n*Gaming Powersupply khub Valo 550 Watt 2500 taka dami.\r\n\r\n*Gaming Motherboard onk valo maner HDMi & USB3 Soho.\r\n\r\n*Corei5 6th Generation proscessor Orginal  intel.'),
 (40, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 51, 'general', 2, 'electronics-gedgets', 29, 'tv-video-accessories', 114, 'Samsung AU8100 55\'\' 4K Crystal UHD Smart TV', 'samsung-au8100-55-4k-crystal-uhd-smart-tv', NULL, 'Samsung', NULL, NULL, NULL, 68000, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'Screen Size	55 Inch\r\n\r\nPanel	Flat\r\n\r\nResolution	4K, 3840 x 2160p\r\n\r\nTechnology	LED Smart\r\n\r\n3D Technology	2D\r\n\r\nResponse Time	5MS\r\n\r\nRefresh Rate	Auto Motion Plus\r\n\r\nContrast	HDR10, HDR10+, Hybrid Log Gamma, Mega Contrast\r\n\r\nBrightness	High Dynamic Range\r\n\r\nTV Tuner	Digital / Analog\r\n\r\nSound	20 Watt Sound Output, Dolby Digital Plus Dolby Atmos\r\n\r\nConnectivity	2 x USB / 3 x HDMI / Wi-Fi 5.0 / Bluetooth 5.2V / LAN / Anynet+\r\n\r\nRemote	Voice Remote Control\r\n\r\nOperating System	Android\r\n\r\nDimension	1612 x 950 x 164 mm Package Size\r\n\r\nOther Features	Web Browse, Smart TV Screen Mirroring, Wi-Fi Direct ARC Support\r\n\r\nSamsung UA55AU8100UXTW Description\r\n\r\nThe Samsung AU8100 4K UHD TV has 4X more pixels quality than a standard Full HD screen. It provides bright and sharp images. You will see more genuine color emotions because of its superior color imaging algorithms. Now you have the opportunity to enjoy the realistic vision and fluid performance because of its intelligence functionality that analyses and adjusts frames from the video\'s beginning.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Nugegoda', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 17:52:09', NULL, '2022-12-19 17:50:23', NULL, '2022-12-19 17:52:45', 1, 0, NULL, NULL, 'Basic', NULL, '267941671452423.jpg', 'nugegoda colombo general tv-video-accessories Samsung AU8100 55\'\' 4K Crystal UHD Smart TV Samsung 68000 new94776628446NugegodaScreen Size	55 Inch\r\n\r\nPanel	Flat\r\n\r\nResolution	4K, 3840 x 2160p\r\n\r\nTechnology	LED Smart\r\n\r\n3D Technology	2D\r\n\r\nResponse Time	5MS\r\n\r\nRefresh Rate	Auto Motion Plus\r\n\r\nContrast	HDR10, HDR10+, Hybrid Log Gamma, Mega Contrast\r\n\r\nBrightness	High Dynamic Range\r\n\r\nTV Tuner	Digital / Analog\r\n\r\nSound	20 Watt Sound Output, Dolby Digital Plus Dolby Atmos\r\n\r\nConnectivity	2 x USB / 3 x HDMI / Wi-Fi 5.0 / Bluetooth 5.2V / LAN / Anynet+\r\n\r\nRemote	Voice Remote Control\r\n\r\nOperating System	Android\r\n\r\nDimension	1612 x 950 x 164 mm Package Size\r\n\r\nOther Features	Web Browse, Smart TV Screen Mirroring, Wi-Fi Direct ARC Support\r\n\r\nSamsung UA55AU8100UXTW Description\r\n\r\nThe Samsung AU8100 4K UHD TV has 4X more pixels quality than a standard Full HD screen. It provides bright and sharp images. You will see more genuine color emotions because of its superior color imaging algorithms. Now you have the opportunity to enjoy the realistic vision and fluid performance because of its intelligence functionality that analyses and adjusts frames from the video\'s beginning.'),
 (41, 'sell', 80, 'city', 2, 'kandy-city', 'kandy', 51, 'general', 2, 'electronics-gedgets', 169, 'electronic-home-appliances', 115, '30KVA china Ricardo Electric Soundproof Power Generator', '30kva-china-ricardo-electric-soundproof-power-generator', NULL, 'Other', NULL, NULL, NULL, 240000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Corporate Office: House-06, Road-3/B, Sector-09, Uttara, Dhaka-1230, Bangladesh\r\n\r\nBranch Office: Khulna, Bogra, Rajshahi, Pabna, Sirajganj, Maymonshing, Foridpur, Shatkhira. Jamalpur.\r\n\r\nAvailable stock: Perkins, Cummins,Ricardo, Duetz (5KVA to 500KVA)\r\n\r\nEngine: Ricardo\r\n\r\nTECHNICAL SPECIFICATION FOR 30KVA/24 KW DG SET\r\n\r\n1). Generator Set Details:\r\n\r\n-------------------------------------\r\n\r\nEngine Brand : Ricardo, China\r\n\r\nAlternator Brand : Copy Stamford, China\r\n\r\nPrime Capacity : 30kVA / 24kW\r\n\r\nCooling System : Water Cooled\r\n\r\n2) Engine Details:\r\n\r\n-----------------------------\r\n\r\nEngine Brand : Ricardo, China\r\n\r\nType : Turbo Charged & Charge Cooled\r\n\r\nCycle : 4- Stroke, compression ignition\r\n\r\nCompression ratio : 16:1 nominal\r\n\r\nEngine Speed : 1500RPM\r\n\r\nGovernor : Mechanical\r\n\r\n3) Alternator Details:\r\n\r\n-------------------------------\r\n\r\nAlternator Brand :Copy Stamford, China\r\n\r\nType : Brushless, Self Exited, AVR controlled\r\n\r\nRated Voltage : 400V / 230V\r\n\r\nRated Frequency : 50Hz\r\n\r\nPhase : 3 (Three)\r\n\r\nInsulation Class : H\r\n\r\nCircuit Breaker : 3 (Three Pole)\r\n\r\nControl Panel : Smart Zen Electronics, China.\r\n\r\nGENERATORS ARE READY STOCK IN OUR WAREHOUSE.\r\n\r\nContact Person:\r\n\r\nEngr. Md. Zahid Hossain\r\n\r\nPS Engineering Ltd\r\n\r\nWebsite: www.psengltd.com\r\n\r\nHouse-06, Road-3/B, Sector-09, Uttara, Dhaka-1230, Bangladesh', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Kandy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:26:13', NULL, '2022-12-19 17:55:12', NULL, '2022-12-19 20:22:18', 3, 0, NULL, NULL, 'Basic', NULL, '455081671452712.jpg', 'kandy-city kandy general electronic-home-appliances 30KVA china Ricardo Electric Soundproof Power Generator Other 240000 used94776628446KandyCorporate Office: House-06, Road-3/B, Sector-09, Uttara, Dhaka-1230, Bangladesh\r\n\r\nBranch Office: Khulna, Bogra, Rajshahi, Pabna, Sirajganj, Maymonshing, Foridpur, Shatkhira. Jamalpur.\r\n\r\nAvailable stock: Perkins, Cummins,Ricardo, Duetz (5KVA to 500KVA)\r\n\r\nEngine: Ricardo\r\n\r\nTECHNICAL SPECIFICATION FOR 30KVA/24 KW DG SET\r\n\r\n1). Generator Set Details:\r\n\r\n-------------------------------------\r\n\r\nEngine Brand : Ricardo, China\r\n\r\nAlternator Brand : Copy Stamford, China\r\n\r\nPrime Capacity : 30kVA / 24kW\r\n\r\nCooling System : Water Cooled\r\n\r\n2) Engine Details:\r\n\r\n-----------------------------\r\n\r\nEngine Brand : Ricardo, China\r\n\r\nType : Turbo Charged & Charge Cooled\r\n\r\nCycle : 4- Stroke, compression ignition\r\n\r\nCompression ratio : 16:1 nominal\r\n\r\nEngine Speed : 1500RPM\r\n\r\nGovernor : Mechanical\r\n\r\n3) Alternator Details:\r\n\r\n-------------------------------\r\n\r\nAlternator Brand :Copy Stamford, China\r\n\r\nType : Brushless, Self Exited, AVR controlled\r\n\r\nRated Voltage : 400V / 230V\r\n\r\nRated Frequency : 50Hz\r\n\r\nPhase : 3 (Three)\r\n\r\nInsulation Class : H\r\n\r\nCircuit Breaker : 3 (Three Pole)\r\n\r\nControl Panel : Smart Zen Electronics, China.\r\n\r\nGENERATORS ARE READY STOCK IN OUR WAREHOUSE.\r\n\r\nContact Person:\r\n\r\nEngr. Md. Zahid Hossain\r\n\r\nPS Engineering Ltd\r\n\r\nWebsite: www.psengltd.com\r\n\r\nHouse-06, Road-3/B, Sector-09, Uttara, Dhaka-1230, Bangladesh'),
-(42, 'sell', 218, 'city', 1, 'maharagama', 'colombo', 51, 'general', 2, 'electronics-gedgets', 171, 'cameras-camcorders', 116, 'Nikon D7000 with Lens ( Full box)', 'nikon-d7000-with-lens-full-box', NULL, 'Nikon', NULL, NULL, NULL, 18000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Nikon D7000 professional dslr camera with 18-55mm lens, battery, charger, Lens hood, lens uv filter, strap, bag, Box. \r\n\r\nWith 18-55mm lens only 18k\r\n\r\nWith 50mm 1.8D prime lens 20k. Fixed price.', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'maharagam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:26:31', NULL, '2022-12-19 17:59:46', NULL, '2022-12-19 18:41:08', 1, 0, NULL, NULL, 'Basic', NULL, '499741671452986.jpg', 'maharagama colombo general cameras-camcorders Nikon D7000 with Lens ( Full box) Nikon 18000 used94776628446maharagamNikon D7000 professional dslr camera with 18-55mm lens, battery, charger, Lens hood, lens uv filter, strap, bag, Box. \r\n\r\nWith 18-55mm lens only 18k\r\n\r\nWith 50mm 1.8D prime lens 20k. Fixed price.'),
+(42, 'sell', 218, 'city', 1, 'maharagama', 'colombo', 51, 'general', 2, 'electronics-gedgets', 171, 'cameras-camcorders', 116, 'Nikon D7000 with Lens ( Full box)', 'nikon-d7000-with-lens-full-box', NULL, 'Nikon', NULL, NULL, NULL, 18000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Nikon D7000 professional dslr camera with 18-55mm lens, battery, charger, Lens hood, lens uv filter, strap, bag, Box. \r\n\r\nWith 18-55mm lens only 18k\r\n\r\nWith 50mm 1.8D prime lens 20k. Fixed price.', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'maharagam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:26:31', NULL, '2022-12-19 17:59:46', NULL, '2022-12-24 16:13:00', 2, 0, NULL, NULL, 'Basic', NULL, '499741671452986.jpg', 'maharagama colombo general cameras-camcorders Nikon D7000 with Lens ( Full box) Nikon 18000 used94776628446maharagamNikon D7000 professional dslr camera with 18-55mm lens, battery, charger, Lens hood, lens uv filter, strap, bag, Box. \r\n\r\nWith 18-55mm lens only 18k\r\n\r\nWith 50mm 1.8D prime lens 20k. Fixed price.'),
 (43, 'sell', 172, 'city', 4, 'ampara-city', 'ampara', 51, 'general', 2, 'electronics-gedgets', 166, 'computer-accessories', 117, 'GIGABYTE GTX 1650 OC 4GB LP GRAPHICS CARD NVIDIA GEFORCE', 'gigabyte-gtx-1650-oc-4gb-lp-graphics-card-nvidia-geforce', NULL, 'GigaByte', NULL, NULL, NULL, 21000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Brand : Gigabyte\r\n\r\nChipset : NVIDIA GeForce\r\n\r\nChipset Model : GeForce GTX 1650\r\n\r\nModel : Gigabyte GeForce GTX 1650 OC Low Profile 4G\r\n\r\nTechnical Information\r\n\r\nCUDA Core / Stream Processors : 896 (CUDA)\r\n\r\nBase Engine Clock Speed : 1695 MHz\r\n\r\nMemory Clock : 8002 MHz\r\n\r\nCapacity (GB/TB) : 4GB\r\n\r\nMemory Bus : 128 bit\r\n\r\nMemory Bandwidth : 128 GB/s\r\n\r\nMemory Type : GDDR5\r\n\r\nInterface(s) : PCI-E 3.0 x 16\r\n\r\nDirectX Support : 12\r\n\r\nOpenGL Support : 4.6\r\n\r\nDisplay & Resolution\r\n\r\nGraphics Resolution Max. : 7680 x 432\r\n\r\nMulti Display Capability : Triple Display\r\n\r\nPorts\r\n\r\nDVI Port\r\n\r\n1\r\n\r\nHDMI Port\r\n\r\n1\r\n\r\nDisplay Port\r\n\r\n1\r\n\r\nPower\r\n\r\nPower Consumption : 85W\r\n\r\nRecommended PSU : 300W\r\n\r\nCountry Of Origin : Taiwan\r\n\r\n______________________________________\r\n\r\nNeed Urgent money so I\'m selling my PC\r\n\r\nI bought it August 2022\r\n\r\nYou can see the date in cash memo\r\n\r\nIt has official warranty \r\n\r\nI bought it from Ryans Computer Uttara.\r\n\r\nI\'m also selling my Motherboard\r\n\r\nMotherboard model : MSI x470 Gaming Max RGB\r\n\r\nIf you\'re interested in motherboard or Graphics card \r\n\r\nyou can call or text me anytime.\r\n\r\nThank you.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Ampara City', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:26:50', NULL, '2022-12-19 18:02:25', NULL, '2022-12-19 18:02:25', 0, 0, NULL, NULL, 'Basic', NULL, '498301671453145.jpeg', 'ampara-city ampara general computer-accessories GIGABYTE GTX 1650 OC 4GB LP GRAPHICS CARD NVIDIA GEFORCE GigaByte 21000 new94776628446Ampara CityBrand : Gigabyte\r\n\r\nChipset : NVIDIA GeForce\r\n\r\nChipset Model : GeForce GTX 1650\r\n\r\nModel : Gigabyte GeForce GTX 1650 OC Low Profile 4G\r\n\r\nTechnical Information\r\n\r\nCUDA Core / Stream Processors : 896 (CUDA)\r\n\r\nBase Engine Clock Speed : 1695 MHz\r\n\r\nMemory Clock : 8002 MHz\r\n\r\nCapacity (GB/TB) : 4GB\r\n\r\nMemory Bus : 128 bit\r\n\r\nMemory Bandwidth : 128 GB/s\r\n\r\nMemory Type : GDDR5\r\n\r\nInterface(s) : PCI-E 3.0 x 16\r\n\r\nDirectX Support : 12\r\n\r\nOpenGL Support : 4.6\r\n\r\nDisplay & Resolution\r\n\r\nGraphics Resolution Max. : 7680 x 432\r\n\r\nMulti Display Capability : Triple Display\r\n\r\nPorts\r\n\r\nDVI Port\r\n\r\n1\r\n\r\nHDMI Port\r\n\r\n1\r\n\r\nDisplay Port\r\n\r\n1\r\n\r\nPower\r\n\r\nPower Consumption : 85W\r\n\r\nRecommended PSU : 300W\r\n\r\nCountry Of Origin : Taiwan\r\n\r\n______________________________________\r\n\r\nNeed Urgent money so I\'m selling my PC\r\n\r\nI bought it August 2022\r\n\r\nYou can see the date in cash memo\r\n\r\nIt has official warranty \r\n\r\nI bought it from Ryans Computer Uttara.\r\n\r\nI\'m also selling my Motherboard\r\n\r\nMotherboard model : MSI x470 Gaming Max RGB\r\n\r\nIf you\'re interested in motherboard or Graphics card \r\n\r\nyou can call or text me anytime.\r\n\r\nThank you.'),
 (44, 'sell', 175, 'city', 7, 'badulla-city', 'badulla', 51, 'general', 2, 'electronics-gedgets', 168, 'mobile-phone-accessories', 118, 'Lenovo Wireless Magnetic Hanging Bluetooth He05', 'lenovo-wireless-magnetic-hanging-bluetooth-he05', NULL, 'Lenevo', NULL, NULL, NULL, 649, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Brand: Lenovo\r\n\r\nModel: HE05\r\n\r\nBT Version: 5.0\r\n\r\nPlay time: Max.8h\r\n\r\nStandby time: Max. 120h\r\n\r\nThe loudspeaker diameter: 10mm\r\n\r\nFrequency range: 20-20kHz\r\n\r\nThe connection distance: 10M(barrier free)\r\n\r\nSensitivity: 108db±3db\r\n\r\nPackage weight: 135g/4.76ounces\r\n\r\nPackage size: 220*165*31mm/8.66*6.49*1.18inches', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Badulla City', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:27:10', NULL, '2022-12-19 18:04:24', NULL, '2022-12-19 18:46:44', 2, 0, NULL, NULL, 'Basic', NULL, '20461671453264.jpg', 'badulla-city badulla general mobile-phone-accessories Lenovo Wireless Magnetic Hanging Bluetooth He05 Lenevo 649 new94776628446Badulla CityBrand: Lenovo\r\n\r\nModel: HE05\r\n\r\nBT Version: 5.0\r\n\r\nPlay time: Max.8h\r\n\r\nStandby time: Max. 120h\r\n\r\nThe loudspeaker diameter: 10mm\r\n\r\nFrequency range: 20-20kHz\r\n\r\nThe connection distance: 10M(barrier free)\r\n\r\nSensitivity: 108db±3db\r\n\r\nPackage weight: 135g/4.76ounces\r\n\r\nPackage size: 220*165*31mm/8.66*6.49*1.18inches'),
 (45, 'sell', 218, 'city', 1, 'maharagama', 'colombo', 51, 'general', 2, 'electronics-gedgets', 110, 'desktop-computers', 119, 'Processor Intel Core i5-6400 with Monitor 19 Inch LED', 'processor-intel-core-i5-6400-with-monitor-19-inch-led', NULL, NULL, NULL, NULL, NULL, 17500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Price: 17,500\r\n\r\nProcessor Intel® Core i5-6400 2.70 GHz 	\r\n\r\nMotherboard Gigabyte H110M\r\n\r\nRAM DDR-4 8GB 2666 MHz\r\n\r\nSSD WD Green 120GB SATA\r\n\r\nCasing View One ATX Thermal\r\n\r\nPower Supply View One VB700W\r\n\r\nKeyboard & Mouse View One RGB\r\n\r\nMonitor 19 Inch LED China\r\n\r\n03 Year Limited Warranty', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Galle', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:27:30', NULL, '2022-12-19 18:10:21', NULL, '2022-12-19 18:30:52', 2, 0, NULL, NULL, 'Basic', NULL, '302571671453621.jpg', 'maharagama colombo general desktop-computers Processor Intel Core i5-6400 with Monitor 19 Inch LED  17500 used94776628446GallePrice: 17,500\r\n\r\nProcessor Intel® Core i5-6400 2.70 GHz 	\r\n\r\nMotherboard Gigabyte H110M\r\n\r\nRAM DDR-4 8GB 2666 MHz\r\n\r\nSSD WD Green 120GB SATA\r\n\r\nCasing View One ATX Thermal\r\n\r\nPower Supply View One VB700W\r\n\r\nKeyboard & Mouse View One RGB\r\n\r\nMonitor 19 Inch LED China\r\n\r\n03 Year Limited Warranty'),
-(46, 'sell', 80, 'city', 2, 'kandy-city', 'kandy', 51, 'general', 2, 'electronics-gedgets', 170, 'air-conditions-electrical-fittings', 120, 'Midea Energy Saving Wall Mounted Inverter 1.5 Ton AC', 'midea-energy-saving-wall-mounted-inverter-1-5-ton-ac', NULL, 'Midea', NULL, NULL, NULL, 31499, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MSI18CRN-AF5 Midea 60% Energy Saving Wall Mounted Inverter 1.5 Ton AC with 5 yrs compessor warranty price.\r\n\r\nCorporation (China)\r\n\r\nInverter 1.5 Ton Midea AC Energy savings\r\n\r\nMidea AC Energy Saving\r\n\r\nR410 eco friendly refrigerant\r\n\r\nProduct Feature:\r\n\r\nBrand: MIDEA\r\n\r\nAC Type: Split\r\n\r\nBTU: 18000 BTU Compressors\r\n\r\nCoverage: 150-180 sft\r\n\r\nFilter Type: Auto Clean\r\n\r\nBritish thermal unit Tested Product.\r\n\r\nCertified importer, Work Experience 37 years.\r\n\r\nHigh Power Saving Unit.\r\n\r\nEco-friendly product service.\r\n\r\nTurbo Mode Cooling.\r\n\r\nSome Features: Auto Restart,\r\n\r\nAnti bacterial filter, Washable filter,\r\n\r\nDouble Auto swing, White color indoor,\r\n\r\nfactory Gas, original compressor of Midea.\r\n\r\nMidea Air Conditioner Split AC / Air Conditioner Rated Capacity (BTUs) 1.5 Ton / 18000 BTU\r\n\r\nCorporate office:Capital Electronics\r\n\r\nCall us - (Whatsapp, Imo)\r\n\r\nAny Brand all size are Available', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Kandy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:27:49', NULL, '2022-12-19 18:16:10', NULL, '2022-12-19 19:40:57', 3, 0, NULL, NULL, 'Basic', NULL, '707101671453970.jpg', 'kandy-city kandy general air-conditions-electrical-fittings Midea Energy Saving Wall Mounted Inverter 1.5 Ton AC Midea 31499 used94776628446KandyMSI18CRN-AF5 Midea 60% Energy Saving Wall Mounted Inverter 1.5 Ton AC with 5 yrs compessor warranty price.\r\n\r\nCorporation (China)\r\n\r\nInverter 1.5 Ton Midea AC Energy savings\r\n\r\nMidea AC Energy Saving\r\n\r\nR410 eco friendly refrigerant\r\n\r\nProduct Feature:\r\n\r\nBrand: MIDEA\r\n\r\nAC Type: Split\r\n\r\nBTU: 18000 BTU Compressors\r\n\r\nCoverage: 150-180 sft\r\n\r\nFilter Type: Auto Clean\r\n\r\nBritish thermal unit Tested Product.\r\n\r\nCertified importer, Work Experience 37 years.\r\n\r\nHigh Power Saving Unit.\r\n\r\nEco-friendly product service.\r\n\r\nTurbo Mode Cooling.\r\n\r\nSome Features: Auto Restart,\r\n\r\nAnti bacterial filter, Washable filter,\r\n\r\nDouble Auto swing, White color indoor,\r\n\r\nfactory Gas, original compressor of Midea.\r\n\r\nMidea Air Conditioner Split AC / Air Conditioner Rated Capacity (BTUs) 1.5 Ton / 18000 BTU\r\n\r\nCorporate office:Capital Electronics\r\n\r\nCall us - (Whatsapp, Imo)\r\n\r\nAny Brand all size are Available'),
+(46, 'sell', 80, 'city', 2, 'kandy-city', 'kandy', 51, 'general', 2, 'electronics-gedgets', 170, 'air-conditions-electrical-fittings', 120, 'Midea Energy Saving Wall Mounted Inverter 1.5 Ton AC', 'midea-energy-saving-wall-mounted-inverter-1-5-ton-ac', NULL, 'Midea', NULL, NULL, NULL, 31499, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MSI18CRN-AF5 Midea 60% Energy Saving Wall Mounted Inverter 1.5 Ton AC with 5 yrs compessor warranty price.\r\n\r\nCorporation (China)\r\n\r\nInverter 1.5 Ton Midea AC Energy savings\r\n\r\nMidea AC Energy Saving\r\n\r\nR410 eco friendly refrigerant\r\n\r\nProduct Feature:\r\n\r\nBrand: MIDEA\r\n\r\nAC Type: Split\r\n\r\nBTU: 18000 BTU Compressors\r\n\r\nCoverage: 150-180 sft\r\n\r\nFilter Type: Auto Clean\r\n\r\nBritish thermal unit Tested Product.\r\n\r\nCertified importer, Work Experience 37 years.\r\n\r\nHigh Power Saving Unit.\r\n\r\nEco-friendly product service.\r\n\r\nTurbo Mode Cooling.\r\n\r\nSome Features: Auto Restart,\r\n\r\nAnti bacterial filter, Washable filter,\r\n\r\nDouble Auto swing, White color indoor,\r\n\r\nfactory Gas, original compressor of Midea.\r\n\r\nMidea Air Conditioner Split AC / Air Conditioner Rated Capacity (BTUs) 1.5 Ton / 18000 BTU\r\n\r\nCorporate office:Capital Electronics\r\n\r\nCall us - (Whatsapp, Imo)\r\n\r\nAny Brand all size are Available', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Kandy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:27:49', NULL, '2022-12-19 18:16:10', NULL, '2022-12-24 13:32:34', 4, 0, NULL, NULL, 'Basic', NULL, '707101671453970.jpg', 'kandy-city kandy general air-conditions-electrical-fittings Midea Energy Saving Wall Mounted Inverter 1.5 Ton AC Midea 31499 used94776628446KandyMSI18CRN-AF5 Midea 60% Energy Saving Wall Mounted Inverter 1.5 Ton AC with 5 yrs compessor warranty price.\r\n\r\nCorporation (China)\r\n\r\nInverter 1.5 Ton Midea AC Energy savings\r\n\r\nMidea AC Energy Saving\r\n\r\nR410 eco friendly refrigerant\r\n\r\nProduct Feature:\r\n\r\nBrand: MIDEA\r\n\r\nAC Type: Split\r\n\r\nBTU: 18000 BTU Compressors\r\n\r\nCoverage: 150-180 sft\r\n\r\nFilter Type: Auto Clean\r\n\r\nBritish thermal unit Tested Product.\r\n\r\nCertified importer, Work Experience 37 years.\r\n\r\nHigh Power Saving Unit.\r\n\r\nEco-friendly product service.\r\n\r\nTurbo Mode Cooling.\r\n\r\nSome Features: Auto Restart,\r\n\r\nAnti bacterial filter, Washable filter,\r\n\r\nDouble Auto swing, White color indoor,\r\n\r\nfactory Gas, original compressor of Midea.\r\n\r\nMidea Air Conditioner Split AC / Air Conditioner Rated Capacity (BTUs) 1.5 Ton / 18000 BTU\r\n\r\nCorporate office:Capital Electronics\r\n\r\nCall us - (Whatsapp, Imo)\r\n\r\nAny Brand all size are Available'),
 (47, 'sell', 119, 'city', 3, 'galle-city', 'galle', 51, 'general', 2, 'electronics-gedgets', 129, 'mobiles', 121, 'Apple iPhone 12 Pro', 'apple-iphone-12-pro', NULL, NULL, NULL, NULL, NULL, 65000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Apple announced iPhone 12 Pro Max on October 13, 2020.\r\n\r\nThe phone which is powered by the new Apple A14 Bionic processor, comes with a 6.7 inche Super Retina XDR OLED capacitive touchscreen and 2778 x 1284 p resolution. It features an HDR display and True Tone, and Wide color (P3) gamut. The display screen is protected by a unique ceramic shield and features 1200 nits max brightness, Dolby Vision, HDR10+ and 120Hz refresh rate.\r\n\r\nIt comes with a 6GB RAM and three storage variants 128GB, 256GB and 512GB. The rear camera consists of a 12MP (wide) + 12MP (telephoto) 5x optical zoom + 12MP (ultrawide) sensors and a LiDAR scanner for night mode.\r\n\r\nThe front camera has a 12 MP (wide) + SL 3D (depth/biometrics) camera sensor. Other sensors include Lidar, Face ID, accelerometer, gyro, proximity, compass, barometer + Siri natural language commands, and dictation.\r\n\r\nThe smartphone is fueled by a 3687mAh Li-Ion battery and supports 20W fast charging, USB Power Delivery 2.0,  7W Qi wireless charging and 15W MagSafe Wireless Charging. The phone runs on iOS 14 operating system which can be updated to iOS 14.7.\r\n\r\niPhone 12 Pro Max comes in four different colors viz: Graphite, Silver, Gold and Pacific Blue. It features 2.0, proprietary reversible connector.', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Galle', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:28:08', NULL, '2022-12-19 18:25:07', NULL, '2022-12-19 19:34:18', 3, 0, NULL, NULL, 'Basic', NULL, '552221671454507.jpg', 'galle-city galle general mobiles Apple iPhone 12 Pro  65000 used94776628446GalleApple announced iPhone 12 Pro Max on October 13, 2020.\r\n\r\nThe phone which is powered by the new Apple A14 Bionic processor, comes with a 6.7 inche Super Retina XDR OLED capacitive touchscreen and 2778 x 1284 p resolution. It features an HDR display and True Tone, and Wide color (P3) gamut. The display screen is protected by a unique ceramic shield and features 1200 nits max brightness, Dolby Vision, HDR10+ and 120Hz refresh rate.\r\n\r\nIt comes with a 6GB RAM and three storage variants 128GB, 256GB and 512GB. The rear camera consists of a 12MP (wide) + 12MP (telephoto) 5x optical zoom + 12MP (ultrawide) sensors and a LiDAR scanner for night mode.\r\n\r\nThe front camera has a 12 MP (wide) + SL 3D (depth/biometrics) camera sensor. Other sensors include Lidar, Face ID, accelerometer, gyro, proximity, compass, barometer + Siri natural language commands, and dictation.\r\n\r\nThe smartphone is fueled by a 3687mAh Li-Ion battery and supports 20W fast charging, USB Power Delivery 2.0,  7W Qi wireless charging and 15W MagSafe Wireless Charging. The phone runs on iOS 14 operating system which can be updated to iOS 14.7.\r\n\r\niPhone 12 Pro Max comes in four different colors viz: Graphite, Silver, Gold and Pacific Blue. It features 2.0, proprietary reversible connector.');
 
 --
@@ -1693,7 +1692,7 @@ CREATE TABLE `prd_model` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Brand Master Setup Table' ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Brand Master Setup Table' ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_model`
@@ -1753,7 +1752,7 @@ CREATE TABLE `prd_reports` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 0 COMMENT 'unseen =0, seen = 1, replied = 2'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `prd_reports`
@@ -1772,12 +1771,12 @@ CREATE TABLE `prd_type` (
   `pk_no` int(11) NOT NULL,
   `cat_pk_no` int(10) DEFAULT NULL,
   `scat_pk_no` int(10) DEFAULT NULL,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `is_delete` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
@@ -2041,7 +2040,7 @@ CREATE TABLE `prod_job_preference` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(10) DEFAULT NULL,
   `updated_by` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `prod_job_preference`
@@ -2086,14 +2085,14 @@ CREATE TABLE `quick_rules` (
   `sub_title_sl` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `quick_rules`
 --
 
 INSERT INTO `quick_rules` (`id`, `one_en`, `two_en`, `three_en`, `four_en`, `five_en`, `six_en`, `seven_en`, `eight_en`, `nine_en`, `ten_en`, `one_sl`, `two_sl`, `three_sl`, `four_sl`, `five_sl`, `six_sl`, `seven_sl`, `eight_sl`, `nine_sl`, `ten_sl`, `title_en`, `title_sl`, `sub_title_en`, `sub_title_sl`, `created_at`, `updated_at`) VALUES
-(1, 'Make sure you post in the correct category.', 'Do not post the same ad more than once or repost an ad within 48 hours.', 'Do not upload pictures with watermarks.', 'Do not post ads containing multiple items unless it\'s a package deal.', 'Do not put your email or phone numbers in the title or description.', 'Make sure you post in the correct category.', 'Do not post ads contpackage deal.', 'Do not post the same ad more than once or repost an ad within 48 hours.', 'Do not upload pictures with watermarks and title or description.', 'Do not put your email or phone numbers in the', 'ඔබ නිවැරදි ප්‍රවර්ගයේ පළ කිරීමට වග බලා ගන්න.', 'එකම දැන්වීම එක වරකට වඩා පළ නොකරන්න හෝ පැය 48ක් ඇතුළත දැන්වීමක් නැවත පළ නොකරන්න.', 'ජල සලකුණු සහිත පින්තූර උඩුගත නොකරන්න.', 'පැකේජ ගනුදෙනුවක් නම් මිස අයිතම කිහිපයක් අඩංගු දැන්වීම් පළ නොකරන්න.', 'මාතෘකාවේ හෝ විස්තරයේ ඔබේ විද්‍යුත් තැපෑල හෝ දුරකථන අංක දමන්න එපා.', 'පැකේජ ගනුදෙනුවක් නම් මිස අයිතම කිහිපයක් අඩංගු දැන්වීම් පළ නොකරන්න.', 'එකම දැන්වීම එක වරකට වඩා පළ නොකරන්න හෝ පැය', 'පැකේජ ගනුදෙනුයක් අඩංගු දැන්වීම් පළ නොකරන්න.', 'ඔබ නිවැරදි ප්‍රවර්ගයේ පළ කිරීමට වග බලා ගන්න.', 'මාතෘකාවේ හෝ විස්තරයේ ඔබේ  විද්‍යුත්', 'Quick Rules', 'ඉක්මන් නීති', 'Posting an ad on gogoads.lk is free! However, all ads must follow our rules:', 'gogoads.lk හි දැන්වීමක් පළ කිරීම නොමිලේ! කෙසේ වෙතත්, සියලුම දැන්වීම් අපගේ නීති අනුගමනය කළ යුතුය:', '2022-12-13 19:43:08', '2022-12-13 19:43:08');
+(1, 'Make sure you post in the correct category.', 'Do not post the same ad more than once or repost an ad within 48 hours.', 'Do not upload pictures with watermarks.', 'Do not post ads containing multiple items unless it\'s a package deal.', 'Do not put your email or phone numbers in the title or description.', 'Make sure you post in the correct category.', 'Do not post ads contpackage deal.', 'Do not post the same ad more than once or repost an ad within 48 hours.', 'Do not upload pictures with watermarks and title or description.', 'Do not put your email or phone numbers in the', 'ඔබ නිවැරදි ප්‍රවර්ගයේ පළ කිරීමට වග බලා ගන්න.', 'එකම දැන්වීම එක වරකට වඩා පළ නොකරන්න හෝ පැය 48ක් ඇතුළත දැන්වීමක් නැවත පළ නොකරන්න.', 'ජල සලකුණු සහිත පින්තූර උඩුගත නොකරන්න.', 'පැකේජ ගනුදෙනුවක් නම් මිස අයිතම කිහිපයක් අඩංගු දැන්වීම් පළ නොකරන්න.', 'මාතෘකාවේ හෝ විස්තරයේ ඔබේ විද්‍යුත් තැපෑල හෝ දුරකථන අංක දමන්න එපා.', 'පැකේජ ගනුදෙනුවක් නම් මිස අයිතම කිහිපයක් අඩංගු දැන්වීම් පළ නොකරන්න.', 'එකම දැන්වීම එක වරකට වඩා පළ නොකරන්න හෝ පැය', 'පැකේජ ගනුදෙනුයක් අඩංගු දැන්වීම් පළ නොකරන්න.', 'ඔබ නිවැරදි ප්‍රවර්ගයේ පළ කිරීමට වග බලා ගන්න.', 'මාතෘකාවේ හෝ විස්තරයේ ඔබේ  විද්‍යුත්', 'Quick Rules', 'ඉක්මන් නීති', 'Posting an ad on ok2list.com is free! However, all ads must follow our rules:', 'ok2list.com හි දැන්වීමක් පළ කිරීම නොමිලේ! කෙසේ වෙතත්, සියලුම දැන්වීම් අපගේ නීති අනුගමනය කළ යුතුය:', '2022-12-13 19:43:08', '2022-12-13 19:43:08');
 
 -- --------------------------------------------------------
 
@@ -2103,7 +2102,7 @@ INSERT INTO `quick_rules` (`id`, `one_en`, `two_en`, `three_en`, `four_en`, `fiv
 
 CREATE TABLE `roles` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `role_name` varchar(255) NOT NULL,
+  `role_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0,
   `created_by` int(11) NOT NULL,
   `edited_by` int(11) NOT NULL,
@@ -2129,7 +2128,7 @@ INSERT INTO `roles` (`id`, `role_name`, `status`, `created_by`, `edited_by`, `de
 
 CREATE TABLE `role_permission` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `permissions` text NOT NULL,
+  `permissions` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2157,8 +2156,8 @@ CREATE TABLE `site_settings` (
   `logo` varchar(255) DEFAULT NULL,
   `favicon` varchar(255) DEFAULT NULL,
   `copyright` varchar(255) DEFAULT NULL,
-  `meta_keyword` text CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `meta_description` text CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `meta_keyword` text CHARACTER SET utf8 DEFAULT NULL,
+  `meta_description` text CHARACTER SET utf8 DEFAULT NULL,
   `website_email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
@@ -2213,14 +2212,14 @@ CREATE TABLE `site_settings` (
   `content_sl` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `site_settings`
 --
 
 INSERT INTO `site_settings` (`id`, `website_title`, `logo`, `favicon`, `copyright`, `meta_keyword`, `meta_description`, `website_email`, `phone`, `address`, `map_address`, `section_one_name_en`, `section_one_name_sl`, `about_en`, `contact_us_en`, `terms_conditions_en`, `privacy_policy_en`, `sitemap_en`, `about_sl`, `contact_us_sl`, `terms_conditions_sl`, `privacy_policy_sl`, `sitemap_sl`, `section_two_en`, `section_two_sl`, `how_to_sell_fast_en`, `membership_en`, `promote_your_ad_en`, `promotions_en`, `faq_en`, `how_to_sell_fast_sl`, `membership_sl`, `promote_your_ad_sl`, `promotions_sl`, `faq_sl`, `section_three_name_en`, `section_three_name_sl`, `facebook_en`, `instagram_en`, `twitter_en`, `linkedin_en`, `whatsapp_en`, `youtube_en`, `facebook_sl`, `instagram_sl`, `twitter_sl`, `linkedin_sl`, `whatsapp_sl`, `youtube_sl`, `facebook_link`, `twitter_link`, `instagram_link`, `linkedin_link`, `whatsapp_link`, `youtube_link`, `section_four_en`, `section_four_sl`, `content_en`, `content_sl`, `created_at`, `updated_at`) VALUES
-(12, 'gogoads.lk', 'uploads/2022/06/1655658537-logo-02.jpg', 'uploads/2022/06/1655658561-logo-02.jpg', 'Copyright @', 'gogoads.lk', 'Gogoads', 'info@gogoads.lk', NULL, 'Sri lanka', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4047213.2839410105!2d80.70625!3d7.857684999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2593cf65a1e9d%3A0xe13da4b400e2d38c!2sSri%20Lanka!5e0!3m2!1sen!2sbd!4v1660041689475!5m2!1sen!2sbd\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'Quick Links', 'ඉක්මන් සබැඳි', 'About', 'Contact Us', 'Terms & Conditions', 'Privacy Policy', 'Sitemap', 'පිළිබඳ', 'අප අමතන්න', 'නියම සහ කොන්දේසි', 'රහස්යතා ප්රතිපත්තිය', 'අඩවි සිතියම', 'How to sell fast', 'ඉක්මනින් විකුණන්නේ කෙසේද', 'How to sell fast', 'Membership', 'Promote Your Ad', 'Promotions', 'FAQ', 'ඉක්මනින් විකුණන්නේ කෙසේද', 'සාමාජිකත්වය', 'ඔබේ සංස්කරණය ප්‍රවර්ධනය කරන්න', 'උසස්වීම්', 'පරතරය', 'Follow Us On', 'අපව අනුගමනය කරන්න සහ', 'Facebook', 'Instagram', 'Twitter', 'Linkedin', 'Whatsapp', 'Youtube', 'ෆේස්බුක්', 'ට්විටර්', 'ට්විටර්', 'Linkedin', 'Whatsapp', 'Youtube', 'https://www.facebook.com/gogoads.lk/', 'https://twitter.com/GogoadsLk', 'https://www.instagram.com/gogoadslk2019/', NULL, NULL, NULL, 'Newsletter', 'පුවත් පත්‍රිකාව', 'Subscribe to our official Newsletter', 'අපගේ නිල පුවත් පත්‍රිකාවට දායක වන්න', '2022-05-17 14:57:55', '2022-08-13 16:23:36');
+(12, 'ok2list.com', 'uploads/2022/12/1671873605-logo2.png', 'uploads/2022/06/1655658561-logo-02.jpg', 'Copyright @', 'ok2list.com', 'ok2list.com', 'info@ok2list.com', NULL, 'Sri lanka', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4047213.2839410105!2d80.70625!3d7.857684999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2593cf65a1e9d%3A0xe13da4b400e2d38c!2sSri%20Lanka!5e0!3m2!1sen!2sbd!4v1660041689475!5m2!1sen!2sbd\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'Quick Links', 'ඉක්මන් සබැඳි', 'About', 'Contact Us', 'Terms & Conditions', 'Privacy Policy', 'Sitemap', 'පිළිබඳ', 'අප අමතන්න', 'නියම සහ කොන්දේසි', 'රහස්යතා ප්රතිපත්තිය', 'අඩවි සිතියම', 'How to sell fast', 'ඉක්මනින් විකුණන්නේ කෙසේද', 'How to sell fast', 'Membership', 'Promote Your Ad', 'Promotions', 'FAQ', 'ඉක්මනින් විකුණන්නේ කෙසේද', 'සාමාජිකත්වය', 'ඔබේ සංස්කරණය ප්‍රවර්ධනය කරන්න', 'උසස්වීම්', 'පරතරය', 'Follow Us On', 'අපව අනුගමනය කරන්න සහ', 'Facebook', 'Instagram', 'Twitter', 'Linkedin', 'Whatsapp', 'Youtube', 'ෆේස්බුක්', 'ට්විටර්', 'ට්විටර්', 'Linkedin', 'Whatsapp', 'Youtube', 'https://www.facebook.com/ok2list', 'https://twitter.com/ok2list', 'https://www.instagram.com/ok2list', 'https://www.facebook.com/ok2list', 'https://www.facebook.com/ok2list', 'https://www.facebook.com/ok2list', 'Newsletter', 'පුවත් පත්‍රිකාව', 'Subscribe to our official Newsletter', 'අපගේ නිල පුවත් පත්‍රිකාවට දායක වන්න', '2022-05-17 14:57:55', '2022-12-24 08:50:20');
 
 -- --------------------------------------------------------
 
@@ -2271,7 +2270,7 @@ CREATE TABLE `sls_payments` (
   `billing_state` varchar(150) DEFAULT NULL,
   `zip_code` varchar(100) DEFAULT NULL,
   `address` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sls_payments`
@@ -2365,7 +2364,7 @@ CREATE TABLE `sls_promotions` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(3) DEFAULT NULL,
   `updated_by` int(3) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sls_promotions`
@@ -2393,7 +2392,7 @@ CREATE TABLE `sls_promotion_details` (
   `created_by` int(3) DEFAULT NULL,
   `updated_by` int(3) DEFAULT NULL,
   `title` varchar(40) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sls_promotion_details`
@@ -2415,15 +2414,15 @@ INSERT INTO `sls_promotion_details` (`pk_no`, `f_promotion_pk_no`, `day_limit`, 
 
 CREATE TABLE `ss_areas` (
   `pk_no` int(11) NOT NULL,
-  `city_division` enum('city','division') NOT NULL,
+  `city_division` enum('city','division') COLLATE utf8mb4_unicode_ci NOT NULL,
   `city_pk_no` int(11) DEFAULT NULL,
   `division_pk_no` int(11) DEFAULT NULL,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `is_delete` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
@@ -2680,12 +2679,12 @@ DELIMITER ;
 
 CREATE TABLE `ss_business_function` (
   `pk_no` int(11) NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `is_delete` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
@@ -2728,7 +2727,7 @@ CREATE TABLE `ss_chat` (
   `updated_by` int(10) DEFAULT NULL,
   `data_set` bigint(20) NOT NULL DEFAULT 0,
   `is_seen` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ss_chat`
@@ -2780,12 +2779,12 @@ DELIMITER ;
 CREATE TABLE `ss_cities` (
   `pk_no` int(11) NOT NULL,
   `country_pk_no` int(11) NOT NULL DEFAULT 0,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT 1,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `total_post` int(10) NOT NULL DEFAULT 0,
   `active_post` int(10) NOT NULL DEFAULT 0,
@@ -2793,7 +2792,7 @@ CREATE TABLE `ss_cities` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `image` varchar(50) DEFAULT NULL
+  `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2843,7 +2842,7 @@ CREATE TABLE `ss_contact` (
   `created_at` date NOT NULL,
   `updated_at` date NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0 COMMENT 'unseen =0, seen = 1, replied = 2'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -2862,7 +2861,7 @@ CREATE TABLE `ss_country` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ss_country`
@@ -2881,7 +2880,7 @@ CREATE TABLE `ss_currency` (
   `pk_no` int(11) NOT NULL,
   `code` varchar(4) DEFAULT NULL,
   `name` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -2891,50 +2890,50 @@ CREATE TABLE `ss_currency` (
 
 CREATE TABLE `ss_customers` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `seller_type` varchar(40) DEFAULT 'Individual',
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(124) DEFAULT NULL,
-  `mobile1` varchar(11) DEFAULT NULL,
-  `mobile2` varchar(11) DEFAULT NULL,
+  `seller_type` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT 'Individual',
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile1` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile2` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `mobile1_is_verified` tinyint(4) NOT NULL DEFAULT 0,
   `mobile2_is_verified` tinyint(4) NOT NULL DEFAULT 0,
-  `mobile1_otp_code` varchar(4) NOT NULL,
-  `mobile2_otp_code` varchar(4) NOT NULL,
+  `mobile1_otp_code` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile2_otp_code` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mobile1_otp_code_extime` datetime DEFAULT NULL,
   `mobile2_otp_code_extime` datetime DEFAULT NULL,
   `area_id` int(10) DEFAULT NULL,
   `is_active` tinyint(2) NOT NULL DEFAULT 1,
   `is_delete` tinyint(4) DEFAULT 0,
-  `gender` varchar(124) DEFAULT NULL,
-  `linkedin` varchar(124) DEFAULT NULL,
-  `highest_education` varchar(124) DEFAULT NULL,
-  `special_education` varchar(124) DEFAULT NULL,
-  `highest_education_ins` varchar(124) DEFAULT NULL COMMENT 'highest_education_institution',
+  `gender` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `highest_education` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `special_education` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `highest_education_ins` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'highest_education_institution',
   `experience_year` decimal(2,2) DEFAULT NULL,
-  `skill_summary` varchar(255) DEFAULT NULL,
-  `about_me` varchar(1024) DEFAULT NULL,
-  `current_industry` varchar(124) DEFAULT NULL,
-  `current_function` varchar(124) DEFAULT NULL COMMENT 'Current Business Function',
-  `current_designation` varchar(124) DEFAULT NULL,
+  `skill_summary` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about_me` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `current_industry` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `current_function` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Current Business Function',
+  `current_designation` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `job_started` datetime DEFAULT NULL,
-  `job_notice_period` varchar(124) DEFAULT NULL COMMENT 'Notice period (in days)',
-  `current_job_responsibility` varchar(1024) DEFAULT NULL,
+  `job_notice_period` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Notice period (in days)',
+  `current_job_responsibility` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `current_salary` decimal(6,2) DEFAULT NULL COMMENT 'Current salary (per month) (Tk)',
-  `cv` varchar(124) DEFAULT NULL COMMENT 'Supported file formats: DOC, DOCX, PDF, TIFF, JPG, PNG',
+  `cv` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Supported file formats: DOC, DOCX, PDF, TIFF, JPG, PNG',
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `first_name` varchar(255) DEFAULT NULL,
-  `middle_name` varchar(255) DEFAULT NULL,
-  `last_name` varchar(255) DEFAULT NULL,
-  `alt_mobile_no` varchar(14) DEFAULT NULL,
-  `designation` varchar(255) DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `middle_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alt_mobile_no` varchar(14) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `auth_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `google_id` varchar(255) DEFAULT NULL,
+  `google_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gym_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `profile_pic` varchar(255) DEFAULT NULL,
-  `profile_pic_url` varchar(255) DEFAULT NULL,
-  `pic_mime_type` varchar(50) DEFAULT NULL,
+  `profile_pic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_pic_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pic_mime_type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_type` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
   `total_favorite` int(5) NOT NULL DEFAULT 0,
@@ -2942,14 +2941,14 @@ CREATE TABLE `ss_customers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `city` varchar(40) DEFAULT NULL,
-  `address` varchar(200) DEFAULT NULL,
+  `city` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `package_id` int(3) DEFAULT 1,
   `package_start_date` date DEFAULT NULL,
   `package_end_date` date DEFAULT NULL,
   `promotion` int(1) NOT NULL DEFAULT 0 COMMENT 'I want to receive news and promotion updates',
   `tc` int(1) NOT NULL DEFAULT 0 COMMENT 'Terms & Condition',
-  `random_token` varchar(100) DEFAULT NULL,
+  `random_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_verified` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -2958,23 +2957,23 @@ CREATE TABLE `ss_customers` (
 --
 
 INSERT INTO `ss_customers` (`id`, `seller_type`, `name`, `email`, `mobile1`, `mobile2`, `mobile1_is_verified`, `mobile2_is_verified`, `mobile1_otp_code`, `mobile2_otp_code`, `mobile1_otp_code_extime`, `mobile2_otp_code_extime`, `area_id`, `is_active`, `is_delete`, `gender`, `linkedin`, `highest_education`, `special_education`, `highest_education_ins`, `experience_year`, `skill_summary`, `about_me`, `current_industry`, `current_function`, `current_designation`, `job_started`, `job_notice_period`, `current_job_responsibility`, `current_salary`, `cv`, `email_verified_at`, `password`, `remember_token`, `first_name`, `middle_name`, `last_name`, `alt_mobile_no`, `designation`, `auth_id`, `google_id`, `gym_id`, `profile_pic`, `profile_pic_url`, `pic_mime_type`, `user_type`, `total_post`, `total_favorite`, `status`, `created_at`, `updated_at`, `deleted_at`, `city`, `address`, `package_id`, `package_start_date`, `package_end_date`, `promotion`, `tc`, `random_token`, `is_verified`) VALUES
-(4, 'Individual', 'Rony Islam', 'ronymia2212@gmail.com', NULL, NULL, 0, 0, '', '', '2022-08-08 11:50:25', '2022-08-08 11:50:25', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$32Uv2WRzAQ47t3b5ITa4.eB.t/VSsfbE7zC5Ct/NdMlMWZ6b4AMZS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'profile_06082022_1659762393.jpg', 'https://gogoads.lk/media/images/profile/profile_06082022_1659762393.jpg', NULL, 0, 0, 0, 1, '2022-08-06 15:03:44', '2022-08-06 15:06:33', NULL, 'Chattogram', NULL, 1, NULL, NULL, 0, 0, 'RCm5fhDGNJlOuVFNmP8cax02DiOrdi', 1),
+(4, 'Individual', 'Rony Islam', 'ronymia2212@gmail.com', NULL, NULL, 0, 0, '', '', '2022-08-08 11:50:25', '2022-08-08 11:50:25', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$32Uv2WRzAQ47t3b5ITa4.eB.t/VSsfbE7zC5Ct/NdMlMWZ6b4AMZS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'profile_06082022_1659762393.jpg', 'https://ok2list.com/media/images/profile/profile_06082022_1659762393.jpg', NULL, 0, 0, 0, 1, '2022-08-06 15:03:44', '2022-08-06 15:06:33', NULL, 'Chattogram', NULL, 1, NULL, NULL, 0, 0, 'RCm5fhDGNJlOuVFNmP8cax02DiOrdi', 1),
 (7, 'Individual', 'Rony', 'ronymia111333@gmail.com', NULL, NULL, 0, 0, '', '', '2022-08-08 11:50:25', '2022-08-08 11:50:25', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$QJau9CDu1FG5RVkpLE2./uVSyj8zGaTkUSjT27.OsM5/OCjWmpQKe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-08-06 15:42:25', '2022-08-06 15:42:25', NULL, NULL, NULL, 3, NULL, NULL, 0, 0, 'jWYcCDpcyFCXsTr4im4eM4cGAWFGz7', 1),
-(8, 'Individual', 'Angcon Halder', 'angcon26101999@gmail.com', '01791693954', '01775425124', 1, 0, '3130', '8340', '2022-08-08 11:50:25', '2022-08-08 11:50:25', 13, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$oGmWhhcPcD.m2k/sF8LzIe03hWt8NYM2VTM7hhcWUkpNR.NH6uvZ6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'profile_06082022_1659776058.jpg', 'https://gogoads.lk/media/images/profile/profile_06082022_1659776058.jpg', NULL, 0, 4, 0, 1, '2022-08-06 16:22:22', '2022-08-06 18:54:18', NULL, 'Dhaka', 'Mohakhali', 2, NULL, NULL, 0, 0, 'S94iSq5Do9PvG03Kfuq9gQktRDKjGw', 1),
+(8, 'Individual', 'Angcon Halder', 'angcon26101999@gmail.com', '01791693954', '01775425124', 1, 0, '3130', '8340', '2022-08-08 11:50:25', '2022-08-08 11:50:25', 13, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$oGmWhhcPcD.m2k/sF8LzIe03hWt8NYM2VTM7hhcWUkpNR.NH6uvZ6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'profile_06082022_1659776058.jpg', 'https://ok2list.com/media/images/profile/profile_06082022_1659776058.jpg', NULL, 0, 4, 0, 1, '2022-08-06 16:22:22', '2022-08-06 18:54:18', NULL, 'Dhaka', 'Mohakhali', 2, NULL, NULL, 0, 0, 'S94iSq5Do9PvG03Kfuq9gQktRDKjGw', 1),
 (18, 'Individual', 'Rony', 'ronymia2211@gmail.com', NULL, NULL, 0, 0, '', '', '2022-08-08 11:50:25', '2022-08-08 11:50:25', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$Rsm0WIDt8whlFNN7kynIJ.2X.OnUTH7d18KNreQm87ffPKzuMQ8xC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-08-07 15:10:43', '2022-08-07 15:10:43', NULL, NULL, NULL, 1, NULL, NULL, 0, 0, '25w6obBGg3IyF0MlFf37JkKc8Cb9hq', 1),
 (19, 'Individual', 'MD Rony', 'ronymia111333@gmail.com', NULL, NULL, 0, 0, '', '', '2022-08-08 11:50:25', '2022-08-08 11:50:25', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6IjFMOFwvNjUzUGhUQU9JS3cxOERRck5RPT0iLCJ2YWx1ZSI6IlVxZ1hGOUJweUJKQm5JQmhoUG5kUHc9PSIsIm1hYyI6IjBjZDg1ODAzNTFkNzBlYjc0OThmMTJkNTc0ZjM1ZjE4YWZjZjEwNDc3MjM1NWM3MjMzMmRmYWY2MzYwNjBmYjMifQ==', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '107664573006850499632', NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-08-07 15:47:25', '2022-08-07 15:47:25', NULL, NULL, NULL, 3, NULL, NULL, 0, 0, NULL, 1),
 (20, 'Individual', 'Asia', 'asiaphtlbd@gmail.com', '94776628447', NULL, 1, 0, '3290', '', '2022-10-09 03:55:15', '2022-10-09 03:55:15', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$OsXq8fGYNHSh62afMASfC.8hrzh8FaIg5m9j0fzuuQ.KnIGJf8Ujq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-08-07 17:14:12', '2022-08-09 01:55:23', NULL, NULL, 'Maharagama, Colombo', 3, NULL, NULL, 0, 0, 'nZs57muj5dJ8SFVnI4t9Yqs1lOIjeV', 1),
-(23, 'Individual Seller', 'Rakib', 'webdevsforu@gmail.com', '01990572321', NULL, 0, 0, '', '', '2022-08-12 02:07:26', '2022-08-12 02:07:26', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$rT8D.GHAWtynYblyddn3aOGNXP4cQrI08Tgrl1DmR681y7B6bvLti', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'profile_12082022_1660284386.jpg', 'https://gogoads.lk/media/images/profile/profile_12082022_1660284386.jpg', NULL, 0, 0, 0, 1, '2022-08-12 16:04:52', '2022-08-12 16:06:26', NULL, 'Colombo', NULL, 1, NULL, NULL, 0, 0, 'wql8AfiWTRqDPabRs0ffEudeOyPlTX', 1),
-(25, 'Individual', 'Anees Ahamed', 'gogoads.lk@gmail.com', '94776618447', '94776628447', 0, 1, '3971', '5197', '2022-12-17 10:24:55', '2022-12-17 10:24:55', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$BjuM3yCAkjSAabNGNwA83Ou5AR5qDHGQtBKEWpcjKUbmPLm9G5Wzy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-08-14 04:01:05', '2022-08-21 05:03:50', NULL, NULL, NULL, 3, NULL, NULL, 0, 0, 'TjdB9fqSWDc67FyPeQC7F3abWDZhks', 1),
+(23, 'Individual Seller', 'Rakib', 'webdevsforu@gmail.com', '01990572321', NULL, 0, 0, '', '', '2022-08-12 02:07:26', '2022-08-12 02:07:26', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$rT8D.GHAWtynYblyddn3aOGNXP4cQrI08Tgrl1DmR681y7B6bvLti', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'profile_12082022_1660284386.jpg', 'https://ok2list.com/media/images/profile/profile_12082022_1660284386.jpg', NULL, 0, 0, 0, 1, '2022-08-12 16:04:52', '2022-08-12 16:06:26', NULL, 'Colombo', NULL, 1, NULL, NULL, 0, 0, 'wql8AfiWTRqDPabRs0ffEudeOyPlTX', 1),
+(25, 'Individual', 'Anees Ahamed', 'ok2list.com@gmail.com', '94776618447', '94776628447', 0, 1, '3971', '5197', '2022-12-17 10:24:55', '2022-12-17 10:24:55', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$BjuM3yCAkjSAabNGNwA83Ou5AR5qDHGQtBKEWpcjKUbmPLm9G5Wzy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-08-14 04:01:05', '2022-08-21 05:03:50', NULL, NULL, NULL, 3, NULL, NULL, 0, 0, 'TjdB9fqSWDc67FyPeQC7F3abWDZhks', 1),
 (26, 'Individual', 'Rony', 'ronymia.tech@gmail.com', '94776628447', NULL, 1, 0, '3786', '', '2022-12-13 06:56:12', '2022-12-13 06:56:12', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$5zFrx9vzFl2PaPkvlyk1T.W0o4AnqCp2ywdKL64MhMQoFDKnzllra', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-08-14 16:29:06', '2022-09-05 20:17:40', NULL, NULL, 'Colombo', 2, NULL, NULL, 0, 0, 'kkFjCNuHyFuiYruqJGXRAmZ9ixCxTM', 1),
 (28, 'Individual', 'Muaz AA', 'extra.muaz@gmail.com', NULL, NULL, 1, 0, '1077', '', '2022-10-09 03:55:19', '2022-10-09 03:55:19', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$hPOPgDVmpRIzs7/XYBLrCuRddWa8p2ObRaapXvGbe.lNxXh.s1Bae', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-08-14 22:42:43', '2022-08-20 19:44:47', NULL, NULL, '42b Rathnawali Road, Kalubowila', 7, NULL, NULL, 0, 0, 'TeHDGtEfsSOCsN0XUhb0e05uVhnPrg', 1),
-(29, 'Dealer', 'Rabin mia', 'rabinmia7578@gmail.com', '94776628447', '94776628447', 1, 0, '5675', '9917', '2022-10-09 03:55:53', '2022-10-09 03:55:53', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6InVTNEdiZTdiNmhWVFV2T1pxVW1LRkE9PSIsInZhbHVlIjoiOGs2YjJcL0lrVzVpbjFQdFB0ZHFoNUE9PSIsIm1hYyI6ImE5MjRiYTIzZGZhNWE2MGQ5NjhlMzQzYzFhZDFlNWZhMTdhMTA1NzAxNmJjODkzMzAxMDFkZWY5Mzc2NGRmYWYifQ==', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '115691976286960126962', NULL, 'profile_15082022_1660571687.jpg', 'https://gogoads.lk/public/media/images/profile/profile_15082022_1660571687.jpg', NULL, 0, 0, 0, 1, '2022-08-15 23:52:57', '2022-08-16 00:38:20', NULL, 'Ratnapura', NULL, 7, NULL, NULL, 0, 0, NULL, 1),
+(29, 'Dealer', 'Rabin mia', 'rabinmia7578@gmail.com', '94776628447', '94776628447', 1, 0, '5675', '9917', '2022-10-09 03:55:53', '2022-10-09 03:55:53', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6InVTNEdiZTdiNmhWVFV2T1pxVW1LRkE9PSIsInZhbHVlIjoiOGs2YjJcL0lrVzVpbjFQdFB0ZHFoNUE9PSIsIm1hYyI6ImE5MjRiYTIzZGZhNWE2MGQ5NjhlMzQzYzFhZDFlNWZhMTdhMTA1NzAxNmJjODkzMzAxMDFkZWY5Mzc2NGRmYWYifQ==', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '115691976286960126962', NULL, 'profile_15082022_1660571687.jpg', 'https://ok2list.com/public/media/images/profile/profile_15082022_1660571687.jpg', NULL, 0, 0, 0, 1, '2022-08-15 23:52:57', '2022-08-16 00:38:20', NULL, 'Ratnapura', NULL, 7, NULL, NULL, 0, 0, NULL, 1),
 (30, 'Individual', 'Manicka Raja', 'manickarajainpropel@gmail.com', NULL, NULL, 0, 0, '', '', NULL, NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6IjFBamtZa1J4WXJ5RzhnSFBhZzJ6bGc9PSIsInZhbHVlIjoiRlJCek5vaHUzdlBzZE9tZmJcL0xQTnc9PSIsIm1hYyI6Ijc5MjQxMTQ0YmUwNTAwMDY4NDY0Yzc3MDVjMDExOWJlMDg3N2QzMTVmM2YxYTQxYTBhNWU1YWE2Nzg5MDFhOTQifQ==', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '109586735112403574668', NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-08-17 17:04:56', '2022-08-17 17:04:56', NULL, NULL, NULL, 1, NULL, NULL, 0, 0, NULL, 0),
 (31, 'Individual', 'Animo Planet', 'animoplanet2050@gmail.com', NULL, NULL, 0, 0, '', '', '2022-08-19 00:21:05', '2022-08-19 00:21:05', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$s5goGX.mLBW99OFNhQ0XG.2OsS6qYx8FrSCcnkLD1ywuUPV7vfMOS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-08-19 14:19:18', '2022-08-19 14:19:18', NULL, NULL, NULL, 1, NULL, NULL, 0, 0, 'KgerTSiedV0ptZgu32VVE2q3BU2v2q', 1),
 (32, 'Individual', 'Jakir', 'jakir@gmail.com', NULL, NULL, 0, 0, '', '', NULL, NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$iagHX7GhbfN4XCHFtr2QyO.1HPZR1/y4yflnid//ZHMvQ9bs2lqTW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-08-31 15:58:35', '2022-08-31 15:58:35', NULL, NULL, NULL, 1, NULL, NULL, 0, 0, 'Vs5PTw0DNxMqZh04BaF0AxPvJ3X82z', 0),
 (33, 'Individual', 'A Ahmed', 'anees622@yahoo.com', '94767018447', '94776628447', 0, 1, '3208', '1139', '2022-09-01 13:06:35', '2022-09-01 13:06:35', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$OOMM.1NAY4fqvEtUn6ie8.Wm6M1bsQTa31AxHfBJU2eSJFEjZ5z3a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-09-02 02:22:44', '2022-09-02 02:35:35', NULL, NULL, NULL, 1, NULL, NULL, 0, 0, 'KoRn6SunOe232BOHJxk5ncSTcH2zSD', 1),
 (34, 'Individual', 'AUSTENITE TECHNICAL SERVICES L.L.C', 'austenitetechnicalllc@gmail.com', NULL, NULL, 0, 0, '', '', NULL, NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6IkczNGVwUUF5bDFNcU9ZeVZYUnkxOUE9PSIsInZhbHVlIjoiMFgyUmp6WnpkZHpBc3ZzK0c3VWJhUT09IiwibWFjIjoiY2NiNzY3NzQ2NzgxYTEzNDc0Y2U3MjY4MGVlMzlhNmIyY2M4ZjIyZjBmY2RmOGFkMDE5YzcyOGFhOTZjZjFkMSJ9', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '108728694568662054017', NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-09-27 22:13:18', '2022-09-27 22:13:18', NULL, NULL, NULL, 1, NULL, NULL, 0, 0, NULL, 0),
-(35, 'Individual', 'Admin', 'Admin@gogoads.lk', '94743488447', NULL, 1, 0, '2986', '', '2022-12-13 04:30:48', '2022-12-13 04:30:48', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$xDHVAihd3azuWnsLs/M/bOMkhJEsRXCUm2tioQLdnYc3Jsa/XgKae', 'SUA4Jb4zd4fZAzkwTI7piWxM0h8DUUwoF1WwA5sIb973cDhXbjWyKDdPlHK2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-10-16 09:32:31', '2022-10-19 12:45:48', NULL, NULL, NULL, 1, NULL, NULL, 0, 0, '0O5DpEPAfJMjphLe7ubuaRdHEoUZsp', 1),
+(35, 'Individual', 'Admin', 'Admin@ok2list.com', '94743488447', NULL, 1, 0, '2986', '', '2022-12-13 04:30:48', '2022-12-13 04:30:48', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$xDHVAihd3azuWnsLs/M/bOMkhJEsRXCUm2tioQLdnYc3Jsa/XgKae', 'SUA4Jb4zd4fZAzkwTI7piWxM0h8DUUwoF1WwA5sIb973cDhXbjWyKDdPlHK2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-10-16 09:32:31', '2022-10-19 12:45:48', NULL, NULL, NULL, 1, NULL, NULL, 0, 0, '0O5DpEPAfJMjphLe7ubuaRdHEoUZsp', 1),
 (36, 'Individual', 'AlinaHig', 'aa8590@outlook.com', NULL, NULL, 0, 0, '', '', NULL, NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$52eQnqJ8/iD2wXegMbyDa.JO3qm2xkCftTA7Q.GTlBq9aTfCWUzp6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-10-20 05:30:15', '2022-10-20 05:30:15', NULL, NULL, NULL, 1, NULL, NULL, 0, 0, 'P7zrr9UFgekvFJ6f3PvMsJ9Nh7AcrM', 0),
 (37, 'Individual', 'topsamarapovoste', 'getanswer@topsamara.ru', NULL, NULL, 0, 0, '', '', NULL, NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$Sf0Oh9IA6EhtiM2YM5sx0Ojxxv.Yw0kfj7bqJJ8Qlzamle2hamPJ2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-10-22 01:44:02', '2022-10-22 01:44:02', NULL, NULL, NULL, 1, NULL, NULL, 0, 0, 'CDzipryE9Y8iDh8pWZbLz7p1aD3Coj', 0),
 (38, 'Individual', 'JamesPhiva', 'vera.dynaeva@yandex.ru', NULL, NULL, 0, 0, '', '', NULL, NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$7i69.BJoSvtKo0LroyQAUudgcM/iwxJN8FRGB1M1snhEqCuoNz/T2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2022-11-03 06:17:21', '2022-11-03 06:17:21', NULL, NULL, NULL, 1, NULL, NULL, 0, 0, 'F9m9pC2pKAqByreqbrVR94kvsKSSdY', 0),
@@ -3015,12 +3014,12 @@ DELIMITER ;
 CREATE TABLE `ss_divisions` (
   `pk_no` int(11) NOT NULL,
   `country_pk_no` int(11) NOT NULL DEFAULT 0,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT 1,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `total_post` int(10) NOT NULL DEFAULT 0,
   `active_post` int(10) NOT NULL DEFAULT 0,
@@ -3028,7 +3027,7 @@ CREATE TABLE `ss_divisions` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `image` varchar(124) DEFAULT NULL
+  `image` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -3040,18 +3039,18 @@ CREATE TABLE `ss_divisions` (
 CREATE TABLE `ss_employment_history` (
   `pk_no` int(11) NOT NULL,
   `customer_pk_no` int(10) DEFAULT NULL,
-  `institution_name` varchar(124) DEFAULT NULL,
-  `industry` varchar(124) DEFAULT NULL,
-  `business _function` varchar(124) DEFAULT NULL,
-  `designation` varchar(124) DEFAULT NULL,
+  `institution_name` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `industry` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `business _function` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `start_date` datetime DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `is_delete` tinyint(4) NOT NULL DEFAULT 0,
   `end_date` datetime NOT NULL DEFAULT current_timestamp(),
-  `job_responsibility` varchar(1024) DEFAULT NULL,
+  `job_responsibility` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_by` int(4) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
@@ -3074,38 +3073,38 @@ CREATE TABLE `ss_faq` (
   `created_by` int(2) DEFAULT NULL,
   `updated_by` int(2) DEFAULT NULL,
   `is_active` int(11) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ss_faq`
 --
 
 INSERT INTO `ss_faq` (`pk_no`, `question`, `answer`, `created_at`, `updated_at`, `deleted_at`, `created_by`, `updated_by`, `is_active`) VALUES
-(1, 'How gogoads.lk can help in a fraud case?', 'We are very sorry if you have been a victim of fraud. Luckily gogoads.lk or the QS Week (Pvt) Ltd can help you If you want to press charges legally against the fraudster and we can also provide you with all the data (available and accessible within the website) that you require to help you getting your items/money back. As we are trying to keep our user\'s privacy, we cannot release any data concerning a user to another without a legal warrant, which means you have to report the fraud to the local authorities such as the police station and the police department concerned to such cases have to contact us requesting such data, only then we can release all the data they have requested such as (IP, Dates, Email,… etc.). Note we only require a such process to be followed for the sake of our user\'s privacy. Please note that we have no control over and do not guarantee the quality, safety or legality of items/properties/services advertised, the truth or accuracy of users’ Content or listings, the ability of sellers to sell items, the ability of buyers to pay for items, or that a buyer or seller will actually complete a transaction or return an item. It is the buyer’s responsibility to check the items/properties/services before completing the transaction. Gogoads.lk or the QS Week (Pvt) Ltd wish not to participate in any dispute between you and other users of the Website. Please note that we are a classifieds platform and have no authority over the ads posted and we do not own them, we are merely a platform where buyers and sellers make transactions without our interference.', '2022-08-14 11:15:49', '2022-08-14 11:15:49', NULL, 1, NULL, 1),
+(1, 'How ok2list.com can help in a fraud case?', 'We are very sorry if you have been a victim of fraud. Luckily ok2list.com or the QS Week (Pvt) Ltd can help you If you want to press charges legally against the fraudster and we can also provide you with all the data (available and accessible within the website) that you require to help you getting your items/money back. As we are trying to keep our user\'s privacy, we cannot release any data concerning a user to another without a legal warrant, which means you have to report the fraud to the local authorities such as the police station and the police department concerned to such cases have to contact us requesting such data, only then we can release all the data they have requested such as (IP, Dates, Email,… etc.). Note we only require a such process to be followed for the sake of our user\'s privacy. Please note that we have no control over and do not guarantee the quality, safety or legality of items/properties/services advertised, the truth or accuracy of users’ Content or listings, the ability of sellers to sell items, the ability of buyers to pay for items, or that a buyer or seller will actually complete a transaction or return an item. It is the buyer’s responsibility to check the items/properties/services before completing the transaction. Ok2list.com or the QS Week (Pvt) Ltd wish not to participate in any dispute between you and other users of the Website. Please note that we are a classifieds platform and have no authority over the ads posted and we do not own them, we are merely a platform where buyers and sellers make transactions without our interference.', '2022-08-14 11:15:49', '2022-08-14 11:15:49', NULL, 1, NULL, 1),
 (2, 'How to react to a fraud contact?', 'We strongly recommend you stop communicating with this particular user and block him from sending you further messages and we also recommend you to contact us so we could block this user from contacting another user after conducting the necessary investigation. Also, we recommend you to contact your local authorities if you have been a victim of fraud click here to learn more about what we could help with If you are a victim.', '2022-08-14 11:16:13', '2022-08-14 11:16:13', NULL, 1, NULL, 1),
-(3, 'Do gogoads.lk, owe the posted ads on the Website?', 'No, we do not owe the items in the ads posted on our website as well as the jobs ads posted do not refer to vacancies in gogoads.lk offices. Please note that we have no control over and do not guarantee the quality, safety, or legality of items/properties/services advertised, the truth or accuracy of users’ Content or listings, the ability of sellers to sell items, the ability of buyers to pay for items, or that a buyer or seller will actually complete a transaction or return an item. It is the buyer’s responsibility to check the items/properties/services before entering to complete the transaction. Please note that we are a classifieds platform have no authority over the ads posted and we do not own them, we are merely a platform where buyers and sellers make transactions without our interference.', '2022-08-14 11:16:31', '2022-08-14 11:16:31', NULL, 1, NULL, 1),
-(4, 'How much does it cost to place an ad?', 'Most ads on gogoads.lk are free. Currently, there are some categories where we charge to place an ad which is in: The Property for Sale / Rent section. It will cost you SLRS 800 per ad to post in this category and your ad will be live on the site for 60 days with the refresh facility, meaning, you can push your ad to the top list every after seven days. After the last refresh date, your ad will still be live for another 2 months. Used Cars for sale: Classic Package costs SLRS 800. (Prices vary depending on the package you choose)', '2022-08-14 11:16:50', '2022-08-14 11:16:50', NULL, 1, NULL, 1),
+(3, 'Do ok2list.com, owe the posted ads on the Website?', 'No, we do not owe the items in the ads posted on our website as well as the jobs ads posted do not refer to vacancies in ok2list.com offices. Please note that we have no control over and do not guarantee the quality, safety, or legality of items/properties/services advertised, the truth or accuracy of users’ Content or listings, the ability of sellers to sell items, the ability of buyers to pay for items, or that a buyer or seller will actually complete a transaction or return an item. It is the buyer’s responsibility to check the items/properties/services before entering to complete the transaction. Please note that we are a classifieds platform have no authority over the ads posted and we do not own them, we are merely a platform where buyers and sellers make transactions without our interference.', '2022-08-14 11:16:31', '2022-08-14 11:16:31', NULL, 1, NULL, 1),
+(4, 'How much does it cost to place an ad?', 'Most ads on ok2list.com are free. Currently, there are some categories where we charge to place an ad which is in: The Property for Sale / Rent section. It will cost you SLRS 800 per ad to post in this category and your ad will be live on the site for 60 days with the refresh facility, meaning, you can push your ad to the top list every after seven days. After the last refresh date, your ad will still be live for another 2 months. Used Cars for sale: Classic Package costs SLRS 800. (Prices vary depending on the package you choose)', '2022-08-14 11:16:50', '2022-08-14 11:16:50', NULL, 1, NULL, 1),
 (5, 'What is a Membership?', 'To know all about Membership, please visit our Membership page.', '2022-08-14 11:17:11', '2022-08-14 11:17:11', NULL, 1, NULL, 1),
-(6, 'Why is my ad not showing as a Featured Ad?', 'Gogoads.lk home normally displayed the latest four slots, however, all Featured Ad is given equal opportunity to display. If you don’t see your Featured Ad right away, it means that there are more Featured Ads available than the number of Featured Ad slots.', '2022-08-14 11:17:27', '2022-08-14 11:17:27', NULL, 1, NULL, 1),
+(6, 'Why is my ad not showing as a Featured Ad?', 'Ok2list.com home normally displayed the latest four slots, however, all Featured Ad is given equal opportunity to display. If you don’t see your Featured Ad right away, it means that there are more Featured Ads available than the number of Featured Ad slots.', '2022-08-14 11:17:27', '2022-08-14 11:17:27', NULL, 1, NULL, 1),
 (7, 'What are the methods of payment?', 'Currently, you can only pay through bank transfer and we are working to provide a secured payment gateway for the easy process.', '2022-08-14 11:17:43', '2022-08-14 11:17:43', NULL, 1, NULL, 1),
-(8, 'How soon does my Featured Ad appear on gogoads.lk?', 'For existing Ads, it should be on the spot after finishing the payment process, regarding the new Ads it will appear once your Ad passes the review process.', '2022-08-14 11:18:00', '2022-08-14 11:18:00', NULL, 1, NULL, 1),
+(8, 'How soon does my Featured Ad appear on ok2list.com?', 'For existing Ads, it should be on the spot after finishing the payment process, regarding the new Ads it will appear once your Ad passes the review process.', '2022-08-14 11:18:00', '2022-08-14 11:18:00', NULL, 1, NULL, 1),
 (9, 'What does a Featured Ad look like?', 'The featured Ad is eye-catching and unique from the normal Ads:', '2022-08-14 11:18:15', '2022-08-14 11:18:15', NULL, 1, NULL, 1),
-(10, 'What is a \"Featured Ad\"?', 'Featured Ads is a premium service from gogoads.lk which allows you to display your listings on the first four slots on the top of the categories’ pages, that shift alternately with other featured ads.', '2022-08-14 11:18:31', '2022-08-14 11:18:31', NULL, 1, NULL, 1),
-(11, 'What is my posting allowance?', 'Each month Users can post a few ads for free in most categories on gogoads.lk, some categories are only accepted against the payment as stipulated. If the User consumed the free ad allowance for the month, the User can upgrade to Membership in order to post more ads.', '2022-08-14 11:18:47', '2022-08-14 11:18:47', NULL, 1, NULL, 1),
+(10, 'What is a \"Featured Ad\"?', 'Featured Ads is a premium service from ok2list.com which allows you to display your listings on the first four slots on the top of the categories’ pages, that shift alternately with other featured ads.', '2022-08-14 11:18:31', '2022-08-14 11:18:31', NULL, 1, NULL, 1),
+(11, 'What is my posting allowance?', 'Each month Users can post a few ads for free in most categories on ok2list.com, some categories are only accepted against the payment as stipulated. If the User consumed the free ad allowance for the month, the User can upgrade to Membership in order to post more ads.', '2022-08-14 11:18:47', '2022-08-14 11:18:47', NULL, 1, NULL, 1),
 (12, 'Why can\'t I log in to my accounts?', 'If you are having trouble logging in to your account, please check that you have: Signed up for an account. Entered the correct user name and password on the log-in page. If you are still having trouble accessing your account, please contact us.', '2022-08-14 11:19:03', '2022-08-14 11:19:03', NULL, 1, NULL, 1),
 (13, 'How do I change my account details?', 'To change the details on your account, log in to your account and go to your account’s Dashboard.', '2022-08-14 11:19:19', '2022-08-14 11:19:19', NULL, 1, NULL, 1),
-(14, 'What are the rules for posting on gogoads?', 'We have set up Terms and Conditions that will make this Website safer and all the posting shall be strict to the requirements: An item or service that is illegal in Sri Lanka or any other country An invalid phone number or email address Offensive language Offensive images and pictures Text in the title or description that is not related to the advertised item or service Pictures that do not match or clearly show the advertised item or service A non-specific item or service, e.g. a description of a company in general terms A website link that is not relevant to the advertised item or service Offers and requests for items or services in the same advertisement Identical content as another advertisement, re-posting within 7 days. Multiple items in the same ad Any contents that are subject to gogoads.lk review and discretion.', '2022-08-14 11:19:43', '2022-08-14 11:19:43', NULL, 1, NULL, 1),
+(14, 'What are the rules for posting on ok2list?', 'We have set up Terms and Conditions that will make this Website safer and all the posting shall be strict to the requirements: An item or service that is illegal in Sri Lanka or any other country An invalid phone number or email address Offensive language Offensive images and pictures Text in the title or description that is not related to the advertised item or service Pictures that do not match or clearly show the advertised item or service A non-specific item or service, e.g. a description of a company in general terms A website link that is not relevant to the advertised item or service Offers and requests for items or services in the same advertisement Identical content as another advertisement, re-posting within 7 days. Multiple items in the same ad Any contents that are subject to ok2list.com review and discretion.', '2022-08-14 11:19:43', '2022-08-14 11:19:43', NULL, 1, NULL, 1),
 (15, 'I haven\'t received any response to my ad. What\'s wrong?', 'If you are not receiving responses to our ads, we recommend taking a look at our other services that will help you to find a way to success.', '2022-08-14 11:20:05', '2022-08-14 11:20:05', NULL, 1, NULL, 1),
 (16, 'I\'m getting contacted about an ad I didn\'t post. Can you help me?', 'Yes, please provide further details by contacting us and we will help you right away.', '2022-08-14 11:20:21', '2022-08-14 11:20:21', NULL, 1, NULL, 1),
 (17, 'Is any ad will be rejected?', 'As explained in above 6, other than all of the ads are manually reviewed – if your ad does not comply with our Terms and Conditions it will be rejected. You can read what changes you have to make before the ad can be approved in the rejection email.', '2022-08-14 11:20:37', '2022-08-14 11:20:37', NULL, 1, NULL, 1),
 (18, 'I posted an ad but can\'t find it. What\'s wrong?', 'Tip: you can keep track of your ads easily by logging in to your account and visiting your “My ads” page! Your ad may not be live due to one (or more) of the following reasons: It is still under review – this will show on your My Ads page, under “Ads under review”. It may be non-compliant with Terms and Conditions – if your ad needs to be edited before it can be published, this will show on your My Ads page, under “Ads that need editing”. You have used up your free ad allowance. If you have been waiting longer than 24 hours for a response from us, you may have given us the wrong contact details when you posted the ad. Try posting again or contact us.', '2022-08-14 11:20:54', '2022-08-14 11:20:54', NULL, 1, NULL, 1),
-(19, 'How long do ads live on gogoads.lk?', 'Ads appear for 21 days unless you delete them earlier.', '2022-08-14 11:21:09', '2022-08-14 11:21:09', NULL, 1, NULL, 1),
-(20, 'How do I set a reset password?', 'To reset a password, please log in to your account, go to the “Settings” page and enter a new password. If you have forgotten your gogoads.lk password, you can; go to the login page and click on the “Forgot password?” follow the instruction If you have created an account via Facebook, you will not have a gogoads.lk password. You can log in to your account via Facebook without a password', '2022-08-14 11:21:23', '2022-08-14 11:21:23', NULL, 1, NULL, 1),
+(19, 'How long do ads live on ok2list.com?', 'Ads appear for 21 days unless you delete them earlier.', '2022-08-14 11:21:09', '2022-08-14 11:21:09', NULL, 1, NULL, 1),
+(20, 'How do I set a reset password?', 'To reset a password, please log in to your account, go to the “Settings” page and enter a new password. If you have forgotten your ok2list.com password, you can; go to the login page and click on the “Forgot password?” follow the instruction If you have created an account via Facebook, you will not have a ok2list.com password. You can log in to your account via Facebook without a password', '2022-08-14 11:21:23', '2022-08-14 11:21:23', NULL, 1, NULL, 1),
 (21, 'How do I edit my ad?', 'To edit an ad, please go to the ‘My ads’ page and click on the “Edit ad” option.', '2022-08-14 11:21:40', '2022-08-14 11:21:40', NULL, 1, NULL, 1),
 (22, 'How do I delete my ad?', 'To delete an ad, please go to ‘My ads page’ and select the ad then click on the “Delete ad” option.', '2022-08-14 11:21:55', '2022-08-14 11:21:55', NULL, 1, NULL, 1),
 (23, 'What can I do for editing my ad?', 'To edit an ad, please go to your ad\'s page and click on the \"Edit ad\" option.', '2022-08-14 11:22:10', '2022-08-14 11:22:10', NULL, 1, NULL, 1),
 (24, 'Why has my ad been rejected?', 'All of the ads are manually reviewed - if your ad violates our posting rules it will be rejected. You can read what changes you have to make before the ad can be approved in the rejection email as well as the bottom of your rejected ad from the user dashboard.', '2022-08-14 11:22:24', '2022-08-14 11:22:24', NULL, 1, NULL, 1),
-(25, 'How do I post an ad?', 'Posting an ad on gogoads.lk is easy and only takes a few moments of your time. Follow the tips; For registered Users simply lick the yellow Post Ad button (in the top right corner of the page) and follow the instructions. If you are not already logged in, you will need to log in as the first step of posting your ad. Your ad will go live once it has been reviewed (the reviewing process usually takes less than 1 hour during office hours).', '2022-08-14 11:22:41', '2022-08-14 11:22:41', NULL, 1, NULL, 1);
+(25, 'How do I post an ad?', 'Posting an ad on ok2list.com is easy and only takes a few moments of your time. Follow the tips; For registered Users simply lick the yellow Post Ad button (in the top right corner of the page) and follow the instructions. If you are not already logged in, you will need to log in as the first step of posting your ad. Your ad will go live once it has been reviewed (the reviewing process usually takes less than 1 hour during office hours).', '2022-08-14 11:22:41', '2022-08-14 11:22:41', NULL, 1, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -3115,12 +3114,12 @@ INSERT INTO `ss_faq` (`pk_no`, `question`, `answer`, `created_at`, `updated_at`,
 
 CREATE TABLE `ss_industry` (
   `pk_no` int(11) NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `is_delete` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
@@ -3139,12 +3138,12 @@ CREATE TABLE `ss_industry` (
 
 CREATE TABLE `ss_job_title` (
   `pk_no` int(11) NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `is_delete` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
@@ -3165,8 +3164,8 @@ CREATE TABLE `ss_location` (
   `pk_no` int(11) NOT NULL,
   `divisions_pk_no` int(11) NOT NULL DEFAULT 0,
   `city_pk_no` int(11) NOT NULL DEFAULT 0,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `order_id` int(10) NOT NULL,
   `status` int(1) NOT NULL,
   `is_popular` int(1) NOT NULL
@@ -3197,7 +3196,7 @@ CREATE TABLE `ss_packages` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(3) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ss_packages`
@@ -3225,7 +3224,7 @@ CREATE TABLE `ss_paging` (
   `Feature` int(3) DEFAULT NULL,
   `Urgent` int(3) DEFAULT NULL,
   `Basic` int(3) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ss_paging`
@@ -3255,7 +3254,7 @@ CREATE TABLE `ss_shop` (
   `updated_at` datetime NOT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT 1,
   `customer_pk_no` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ss_shop`
@@ -3278,7 +3277,7 @@ CREATE TABLE `ss_subscribe` (
   `email` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ss_subscribe`
@@ -3298,8 +3297,8 @@ CREATE TABLE `tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `auth_id` bigint(20) UNSIGNED NOT NULL,
   `user_type` tinyint(4) NOT NULL DEFAULT 0,
-  `token` varchar(255) NOT NULL,
-  `client` varchar(255) NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_expire` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0 = Alive, 0 = Expire',
   `started_at` datetime NOT NULL,
   `expire_at` datetime NOT NULL
@@ -3313,49 +3312,49 @@ CREATE TABLE `tokens` (
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `seller_type` varchar(40) DEFAULT 'Individual Seller',
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(124) DEFAULT NULL,
-  `mobile1` varchar(11) DEFAULT NULL,
-  `mobile2` varchar(11) DEFAULT NULL,
+  `seller_type` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT 'Individual Seller',
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile1` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile2` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `mobile1_is_verified` tinyint(4) NOT NULL DEFAULT 0,
   `mobile2_is_verified` tinyint(4) NOT NULL DEFAULT 0,
-  `mobile1_otp_code` varchar(4) NOT NULL,
-  `mobile2_otp_code` varchar(4) NOT NULL,
+  `mobile1_otp_code` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile2_otp_code` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mobile1_otp_code_extime` datetime DEFAULT NULL,
   `mobile2_otp_code_extime` datetime DEFAULT NULL,
   `area_id` int(10) DEFAULT NULL,
   `is_active` tinyint(2) NOT NULL DEFAULT 1,
   `is_delete` tinyint(4) DEFAULT 0,
-  `gender` varchar(124) DEFAULT NULL,
-  `linkedin` varchar(124) DEFAULT NULL,
-  `highest_education` varchar(124) DEFAULT NULL,
-  `special_education` varchar(124) DEFAULT NULL,
-  `highest_education_ins` varchar(124) DEFAULT NULL COMMENT 'highest_education_institution',
+  `gender` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `highest_education` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `special_education` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `highest_education_ins` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'highest_education_institution',
   `experience_year` decimal(2,2) DEFAULT NULL,
-  `skill_summary` varchar(255) DEFAULT NULL,
-  `about_me` varchar(1024) DEFAULT NULL,
-  `current_industry` varchar(124) DEFAULT NULL,
-  `current_function` varchar(124) DEFAULT NULL COMMENT 'Current Business Function',
-  `current_designation` varchar(124) DEFAULT NULL,
+  `skill_summary` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about_me` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `current_industry` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `current_function` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Current Business Function',
+  `current_designation` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `job_started` datetime DEFAULT NULL,
-  `job_notice_period` varchar(124) DEFAULT NULL COMMENT 'Notice period (in days)',
-  `current_job_responsibility` varchar(1024) DEFAULT NULL,
+  `job_notice_period` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Notice period (in days)',
+  `current_job_responsibility` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `current_salary` decimal(6,2) DEFAULT NULL COMMENT 'Current salary (per month) (Tk)',
-  `cv` varchar(124) DEFAULT NULL COMMENT 'Supported file formats: DOC, DOCX, PDF, TIFF, JPG, PNG',
+  `cv` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Supported file formats: DOC, DOCX, PDF, TIFF, JPG, PNG',
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `first_name` varchar(255) DEFAULT NULL,
-  `middle_name` varchar(255) DEFAULT NULL,
-  `last_name` varchar(255) DEFAULT NULL,
-  `alt_mobile_no` varchar(14) DEFAULT NULL,
-  `designation` varchar(255) DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `middle_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alt_mobile_no` varchar(14) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `auth_id` bigint(20) UNSIGNED DEFAULT NULL,
   `gym_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `profile_pic` varchar(255) DEFAULT NULL,
-  `profile_pic_url` varchar(255) DEFAULT NULL,
-  `pic_mime_type` varchar(50) DEFAULT NULL,
+  `profile_pic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_pic_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pic_mime_type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_type` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
   `total_favorite` int(5) NOT NULL DEFAULT 0,
@@ -3363,8 +3362,8 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `city` varchar(40) DEFAULT NULL,
-  `address` varchar(200) DEFAULT NULL,
+  `city` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `package_id` int(3) DEFAULT NULL,
   `package_start_date` date DEFAULT NULL,
   `package_end_date` date DEFAULT NULL
@@ -3394,7 +3393,7 @@ CREATE TABLE `user_groups` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_groups`
@@ -3414,8 +3413,8 @@ INSERT INTO `user_groups` (`id`, `group_name`, `role_id`, `status`, `deleted_at`
 
 CREATE TABLE `verify_mobile_no` (
   `id` int(10) UNSIGNED NOT NULL,
-  `mobile_no` varchar(14) NOT NULL,
-  `code` varchar(255) NOT NULL,
+  `mobile_no` varchar(14) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_type` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0 = Admin, 1 = User',
   `purpose` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0 = Verify-mobile,  1 = Reset-password 2= Forgot-password',
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1 = Last-one, 0 = Used, 2 = Unused',
@@ -3432,7 +3431,7 @@ CREATE TABLE `verify_mobile_no` (
 
 CREATE TABLE `workout_body_parts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3456,9 +3455,9 @@ INSERT INTO `workout_body_parts` (`id`, `name`, `status`, `created_at`, `updated
 
 CREATE TABLE `workout_items` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `workout_name` varchar(255) NOT NULL,
-  `photo` varchar(255) NOT NULL,
-  `photo_url` varchar(255) NOT NULL,
+  `workout_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `body_parts_id` bigint(20) UNSIGNED NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,

@@ -42,7 +42,7 @@
                           <div class="row">
                                <div class="col-md-6 mb-2">
                                    <label class="form-label">Banner Title One</label>
-                                   <textarea name="" class="form-control" cols="30" rows="3" placeholder="gogoads.lk The Online Mega Mall"></textarea>
+                                   <textarea name="" class="form-control" cols="30" rows="3" placeholder="Find Everything for Buy and Sell Ex"></textarea>
                                </div>
                                <div class="col-md-6 mb-2">
                                    <label class="form-label">Banner Title Two</label>
@@ -54,7 +54,7 @@
                                </div>
                                 <div class="col-md-6 mb-2">
                                    <label class="form-label">Footer Banner Subtitle</label>
-                                   <textarea name="" class="form-control" cols="30" rows="3" placeholder="Post your ad for free on gogoads.lk"></textarea>
+                                   <textarea name="" class="form-control" cols="30" rows="3" placeholder="Post your ad for free on ok2list.lk"></textarea>
                                </div>
                                <div class="col-12">
                                    <button type="submit" class="btn btn-primary">Update Home Setting</button>
