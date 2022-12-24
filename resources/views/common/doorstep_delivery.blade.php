@@ -558,14 +558,14 @@
                     <div class="col-md-6 col-lg-6">
                         <div class="email">
                             <p>
-                                <svg viewBox="0 0 24 24" class="icon--phone">
+                                <svg viewBox="0 0 24 24" class="icon--email">
                                     <path
                                         d="M24 3.79l-9 10.05a4.22 4.22 0 0 1-3 1.64 4.36 4.36 0 0 1-3-1.7L0 3.79v13.68a8.94 8.94 0 0 0 .1 1.27l5.23-5.37 1.34 1.35-5.34 5.37a10.11 10.11 0 0 0 1.34.12H22a1.69 1.69 0 0 0 .53-.12l-5.2-5.37 1.34-1.35 5.15 5.37a5.52 5.52 0 0 0 .18-1.52V3.79zm-11.24 9.27l8.57-9.27H2.67l8.57 9.27a1.26 1.26 0 0 0 .76.44 1.26 1.26 0 0 0 .76-.44z"
                                         fill-rule="evenodd"></path>
                                 </svg>
                                 <span>Email us</span>
                                 <br>
-                                <a class="phone-number-link" href="#">support@ok2list.com</a>
+                                <a class="email-link" href="#">support@ok2list.com</a>
                             </p>
                         </div>
 
