@@ -17,7 +17,7 @@
                     <a href="{{route('ads.list', ['area' => $city->url_slug])}}" title="Ad post for {{$city->name}}">
                       <div class="location text-center">
                         <h3>{{number_format($city->total_post)}}</h3>
-                        <h4><i class="fa fa-map-marker"></i>{{$city->name}}</h4>
+                        <h4><i class="fa fa-map-marker-alt"></i>{{$city->name}}</h4>
                     </div>
                     </a>
                 </div>

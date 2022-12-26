@@ -52,7 +52,7 @@
 		</div><!-- faq-page -->
 	</div><!-- container -->
 
-    <section id="something-sell" class="clearfix parallax-section">
+   <section id="something-sell" class="clearfix parallax-section" style="background-image: url('{{ asset('post-bg.jpg') }}');">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center">

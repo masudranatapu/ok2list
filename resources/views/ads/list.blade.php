@@ -316,7 +316,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                                 <div class="user-option pull-right">
                                                     <a href="#" data-toggle="tooltip" data-placement="top"
                                                         title="{{ $row->area->name ?? '' }}, {{ $row->area->city->name ?? '' }} {{ $row->area->division->name ?? '' }}"><i
-                                                            class="fa fa-map-marker"></i> </a>
+                                                            class="fa fa-map-marker-alt"></i> </a>
                                                     <!-- <a class="online" href="#" data-toggle="tooltip" data-placement="top" title="{{ $row->user->seller_type ?? '' }}"><i class="fa fa-user"></i> </a> -->
                                                 </div>
                                             </div>
@@ -379,29 +379,31 @@ $full_sort_by = $sort_by . '_' . $order_by;
         </div>
     </section>
 
-    <section id="something-sell" class="clearfix parallax-section">
+   <section id="something-sell" class="clearfix parallax-section" style="background-image: url('{{ asset('post-bg.jpg') }}');">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
+             <div class="row align-items-center">
+                <div class="col-sm-8">
                     <h2 class="title">@lang('web.something_to_sel')</h2>
                     <h4>@lang('web.free_on_ok2list')</h4>
-                    @if (!empty($payments))
-                        @if ($payments->status != 'Due')
-                            <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop"
-                                class="btn btn-primary">@lang('web.post_free_ad')</a>
+                </div>
+                <div class="col-sm-4">
+                    <div class="free_post_btn float-sm-right">
+                        @if(!empty($payments))
+                        @if($payments->status!="Due")
+                            <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-primary">@lang('web.post_free_ad')</a>
                         @else
                             <a href="javascript:;" class="btn btn-primary">@lang('web.pending')</a>
                         @endif
-                    @else
-                        @if (Auth::user())
-                            @if (Auth::user()->is_verified == 1)
-                                <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop"
-                                    class="btn btn-primary">@lang('web.post_free_ad')</a>
-                            @endif
                         @else
-                            <a href="{{ route('login') }}" class="btn btn-primary">@lang('web.post_free_ad')</a>
+                            @if(Auth::user())
+                                @if( Auth::user()->is_verified == 1 )
+                                    <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-primary">@lang('web.post_free_ad')</a>
+                                @endif
+                            @else 
+                                <a href="{{route('login')}}" class="btn btn-primary">@lang('web.post_free_ad')</a>
+                            @endif
                         @endif
-                    @endif
+                    </div>
                 </div>
             </div>
         </div>

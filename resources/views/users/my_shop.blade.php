@@ -28,6 +28,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="row mb-5 shop-description">
             <div class="col-lg-8">
                 <div class="product-content pb-4">
@@ -54,7 +55,7 @@
                     </div>
                     <div class="info-list">
                         <div class="info-icon">
-                            <i class="fa fa-map-marker"></i>
+                            <i class="fa fa-map-marker-alt"></i>
                         </div>
                         <div class="info-artile">
                             <p>{{$shop_info->address}}</p>
@@ -110,7 +111,7 @@
                                 </div>                                      
                                 <!-- item-info-right -->
                                 <div class="user-option pull-right">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker-alt"></i> </a>
                                     <a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i class="fa fa-user"></i> </a>                                            
                                 </div><!-- item-info-right -->
                             </div><!-- ad-meta -->
@@ -148,7 +149,7 @@
                                 </div>                                      
                                 <!-- item-info-right -->
                                 <div class="user-option pull-right">
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
+                                    <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker-alt"></i> </a>
                                     <a class="online" href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i class="fa fa-user"></i> </a>                                            
                                 </div><!-- item-info-right -->
                             </div><!-- ad-meta -->
@@ -184,7 +185,7 @@
                             </div>                                  
                             <!-- item-info-right -->
                             <div class="user-option pull-right">
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker"></i> </a>
+                                <a href="#" data-toggle="tooltip" data-placement="top" title="Los Angeles, USA"><i class="fa fa-map-marker-alt"></i> </a>
                                 <a href="#" data-toggle="tooltip" data-placement="top" title="Individual"><i class="fa fa-suitcase"></i> </a>                                           
                             </div><!-- item-info-right -->
                         </div><!-- ad-meta -->

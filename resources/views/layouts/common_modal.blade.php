@@ -113,7 +113,7 @@ $category_query = $data['category_query'] ?? null ;
               <h5><i class="fa fa-arrow-left"></i>Back</h5>
           </div>
           <div class="tabs-cat-list">
-              <h3><a href="{{route('ads.list', ['area' => $city->url_slug])}}"><i class="fa fa-map-marker"></i>{{ $city->name }}</a></h3>
+              <h3><a href="{{route('ads.list', ['area' => $city->url_slug])}}"><i class="fa fa-map-marker-alt"></i>{{ $city->name }}</a></h3>
               <ul>
                 @if(isset($data['areas']) && count($data['areas']) > 0 )
                 @foreach($data['areas'] as $ak => $area )
@@ -135,7 +135,7 @@ $category_query = $data['category_query'] ?? null ;
           <h5><i class="fa fa-arrow-left"></i>Back</h5>
       </div>
       <div class="tabs-cat-list">
-          <h3><a href="{{$divi->url_slug}}"><i class="fa fa-map-marker"></i>{{ $divi->name }}</a></h3>
+          <h3><a href="{{$divi->url_slug}}"><i class="fa fa-map-marker-alt"></i>{{ $divi->name }}</a></h3>
           <ul>
             @if(isset($data['areas']) && count($data['areas']) > 0 )
             @foreach($data['areas'] as $ak => $area )

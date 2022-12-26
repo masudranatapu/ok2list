@@ -44,7 +44,7 @@
                                 </div>
 
                                 <div class="user-option pull-right">
-                                    <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="{{$ad->area->name }}, {{ $ad->city_division == 'city' ? $ad->area->city->name : '' }} {{ $ad->city_division == 'division' ? $ad->area->division->name : '' }}"><i class="fa fa-map-marker"></i> </a>
+                                    <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="{{$ad->area->name }}, {{ $ad->city_division == 'city' ? $ad->area->city->name : '' }} {{ $ad->city_division == 'division' ? $ad->area->division->name : '' }}"><i class="fa fa-map-marker-alt"></i> </a>
                                     <!-- <a href="#" data-toggle="tooltip" data-placement="top" title="{{$ad->user->seller_type ?? ''}}"><i class="fa fa-user"></i> </a> -->
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                                         <p>
                                             <a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{date('d M Y h:i A',strtotime($ad->created_at))}} </a>
                                             <span class="pull-right">
-                                                 <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="{{$ad->area->name }}, {{ $ad->city_division == 'city' ? $ad->area->city->name : '' }} {{ $ad->city_division == 'division' ? $ad->area->division->name : '' }}"><i class="fa fa-map-marker"></i> </a>
+                                                 <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="{{$ad->area->name }}, {{ $ad->city_division == 'city' ? $ad->area->city->name : '' }} {{ $ad->city_division == 'division' ? $ad->area->division->name : '' }}"><i class="fa fa-map-marker-alt"></i> </a>
                                             </span>
                                         </p> 
                                     </div>   
@@ -132,7 +132,7 @@
                                 <p>
                                     <a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{date('d M Y h:i A',strtotime($ad->created_at))}} </a>
                                     <span class="pull-right">
-                                         <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="{{$ad->area->name }}, {{ $ad->city_division == 'city' ? $ad->area->city->name : '' }} {{ $ad->city_division == 'division' ? $ad->area->division->name : '' }}"><i class="fa fa-map-marker"></i> </a>
+                                         <a href="javascript:void(0)" data-toggle="tooltip" data-placement="top" title="{{$ad->area->name }}, {{ $ad->city_division == 'city' ? $ad->area->city->name : '' }} {{ $ad->city_division == 'division' ? $ad->area->division->name : '' }}"><i class="fa fa-map-marker-alt"></i> </a>
                                     </span>
                                 </p>
                             </div>

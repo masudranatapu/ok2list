@@ -15,8 +15,8 @@
         <div class="container">
             <div class="login_page">
                 <div class="login_wrapper">
-                    <div class="row">
-                        <div class="col-lg-7">
+                    <div class="row d-flex justify-content-center">
+                       <!--  <div class="col-lg-7">
                             <div class="login_content">
                                 <div class="login_title">
                                     <h3>@lang('web.sign_in_to_your_account')</h3>
@@ -60,8 +60,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-5">
+                        </div> -->
+                        <div class="col-md-7 col-lg-5">
                             <div class="login_form">
                                 <div class="social_login">
                                     <p>@lang('web.iread')<a href="{{route('terms-conditions')}}">@lang('web.t_conditions')</a> and <a href="{{ route('privacy-policy')}}">@lang('web.privacy_policy')</a> @lang('web.before_proceed')</p>    

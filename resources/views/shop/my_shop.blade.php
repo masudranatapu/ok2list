@@ -54,7 +54,7 @@
                     </div>
                     <div class="info-list">
                         <div class="info-icon">
-                            <i class="fa fa-map-marker"></i>
+                            <i class="fa fa-map-marker-alt"></i>
                         </div>
                         <div class="info-artile">
                             <p>{{$shop_info->address}}</p>
@@ -116,7 +116,7 @@
                             </div>                                  
                             <!-- item-info-right -->
                             <div class="user-option pull-right">
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="{{ $row->area->name ?? '' }}, {{ $row->area->city->name ?? '' }} {{ $row->area->division->name ?? '' }}"><i class="fa fa-map-marker"></i> </a>
+                                <a href="#" data-toggle="tooltip" data-placement="top" title="{{ $row->area->name ?? '' }}, {{ $row->area->city->name ?? '' }} {{ $row->area->division->name ?? '' }}"><i class="fa fa-map-marker-alt"></i> </a>
                                 <a class="online" href="#" data-toggle="tooltip" data-placement="top" title="{{ $row->user->seller_type ?? '' }}"><i class="fa fa-user"></i> </a>                                              
                             </div><!-- item-info-right -->
                         </div><!-- ad-meta -->

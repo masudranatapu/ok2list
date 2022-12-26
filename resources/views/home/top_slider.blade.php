@@ -1,5 +1,5 @@
  <!-- world -->
-        <div id="banner-two" class="parallax-section">
+        <div id="banner-two" class="parallax-section" style="background-image: url('{{ asset('banner-bg.jpg') }}');">
             <div class="row text-center">
                 <!-- banner -->
                 <div class="col-sm-12 ">
@@ -12,7 +12,7 @@
                         <!-- banner-form -->
                         <div class="banner-form">
                             <form action="{{route('ads.list',['area' => 'srilanka'])}}" method="get">
-                                <i class="fa fa-map-marker"></i>
+                                <i class="fa fa-map-marker-alt"></i>
                                 <div class="dropdown category-dropdown select-category" data-toggle="modal" data-target="#divisioncitymodal">
                                     <span>@lang('web.s_loca')</span>
                                 </div>

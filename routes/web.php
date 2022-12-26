@@ -80,7 +80,7 @@ Route::get('/create-shop', ['as' => 'create-shop', 'uses' => 'ShopController@get
 Route::post('/store-shop', ['as' => 'store-shop', 'uses' => 'ShopController@getStoreShop', 'middleware' => 'checkPackage']);
 
 Route::get('/my-shop', 'ShopController@getMyShop')->name('my-shop');
-Route::get('/modify-shop', 'ShopController@getModifyShop')->name('modify-shop');
+// Route::get('/modify-shop', 'ShopController@getModifyShop')->name('modify-shop');
 Route::post('/update-shop', 'ShopController@getUpdateShop')->name('update-shop');
 
 Route::get('/dashboard-overview', 'UserController@getDashboardOverview')->name('dashboard-overview');

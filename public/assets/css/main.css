@@ -41,6 +41,7 @@
     Global
  ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @font-face {
     font-family: "Montserrat-Bold";
     src: url('../fonts/Montserrat-Bold.woff') format('woff'), url('../fonts/Montserrat-Bold.eot') format('eot'), url('../fonts/Montserrat-Bold.ttf') format('truetype'), url('../fonts/Montserrat-Bold.svg') format('svg');
@@ -48,7 +49,8 @@
 
 html,
 body {
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
     font-weight: 400;
     color: #6f6f6f;
     overflow-x: hidden;
@@ -62,7 +64,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Montserrat-Bold";
+    font-family: "Ubuntu";
     font-weight: normal;
 }
 
@@ -73,7 +75,8 @@ ul {
 }
 
 a {
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
     color: #156EB6;
 }
 
@@ -131,7 +134,7 @@ select:focus,
     background-size: cover;
 }
 
-.parallax-section:before {
+/*.parallax-section:before {
     position: absolute;
     background: linear-gradient(to top right, #ee1d23 33%, #000 100%);
     top: 0;
@@ -141,7 +144,7 @@ select:focus,
     min-height: 264px;
     display: block;
     content: "";
-}
+}*/
 
 .online {
     position: relative;
@@ -462,9 +465,10 @@ textarea {
 .category-title h3 {
     margin: 0 !important;
     color: #000 !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
     padding-bottom: 14px;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
     font-weight: 500 !IMPORTANT;
 }
 
@@ -502,7 +506,8 @@ textarea {
     color: #222 !important;
     font-size: 16px;
     font-weight: 400;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
     border-top: 1px solid #EEE;
     border-radius: 0px;
     padding-left: 0px;
@@ -532,7 +537,8 @@ textarea {
     font-size: 16px;
     font-weight: 300;
     color: #000;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
 }
 
 .tabs-cat-list h3 a i {
@@ -547,7 +553,8 @@ textarea {
 .tabs-cat-list ul li a {
     color: #222;
     font-size: 15px;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
     transition: all 0.3s ease;
     display: block;
 }
@@ -560,7 +567,8 @@ textarea {
     font-size: 18px;
     font-weight: 500;
     color: #000;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
     border-bottom: 1px solid #ddd;
     cursor: pointer;
     padding-bottom: 11px;
@@ -897,7 +905,7 @@ textarea {
 
 .category-icon {
     min-height: 37px;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
     width: 100%;
 }
 
@@ -915,7 +923,7 @@ textarea {
 
 .category-title {
     display: block;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .category-item:hover .category-quantity,
@@ -1614,7 +1622,8 @@ table.promotable {
     font-weight: normal;
     margin: 0px;
     padding: 0px;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
 }
 
 .promo p.terms-condition {
@@ -1692,9 +1701,9 @@ div#page-content p {
     width: 100%;
 }
 
-.home-one .parallax-section:before {
+/*.home-one .parallax-section:before {
     background: #ee1d23;
-}
+}*/
 
 #download.parallax-section:before {
     background: -moz-linear-gradient(left, rgba(55, 180, 78, 0.9) 0%, rgba(49, 178, 91, 0.9) 24%, rgba(27, 171, 137, 0.96) 77%, rgba(21, 169, 151, 0.94) 100%);
@@ -1704,10 +1713,12 @@ div#page-content p {
 }
 
 #banner-two {
-    padding: 50px 0 78px;
+    padding: 90px 0 90px;
     margin-bottom: 22px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
-
 section#home-two-info {
     margin-top: -30px;
 }
@@ -1799,10 +1810,11 @@ section#home-two-info {
 }
 */
 .category-item {
-    border: 1px solid #f7f5f5;
+    border: 1px solid #e2e2e2;
     margin: 1px !important;
-    padding: 13px;
-    min-height: 99%;
+    padding: 25px 10px;
+    border-radius: 9px;
+    height: 100%;
 }
 .home-two .featureds {
     margin-top: 30px;
@@ -2110,8 +2122,9 @@ section#home-two-info {
 }
 
 #something-sell a.btn:hover {
-    background-color: transparent;
+    background-color: #fff;
     border: 1px solid #000;
+    color:#000;
 }
 
 
@@ -2353,12 +2366,25 @@ i.fa.fa-chevron-up {
 /* something-sell */
 
 #something-sell {
-    padding: 40px 0 53px;
+    padding: 40px 0 43px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+#something-sell:before{
+    position: absolute;
+    content: "";
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background:rgb(0 0 0 / 77%);
 }
 
-#something-sell.parallax-section:before {
+/*#something-sell.parallax-section:before {
     background-color: #000;
-}
+}*/
 
 
 /* ==========================================================================
@@ -2448,12 +2474,26 @@ i.fa.fa-chevron-up {
 }
 
 .slider {
-    background-color: #fff;
+/*    background-color: #fff;
     display: inline-block;
     padding: 15px 15px 25px 15px;
-    border-radius: 4px;
+    border-radius: 4p*/x;
     width: 100%;
     min-height: 550px;
+}
+
+
+.singel_gallery {
+    background: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 88px;
+}
+.single_content.slider-text {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 4px;
 }
 
 .carousel-indicators {
@@ -2529,12 +2569,18 @@ i.fa.fa-chevron-up {
 }
 
 #product-carousel .carousel-indicators {
-    bottom: -140px;
+    bottom: -95px;
+    background: #fff;
+    padding-bottom: 6px;
+}
+
+.slider-text p{
+    margin:0;
 }
 
 #product-carousel .carousel-indicators li,
 #product-carousel .carousel-indicators li.active {
-    height: 105px;
+    height: 82px;
     width: 107px;
     text-indent: inherit;
     border: none !important;
@@ -2591,10 +2637,11 @@ i.fa.fa-chevron-up {
 }
 
 .slider-text h2 {
-    color: #000;
+    color: #ed1c24;
     font-size: 22px;
     font-weight: 500;
     margin: 0;
+    margin-bottom: 10px;
 }
 
 #main .slider-text h3.title {
@@ -2781,7 +2828,7 @@ i.fa.fa-chevron-up {
 span.typewrite {
     font-size: 25px;
     font-weight: bold;
-    color: #212529;
+    color: #ffffff;
 }
 
 
@@ -2816,9 +2863,11 @@ span.typewrite {
 .short-info {
     background-color: #fff;
     border-radius: 3px;
-    margin-bottom: 15px;
-    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
+
+ 
 
 .description-info .short-info {
     padding: 15px 15px 15px;
@@ -3875,7 +3924,8 @@ p.mt-2.loginor {
 
 .product-content a {
     font-size: 14px;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
     font-weight: 500;
 }
 
@@ -3883,7 +3933,8 @@ p.mt-2.loginor {
     color: #000;
     font-size: 17px;
     font-weight: 400;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
 }
 
 .info-list {
@@ -3900,7 +3951,8 @@ p.mt-2.loginor {
 .info-artile p {
     font-size: 16px;
     font-weight: 400;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
     padding-left: 22px;
 }
 
@@ -4057,7 +4109,7 @@ p.mt-2.loginor {
 
 .ad-profile .user-menu li.active {
 /*    border-color: #156EB6;*/
-    background: #156eb626;
+    background: #ee1d2354;
 }
 
 .ad-profile .user-menu li a {
@@ -4070,9 +4122,9 @@ p.mt-2.loginor {
 }
 .ad-profile .user-menu li.active a,
 .ad-profile .user-menu li a:hover {
-    border-color: #000;
-    background: #156eb626;
-    color:#111;
+    border-color: #ee1d23;
+    background: #ee1d2354;
+    color: #000;
 }
 
 .user-pro-section .section {
@@ -4578,7 +4630,8 @@ section#main h2.h3.title {
     color: #fff;
     font-size: 25px;
     font-weight: 400;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
     margin: 0;
     cursor: pointer;
 }
@@ -4589,7 +4642,8 @@ section#main h2.h3.title {
     font-weight: 400;
     color: #fff;
     cursor: pointer;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
 }
 
 .location-article h4 i {
@@ -4616,7 +4670,8 @@ section#main h2.h3.title {
 
 .our-location .location h4 {
     font-size: 18px;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
 }
 
 .our-location .location i {
@@ -4841,12 +4896,12 @@ section#main h2.h3.title {
 }
 
 .footer-bottom {
-    background-color: #f7f7f7;
+    background-color: #fff;
     color: #6e6e6e;
     font-size: 14px;
     padding: 15px 0;
     font-weight: 300;
-    border-top: 1px solid #EEE;
+    border-top: 1px solid #f5f5f5;
 }
 
 .footer-bottom p {
@@ -5606,7 +5661,8 @@ section#main h2.h3.title {
 
 .page-direction ul li a {
     color: #555;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
     font-size: 12px;
 }
 
@@ -5619,7 +5675,8 @@ section#main h2.h3.title {
     font-size: 20px;
     font-weight: 500;
     margin: 0;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
 }
 
 .pro-carousel-article h3 {
@@ -5627,13 +5684,15 @@ section#main h2.h3.title {
     font-size: 20px;
     font-weight: 500;
     margin: 0;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
 }
 
 .pro-carousel-article h4 a {
     font-size: 19px;
     color: #000000;
-    font-family: 'Ubuntu', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
+
 }
 
 .pro-carousel-article h4 a:hover {
@@ -5685,9 +5744,9 @@ ul.list-inline li:last-child {
     background-image: url("../images/top.png");
     bottom: 20px;
     right: 20px;
-    width: 38px;
+    width: 48px;
     /* Width of image */
-    height: 38px;
+    height: 48px;
     /* Height of image */
     text-indent: -9999px;
 }
@@ -5979,8 +6038,10 @@ textarea.ctext:-moz-placeholder {
 }
 
 .login_form {
-    padding: 25px 30px;
+    padding: 25px 40px;
     box-shadow: rgb(0 0 0 / 8%) 0px 4px 12px;
+    background: #fff;
+    border-radius: 10px;
 }
 
 .social_login p {
@@ -6426,7 +6487,7 @@ h3.alert.alert-danger.pendinguser {
 /* Doorstep Delivery*/
 
 .buyer-protection--5rTC2 {
-    color: #0074ba;
+    color: #ee1d23;
     font-size: 17px;
     padding-left: 18px;
 }
@@ -6462,6 +6523,7 @@ h3.alert.alert-danger.pendinguser {
     color: #707676;
     line-height: 24px;
     font-family: 'Open Sans', 'PF DinText Pro', Arial, Helvetica, sans-serif;
+    font-size: 15px;
 }
 
 
@@ -6540,7 +6602,7 @@ text-align: left;
 
 @media (max-width: 576px) {
     .buyer-protection-title {
-            color: #0074ba;
+            color: #ee1d23;
             line-height: 5px;
             justify-content: center;
             align-items: center;
@@ -6554,7 +6616,7 @@ text-align: left;
 }
 
 .buyer-protection-title{
-    color: #0074ba;
+    color: #ee1d23;
     line-height: 20px;
     justify-content: center;
     align-items: center;
@@ -6592,10 +6654,10 @@ text-align: left;
 
 .doorstep-amazing-work{
         margin-top: 30px;
-        border: 1px solid #0074ba;
+        border: 1px solid #ee1d23;
         border-radius: 4px;
         padding: 16px;
-        background: #0074ba;
+        background: #ee1d23;
         margin-bottom: 8px;
         color: #fff;
         display: flex;
@@ -6636,14 +6698,14 @@ text-align: left;
     width: 140px;
     font-size: 100%;
     vertical-align: baseline;
-    color: #0074ba;
+    color: #ee1d23;
     margin: auto 0;
    
    
 }
 
 .explore-btn:hover{
-    color: #0074ba;
+    color: #ee1d23;
 }
 .explore-btn .btn-text--1GWrJ {
     margin-right: 8px;
@@ -6651,7 +6713,7 @@ text-align: left;
     white-space: nowrap;
 }
 .explore-btn .btn-icon--MNF0f {
-    fill: #0074ba;
+    fill: #ee1d23;
 }
 .icon--3D09z.extra-small--_AIuZ {
     width: 16px;
@@ -6696,12 +6758,12 @@ text-align: left;
     font-size: 100%;
     vertical-align: baseline;
     background: transparent;
-    color: #0074ba;
+    color: #ee1d23;
     text-decoration: none;
 }
 
 .phone-number-link:hover{
-    color: #0074ba;
+    color: #ee1d23;
 }
 
 @media only screen and (min-width: 800px){

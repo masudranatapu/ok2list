@@ -126,6 +126,5 @@
 <script src="{{asset('/assets/js/forms/validation/jqBootstrapValidation.js')}}"></script>
 <script src="{{asset('/assets/js/forms/validation/form-validation.js')}}"></script>
 <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-
 {!! Toastr::message() !!}
 @endpush

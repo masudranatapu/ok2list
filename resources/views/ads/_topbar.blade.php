@@ -31,7 +31,7 @@
 <div class="banner">
 	<div class="banner-form banner-form-full">
 		<form onsubmit="event.preventDefault()">
-			<i class="fa fa-map-marker"></i>
+			<i class="fa fa-map-marker-alt"></i>
 			<div class="dropdown category-dropdown select-category" data-toggle="modal" data-target="#divisioncitymodal">
 				<span>{{ $selected_area }}</span>
 			</div>

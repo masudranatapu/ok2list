@@ -43,13 +43,13 @@
                                         {{ $setting->privacy_policy_en }}
                                     @endif
                                 </a></li>
-                            <li><a href="{{ route('site-map') }}">
+                            <!-- <li><a href="{{ route('site-map') }}">
                                     @if (app()->getLocale() == 'sl')
                                         {{ $setting->sitemap_sl }}
                                     @else
                                         {{ $setting->sitemap_en }}
                                     @endif
-                                </a></li>
+                                </a></li> -->
 
                             <li><a href="{{ route('doorstep-delivery') }}">Doorstep Delivery
                                 </a></li>
@@ -66,13 +66,13 @@
                             @endif
                         </h3>
                         <ul>
-                            <li><a href="{{ route('how-to-sell-fast') }}">
+                            <!-- <li><a href="{{ route('how-to-sell-fast') }}">
                                     @if (app()->getLocale() == 'sl')
                                         {{ $setting->how_to_sell_fast_sl }}
                                     @else
                                         {{ $setting->how_to_sell_fast_en }}
                                     @endif
-                                </a></li>
+                                </a></li> -->
                             <li><a href="{{ route('get-membership') }}">
                                     @if (app()->getLocale() == 'sl')
                                         {{ $setting->membership_sl }}
@@ -87,13 +87,13 @@
                                         {{ $setting->promote_your_ad_en }}
                                     @endif
                                 </a></li>
-                            <li><a href="{{ route('promotions') }}">
+                           <!--  <li><a href="{{ route('promotions') }}">
                                     @if (app()->getLocale() == 'sl')
                                         {{ $setting->promotions_sl }}
                                     @else
                                         {{ $setting->promotions_en }}
                                     @endif
-                                </a></li>
+                                </a></li> -->
                             <li><a href="{{ route('faq') }}">
                                     @if (app()->getLocale() == 'sl')
                                         {{ $setting->faq_sl }}

@@ -36,14 +36,57 @@ $cate = DB::table('prd_category')
                     <a href="{{ $data['detail_page1']->link }}" target="_blank"
                         title="{{ $data['detail_page1']->name }}"><img src="{{ fileExit($data['detail_page1']->photo) }}"
                             class="w-100" alt="{{ $data['detail_page1']->name }}" style="height: 96px;"></a>
-                </div>
+                </div> 
             @endif
 
-            <div class="section slider">
+            <div class="mb-5">
                 <div class="row">
                     <!-- carousel -->
-                    <div class="col-lg-7">
-                        <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="col-lg-8">
+                        <div id="product-carousel" class="singel_gallery carousel slide" data-ride="carousel">
+                            <div class="slider-text">
+                                 <h3 class="title">
+                                    {{ $row->ad_title }}
+                                </h3>
+                            <p><span>@lang('web.offer_by') : <a href="javascript:void(0)">{{ $row->user->name ?? '' }}</a></span>
+                                <span>
+                                    @lang('web.ad_id') :<a href="javascript:void(0)" class="time"> {{ $row->code }}</a></span>
+                            </p>
+                            @if ($row->user->package != null && !empty($row->user->shop))
+                                @php
+                                    $payment = App\Payments::where('f_customer_pk_no', $row->customer_pk_no)
+                                        ->where('status', 'VALID')
+                                        ->orderBy('pk_no', 'desc')
+                                        ->first();
+                                @endphp
+                                @if ($payment)
+                                    <div class="">
+                                        <div class="premier_ads">
+                                            <span class="member">
+                                                <i class="fa fa-star"></i>
+                                                @lang('web.mem')
+                                            </span>
+                                            <span class="verified">
+                                                <i class="fa fa-check"></i>
+                                                @lang('web.veri')
+                                            </span>
+                                            <strong>
+                                                <a href="{{ route('shop_page_details', ['id' => $row->user->shop->pk_no, 'url_slug' => $row->user->shop->url_slug]) }}">( @lang('web.visi') )</a>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                @endif
+                            @else
+                                <span class="icon"><i class="fa fa-suitcase online"></i><a
+                                        href="javascript:void(0)">{{ $row->user->seller_type }}</a></span>
+                            @endif 
+                            <span class="icon"><i class="fa fa-clock-o"></i><a href="javascript:void(0)">
+                                    {{ date('d M, y h:i A', strtotime($row->created_at)) }}</a></span>
+                            <span class="icon"><i class="fa fa-map-marker-alt"></i><a
+                                    href="javascript:void(0)">{{ $row->area->name ?? '' }},
+                                    {{ $row->area->city->name ?? '' }}{{ $row->division->name ?? '' }}</a></span>
+                            </div>
+                           
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
                                 @if ($data['photos'] && count($data['photos']) > 0)
@@ -82,12 +125,11 @@ $cate = DB::table('prd_category')
                         </div>
                     </div><!-- Controls -->
                     <!-- slider-text -->
-                    <div class="col-lg-5">
-                        <div class="slider-text">
+                    <div class="col-lg-4">
+                        <div class="single_content slider-text">
                             <h2>
                                 Rs {{ number_format($row->price, 2) }}
                                 <div class="float-right">
-
                                     @if ($row->is_like == '1')
                                         <a href="{{ route('ad-post-dislike', $row->pk_no) }}" class="like_ads btn-sm"
                                             title="Like"><i class="fa fa-thumbs-up"></i>
@@ -101,54 +143,11 @@ $cate = DB::table('prd_category')
                                     @endif
                                 </div>
                             </h2>
-                            <h3 class="title">
-                                {{ $row->ad_title }}
-                            </h3>
-                            <p><span>@lang('web.offer_by') : <a href="javascript:void(0)">{{ $row->user->name ?? '' }}</a></span>
-                                <span>
-                                    @lang('web.ad_id') :<a href="javascript:void(0)" class="time"> {{ $row->code }}</a></span>
-                            </p>
-                            <span class="icon"><i class="fa fa-clock-o"></i><a href="javascript:void(0)">
-                                    {{ date('d M, y h:i A', strtotime($row->created_at)) }}</a></span>
-                            <span class="icon"><i class="fa fa-map-marker"></i><a
-                                    href="javascript:void(0)">{{ $row->area->name ?? '' }},
-                                    {{ $row->area->city->name ?? '' }}{{ $row->division->name ?? '' }}</a></span>
-                            @if ($row->user->package != null && !empty($row->user->shop))
-                                {{--
-										<span class="icon">
-											<i class="fa fa-suitcase online"></i>
-											<a href="{{route('shop_page_details',['id' => $row->user->shop->pk_no, 'url_slug' => $row->user->shop->url_slug ])}}">{{ $row->user->seller_type }}
-												<strong>(Visit member's shop)</strong>
-											</a>
-										</span>
-										--}}
-                                @php
-                                    $payment = App\Payments::where('f_customer_pk_no', $row->customer_pk_no)
-                                        ->where('status', 'VALID')
-                                        ->orderBy('pk_no', 'desc')
-                                        ->first();
-                                @endphp
-                                @if ($payment)
-                                    <div class="">
-                                        <div class="premier_ads">
-                                            <span class="member">
-                                                <i class="fa fa-star"></i>
-                                                @lang('web.mem')
-                                            </span>
-                                            <span class="verified">
-                                                <i class="fa fa-check"></i>
-                                                @lang('web.veri')
-                                            </span>
-                                            <strong>
-                                                <a href="{{ route('shop_page_details', ['id' => $row->user->shop->pk_no, 'url_slug' => $row->user->shop->url_slug]) }}">( @lang('web.visi') )</a>
-                                            </strong>
-                                        </div>
-                                    </div>
-                                @endif
-                            @else
-                                <span class="icon"><i class="fa fa-suitcase online"></i><a
-                                        href="javascript:void(0)">{{ $row->user->seller_type }}</a></span>
-                            @endif
+                            
+
+                            
+
+
                             <!-- short-info -->
                             <div class="short-info">
                                 <h4>@lang('web.sort_info')</h4>
@@ -202,6 +201,7 @@ $cate = DB::table('prd_category')
                     </div><!-- slider-text -->
                 </div>
             </div>
+
             <!-- slider -->
             <div class="description-info">
                 <div class="row">
@@ -280,7 +280,7 @@ $cate = DB::table('prd_category')
                                                         <div class="user-option pull-right">
                                                             <a href="#" data-toggle="tooltip" data-placement="top"
                                                                 title="{{ $srow->area->name ?? '' }}, {{ $srow->area->city->name ?? '' }} {{ $srow->area->division->name ?? '' }}"><i
-                                                                    class="fa fa-map-marker"></i> </a>
+                                                                    class="fa fa-map-marker-alt"></i> </a>
                                                             <a class="online" href="#" data-toggle="tooltip"
                                                                 data-placement="top"
                                                                 title="{{ $srow->user->seller_type ?? '' }}"><i
@@ -355,30 +355,33 @@ $cate = DB::table('prd_category')
         </div><!-- container -->
     </section><!-- main -->
     <!-- download -->
-    <section id="something-sell" class="clearfix parallax-section">
+   <section id="something-sell" class="clearfix parallax-section" style="background-image: url('{{ asset('post-bg.jpg') }}');">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12 text-center">
+             <div class="row align-items-center">
+                <div class="col-sm-8">
                     <h2 class="title">@lang('web.something_to_sel')</h2>
                     <h4>@lang('web.free_on_ok2list')</h4>
-
-                    @if(!empty($payments))
-						@if($payments->status!="Due")
-							<a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-primary">@lang('web.post_free_ad')</a>
-						@else
-							<a href="javascript:;" class="btn btn-primary">@lang('web.pending')</a>
-						@endif
-                    @else
-                        @if(Auth::user())
-                            @if( Auth::user()->is_verified == 1 )
-                                <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-primary">@lang('web.post_free_ad')</a>
-                            @endif
-                        @else 
-                            <a href="{{route('login')}}" class="btn btn-primary">@lang('web.post_free_ad')</a>
-                        @endif
-                    @endif
                 </div>
-            </div><!-- row -->
+                <div class="col-sm-4">
+                    <div class="free_post_btn float-sm-right">
+                        @if(!empty($payments))
+                        @if($payments->status!="Due")
+                            <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-primary">@lang('web.post_free_ad')</a>
+                        @else
+                            <a href="javascript:;" class="btn btn-primary">@lang('web.pending')</a>
+                        @endif
+                        @else
+                            @if(Auth::user())
+                                @if( Auth::user()->is_verified == 1 )
+                                    <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-primary">@lang('web.post_free_ad')</a>
+                                @endif
+                            @else 
+                                <a href="{{route('login')}}" class="btn btn-primary">@lang('web.post_free_ad')</a>
+                            @endif
+                        @endif
+                    </div>
+                </div>
+            </div>
         </div><!-- contaioner -->
     </section><!-- download -->
     <!-- Modal Report ads-->

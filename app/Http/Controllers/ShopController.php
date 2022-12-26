@@ -24,8 +24,8 @@ class ShopController extends Controller
     {
        
         $data       = array();
-        $shop_data  = $this->shopModel->getMyShop(Auth::user()->id); 
-        $data['shop_data'] = $shop_data;    
+        $data['shop_data']  = $this->shopModel->getMyShop(Auth::user()->id); 
+        // $data['shop_data'] = $shop_data;    
 
         // $data['my_ads'] = $this->prodModel->getMyAds();
         // dd($data);

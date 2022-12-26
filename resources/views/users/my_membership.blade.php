@@ -22,20 +22,28 @@
 				<!-- recommended-cta-->
 				<div class="col-xl-9">
 						<div class="my-ads section">
-							<h3> @lang('web.membership')</h3>
+							<h3>
+								Plan Benefits
+								<a href="#" class="btn-sm btn-primary float-right">Upgrade Plan</a>
+							</h3>
 							<hr>
-							<div class="ad-item row mt-4 text-center">
-								<div class="item-info col-12">
-									<!-- ad-info -->
-									<div class="ad-info" style="padding: 0px 25px;">
-										<h3 class="item-price">@lang('web.no_member')</h3>
-										<p>
-											@lang('web.visite') <br> @lang('web.today')
-										</p>									
-									</div><!-- ad-info -->
-									<a href="{{route('packages')}}" class="btn-primary btn">@lang('web.view')</a>
-									<a href="{{route('get-membership')}}" class="btn-primary btn">@lang('web.why_mem')</a>
-								</div><!-- item-info -->
+							<div class="row mt-4 text-center">
+								<div class="col-md-4">
+									<div class="dashboard_wrap mb-4" style="background: #28a745 !important;">
+									   <div class="content">
+										   <h2 class="text-white">100</h2>
+										   <h6 class="text-white">Ads Remaining</h6>
+									   </div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="dashboard_wrap mb-4" style="background: #007bff !important;">
+									   <div class="content">
+										   <h2 class="text-white">100</h2>
+										   <h6 class="text-white">Featured Ads Remaining</h6>
+									   </div>
+									</div>
+								</div>				
 							</div><!-- ad-item -->
 						</div>
 					</div><!-- my-ads -->

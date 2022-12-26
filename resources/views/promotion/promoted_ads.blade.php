@@ -74,7 +74,7 @@
 											@endif
 										</div>
 										<div class="user-option pull-right">
-											<a href="#" class=".c-btn" data-toggle="tooltip" data-placement="top" title="{{ $row->area->name ?? '' }}, {{ $row->area->city->name ?? '' }} {{ $row->area->division->name ?? '' }}"><i class="fa fa-map-marker"></i> </a>
+											<a href="#" class=".c-btn" data-toggle="tooltip" data-placement="top" title="{{ $row->area->name ?? '' }}, {{ $row->area->city->name ?? '' }} {{ $row->area->division->name ?? '' }}"><i class="fa fa-map-marker-alt"></i> </a>
 											<a class="online" href="#" data-toggle="tooltip" data-placement="top" title="{{ $row->user->seller_type ?? '' }}"><i class="fa fa-user"></i> </a>
 										</div>
 									</div>

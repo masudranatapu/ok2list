@@ -8,10 +8,10 @@
             </div>
         </div>
         <ul class="category-list">
-            <div class="row no-gutters">
+            <div class="row">
                 @if($data['top_categories'] && count($data['top_categories']) > 0 )
                     @foreach($data['top_categories'] as $key => $cat )
-                    <div class="col-6 col-md-4 col-xl-3">
+                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
                         <div class="category-item">
                             <div class="{{$cat->url_slug}}">
                                 <a href="{{route('ads.list', ['area' => 'srilanka', 'category' => $cat->url_slug])}}">
