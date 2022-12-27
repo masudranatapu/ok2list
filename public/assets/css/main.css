@@ -6700,8 +6700,102 @@ text-align: left;
     vertical-align: baseline;
     color: #ee1d23;
     margin: auto 0;
-   
-   
+}
+.seller_profile {
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+}
+
+.seller_profile ul {margin: 0 auto;display: inline-flex;}
+
+.seller_profile ul li {
+    margin: 0px 7px;
+}
+
+.seller_profile ul li button {
+    border: none !important;
+    padding: 5px 15px;
+    border-radius: 4px !important;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    color: #888;
+}
+
+.seller_profile .nav-pills .nav-link.active,
+.seller_profile .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #fd0202;
+}
+
+.review_form .form-control::placeholder {
+    font-size: 14px;
+    color: #888;
+}
+
+.user_profile img {
+    border: 1px solid #CCC;
+    max-width: 50px !important;
+    border-radius: 100px;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+}
+
+.user_profile {
+    margin-right: 11px;
+}
+
+.user_profile {
+    margin-right: 11px;
+}
+
+.content ul li {
+    display: inline-block;
+    font-size: 16px;
+    color: #ff9800;
+    padding: 0px 3px;
+}
+
+.user_profile {
+    margin-right: 11px;
+}
+
+.review_list .content ul li {
+    display: inline-block;
+    font-size: 16px;
+    color: #ff9800;
+    padding: 0px 3px;
+}
+
+.review_list .content h3 {
+    font-size: 15px;
+    color: #111;
+    font-weight: 600;
+    margin: 0;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.review_list span {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 6px;
+    display: block;
+    text-align: center;
+}
+
+.review_list .content p {
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+    line-height: 24px;
+    text-align: justify;
+}
+.review_list {
+    border: 1px solid #f0f0f0;
+    padding: 20px 20px;
+    border-radius: 8px;
 }
 
 .explore-btn:hover{
@@ -6778,3 +6872,5 @@ text-align: left;
         }
 
 } 
+
+
