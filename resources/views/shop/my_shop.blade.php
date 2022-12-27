@@ -139,49 +139,47 @@
               </div>
               <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                   <div class="review_wrapper">
-                      <div class="row">
-                          <div class="col-lg-6 mb-4">
-                              <div class="review_list">
-                                  <div class="">
-                                      <div class="user_profile text-center">
-                                           <img src="{{ asset('profile_img.jpg') }}" class="me-3" alt="user image">
-                                      </div>
-                                      <div class="content">
-                                          <ul class="text-center">
-                                              <li><i class="fa fa-star"></i></li>
-                                              <li><i class="fa fa-star"></i></li>
-                                              <li><i class="fa fa-star"></i></li>
-                                              <li><i class="fa fa-star"></i></li>
-                                              <li><i class="fa fa-star"></i></li>
-                                          </ul>
-                                          <h3>John Doe</h3>
-                                          <span>05 Feb, 2022</span>
-                                          <p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, enim perspiciatis voluptatibus ipsa quae, aperiam sequi! Eum ut tempora, totam impedit esse possimus, quam autem praesentium vero maiores odit velit.</p>
-                                      </div>
-                                    </div>
-                              </div>
+                      <div class="row d-flex justify-content-center">
+                         <div class="col-lg-7">
+                             <div class="review_list mb-4">
+                            <div class="d-flex position-relative">
+                                  <div class="user_profile">
+                                       <img src="{{ asset('profile_img.jpg') }}" class="me-3" alt="user image">
+                                  </div>
+                                  <div class="content">
+                                      <ul>
+                                          <li><i class="fa fa-star"></i></li>
+                                          <li><i class="fa fa-star"></i></li>
+                                          <li><i class="fa fa-star"></i></li>
+                                          <li><i class="fa fa-star"></i></li>
+                                          <li><i class="fa fa-star"></i></li>
+                                      </ul>
+                                      <h3>John Doe</h3>
+                                      <span>05 Feb, 2022</span>
+                                      <p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, enim perspiciatis voluptatibus ipsa quae, aperiam sequi! Eum ut tempora, totam impedit esse possimus, quam autem praesentium vero maiores odit velit.</p>
+                                  </div>
+                                </div>
                           </div>
-                          <div class="col-lg-6 mb-4">
-                              <div class="review_list">
-                                   <div>
-                                      <div class="user_profile text-center">
-                                           <img src="{{ asset('profile_img.jpg') }}" class="me-3" alt="user image">
-                                      </div>
-                                      <div class="content">
-                                          <ul class="text-center">
-                                              <li><i class="fa fa-star"></i></li>
-                                              <li><i class="fa fa-star"></i></li>
-                                              <li><i class="fa fa-star"></i></li>
-                                              <li><i class="fa fa-star"></i></li>
-                                              <li><i class="fa fa-star"></i></li>
-                                          </ul>
-                                          <h3>John Doe</h3>
-                                          <span>05 Feb, 2022</span>
-                                          <p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, enim perspiciatis voluptatibus ipsa quae, aperiam sequi! Eum ut tempora, totam impedit esse possimus, quam autem praesentium vero maiores odit velit.</p>
-                                      </div>
-                                 </div>
-                              </div>
+                          <div class="review_list mb-4">
+                               <div class="d-flex position-relative">
+                                  <div class="user_profile">
+                                       <img src="{{ asset('profile_img.jpg') }}" class="me-3" alt="user image">
+                                  </div>
+                                  <div class="content">
+                                      <ul>
+                                          <li><i class="fa fa-star"></i></li>
+                                          <li><i class="fa fa-star"></i></li>
+                                          <li><i class="fa fa-star"></i></li>
+                                          <li><i class="fa fa-star"></i></li>
+                                          <li><i class="fa fa-star"></i></li>
+                                      </ul>
+                                      <h3>John Doe</h3>
+                                      <span>05 Feb, 2022</span>
+                                      <p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, enim perspiciatis voluptatibus ipsa quae, aperiam sequi! Eum ut tempora, totam impedit esse possimus, quam autem praesentium vero maiores odit velit.</p>
+                                  </div>
+                             </div>
                           </div>
+                         </div>
                       </div>
                   </div>
               </div>
