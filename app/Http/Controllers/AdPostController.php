@@ -47,15 +47,15 @@ class AdPostController extends Controller
 
     public function __construct(Category $category, Brand $brand, Product $prodModel, City $city, Division $division, Area $area, ProductModel $prod_model, Package $package)
     {
-       $this->middleware('auth');
-       $this->categoryModel     = $category;
-       $this->brandModel        = $brand;
-       $this->productModel      = $prodModel;
-       $this->cityModel         = $city;
-       $this->divisionModel     = $division;
-       $this->areaModel         = $area;
-       $this->prod_model        = $prod_model;
-       $this->package           = $package;
+        $this->middleware('auth');
+        $this->categoryModel     = $category;
+        $this->brandModel        = $brand;
+        $this->productModel      = $prodModel;
+        $this->cityModel         = $city;
+        $this->divisionModel     = $division;
+        $this->areaModel         = $area;
+        $this->prod_model        = $prod_model;
+        $this->package           = $package;
     }
 
     /**
@@ -63,7 +63,7 @@ class AdPostController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getAdPost(Request $request, string $subcategory = null )
+    public function getAdPost(Request $request, string $subcategory = null)
     {
         // return $request;
         $data = array();
@@ -72,44 +72,42 @@ class AdPostController extends Controller
 
         if ($request->category != null) {
             $data['subcat_info'] = $this->categoryModel->getSubCategoryInfo($subcategory);
-
         }
 
-        $package = Payments::where('f_customer_pk_no',Auth::user()->id)->orderBy('pk_no','desc')->first();
+        $package = Payments::where('f_customer_pk_no', Auth::user()->id)->orderBy('pk_no', 'desc')->first();
         if ($subcategory) {
-            $data['brand_combo']            = $this->brandModel->getBrandBySubCat($request->category,'list');
+            $data['brand_combo']            = $this->brandModel->getBrandBySubCat($request->category, 'list');
             $data['model_combo']            = null;
             $data['city_combo']             = $this->cityModel->getCityCombo('list');
             $data['division_combo']         = $this->divisionModel->getDivisionCombo('list');
-            $data['selected_area_combo']    = Area::where('city_pk_no',5)->pluck('name','pk_no');
-            $data['product_type_combo']     = ProductType::where('scat_pk_no',$request->category)->pluck('name','pk_no');
+            $data['selected_area_combo']    = Area::where('city_pk_no', 5)->pluck('name', 'pk_no');
+            $data['product_type_combo']     = ProductType::where('scat_pk_no', $request->category)->pluck('name', 'pk_no');
             $data['remaining_post']         = $this->package->getRemainingPost();
 
-            if(request()->get('type') == 'property'){
-                return view('ad_post.ad_post_property', compact('data','package'));
-            }elseif(request()->get('type') == 'jobs'){
-                return view('ad_post.ad_post_job', compact('data','package'));
-            }elseif(request()->get('type') == 'matrimony-services'){
-                return view('ad_post.ad_post_matrimony', compact('data','package'));
-            }else{
-                return view('ad_post.ad_post', compact('data','package'));
+            if (request()->get('type') == 'property') {
+                return view('ad_post.ad_post_property', compact('data', 'package'));
+            } elseif (request()->get('type') == 'jobs') {
+                return view('ad_post.ad_post_job', compact('data', 'package'));
+            } elseif (request()->get('type') == 'matrimony-services') {
+                return view('ad_post.ad_post_matrimony', compact('data', 'package'));
+            } else {
+                return view('ad_post.ad_post', compact('data', 'package'));
             }
         }
 
-        return view('ad_post.ad_post_category_selection',compact('data'));
+        return view('ad_post.ad_post_category_selection', compact('data'));
     }
 
     public function getPostLike($id)
     {
-        $check = DB::table('prd_like_count')->where('customer_id', Auth::id())->where('prd_id',$id)->first();
+        $check = DB::table('prd_like_count')->where('customer_id', Auth::id())->where('prd_id', $id)->first();
 
-        if($check){
+        if ($check) {
             //update
-            DB::table('prd_like_count')->where('customer_id', Auth::id())->where('prd_id',$id)->update(['counter' => 1]);
-
-        }else{
+            DB::table('prd_like_count')->where('customer_id', Auth::id())->where('prd_id', $id)->update(['counter' => 1]);
+        } else {
             //insert
-            DB::table('prd_like_count')->insert(['prd_id' =>$id, 'customer_id' =>Auth::id(), 'counter' => 1]);
+            DB::table('prd_like_count')->insert(['prd_id' => $id, 'customer_id' => Auth::id(), 'counter' => 1]);
         }
 
 
@@ -120,7 +118,7 @@ class AdPostController extends Controller
     public function getPostDislike($id)
     {
 
-        DB::table('prd_like_count')->where('customer_id', Auth::id())->where('prd_id',$id)->update(['counter' => 0]);
+        DB::table('prd_like_count')->where('customer_id', Auth::id())->where('prd_id', $id)->update(['counter' => 0]);
         Toastr::success('Disliked successfully', 'Success', ["positionClass" => "toast-top-right"]);
         return redirect()->back();
     }
@@ -128,13 +126,16 @@ class AdPostController extends Controller
 
     public function postAdGeneral(postAdRequest $request)
     {
-        $check_mobile_number = $this->productModel->checkMobileNumber($request);
-        if ($check_mobile_number === false) {
-            $msg        = 'Your Mobile number is not valid';
-            $msg_title  = 'Invalid Data';
-            Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
-            return redirect()->back()->withInput($request->input());
 
+        if (setting()->app_mode == "live") {
+
+            $check_mobile_number = $this->productModel->checkMobileNumber($request);
+            if ($check_mobile_number === false) {
+                $msg        = 'Your Mobile number is not valid';
+                $msg_title  = 'Invalid Data';
+                Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
+                return redirect()->back()->withInput($request->input());
+            }
         }
 
         $this->resp     = $this->productModel->postAdGeneral($request);
@@ -144,12 +145,12 @@ class AdPostController extends Controller
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
 
         $id = $this->resp->data->pk_no;
-        
+
         // return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
 
-        if($this->resp->status){
+        if ($this->resp->status) {
             return redirect()->route('promoted-ads.create', $id)->with($this->resp->redirect_class, $this->resp->msg);
-        }else {
+        } else {
             return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
         }
 
@@ -168,7 +169,6 @@ class AdPostController extends Controller
             $msg_title  = 'Invalid Data';
             Toastr::error($msg, $msg_title, ["positionClass" => "toast-top-right"]);
             return redirect()->back()->withInput($request->input());
-
         }
 
         $this->resp     = $this->productModel->postAdJob($request);
@@ -177,18 +177,17 @@ class AdPostController extends Controller
 
         if (Auth::user()) {
 
-           $user = Auth::user();
+            $user = Auth::user();
 
-           $details = [
-               'subject' => 'Posting ads on ok2list',
-               'greeting' => 'Hi '.$user->name.', ',
-               'body' => 'You posted an job ads on ok2list.lk ',
-               'email' => 'Your email is : '.$user->email,
-               'thanks' => 'Thank you for using ok2list.lk',
-           ];
+            $details = [
+                'subject' => 'Posting ads on ok2list',
+                'greeting' => 'Hi ' . $user->name . ', ',
+                'body' => 'You posted an job ads on ok2list.lk ',
+                'email' => 'Your email is : ' . $user->email,
+                'thanks' => 'Thank you for using ok2list.lk',
+            ];
 
-           Notification::send($user, new UserPostAdNotification($details));
-
+            Notification::send($user, new UserPostAdNotification($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -197,25 +196,23 @@ class AdPostController extends Controller
             $user = Auth::user();
             $admindetails = [
                 'subject' => 'Message from ok2list',
-                'greeting' => 'Hi '.$admin->username.', ',
-                'body' => $user->name. ' was posted an job on ok2list.lk. Please see what he posted on ok2list. And Approved ' .$user->name. ' ads.',
-                'email' => 'His email is : '.$user->email,
+                'greeting' => 'Hi ' . $admin->username . ', ',
+                'body' => $user->name . ' was posted an job on ok2list.lk. Please see what he posted on ok2list. And Approved ' . $user->name . ' ads.',
+                'email' => 'His email is : ' . $user->email,
                 'thanks' => 'Thank you and stay with ok2list.lk',
             ];
 
             Notification::send($user, new AdminPostAdNotification($admindetails));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
 
         $id = $this->resp->data->prod_pk_no;
-        if($this->resp->status){
+        if ($this->resp->status) {
             return redirect()->route('promoted-ads.create', $id)->with($this->resp->redirect_class, $this->resp->msg);
-        }else {
+        } else {
             return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
         }
-
     }
 
     public function postAdProperty(postPropertyRequest $request)
@@ -227,7 +224,6 @@ class AdPostController extends Controller
             $msg_title  = 'Invalid Data';
             Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
             return redirect()->back()->withInput($request->input());
-
         }
 
         $this->resp     = $this->productModel->postAdProperty($request);
@@ -236,18 +232,17 @@ class AdPostController extends Controller
 
         if (Auth::user()) {
 
-           $user = Auth::user();
+            $user = Auth::user();
 
-           $details = [
-               'subject' => 'Posting ads on ok2list',
-               'greeting' => 'Hi '.$user->name.', ',
-               'body' => 'You posted a property ads on ok2list.lk ',
-               'email' => 'Your email is : '.$user->email,
-               'thanks' => 'Thank you for using ok2list.lk',
-           ];
+            $details = [
+                'subject' => 'Posting ads on ok2list',
+                'greeting' => 'Hi ' . $user->name . ', ',
+                'body' => 'You posted a property ads on ok2list.lk ',
+                'email' => 'Your email is : ' . $user->email,
+                'thanks' => 'Thank you for using ok2list.lk',
+            ];
 
-           Notification::send($user, new UserPostAdNotification($details));
-
+            Notification::send($user, new UserPostAdNotification($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -256,14 +251,13 @@ class AdPostController extends Controller
             $user = Auth::user();
             $admindetails = [
                 'subject' => 'Message from ok2list',
-                'greeting' => 'Hi '.$admin->username.', ',
-                'body' => $user->name. ' was posted an job on ok2list.lk. Please see what he posted on ok2list. And Approved ' .$user->name. ' ads.',
-                'email' => 'His email is : '.$user->email,
+                'greeting' => 'Hi ' . $admin->username . ', ',
+                'body' => $user->name . ' was posted an job on ok2list.lk. Please see what he posted on ok2list. And Approved ' . $user->name . ' ads.',
+                'email' => 'His email is : ' . $user->email,
                 'thanks' => 'Thank you and stay with ok2list.lk',
             ];
 
             Notification::send($user, new AdminPostAdNotification($admindetails));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -271,12 +265,11 @@ class AdPostController extends Controller
 
         $id = $this->resp->data->pk_no;
 
-        if($this->resp->status){
+        if ($this->resp->status) {
             return redirect()->route('promoted-ads.create', $id)->with($this->resp->redirect_class, $this->resp->msg);
-        }else {
+        } else {
             return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
         }
-
     }
 
 
@@ -289,7 +282,6 @@ class AdPostController extends Controller
             $msg_title  = 'Invalid Data';
             Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
             return redirect()->back()->withInput($request->input());
-
         }
 
         $this->resp     = $this->productModel->postAdService($request);
@@ -298,18 +290,17 @@ class AdPostController extends Controller
 
         if (Auth::user()) {
 
-           $user = Auth::user();
+            $user = Auth::user();
 
-           $details = [
-               'subject' => 'Posting ads on ok2list',
-               'greeting' => 'Hi '.$user->name.', ',
-               'body' => 'You posted a service ads on ok2list.lk ',
-               'email' => 'Your email is : '.$user->email,
-               'thanks' => 'Thank you for using ok2list.lk',
-           ];
+            $details = [
+                'subject' => 'Posting ads on ok2list',
+                'greeting' => 'Hi ' . $user->name . ', ',
+                'body' => 'You posted a service ads on ok2list.lk ',
+                'email' => 'Your email is : ' . $user->email,
+                'thanks' => 'Thank you for using ok2list.lk',
+            ];
 
-           Notification::send($user, new UserPostAdNotification($details));
-
+            Notification::send($user, new UserPostAdNotification($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -318,14 +309,13 @@ class AdPostController extends Controller
             $user = Auth::user();
             $admindetails = [
                 'subject' => 'Message from ok2list',
-                'greeting' => 'Hi '.$admin->username.', ',
-                'body' => $user->name. ' was posted an Service ads on ok2list.lk. Please see what he posted on ok2list. And Approved ' .$user->name. ' ads.',
-                'email' => 'His email is : '.$user->email,
+                'greeting' => 'Hi ' . $admin->username . ', ',
+                'body' => $user->name . ' was posted an Service ads on ok2list.lk. Please see what he posted on ok2list. And Approved ' . $user->name . ' ads.',
+                'email' => 'His email is : ' . $user->email,
                 'thanks' => 'Thank you and stay with ok2list.lk',
             ];
 
             Notification::send($user, new AdminPostAdNotification($admindetails));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -333,12 +323,11 @@ class AdPostController extends Controller
 
         $id = $this->resp->data->prod_pk_no;
 
-        if($this->resp->status){
+        if ($this->resp->status) {
             return redirect()->route('promoted-ads.create', $id)->with($this->resp->redirect_class, $this->resp->msg);
-        }else {
+        } else {
             return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
         }
-
     }
 
 
@@ -351,7 +340,6 @@ class AdPostController extends Controller
             $msg_title  = 'Invalid Data';
             Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
             return redirect()->back()->withInput($request->input());
-
         }
 
         $this->resp     = $this->productModel->updatePostAdService($request, $id);
@@ -364,14 +352,13 @@ class AdPostController extends Controller
 
             $details = [
                 'subject' => 'Update ads on ok2list',
-                'greeting' => 'Hi '.$user->name.', ',
+                'greeting' => 'Hi ' . $user->name . ', ',
                 'body' => 'You updated an ads on ok2list.lk ',
-                'email' => 'Your email is : '.$user->email,
+                'email' => 'Your email is : ' . $user->email,
                 'thanks' => 'Thank you for using ok2list.lk',
             ];
 
             Notification::send($user, new UserPostAdNotification($details));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -380,7 +367,7 @@ class AdPostController extends Controller
 
 
 
-    public function updatePostGeneral(postAdRequest $request,$id)
+    public function updatePostGeneral(postAdRequest $request, $id)
     {
 
         // $check_mobile_number = $this->productModel->checkMobileNumber($request);
@@ -403,22 +390,20 @@ class AdPostController extends Controller
 
             $details = [
                 'subject' => 'Update ads on ok2list',
-                'greeting' => 'Hi '.$user->name.', ',
+                'greeting' => 'Hi ' . $user->name . ', ',
                 'body' => 'You updated an ads on ok2list.lk ',
-                'email' => 'Your email is : '.$user->email,
+                'email' => 'Your email is : ' . $user->email,
                 'thanks' => 'Thank you for using ok2list.lk',
             ];
 
             Notification::send($user, new UserPostAdNotification($details));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
         return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
-
     }
 
-    public function updatePostProperty(postPropertyRequest $request,$id)
+    public function updatePostProperty(postPropertyRequest $request, $id)
     {
         $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
@@ -427,7 +412,6 @@ class AdPostController extends Controller
             $msg_title  = 'Invalid Data';
             Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
             return redirect()->back()->withInput($request->input());
-
         }
 
         $this->resp     = $this->productModel->updatePostProperty($request, $id);
@@ -440,21 +424,19 @@ class AdPostController extends Controller
 
             $details = [
                 'subject' => 'Update ads on ok2list',
-                'greeting' => 'Hi '.$user->name.', ',
+                'greeting' => 'Hi ' . $user->name . ', ',
                 'body' => 'You updated an ads on ok2list.lk ',
-                'email' => 'Your email is : '.$user->email,
+                'email' => 'Your email is : ' . $user->email,
                 'thanks' => 'Thank you for using ok2list.lk',
             ];
 
             Notification::send($user, new UserPostAdNotification($details));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
         return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
-
     }
-    public function updatePostJob(postJobRequest $request,$id)
+    public function updatePostJob(postJobRequest $request, $id)
     {
         $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
@@ -463,7 +445,6 @@ class AdPostController extends Controller
             $msg_title  = 'Invalid Data';
             Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
             return redirect()->back()->withInput($request->input());
-
         }
 
         $this->resp     = $this->productModel->updatePostJob($request, $id);
@@ -476,26 +457,24 @@ class AdPostController extends Controller
 
             $details = [
                 'subject' => 'Update ads on ok2list',
-                'greeting' => 'Hi '.$user->name.', ',
+                'greeting' => 'Hi ' . $user->name . ', ',
                 'body' => 'You updated an ads on ok2list.lk ',
-                'email' => 'Your email is : '.$user->email,
+                'email' => 'Your email is : ' . $user->email,
                 'thanks' => 'Thank you for using ok2list.lk',
             ];
 
             Notification::send($user, new UserPostAdNotification($details));
-
         }
         // dd($this->resp);
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
         return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
-
     }
 
     public function getMyAds(Request $request)
     {
         $data = array();
         $data['my_ads'] = $this->productModel->getMyAds(Auth::user()->id);
-        return view('users.my_ads',compact('data'));
+        return view('users.my_ads', compact('data'));
     }
 
 
@@ -508,18 +487,17 @@ class AdPostController extends Controller
 
         if (Auth::user()) {
 
-           $user = Auth::user();
+            $user = Auth::user();
 
-           $details = [
-               'subject' => 'Delete ads from ok2list',
-               'greeting' => 'Hi '.$user->name.', ',
-               'body' => 'You ware deleted an ads form ok2list.lk ',
-               'email' => 'Your email is : '.$user->email,
-               'thanks' => 'Thank you for using ok2list.lk',
-           ];
+            $details = [
+                'subject' => 'Delete ads from ok2list',
+                'greeting' => 'Hi ' . $user->name . ', ',
+                'body' => 'You ware deleted an ads form ok2list.lk ',
+                'email' => 'Your email is : ' . $user->email,
+                'thanks' => 'Thank you for using ok2list.lk',
+            ];
 
-           Notification::send($user, new UserPostAdNotification($details));
-
+            Notification::send($user, new UserPostAdNotification($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -528,14 +506,13 @@ class AdPostController extends Controller
             $user = Auth::user();
             $admindetails = [
                 'subject' => 'Message from ok2list',
-                'greeting' => 'Hi '.$admin->username.', ',
-                'body' => $user->name. ' was deleted an ads form ok2list.lk',
-                'email' => 'His email is : '.$user->email,
+                'greeting' => 'Hi ' . $admin->username . ', ',
+                'body' => $user->name . ' was deleted an ads form ok2list.lk',
+                'email' => 'His email is : ' . $user->email,
                 'thanks' => 'Thank you and stay with ok2list.lk',
             ];
 
             Notification::send($user, new AdminPostAdNotification($admindetails));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -551,49 +528,46 @@ class AdPostController extends Controller
         $data['category']       = $this->categoryModel->getCategory();
         $data['subcategory']    = $this->categoryModel->getAllSubCategory();
         if ($subcat_slug == null) {
-            return view('ad_post.edit_post_category_selection',compact('data'));
-
+            return view('ad_post.edit_post_category_selection', compact('data'));
         }
         // dd($this->resp->data->area_id);
 
-        if($this->resp->status == true){
+        if ($this->resp->status == true) {
 
             $subcategory_id                 = $this->resp->data->f_scat_pk_no;
             $category_id                    = $this->resp->data->f_cat_pk_no;
             $brand_id                       = $this->resp->data->f_brand;
             $data['subcat_info']            = $this->categoryModel->getSubCategoryInfo($subcat_slug);
-            $data['brand_combo']            = $this->brandModel->getBrandCombo($category_id,'list');
-            $data['model_combo']            = $this->prod_model->getProdModel($brand_id,'list');
+            $data['brand_combo']            = $this->brandModel->getBrandCombo($category_id, 'list');
+            $data['model_combo']            = $this->prod_model->getProdModel($brand_id, 'list');
             $data['city_combo']             = $this->cityModel->getCityCombo('list');
             $data['division_combo']         = $this->divisionModel->getDivisionCombo('list');
-            if($this->resp->data->city_division == 'city'){
+            if ($this->resp->data->city_division == 'city') {
                 $city_divi_col = 'city_pk_no';
             }
-            if($this->resp->data->city_division == 'division'){
+            if ($this->resp->data->city_division == 'division') {
                 $city_divi_col = 'division_pk_no';
             }
-            $data['selected_area_combo']    = Area::where($city_divi_col,$this->resp->data->city_division_pk_no)->pluck('name','pk_no');
+            $data['selected_area_combo']    = Area::where($city_divi_col, $this->resp->data->city_division_pk_no)->pluck('name', 'pk_no');
             // dd($data);
-            $data['product_type_combo']     = ProductType::where('scat_pk_no',request()->get('category'))->pluck('name','pk_no');
+            $data['product_type_combo']     = ProductType::where('scat_pk_no', request()->get('category'))->pluck('name', 'pk_no');
 
 
-            if(request()->get('type') == 'property'){
+            if (request()->get('type') == 'property') {
                 return view('ad_post.edit_post_property', compact('data'));
-            }elseif(request()->get('type') == 'matrimony-services'){
+            } elseif (request()->get('type') == 'matrimony-services') {
                 return view('ad_post.edit_post_matrimony', compact('data'));
-            }elseif(request()->get('type') == 'jobs'){
+            } elseif (request()->get('type') == 'jobs') {
                 return view('ad_post.edit_post_job', compact('data'));
-            }else{
+            } else {
                 return view('ad_post.edit_post', compact('data'));
             }
-
-        }else{
+        } else {
             $msg            = $this->resp->msg;
             $msg_title      = $this->resp->msg_title;
             Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
             return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
         }
-
     }
 
 
@@ -616,17 +590,15 @@ class AdPostController extends Controller
     {
         return view('ad_post.old_ad_post');
     }
-    public function adExpired($id){
-        $ads = DB::table('prd_master')->where('pk_no',$id)->first();
-        return view('users.ad_expired',compact('ads'));
+    public function adExpired($id)
+    {
+        $ads = DB::table('prd_master')->where('pk_no', $id)->first();
+        return view('users.ad_expired', compact('ads'));
     }
-    public function expiredUpdate(Request $request){
-        DB::table('prd_master')->where('pk_no',$request->ad_id)->update(['is_delete' => $request->is_delete]);
-        Toastr::success('Update Successfully :-)','Success');
+    public function expiredUpdate(Request $request)
+    {
+        DB::table('prd_master')->where('pk_no', $request->ad_id)->update(['is_delete' => $request->is_delete]);
+        Toastr::success('Update Successfully :-)', 'Success');
         return redirect()->route('my-ads');
     }
-
-
-
-
 }

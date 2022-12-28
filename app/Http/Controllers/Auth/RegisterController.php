@@ -9,15 +9,15 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Session;
-use Notification;
-use Auth;
-use Toastr;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Auth;
+use Brian2694\Toastr\Facades\Toastr;
 use App\Notifications\WellComeNotification;
 use App\Payments;
 use Carbon\Carbon;
-use Str;
-use DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -42,40 +42,42 @@ class RegisterController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
 
 
-  protected function redirectTo()
+    protected function redirectTo()
     {
 
         if (Auth::user()) {
 
-           $user = Auth::user();
-           $password = Session::get('secret');
+            $user = Auth::user();
+            $password = Session::get('secret');
 
-           $details = [
-               'subject' => 'Welcome to ok2list',
-               'greeting' => 'Hi '.$user->name.',',
-               'body' => 'Welcome to ok2list.lk',
-               'email' => 'Your email is : '.$user->email,
-               'password' => 'Your Password is : '.$password,
-               'thanks' => 'Thank you for using ok2list.lk',
-               'actionText' => 'Click Here to Verify',
-               'actionURL' => url('verify/user/'.$user->random_token),
-               'user_id' => $user->id
-           ];
+            $details = [
+                'subject' => 'Welcome to ok2list',
+                'greeting' => 'Hi ' . $user->name . ',',
+                'body' => 'Welcome to ok2list.lk',
+                'email' => 'Your email is : ' . $user->email,
+                'password' => 'Your Password is : ' . $password,
+                'thanks' => 'Thank you for using ok2list.lk',
+                'actionText' => 'Click Here to Verify',
+                'actionURL' => url('verify/user/' . $user->random_token),
+                'user_id' => $user->id
+            ];
 
-           Notification::send($user, new WellComeNotification($details));
+            if (setting()->app_mode == "live") {
+
+                Notification::send($user, new WellComeNotification($details));
+            }
         }
         $this->guard()->logout();
 
         Toastr::success('Thanks for your Signup, Please Check your mail and verify', 'Success', ["positionClass" => "toast-top-right"]);
 
-        if(request()->input('referer') == null){
+        if (request()->input('referer') == null) {
             return url()->previous();
-        }else{
+        } else {
             $draft_comm  = request()->get('draft_comm');
             Session::put('draft_comm', $draft_comm);
             return request()->get('referer');
         }
-
     }
     /**
      * Create a new controller instance.
@@ -111,11 +113,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+
         $packages = DB::table('ss_packages')->where('pk_no', 1)->first();
 
         Session::put('secret', $data['password']);
-        
+
         $user  = User::create([
             'name'      => $data['name'],
             'email'     => $data['email'],
@@ -129,7 +131,7 @@ class RegisterController extends Controller
         $packageExpired = Carbon::now()->addMonths(1);
 
         Payments::create([
-            'f_package_pk_no'=>$packages->pk_no,
+            'f_package_pk_no' => $packages->pk_no,
             'f_customer_pk_no' => $user->id,
             'status' => "Free",
             'add_limit' => $packages->ad_limit_in_montrh,

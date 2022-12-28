@@ -47,16 +47,15 @@ class HomeController extends Controller
         return $this->sendResponse($users->toArray(), 'Users retrieved successfully.');
     }
 
-    public function __construct(DashboardInterface $dashboard,Category $category, Product $product, Division $division, City $city,  Area $area, Common $common)
+    public function __construct(DashboardInterface $dashboard, Category $category, Product $product, Division $division, City $city,  Area $area, Common $common)
     {
-       $this->category  = $category;
-       $this->product   = $product;
-       $this->division  = $division;
-       $this->city      = $city;
-       $this->area      = $area;
-       $this->common    = $common;
-       $this->dashboard = $dashboard;
-
+        $this->category  = $category;
+        $this->product   = $product;
+        $this->division  = $division;
+        $this->city      = $city;
+        $this->area      = $area;
+        $this->common    = $common;
+        $this->dashboard = $dashboard;
     }
 
     /**
@@ -82,25 +81,25 @@ class HomeController extends Controller
         $data['area_query']     = null;
         $data['area_query_display']  = null;
 
-        $page1 = DB::table('prd_ads')->where('prd_ads.is_active',1)->where('prd_ads.name','home_page1')->first();
+        $page1 = DB::table('prd_ads')->where('prd_ads.is_active', 1)->where('prd_ads.name', 'home_page1')->first();
 
-        if($page1){
-            $data['home_page1'] = DB::table('prd_ad_details')->where('prd_ad_id',$page1->pk_no)->inRandomOrder()->first();
+        if ($page1) {
+            $data['home_page1'] = DB::table('prd_ad_details')->where('prd_ad_id', $page1->pk_no)->inRandomOrder()->first();
         }
 
-        $page2 = DB::table('prd_ads')->where('prd_ads.is_active',1)->where('prd_ads.name','home_page2')->first();
+        $page2 = DB::table('prd_ads')->where('prd_ads.is_active', 1)->where('prd_ads.name', 'home_page2')->first();
 
-        if($page2){
-            $data['home_page2'] = DB::table('prd_ad_details')->where('prd_ad_id',$page2->pk_no)->inRandomOrder()->first();
+        if ($page2) {
+            $data['home_page2'] = DB::table('prd_ad_details')->where('prd_ad_id', $page2->pk_no)->inRandomOrder()->first();
         }
 
-        $page3 = DB::table('prd_ads')->where('prd_ads.is_active',1)->where('prd_ads.name','home_page3')->first();
+        $page3 = DB::table('prd_ads')->where('prd_ads.is_active', 1)->where('prd_ads.name', 'home_page3')->first();
 
-        if($page3){
-            $data['home_page3'] = DB::table('prd_ad_details')->where('prd_ad_id',$page3->pk_no)->inRandomOrder()->first();
+        if ($page3) {
+            $data['home_page3'] = DB::table('prd_ad_details')->where('prd_ad_id', $page3->pk_no)->inRandomOrder()->first();
         }
 
-// dd($data);
+        // dd($data);
 
         return view('home.home', compact('data'));
     }
@@ -133,15 +132,17 @@ class HomeController extends Controller
         return view('users.pending_ads');
     }
 
-    public function verifyUser($token){
-        $user = Customer::where('random_token',$token)->first();
+    public function verifyUser($token)
+    {
+        $user = Customer::where('random_token', $token)->first();
         $user->is_verified = 1;
         $user->update();
         Toastr::success('Successfully Verified.Please Login', 'Success', ["positionClass" => "toast-top-right"]);
         return redirect('/login');
     }
 
-    public function cc(Request $request){
+    public function cc(Request $request)
+    {
         \Artisan::call('cache:clear');
         \Artisan::call('view:clear');
         \Artisan::call('route:clear');
