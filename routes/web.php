@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,6 +105,12 @@ Route::get('/verify-otp/{otp}/{serial}', 'OTPController@verifyOTP')->name('verif
 // Purchase history
 Route::get('/purchase-history', 'UserController@getMyPurchaseHistory')->name('purchase-history');
 Route::get('/invoice/{id}', 'UserController@getMyPurchaseInvoice')->name('purchase.invoice');
+
+
+// Review
+
+Route::post('/seller/rate', 'UserController@rateReview')->name('seller.review');
+
 
 //contact
 Route::post('/contact-us', 'ContactController@contactUs')->name('contact');

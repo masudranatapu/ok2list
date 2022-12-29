@@ -1,15 +1,20 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Http\Requests\updateProfileRequest;
 use App\Http\Requests\updatePasswordRequest;
 use Illuminate\Http\Request;
 use App\City;
 use App\Payments;
 use App\User;
-use Toastr;
+use Brian2694\Toastr\Facades\Toastr;
 use App\Product;
-use Auth;
-use DB;
+use App\Review;
+use Exception;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -23,31 +28,29 @@ class UserController extends Controller
         $this->city         = $city;
         $this->userModel    = $user;
         $this->prodModel    = $prodModel;
-          
     }
 
-   
-   public function getDashboardOverview()
-   {
+
+    public function getDashboardOverview()
+    {
         $data = array();
         $data['rows'] = $this->prodModel->getFavoriteAds();
         $postedads = DB::table('prd_master')->where('customer_pk_no', Auth::user()->id)->get();
         $expireads = DB::table('prd_master')->where('customer_pk_no', Auth::user()->id)->where('is_active', 2)->get();
         // dd($postedads);
-        
-		$package = Payments::where('f_customer_pk_no', Auth::user()->id)->where('f_package_pk_no', Auth::user()->package_id)->orderBy('pk_no','desc')->first();
-		$totalads = DB::table('prd_master')->whereBetween('created_at', [$package->validated_on, $package->expired_on])->get();
+
+        $package = Payments::where('f_customer_pk_no', Auth::user()->id)->where('f_package_pk_no', Auth::user()->package_id)->orderBy('pk_no', 'desc')->first();
+        $totalads = DB::table('prd_master')->whereBetween('created_at', [$package->validated_on, $package->expired_on])->get();
 
         return view('users.dashboard_overview', compact('data', 'postedads', 'expireads', 'package', 'totalads'));
+    }
 
-   }
-    
     public function getMyDashboard(Request $request)
     {
         $data = array();
         $data['city_combo'] = $this->city->getCityCombo();
-        
-        return view('users.my_dashboard',compact('data'));
+
+        return view('users.my_dashboard', compact('data'));
     }
 
     public function postMyProfileUpdate(updateProfileRequest $request)
@@ -56,9 +59,8 @@ class UserController extends Controller
         $msg            = $this->resp->msg;
         $msg_title      = $this->resp->msg_title;
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
-        
-        return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
 
+        return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
     }
 
     public function postMyPasswordUpdate(updatePasswordRequest $request)
@@ -67,7 +69,7 @@ class UserController extends Controller
         $this->resp     = $this->userModel->postMyPasswordUpdate($request);
         $msg            = $this->resp->msg;
         $msg_title      = $this->resp->msg_title;
-        
+
         Toastr::info($msg, $msg_title, ["positionClass" => "toast-top-right"]);
         return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
     }
@@ -80,18 +82,16 @@ class UserController extends Controller
         $data['msg']        = $this->resp->msg;
         $data['msg_title']  = $this->resp->msg_title;
         return response()->json($data);
-        
-
     }
 
     public function getFavoriteAds(Request $request)
-    {   
+    {
         $data = array();
         $data['rows'] = $this->prodModel->getFavoriteAds();
         // dd($data);
         return view('users.my_favorite_ads', compact('data'));
     }
-  
+
 
     public function getMyMembership(Request $request)
     {
@@ -113,13 +113,51 @@ class UserController extends Controller
 
     public function getMyPurchaseHistory()
     {
-        $purchase_history = Payments::where('f_customer_pk_no',Auth::user()->id)->orderBy('pk_no','desc')->get();
-        return view('users.purchase_history',compact('purchase_history'));
+        $purchase_history = Payments::where('f_customer_pk_no', Auth::user()->id)->orderBy('pk_no', 'desc')->get();
+        return view('users.purchase_history', compact('purchase_history'));
     }
 
     public function getMyPurchaseInvoice($id)
     {
         $payment = Payments::find($id);
-        return view('users.purchase_invoice',compact('payment'));
+        return view('users.purchase_invoice', compact('payment'));
+    }
+
+
+    public function rateReview(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'stars' => 'required|numeric|between:1,5',
+            'comment' => 'required|string|max:255',
+        ]);
+        if ($validator->fails()) {
+            Toastr::error($validator->errors(), 'Error');
+            return redirect()->back();
+        }
+        try {
+
+
+            $user_id = auth()->id();
+            $review = DB::table('reviews')->where('user_id', $user_id)->where('seller_id', $request->seller_id)->get();
+            if ($review && $review->count() > 0) {
+                Toastr::warning('Reviewed failed.<br>You already reviewed this seller.', 'Warning', ["positionClass" => "toast-top-right"]);
+                return redirect()->back();
+            }
+
+            session(['seller_tab' => 'review_store']);
+            $review = new Review();
+            $review->seller_id = $request->seller_id;
+            $review->user_id = $user_id;
+            $review->stars = $request->stars;
+            $review->comment = $request->comment;
+            $review->save();
+
+            Toastr::success('Reviewed  successful.<br>Thanks for your review.', 'Success', ["positionClass" => "toast-top-right"]);
+            return redirect()->back();
+        } catch (Exception $th) {
+            Toastr::error("Something error.Please try again later.", 'Error');
+            return redirect()->back();
+        }
     }
 }
