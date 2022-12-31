@@ -62,11 +62,14 @@
                     <div class="col-md-6 col-lg-3 mb-4">
                         <div class="card freatured_card">
                               <div class="featured-image">
-                                <a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}"><img src="{{ asset('assets/images/default-load.png')}}"  data-src="{{ asset($ad->img_path_thumb)}}" alt="{{$ad->ad_title}}" class="img-fluid"></a>
-                                @if('Urgent' == $ad->promotion)
-                                    <span class="featured-ad">Urgent</span>
-                                @endif
-                            </div>
+                                  <span class="featured-ad doorstep_tag">Doorstep</span>
+                              </div>
+                              <div class="featured-image">
+                                    <a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}"><img src="{{ asset('assets/images/default-load.png')}}"  data-src="{{ asset($ad->img_path_thumb)}}" alt="{{$ad->ad_title}}" class="img-fluid"></a>
+                                    @if('Urgent' == $ad->promotion)
+                                        <span class="featured-ad">Urgent</span>
+                                    @endif
+                                </div>
                               <div class="card-body">
                                     <h3 class="item-price">Rs {{number_format($ad->price,2)}}</h3>
                                     <h4 class="item-title"><a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{ $ad->ad_title }}</a></h4>

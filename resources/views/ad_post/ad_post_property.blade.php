@@ -279,7 +279,7 @@
                            </div>
 
                            <!-- section -->
-                           <div class="section seller-info">
+                           <div class="section seller-info pb-0 mb-0">
                               @include('ad_post._personal_info_ad_post')
                            </div>
                            <!-- section -->

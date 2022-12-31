@@ -246,7 +246,7 @@
                      </div>
                   </div>
                   <!-- section -->
-                  <div class="section seller-info">
+                  <div class="section seller-info ">
                      <h4>Seller Information</h4>
                      <div class="row form-group">
                         <label class="col-sm-3 label-title">I am</label>

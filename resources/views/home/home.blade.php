@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <style type="text/css">
         .footer-widget input[type="email"] {margin: 5px 0;font-weight: 300;font-size: 16px;}
-        .urgent .featured-image{overflow: hidden;}
+/*        .urgent .featured-image{overflow: hidden;}*/
         .category-icon .img-fluid{width: 40px; height: 35px;}
     </style>
 @endpush

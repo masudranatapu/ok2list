@@ -102,11 +102,9 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                             <input type="checkbox" class="filter_by" name="used" id="used"
                                                 value="used" {{ $used_ad == 1 ? 'checked' : '' }}> Used</label>
 
-                                        {{-- <label for="doorstep_delivery"
-                                            class="{{ $doorstep_delivery_ad == 1 ? 'checked' : '' }}">
+                                        <label for="doorstep_delivery" class="">
                                             <input type="checkbox" class="filter_by" name="doorstep_delivery"
-                                                id="doorstep_delivery" value="used"
-                                                {{ $doorstep_delivery_ad == 1 ? 'checked' : '' }}>Doorstep Delivery</label> --}}
+                                                id="doorstep_delivery" value="doorstep">Doorstep Delivery</label>
                                     </div>
                                 </div>
                             </div>
@@ -226,6 +224,9 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                         class="ad-item verified_ads row {{ $row->promotion == 'Top' ? 'topad' : 'notop' }} ">
                                         <div class="item-image-box col-lg-4">
                                             <div class="item-image">
+                                                <div class="featured-image">
+                                                      <span class="featured-ad doorstep_tag">Doorstep</span>
+                                                  </div>
                                                 <a href="{{ route('ad.details', ['pk_no' => $row->pk_no, 'url_slug' => $row->url_slug]) }}"
                                                     title="{{ $row->ad_title }}">
                                                     <img src="{{ asset('assets/images/default-load.png') }}"

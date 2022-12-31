@@ -50,6 +50,11 @@ Route::get('/site-map', 'CommonController@getSiteMap')->name('site-map');
 Route::get('/doorstep-delivery', 'CommonController@getDoorstepDelivery')->name('doorstep-delivery');
 
 
+// doorstep checkout
+Route::get('/checkout/shipping/address', 'CheckoutController@checkoutShipping')->name('checkout.shipping');
+Route::get('/checkout/billing/address', 'CheckoutController@checkoutBilling')->name('checkout.billing');
+Route::get('/checkout/review/payment', 'CheckoutController@checkoutPayment')->name('checkout.payment');
+
 //Ad post
 Route::get('/ad-post/{subcategory?}', 'AdPostController@getAdPost')->name('ad-post');
 Route::post('/ad-post/{subcategory?}', 'AdPostController@postAdGeneral')->name('post-general.store');
