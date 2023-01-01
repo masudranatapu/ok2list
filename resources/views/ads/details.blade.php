@@ -126,7 +126,10 @@ $cate = DB::table('prd_category')
                     </div><!-- Controls -->
                     <!-- slider-text -->
                     <div class="col-lg-4">
-                        <div class="single_content slider-text">
+                        <div class="doorstep_item text-center">
+                            <span>Doorstep Delivery</span>
+                        </div>
+                        <div class="single_content slider-text pt-3">
                             <h2>
                                 Rs {{ number_format($row->price, 2) }}
                                 <div class="float-right">
@@ -144,10 +147,6 @@ $cate = DB::table('prd_category')
                                 </div>
                             </h2>
                             
-
-                            
-
-
                             <!-- short-info -->
                             <div class="short-info">
                                 <h4>@lang('web.sort_info')</h4>
@@ -164,6 +163,15 @@ $cate = DB::table('prd_category')
                                     <p><strong> @lang('web.mod') : </strong><a href="#">{{ $row->model_name }}</a></p>
                                 @endif
                             </div><!-- short-info -->
+
+
+                            <!-- buy product -->
+                            <div class="buy_product contact-with">
+                                <a href="{{ route('checkout.shipping') }}" class="btn btn-red w-100">Buy Product</a>
+                            </div>
+                            <!-- buy product -->
+
+
                             <!-- contact-with -->
                             <div class="contact-with">
                                 <h4>@lang('web.contact') </h4>
@@ -192,6 +200,8 @@ $cate = DB::table('prd_category')
                                 @endif
 
                             </div>
+
+
                             <!-- social-links -->
                             <div class="social-links">
                                 <h4 style="margin-bottom: 0px;">@lang('web.share')</h4>

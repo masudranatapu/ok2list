@@ -1,12 +1,11 @@
 <?php $row = $row ?? null; ?>
-
 <h4>Seller Information</h4>
 <div class="row form-group">
     <label class="col-sm-3 label-title">I am</label>
     <div class="col-sm-9">
         <input type="radio" name="seller_type" value="Individual" id="individual" {{ Auth::user()->seller_type == 'Individual' ? 'checked' : '' }}>
         <label for="individual">Individual</label>
-        <input type="radio" name="seller_type" value="Dealer" id="dealer" {{  Auth::user()->seller_type == 'Dealer' ? 'checked' : '' }} > 
+        <input type="radio" name="seller_type" value="Dealer" id="dealer" {{  Auth::user()->seller_type == 'Dealer' ? 'checked' : '' }} >
         <label for="dealer">Dealer</label>
     </div>
 </div>
@@ -40,7 +39,7 @@
                     <span style="@if(Auth::user()->mobile1_is_verified == '1') display: block; @else  display: none;  @endif" class="input-group-text otp_verified1" data-sl="1" data-url="{{URL::to('check-otp')}}" >Verified</span>
                     
                     <span style="@if(Auth::user()->mobile1_is_verified == 0) display: block; @else  display: none;  @endif" class="input-group-text check_otp check_otp_add1" data-sl="1" data-url="{{URL::to('check-otp')}}">Add</span>
-                  
+                    
                 </div>
             </div>
             {!! $errors->first('mobile1', '<label class="help-block text-danger">:message</label>') !!}
@@ -54,27 +53,25 @@
             </div>
             <div class="text-success mt-1 "><button type="button" class="check_otp text-success" id="resent_otp1" data-sl="1" data-url="{{URL::to('check-otp')}}"  disabled="true">Resent OTP </button> <span id="counter1"></span></div>
         </div>
-       
+        
         <label for="is_hide_mobile" class="@if($row != null ) {{ $row->is_hide_mobile1 == '1' ? 'checked' : ''}} @endif"><input type="checkbox" name="is_hide_mobile" value="1" id="is_hide_mobile" @if($row != null ) {{ $row->is_hide_mobile1 == '1' ? 'checked' : ''}} @endif> Hide Phone Number  </label>
         @if(Auth::user()->mobile1_is_verified == '1')
         <button type="button" class="text-primary btn btn-sm btn-default edit_mobile1">Edit</button>
         @endif
         <span class="error err_mobile1 text-info" style="display: none; display: block;"></span>
-
     </div>
 </div>
 <div class="row form-group {!! $errors->has('mobile2') ? 'error' : '' !!}">
     <label class="col-sm-3 label-title">Mobile Number (optional)</label>
     <div class="col-sm-9">
-          <div id="number_otp_div2" class="mb-1">Enter the OTP sent to <span id="number_otp_2"></span> <button type="button" id="edit_number_otp_2" class="text-info" disabled="true">Edit</button> </div>
-
+        <div id="number_otp_div2" class="mb-1">Enter the OTP sent to <span id="number_otp_2"></span> <button type="button" id="edit_number_otp_2" class="text-info" disabled="true">Edit</button> </div>
         <div class="controls check_div_otp2">
             <div class="input-group ">
                 {!! Form::number('mobile2', $row->mobile2 ?? Auth::user()->mobile2, [ 'class' => 'form-control', 'id' => 'mobile2', 'minlength' => '11', 'maxlength' => '11', 'data-validation-minlength-message' => 'Minimum 11 digit', 'data-validation-maxlength-message' => 'Maximum 11 digit', 'placeholder' => 'Enter mobile number (11 digit)', 'tabindex' => 20 , 'autocomplete' => 'off',Auth::user()->mobile2_is_verified == '1' ? 'readonly' : '', ]) !!}
                 <div class="input-group-append cp">
                     
                     <span style="@if(Auth::user()->mobile2_is_verified == '1') display: block; @else  display: none;  @endif" class="input-group-text " data-sl="2" data-url="{{URL::to('check-otp')}}">Verified</span>
-                
+                    
                     <span style="@if(Auth::user()->mobile2_is_verified == 0) display: block; @else  display: none;  @endif" class="input-group-text check_otp check_otp_add1" data-sl="2" data-url="{{URL::to('check-otp')}}">Add</span>
                     
                 </div>
@@ -90,12 +87,13 @@
             </div>
             <div class="text-success mt-1 "><button type="button" class="check_otp text-success" id="resent_otp2" data-sl="2" data-url="{{URL::to('check-otp')}}"  disabled="true" data-sl="2">Resent OTP </button> <span id="counter2"></span></div>
         </div>
-        <label for="is_hide_mobile2" class="@if($row != null ) {{ $row->is_hide_mobile2 == '1' ? 'checked' : ''}} @endif"><input type="checkbox" name="is_hide_mobile2" value="1" id="is_hide_mobile2" @if($row != null ) {{ $row->is_hide_mobile2 == '1' ? 'checked' : ''}} @endif> Hide Phone Number  </label>
+        <label for="is_hide_mobile2" class="@if($row != null ) {{ $row->is_hide_mobile2 == '1' ? 'checked' : ''}} @endif">
+            <input type="checkbox" name="is_hide_mobile2" value="1" id="is_hide_mobile2" @if($row != null ) {{ $row->is_hide_mobile2 == '1' ? 'checked' : ''}} @endif> Hide Phone Number
+        </label>
         @if(Auth::user()->mobile2_is_verified == '1')
         <button type="button" class="text-primary btn btn-sm btn-default edit_mobile2">Edit</button>
         @endif
         <span class="error err_mobile2 text-info" style="display: none; display: block;"></span>
-
     </div>
 </div>
 <div class="row form-group {!! $errors->has('address') ? 'error' : '' !!}">
@@ -104,6 +102,40 @@
         <div class="controls">
             {!! Form::text('address', $row->address ?? Auth::user()->address, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter address', 'minlength' => '5', 'data-validation-minlength-message' => 'Minimum 5 characters', 'maxlength' => '150', 'data-validation-maxlength-message' => 'Maxlength 150 characters', 'tabindex' => 20, 'autocomplete' => 'off' ]) !!}
             {!! $errors->first('address', '<label class="help-block text-danger">:message</label>') !!}
+        </div>
+    </div>
+</div>
+<div class="row form-group">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-9">
+        <div class="controls">
+            <div class="form-group form-check">
+                <input type="checkbox" name="doorstep" class="form-check-input" id="doorstep" data-toggle="modal" data-target="#doorstepModal">
+                <label class="form-check-label" for="doorstep">Doorstep Delivery</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Doorstep Modal -->
+<div class="doorstep_modal modal fade" id="doorstepModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Doorstep Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body doorstep_content">
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos corporis, consequatur magnam esse perspiciatis repellendus, sapiente. In perferendis cum dolore maiores, officia fugit rerum quam corrupti deleniti, odio consectetur. Fugit.</p>
+                 <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos corporis, consequatur magnam esse perspiciatis repellendus, sapiente. In perferendis cum dolore maiores, officia fugit rerum quam corrupti deleniti, odio consectetur. Fugit.</p>
+                 <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+            </div>
         </div>
     </div>
 </div>
