@@ -10,6 +10,12 @@ class CheckoutController extends Controller
     {
          return view('checkout.shipping_address');
     }
+    public function storeShipping(Request $request)
+    {
+        $data = $request->all();
+        dd($data);
+        //  return view('checkout.shipping_address');
+    }
 
     public function checkoutBilling()
     {

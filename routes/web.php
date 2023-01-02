@@ -52,6 +52,7 @@ Route::get('/doorstep-delivery', 'CommonController@getDoorstepDelivery')->name('
 
 // doorstep checkout
 Route::get('/checkout/shipping/address', 'CheckoutController@checkoutShipping')->name('checkout.shipping');
+Route::post('/checkout/shipping/store', 'CheckoutController@storeShipping')->name('checkout.shipping.store');
 Route::get('/checkout/billing/address', 'CheckoutController@checkoutBilling')->name('checkout.billing');
 Route::get('/checkout/review/payment', 'CheckoutController@checkoutPayment')->name('checkout.payment');
 
