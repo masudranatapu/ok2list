@@ -36,7 +36,7 @@ $cate = DB::table('prd_category')
                     <a href="{{ $data['detail_page1']->link }}" target="_blank"
                         title="{{ $data['detail_page1']->name }}"><img src="{{ fileExit($data['detail_page1']->photo) }}"
                             class="w-100" alt="{{ $data['detail_page1']->name }}" style="height: 96px;"></a>
-                </div> 
+                </div>
             @endif
 
             <div class="mb-5">
@@ -79,14 +79,14 @@ $cate = DB::table('prd_category')
                             @else
                                 <span class="icon"><i class="fa fa-suitcase online"></i><a
                                         href="javascript:void(0)">{{ $row->user->seller_type }}</a></span>
-                            @endif 
+                            @endif
                             <span class="icon"><i class="fa fa-clock-o"></i><a href="javascript:void(0)">
                                     {{ date('d M, y h:i A', strtotime($row->created_at)) }}</a></span>
                             <span class="icon"><i class="fa fa-map-marker-alt"></i><a
                                     href="javascript:void(0)">{{ $row->area->name ?? '' }},
                                     {{ $row->area->city->name ?? '' }}{{ $row->division->name ?? '' }}</a></span>
                             </div>
-                           
+
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
                                 @if ($data['photos'] && count($data['photos']) > 0)
@@ -146,7 +146,7 @@ $cate = DB::table('prd_category')
                                     @endif
                                 </div>
                             </h2>
-                            
+
                             <!-- short-info -->
                             <div class="short-info">
                                 <h4>@lang('web.sort_info')</h4>
@@ -167,7 +167,7 @@ $cate = DB::table('prd_category')
 
                             <!-- buy product -->
                             <div class="buy_product contact-with">
-                                <a href="{{ route('checkout.shipping') }}" class="btn btn-red w-100">Buy Product</a>
+                                <a href="{{ route('checkout.shipping') }}" onclick="addToCart({{ $row->pk_no }})" class="btn btn-red w-100">Buy Product</a>
                             </div>
                             <!-- buy product -->
 
@@ -385,7 +385,7 @@ $cate = DB::table('prd_category')
                                 @if( Auth::user()->is_verified == 1 )
                                     <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-primary">@lang('web.post_free_ad')</a>
                                 @endif
-                            @else 
+                            @else
                                 <a href="{{route('login')}}" class="btn btn-primary">@lang('web.post_free_ad')</a>
                             @endif
                         @endif
@@ -696,6 +696,20 @@ $cate = DB::table('prd_category')
             search_params.set(param, val);
             url.search = search_params.toString();
             return url.toString();
+        }
+    </script>
+    <script>
+        function addToCart(id) {
+            $.ajax({
+                type: "get",
+                url: "{{ route('addToCart') }}",
+                data: {
+                    id:id
+                },
+                success: function (response) {
+                    console.log(response.status);
+                }
+            });
         }
     </script>
 @endpush

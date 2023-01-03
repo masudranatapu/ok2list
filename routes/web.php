@@ -51,10 +51,13 @@ Route::get('/doorstep-delivery', 'CommonController@getDoorstepDelivery')->name('
 
 
 // doorstep checkout
+Route::get('/addToCart', 'CheckoutController@addToCart')->name('addToCart');
 Route::get('/checkout/shipping/address', 'CheckoutController@checkoutShipping')->name('checkout.shipping');
 Route::post('/checkout/shipping/store', 'CheckoutController@storeShipping')->name('checkout.shipping.store');
 Route::get('/checkout/billing/address', 'CheckoutController@checkoutBilling')->name('checkout.billing');
+Route::post('/checkout/billing/store', 'CheckoutController@storeBilling')->name('checkout.billing.store');
 Route::get('/checkout/review/payment', 'CheckoutController@checkoutPayment')->name('checkout.payment');
+Route::get('/checkout/paystack/payment', 'CheckoutController@paystackPayment')->name('checkout.paystack.payment');
 
 //Ad post
 Route::get('/ad-post/{subcategory?}', 'AdPostController@getAdPost')->name('ad-post');
@@ -402,6 +405,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
     Route::get('website', [App\Http\Controllers\Admin\SettingController::class, 'site_website'])->name('site.website');
     Route::post('website/{id}', [App\Http\Controllers\Admin\SettingController::class, 'websiteUpdate'])->name('website.update');
+    Route::post('website-payment/{id}', [App\Http\Controllers\Admin\SettingController::class, 'websitepaymentUpdate'])->name('website.update.payment');
     Route::post('website-socile/{id}', [App\Http\Controllers\Admin\SettingController::class, 'websiteUpdateSocile'])->name('website.update.socile');
     Route::get('system', [App\Http\Controllers\Admin\SettingController::class, 'site_system'])->name('site.system');
     Route::get('mail', [App\Http\Controllers\Admin\SettingController::class, 'site_mail'])->name('site.mail');

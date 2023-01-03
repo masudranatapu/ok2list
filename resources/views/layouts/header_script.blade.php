@@ -22,6 +22,7 @@ $setting = DB::table('site_settings')->first();
     <link rel="stylesheet" href="{{ asset('/assets/css/main.css?v=2') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/responsive.css?v=2') }}">
     <input type="hidden" name="base_url" id="base_url" value="{{ url('/') }}">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <link href="{{ asset('/assets/css/style.css') }}" rel="stylesheet" type="text/css">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js?v=0"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131495393-1"></script>

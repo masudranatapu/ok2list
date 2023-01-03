@@ -47,7 +47,7 @@ class SettingController extends BaseController
             $about_image_name = $slug.'-'.uniqid().'.'.$about_image->getClientOriginalExtension();
             $upload_path = 'media/about/';
             $about_image->move($upload_path, $about_image_name);
-            
+
             $old_image = DB::table('page_about_us')->where('id', $id)->first();
             if(file_exists($old_image->image)){
                 unlink($old_image->image);
@@ -72,7 +72,7 @@ class SettingController extends BaseController
             'our_values_sl' => $request->our_values_sl,
         ]);
         return redirect()->back()->with('flashMessageSuccess','Sucessfully Updated');
-        
+
     }
 
     public function getContactUs() {
@@ -82,7 +82,7 @@ class SettingController extends BaseController
         return view('admin.web.contact',compact('data'));
     }
     public function getTermsConditions() {
-        
+
         $terms = DB::table('page_terms_conditions')->latest()->first();
         return view('admin.web.terms-conditions',compact('terms'));
     }
@@ -249,7 +249,7 @@ class SettingController extends BaseController
     public function getCopyRightUpdate(Request $request, $id)
     {
         DB::table('site_settings')->where('id', $id)->update([
-            'copyright' => $request->copyright, 
+            'copyright' => $request->copyright,
         ]);
 
         return redirect()->back()->with('flashMessageSuccess','Sucessfully Updated');
@@ -355,6 +355,17 @@ class SettingController extends BaseController
             'linkedin_link' => $request->linkedin_link,
             'whatsapp_link' => $request->whatsapp_link,
             'youtube_link' => $request->youtube_link,
+        ]);
+
+        return redirect()->back()->with('flashMessageSuccess','Sucessfully Saved');
+
+    }
+    public function websitepaymentUpdate(Request $request, $id)
+    {
+
+        DB::table('site_settings')->where('id', $id)->update([
+            'paystack_public_key' => $request->paystack_public_key,
+            'paystack_secret_key' => $request->paystack_secret_key,
         ]);
 
         return redirect()->back()->with('flashMessageSuccess','Sucessfully Saved');
