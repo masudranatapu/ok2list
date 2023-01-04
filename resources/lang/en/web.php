@@ -2,6 +2,8 @@
 
 return [
     'all_ads' => 'All Ads',
+    'orders' => 'Orders',
+    'my_orders' => 'My Orders',
     'login' => 'Login',
     'register' => 'Register',
     'post_free_ad' => 'Post Free Ad',

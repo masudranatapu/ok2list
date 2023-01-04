@@ -22,37 +22,54 @@
 									<li><i class="fa fa-check" aria-hidden="true"></i>{{ $row->ad_limit_in_montrh }} Ads Monthly</li>
 									<li><i class="fa fa-check" aria-hidden="true"></i>{{ $row->support_duration }}</li>
 									<li><i class="fa fa-check" aria-hidden="true"></i>{{ $row->discount_on_promotion }} Discount on Promotion</li>
-									<li>
-										@if($row->sms_feature == 1)
-										<i class="fa fa-check" aria-hidden="true"></i>
-										@else
-										<i class="fa fa-times" aria-hidden="true"></i>
-										@endif
-										SMS Features
-									</li>
-									<li>
-										@if($row->email_feature == 1)
-										<i class="fa fa-check" aria-hidden="true"></i>
-										@else
-										<i class="fa fa-times" aria-hidden="true"></i>
-										@endif
-									Email Features
-									</li>
-									<li>
-										@if($row->shop_page == 1)
-										<i class="fa fa-check" aria-hidden="true"></i>
-										@else
-										<i class="fa fa-times" aria-hidden="true"></i>
-										@endif
-									Shop Page</li>
-									<li>
-										@if($row->analytics == 1)
-										<i class="fa fa-check" aria-hidden="true"></i>
-										@else
-										<i class="fa fa-times" aria-hidden="true"></i>
-										@endif
-										Product Analytics
-									</li>
+									@if($row->sms_feature == 1)
+										<li>
+											<i class="fa fa-check" aria-hidden="true"></i>
+											SMS Features
+										</li>
+									@else
+										<li class="disiable_item">
+											<i class="fa fa-times" aria-hidden="true"></i>
+											SMS Features
+										</li>
+									@endif
+
+
+									@if($row->email_feature == 1)
+										<li>
+											<i class="fa fa-check" aria-hidden="true"></i>
+											Email Features
+										</li>
+									@else
+										<li class="disiable_item">
+											<i class="fa fa-times" aria-hidden="true"></i>
+											Email Features
+										</li>
+									@endif
+
+									@if($row->shop_page == 1)
+										<li>
+											<i class="fa fa-check" aria-hidden="true"></i>
+											Shop Page
+										</li>
+									@else
+										<li class="disiable_item">
+											<i class="fa fa-times" aria-hidden="true"></i>
+											Shop Page
+										</li>
+									@endif
+
+									@if($row->analytics == 1)
+										<li>
+											<i class="fa fa-check" aria-hidden="true"></i>
+											Product Analytics
+										</li>
+									@else
+										<li class="disiable_item">
+											<i class="fa fa-times" aria-hidden="true"></i>
+											Product Analytics
+										</li>
+									@endif
 								</ul>
 								<a href="{{ route('payment.gateway',['price' => $row->price_per_month, 'pakid' => $row->pk_no  ]) }}" class="btn btn-primary">Buy Now</a>
 								{{--@if($key == 0)

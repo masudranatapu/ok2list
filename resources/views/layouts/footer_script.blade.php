@@ -8,13 +8,14 @@
   <script src="{{ asset('/assets/js/owl.carousel.min.js') }}"></script>
   <script src="{{asset('select2/select2.min.js')}}"></script>
   <script src="{{ asset('/assets/js/scrollup.min.js') }}"></script>
-  <script src="{{ asset('/assets/js/price-range.js') }}"></script>  
+  <script src="{{ asset('/assets/js/price-range.js') }}"></script>
   <script src="{{asset('/assets/js/forms/validation/jqBootstrapValidation.js')}}"></script>
   <script src="{{asset('/assets/js/forms/validation/form-validation.js')}}"></script>
-  <script src="{{ asset('/assets/js/jquery.countdown.js') }}"></script>  
+  <script src="{{ asset('/assets/js/jquery.countdown.js') }}"></script>
   <script src="{{ asset('/assets/js/custom.js') }}"></script>
+  <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
   <!-- js -->
-  
+
   <script>
     $(document).on('click', '.modalcategory .nav-link', function(){
       if(window.innerWidth <= 767){
@@ -34,7 +35,7 @@
       $('.navbar-toggler-icon i').toggleClass('fa-align-justify');
       $('.navbar-toggler-icon i').toggleClass('fa-close');
  });
-    
+
 </script>
 
 

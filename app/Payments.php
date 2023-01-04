@@ -11,8 +11,8 @@ class Payments extends Model
 {
 
     protected $table            = 'sls_payments';
-    protected $primaryKey       = 'pk_no'; 
-    protected $fillable         = ['customer_pk_no', 'amount','status','validation_on','created_by','expired_on','f_customer_pk_no','f_package_pk_no','validated_on', 'add_limit'];
+    protected $primaryKey       = 'pk_no';
+    protected $fillable         = ['customer_pk_no', 'amount','status','validation_on','created_by','expired_on','f_customer_pk_no','f_package_pk_no','validated_on', 'add_limit', 'order_id', 'payment_type'];
 
 
     public static function boot()
@@ -24,7 +24,7 @@ class Payments extends Model
               if(!empty($user)){
                 $model->created_by = $user->id;
               }
-              
+
           });
 
           static::updating(function($model)
@@ -33,7 +33,7 @@ class Payments extends Model
               if(!empty($user)){
                 $model->updated_by = $user->id;
               }
-              
+
           });
       }
 

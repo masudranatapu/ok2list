@@ -87,13 +87,11 @@
                                         {{ $setting->promote_your_ad_en }}
                                     @endif
                                 </a></li>
-                           <!--  <li><a href="{{ route('promotions') }}">
-                                    @if (app()->getLocale() == 'sl')
-                                        {{ $setting->promotions_sl }}
-                                    @else
-                                        {{ $setting->promotions_en }}
-                                    @endif
-                                </a></li> -->
+                           <li>
+                              <a href="{{ route('packages') }}">
+                                   Pricing
+                              </a>
+                            </li>
                             <li><a href="{{ route('faq') }}">
                                     @if (app()->getLocale() == 'sl')
                                         {{ $setting->faq_sl }}

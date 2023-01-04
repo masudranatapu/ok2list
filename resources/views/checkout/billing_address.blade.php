@@ -1,83 +1,135 @@
 @extends('layouts.app')
 
 @section('content')
-<section id="main" class="clearfix">
-    <div class="container">
-        
-        <div class="breadcrumb-section">
-            <ol class="breadcrumb">
-                <li><a href="{{url('/')}}">Home</a></li>
-                <li>Checkout</li>
-            </ol>
-        </div>
-         
-        <div class="checkout_form">
-            <div class="row">
-                <div class="col-lg-9">
-                    <div class="tab_nav">
-                        <div class="steps flex-sm-nowrap">
-                            <a class="step active" href="{{ route('checkout.shipping') }}">
-                                <h4 class="step-title">1. Shipping Address:</h4>
-                            </a>
-                            <a class="step active" href="{{ route('checkout.billing') }}">
-                                <h4 class="step-title">2. Billing Address:</h4>
-                            </a>
+    <section id="main" class="clearfix">
+        <div class="container">
 
-                            <a class="step" href="{{ route('checkout.payment') }}">
-                                <h4 class="step-title">4. Review and pay</h4>
-                            </a>
+            <div class="breadcrumb-section">
+                <ol class="breadcrumb">
+                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li>Checkout</li>
+                </ol>
+            </div>
+
+            <div class="checkout_form">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="tab_nav">
+                            <div class="steps flex-sm-nowrap">
+                                <a class="step active" href="{{ route('checkout.shipping') }}">
+                                    <h4 class="step-title">1. Shipping Address:</h4>
+                                </a>
+                                <a class="step active" href="{{ route('checkout.billing') }}">
+                                    <h4 class="step-title">2. Billing Address:</h4>
+                                </a>
+
+                                <a class="step" href="{{ route('checkout.payment') }}">
+                                    <h4 class="step-title">3. Review and pay</h4>
+                                </a>
+                            </div>
                         </div>
-                    </div>
                         <!-- Billing form -->
                         <div class="shipping_form">
                             <div class="title mb-3">
                                 <h3>Billing Address</h3>
                             </div>
-                            <form class="row" action="#" method="post">
+                            <form class="row" action="{{ route('checkout.billing.store') }}" method="post">
+                                @csrf
                                 <div class="form-group col-md-6">
                                     <label for="firstname">First Name</label>
-                                    <input type="text" name="firstname" id="firstname" class="form-control" required>
+                                    <input type="text" name="bill_first_name" id="firstname"
+                                        value="{{ old('bill_first_name') ?? Session::get('billing_address.bill_first_name') }}"
+                                        class="form-control" required>
+                                    @error('bill_first_name')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="lastname">Last Name</label>
-                                    <input type="text" name="lastname" id="lastname" class="form-control" required>
+                                    <input type="text" name="bill_last_name" id="lastname"
+                                        value="{{ old('bill_last_name') ?? Session::get('billing_address.bill_last_name') }}"
+                                        class="form-control" required>
+                                    @error('bill_last_name')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="email">Email Address</label>
-                                    <input type="text" name="email" id="email" class="form-control" required>
+                                    <input type="text" name="bill_email" id="email"
+                                        value="{{ old('bill_email') ?? Session::get('billing_address.bill_email') }}"
+                                        class="form-control" required>
+                                    @error('bill_email')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="phone_number">Phone Number</label>
-                                    <input type="text" name="phone_number" id="phone_number" class="form-control" required>
+                                    <input type="text" name="bill_phone_number" id="phone_number"
+                                        value="{{ old('bill_phone_number') ?? Session::get('billing_address.bill_phone_number') }}"
+                                        class="form-control" required>
+                                    @error('bill_phone_number')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="address">Address</label>
-                                    <input type="text" name="address" id="address" class="form-control" required>
+                                    <input type="text" name="bill_address" id="address"
+                                        value="{{ old('bill_address') ?? Session::get('billing_address.bill_address') }}"
+                                        class="form-control" required>
+                                    @error('bill_address')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="apartment">Apartment (optional)</label>
-                                    <input type="text" name="apartment" id="apartment" class="form-control">
+                                    <input type="text" name="bill_apartment" id="apartment"
+                                        value="{{ old('bill_apartment') ?? Session::get('billing_address.bill_apartment') }}"
+                                        class="form-control">
+                                    @error('bill_apartment')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="city">City</label>
-                                    <input type="text" name="city" id="city" class="form-control" required>
+                                    <input type="text" name="bill_city" id="city"
+                                        value="{{ old('bill_city') ?? Session::get('billing_address.bill_city') }}"
+                                        class="form-control" required>
+                                    @error('bill_city')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="state">State</label>
-                                    <input type="text" name="state" id="state" class="form-control" required>
+                                    <input type="text" name="bill_state" id="state"
+                                        value="{{ old('bill_state') ?? Session::get('billing_address.bill_state') }}"
+                                        class="form-control" required>
+                                    @error('bill_state')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="zip_code">Zip Code</label>
-                                    <input type="text" name="zip_code" id="zip_code" class="form-control" required>
+                                    <input type="text" name="bill_zip_code" id="zip_code"
+                                        value="{{ old('bill_zip_code') ?? Session::get('billing_address.bill_zip_code') }}"
+                                        class="form-control" required>
+                                    @error('bill_zip_code')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="country">Country</label>
-                                    <select name="country" id="country" class="form-control">
-                                        <option value="Choose Country" disabled=""></option>
-                                        <option value="">Bangladesh</option>
-                                        <option value="">India</option>
-                                        <option value="">Pakistan</option>
+                                    <select name="bill_country" id="country" class="form-control">
+                                        <option value="" disabled="">Choose Country</option>
+                                        @foreach ($countries as $item)
+                                            <option value="{{ $item->name }}"
+                                                {{ $item->name == Session::get('billing_address.bill_country') ? 'selected' : '' }}>
+                                                {{ $item->name }}
+                                            </option>
+                                        @endforeach
                                     </select>
+                                    @error('bill_country')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-12">
                                     <div class="row align-items-center">
@@ -93,77 +145,11 @@
                                 </div>
                             </form>
                         </div>
-                </div>
-
-                <div class="col-lg-3">
-                    <div class="card_pro_info">
-                        <div class="sidebar_wrap mb-4">
-                            <div class="heading mb-3">
-                                <h3>Order Summary</h3>
-                            </div>
-                            <div class="order_summary">
-                                 <table class="table">
-                                     <tr>
-                                         <td>Cart Subtotal: </td>
-                                         <td>$55.00</td>
-                                     </tr>
-                                     <tr>
-                                         <td>State tax:</td>
-                                         <td>$5.00</td>
-                                     </tr>
-                                     <tr>
-                                         <td>State tax:</td>
-                                         <td>$5.66</td>
-                                     </tr>
-                                     <tr>
-                                         <td>Shipping:</td>
-                                         <td>$0.00</td>
-                                     </tr>
-                                     <tr>
-                                         <td><strong>Order Total:</strong></td>
-                                         <td><strong>$5565.44</strong></td>
-                                     </tr>
-                                 </table>
-                            </div>                  
-                        </div>
-                        <div class="sidebar_wrap">
-                            <div class="heading mb-3">
-                                <h3>Items In Your Cart</h3>
-                            </div>
-                            <div class="pro_item mb-3">
-                                <div class="media position-relative">
-                                    <img src="http://localhost/webdevs/ok2list/public/assets/img/default_thumb.png" class="mr-2" width="65" alt="">
-                                    <div class="media-body">
-                                        <h4><a href="#">Dell core-i5 6th Gen 8GB DDR4 Ram</a></h4>
-                                        <span>1 x $80.00</span>
-                                    </div>
-                                </div>
-                            </div>   
-                            <div class="pro_item mb-3">
-                                <div class="media position-relative">
-                                    <img src="http://localhost/webdevs/ok2list/public/assets/img/default_thumb.png" class="mr-2" width="65" alt="">
-                                    <div class="media-body">
-                                        <h4><a href="#">Dell core-i5 6th Gen 8GB DDR4 Ram</a></h4>
-                                        <span>1 x $80.00</span>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="pro_item mb-3">
-                                <div class="media position-relative">
-                                    <img src="http://localhost/webdevs/ok2list/public/assets/img/default_thumb.png" class="mr-2" width="65" alt="">
-                                    <div class="media-body">
-                                        <h4><a href="#">Dell core-i5 6th Gen 8GB DDR4 Ram</a></h4>
-                                        <span>1 x $80.00</span>
-                                    </div>
-                                </div>
-                            </div>                
-                        </div>
                     </div>
+
+                    @include('checkout.sidebar')
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 @endsection
-
- 

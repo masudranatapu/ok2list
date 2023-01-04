@@ -6,6 +6,7 @@ use App\Http\Requests\updateProfileRequest;
 use App\Http\Requests\updatePasswordRequest;
 use Illuminate\Http\Request;
 use App\City;
+use App\Models\Order;
 use App\Payments;
 use App\User;
 use Brian2694\Toastr\Facades\Toastr;
@@ -121,6 +122,20 @@ class UserController extends Controller
     {
         $payment = Payments::find($id);
         return view('users.purchase_invoice', compact('payment'));
+    }
+
+    public function myOrders()
+    {
+        $orders = Order::where('user_id', Auth::user()->id)->get();
+        $setting = DB::table('site_settings')->first();
+        return view('users.orders', compact('orders', 'setting'));
+    }
+    public function orderDetails($id)
+    {
+        $order = Order::find($id);
+        $shipping = json_decode($order->shipping_info, true);
+        $billing = json_decode($order->billing_info, true);
+        return view('users.order_details', compact('order', 'shipping', 'billing'));
     }
 
 
