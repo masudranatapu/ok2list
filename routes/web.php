@@ -114,6 +114,9 @@ Route::get('/verify-otp/{otp}/{serial}', 'OTPController@verifyOTP')->name('verif
 // Purchase history
 Route::get('/purchase-history', 'UserController@getMyPurchaseHistory')->name('purchase-history');
 Route::get('/invoice/{id}', 'UserController@getMyPurchaseInvoice')->name('purchase.invoice');
+// Order history
+Route::get('/my-orders', 'UserController@myOrders')->name('user.orders');
+Route::get('/order-details/{id}', 'UserController@orderDetails')->name('user.order.details');
 
 
 // Review
@@ -426,6 +429,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::get('delete-transaction-history/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'delete_transaction_history'])->name('admin.delete-transaction-history');
     Route::get('edit/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'edit_transaction'])->name('admin.transaction.edit');
     Route::post('update/transaction', [App\Http\Controllers\Admin\DashboardController::class, 'update_transaction'])->name('admin.transaction.update');
+    // Order history
+    Route::get('orders', [App\Http\Controllers\Admin\DashboardController::class, 'orders'])->name('admin.order.index');
+    Route::get('order/details/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'orderDetails'])->name('admin.order.details');
+    Route::get('delete/order/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'orderDelete'])->name('admin.order.delete');
+    Route::get('edit/order/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'orderEdit'])->name('admin.order.edit');
+    Route::post('update/order/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'orderUpdate'])->name('admin.order.update');
 });
 
 Auth::routes();

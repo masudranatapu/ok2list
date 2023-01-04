@@ -228,7 +228,11 @@
                                 <div class="mb-2">
                                     <label class="form-label">Paystack Public Key</label>
                                     <input type="text" name="paystack_public_key"
-                                        value="{{ $setting->paystack_public_key }}" class="form-control" placeholder="Public Key">
+                                        value="{{ $setting->paystack_public_key }}" class="form-control"
+                                        placeholder="Public Key" required>
+                                    @error('paystack_public_key')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -237,6 +241,23 @@
                                     <input type="text" name="paystack_secret_key"
                                         value="{{ $setting->paystack_secret_key }}" class="form-control"
                                         placeholder="Secret Key">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <label class="form-label">Paystack Currency</label>
+                                    <select name="paystack_curency" id="paystack_curency" class="form-control" required>
+                                        <option value="">Select One</option>
+                                        <option value="USD"
+                                            {{ $setting->paystack_curency == 'USD' ? 'selected' : '' }}>USD</option>
+                                        <option value="NGN"
+                                            {{ $setting->paystack_curency == 'NGN' ? 'selected' : '' }}>NGN</option>
+                                        <option value="ZAR"
+                                            {{ $setting->paystack_curency == 'ZAR' ? 'selected' : '' }}>ZAR</option>
+                                    </select>
+                                    @error('paystack_curency')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

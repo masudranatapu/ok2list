@@ -39,6 +39,12 @@
             <span class="menu-title" data-i18n="#">Transaction History</span>
         </a>
     </li>
+    <li class="nav-item @yield('order')">
+        <a href="{{ route('admin.order.index') }}">
+            <i class="la la-list"></i>
+            <span class="menu-title" data-i18n="#">Orders</span>
+        </a>
+    </li>
 
     <li class="nav-item @yield('main_components')"><a class="menu-item" href="#"><i class="la la-calendar"></i><span class="menu-title" data-i18n="@yield('main_components')">@lang('left_menu.main_components')</span></a>
         <ul class="menu-content">
@@ -264,7 +270,7 @@
                 </a>
             </li>
             @endif
-            
+
             <li class="@yield('promotions')">
                 <a class="menu-item" href="{{route('admin.promotions')}}">
                     <i></i>

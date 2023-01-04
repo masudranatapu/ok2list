@@ -60,6 +60,9 @@ $curent_route = request()
                     <li class="{{ $curent_route == 'purchase-history' ? 'active' : '' }}">
                         <a href="{{ route('purchase-history') }}"> @lang('web.purchasehistory')</a>
                     </li>
+                    <li class="{{ $curent_route == 'user.orders' || $curent_route == 'user.order.details'  ? 'active' : '' }}">
+                        <a href="{{ route('user.orders') }}"> @lang('web.orders')</a>
+                    </li>
                     <li class="{{ $curent_route == 'my-membership' ? 'active' : '' }}"><a
                             href="{{ route('my-membership') }}"> @lang('web.billing_&_plan')</a></li>
                     <li class="{{ $curent_route == 'chat' ? 'active' : '' }}"><a href="{{ route('chat') }}">

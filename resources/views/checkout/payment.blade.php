@@ -113,6 +113,7 @@
                                     value="{{ Session::get('billing_address.bill_email') }}" />
                                 <input type="hidden" id="amount" value="{{ Session::get('cart.price') }}" />
                                 <input type="hidden" id="public_key" value="{{ $setting->paystack_public_key }}" />
+                                <input type="hidden" id="paystack_curency" value="{{ $setting->paystack_curency }}" />
                                 {{-- <div class="form-submit">
                                     <button type="submit" onclick="payWithPaystack()"> Pay </button>
                                 </div> --}}
@@ -155,14 +156,15 @@
             e.preventDefault();
             let amount = document.getElementById("amount").value;
             let key = document.getElementById("public_key").value;
+            let currency = document.getElementById("paystack_curency").value;
             let tax = document.getElementById("tax").innerHTML;
             // alert(tax);
 
             let handler = PaystackPop.setup({
                 key: key, // Replace with your public key
                 email: document.getElementById("email-address").value,
-                amount: document.getElementById("amount").value * 100 * 0.21,
-                currency: 'ZAR',
+                amount: document.getElementById("amount").value * 100 ,
+                currency: currency,
                 ref: '' + Math.floor((Math.random() * 1000000000) +
                     1
                 ), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
@@ -180,6 +182,7 @@
                             referance: response.reference,
                             message: response,
                             amount: amount,
+                            currency: currency,
                             tax: tax,
                         },
                         success: function(data) {

@@ -6,6 +6,7 @@ use App\SiteSetting;
 use App\Models\Order;
 use App\Models\Country;
 use App\Models\Product;
+use App\Payments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -125,11 +126,14 @@ class CheckoutController extends Controller
         $order->user_id = $user->id;
         $order->cart = json_encode($product);
         $order->product_id = $product->pk_no;
+        $order->seller_id = $product->customer_pk_no;
         $order->amount = $request->amount;
+        $order->currency = $request->currency;
         $order->referance = $payment['reference'];
         $order->transaction_number = $payment['transaction'];
         $order->txnid = $payment['trxref'];
         $order->order_status = 'pending';
+        $order->payment_method = 'paystack';
         if ($payment['status'] == 'success') {
             $order->payment_status = 'paid';
         }else {
@@ -139,6 +143,11 @@ class CheckoutController extends Controller
         $order->billing_info =json_encode($billing);
         $order->tax = $request->tax;
         $order->save();
+        // if ($order) {
+        //     $payment = new Payments();
+
+        // }
+
 
         Session::forget('cart');
         Session::forget('shipping_address');

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use DB;
-use Auth;
-use Image;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
+use Carbon\Carbon;
 use App\Models\Ads;
 use App\Models\City;
 use App\SiteSetting;
@@ -12,10 +12,10 @@ use App\Models\Country;
 use App\Models\AdDetails;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdsRequest;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\Admin\CityRequest;
 use App\Repositories\Admin\City\CityInterface;
-use Carbon\Carbon;
 
 class SettingController extends BaseController
 {
@@ -366,6 +366,7 @@ class SettingController extends BaseController
         DB::table('site_settings')->where('id', $id)->update([
             'paystack_public_key' => $request->paystack_public_key,
             'paystack_secret_key' => $request->paystack_secret_key,
+            'paystack_curency' => $request->paystack_curency,
         ]);
 
         return redirect()->back()->with('flashMessageSuccess','Sucessfully Saved');
