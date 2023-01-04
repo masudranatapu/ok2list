@@ -4495,7 +4495,8 @@ section#main h2.h3.title {
 }
 
 #main.contact-us {
-    padding-bottom: 80px;
+    padding-bottom: 30px;
+    padding-top:10px;
 }
 
 .contact-us h2.title {
@@ -5498,11 +5499,11 @@ section#main h2.h3.title {
     padding: 0 30px;
     color: #000;
     padding-top: 25px;
-    border-radius: 4px;
     padding-bottom: 45px;
     margin-bottom: 15px;
+    border-radius: 18px;
+    border: 1px solid #dad5d5;
 }
-
 .pricing-section .pric h2 {
     font-size: 18px;
     margin-bottom: 0;
@@ -5511,8 +5512,8 @@ section#main h2.h3.title {
 .pricing-section .pric h3 {
     font-size: 35px;
     font-weight: 300;
-    margin-top: 0;
-    line-height: 90px;
+    line-height: 40px;
+    margin-top: 28px;
 }
 
 .pricing-section .pric h3 sup {
@@ -5527,12 +5528,12 @@ section#main h2.h3.title {
 }
 
 .pricing-section .pric li {
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     font-size: 14px;
 }
 
 .pricing-section .pric li i {
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .pricing-section .pric li i.fa-check {
@@ -5544,7 +5545,12 @@ section#main h2.h3.title {
 }
 
 .pricing-section .pric-menu {
-    margin-top: 25px;
+    margin-top: 12px;
+}
+
+.pricing-section .pric li.disiable_item {
+    text-decoration: line-through;
+    color: #999;
 }
 
 .pricing-section .btn.btn-primary {
