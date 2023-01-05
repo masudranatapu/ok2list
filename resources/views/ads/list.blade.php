@@ -198,7 +198,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                     </div>
                                 </div>
                             </div>
-                            @if (isset($data['list_page2']) && $data['list_page2'] != null)
+                            <!-- @if (isset($data['list_page2']) && $data['list_page2'] != null)
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="ads_banner text-center">
@@ -209,7 +209,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                         </div>
                                     </div>
                                 </div>
-                            @endif
+                            @endif -->
                         </div>
                     </div>
                     <div class="col-md-8 col-lg-8">
@@ -367,7 +367,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                     </div>
                 </div>
             </div>
-            @if (isset($data['list_page3']) && $data['list_page3'] != null)
+            <!-- @if (isset($data['list_page3']) && $data['list_page3'] != null)
                 <div class="">
                     <div class="ads_banner text-center mb-5">
                         <a href="{{ $data['list_page3']->link }}" target="_blank"
@@ -376,7 +376,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                 alt="{{ $data['list_page3']->name }}" style="height: 96px;"></a>
                     </div>
                 </div>
-            @endif
+            @endif -->
         </div>
     </section>
 

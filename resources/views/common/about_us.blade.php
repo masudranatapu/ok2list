@@ -18,13 +18,13 @@
 				<li>@lang('web.about_us')</li>
 			</ol>
 		</div>
-        @if(isset($data['about_us_page1']) && ($data['about_us_page1']) != null )
+        <!-- @if(isset($data['about_us_page1']) && ($data['about_us_page1']) != null )
 			<div class="">
 				<div class="ads_banner text-center mb-4">
 					<a href="{{ $data['about_us_page1']->link }}" target="_blank" title="{{ $data['about_us_page1']->name }}"><img src="{{ fileExit($data['about_us_page1']->photo) }}" class="w-100" alt="{{ $data['about_us_page1']->name }}" style="height: 96px;"></a>
 				</div>
 			</div>
-         @endif
+         @endif -->
 		<div class="section about">
 			<div class="about-info">
 				<div class="row">
@@ -93,13 +93,13 @@
 				</div>
 			</div>
 		</div>
-        @if(isset($data['about_us_page2']) && ($data['about_us_page2']) != null )
+       <!--  @if(isset($data['about_us_page2']) && ($data['about_us_page2']) != null )
 			<div class="">
 				<div class="ads_banner text-center mb-4">
 					<a href="{{ $data['about_us_page2']->link }}" target="_blank" title="{{ $data['about_us_page2']->name }}"><img src="{{ fileExit($data['about_us_page2']->photo) }}" class="w-100" alt="{{ $data['about_us_page2']->name }}" style="height: 96px;"></a>
 				</div>
 			</div>
-         @endif
+         @endif -->
 	</div>
 </section>
 @endsection

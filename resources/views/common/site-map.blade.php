@@ -28,14 +28,14 @@
                 <!-- <h2 class="title">Privacy Policy</h2> -->
             </div>
 
-            @if (isset($data['site_map_page2']) && $data['site_map_page2'] != null)
+            <!-- @if (isset($data['site_map_page2']) && $data['site_map_page2'] != null)
                 <div class="ads_banner text-center mb-4">
                     <a href="{{ $data['site_map_page2']->link }}" target="_blank"
                         title="{{ $data['site_map_page2']->name }}"><img
                             src="{{ fileExit($data['site_map_page2']->photo) }}" class="w-100"
                             alt="{{ $data['site_map_page2']->name }}" style="height: 96px;"></a>
                 </div>
-            @endif
+            @endif -->
 
             <div class="adpost-details privacy-policy">
                 <div class="row"></div>
@@ -71,14 +71,14 @@
                 </div>
             </div>
 
-            @if (isset($data['site_map_page2']) && $data['site_map_page2'] != null)
+            <!-- @if (isset($data['site_map_page2']) && $data['site_map_page2'] != null)
                 <div class="ads_banner text-center mb-4">
                     <a href="{{ $data['site_map_page2']->link }}" target="_blank"
                         title="{{ $data['site_map_page2']->name }}"><img
                             src="{{ fileExit($data['site_map_page2']->photo) }}" class="w-100"
                             alt="{{ $data['site_map_page2']->name }}" style="height: 96px;"></a>
                 </div>
-            @endif
+            @endif -->
 
 
         </div><!-- container -->

@@ -13,19 +13,19 @@
 		@endif
 	</ol>
 </div>
-@if(isset($data['detail_page1']) && ($data['detail_page1']) != null )
+<!-- @if(isset($data['detail_page1']) && ($data['detail_page1']) != null )
 	<div class="">
 		<div class="ads_banner text-center mb-5">
 			<a href="{{ $data['list_page1']->link }}" target="_blank" title="{{ $data['list_page1']->name }}"><img src="{{ fileExit($data['list_page1']->photo) }}" class="w-100" alt="{{ $data['list_page1']->name }}" style="height: 96px;"></a>
 		</div>
 	</div>
- @endif
+ @endif -->
 
- @if(isset($data['list_page1']) && ($data['list_page1']) != null )
+<!--  @if(isset($data['list_page1']) && ($data['list_page1']) != null )
 	<div class="text-center mb-4">
 		<a href="{{ $data['list_page1']->link }}" target="_blank" title="{{ $data['list_page1']->name }}"><img src="{{ fileExit($data['list_page1']->photo) }}" class="w-100" alt="{{ $data['list_page1']->name }}" style="height: 96px;"></a>
 	</div>
-@endif
+@endif -->
 
 <div class="banner">
 	<div class="banner-form banner-form-full">

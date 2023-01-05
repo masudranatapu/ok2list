@@ -31,13 +31,13 @@ $cate = DB::table('prd_category')
                 </ol>
             </div>
 
-            @if (isset($data['detail_page1']) && $data['detail_page1'] != null)
+           <!--  @if (isset($data['detail_page1']) && $data['detail_page1'] != null)
                 <div class="ads_banner text-center mb-4">
                     <a href="{{ $data['detail_page1']->link }}" target="_blank"
                         title="{{ $data['detail_page1']->name }}"><img src="{{ fileExit($data['detail_page1']->photo) }}"
                             class="w-100" alt="{{ $data['detail_page1']->name }}" style="height: 96px;"></a>
                 </div>
-            @endif
+            @endif -->
 
             <div class="mb-5">
                 <div class="row">
@@ -331,7 +331,7 @@ $cate = DB::table('prd_category')
                                         </ul><!-- social-icon -->
                                     </div>
                                 </div>
-                                @if (isset($data['detail_page3']) && $data['detail_page3'] != null)
+                                <!-- @if (isset($data['detail_page3']) && $data['detail_page3'] != null)
                                     <div class="col-12">
                                         <div class="banner_ads short-info">
                                             <a href="{{ $data['detail_page3']->link }}" target="_blank"
@@ -340,7 +340,7 @@ $cate = DB::table('prd_category')
                                                     alt="{{ $data['detail_page3']->name }}" style="height: 480px;"></a>
                                         </div>
                                     </div>
-                                @endif
+                                @endif -->
                             </div>
                         </div>
                     @endif
@@ -348,7 +348,7 @@ $cate = DB::table('prd_category')
                 </div><!-- row -->
             </div><!-- description-info -->
 
-            @if (isset($data['detail_page2']) && $data['detail_page2'] != null)
+            <!-- @if (isset($data['detail_page2']) && $data['detail_page2'] != null)
                 <div class="">
                     <div class="ads_banner text-center mb-5">
                         <a href="{{ $data['detail_page2']->link }}" target="_blank"
@@ -357,7 +357,7 @@ $cate = DB::table('prd_category')
                                 alt="{{ $data['detail_page2']->name }}" style="height: 96px;"></a>
                     </div>
                 </div>
-            @endif
+            @endif -->
             <div class="recommended-info">
                 <div class="row">
                 </div><!-- row -->
