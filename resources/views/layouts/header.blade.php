@@ -22,18 +22,19 @@
             <div class="collapse navbar-collapse" id="tr-mainmenu">
                 <ul class="nav navbar-nav">
                     <li><a href="{{route('ads.list')}}">@lang('web.all_ads')</a></li>
+                    <li><a href="{{route('packages')}}">@lang('web.membership')</a></li>
                 </ul>
             </div>
             <div class="nav-right">
                 <!-- sign-in -->
                 <ul class="chat">
-                    <li class="mr-2">
+                    {{-- <li class="mr-2">
                         @if(app()->getLocale() == 'sl')
                             <a class="language_menu" href="{{ route('changelang','en') }}">English</a>
                         @else
                             <a class="language_menu" href="{{ route('changelang','sl') }}">@lang('web.sin')</a>
                         @endif
-                    </li>
+                    </li> --}}
                    <!-- <li class="language_dropdown">
                         <div class="">
                             <div class="dropdown">

@@ -841,7 +841,8 @@ textarea {
     color: #000;
     font-size: 18px;
     margin: 0px;
-    padding-bottom: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .container.brand-sec img {
@@ -1839,7 +1840,7 @@ section#home-two-info {
 .home-three .featureds .featured-top h1 {
     padding-bottom: 5px;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: bold;
     color: #000;
     text-align: center;
 }
@@ -4586,6 +4587,7 @@ section#main h2.h3.title {
     font-size: 18px;
     text-align: center;
     color: #000000;
+    font-weight: bold;
 }
 
 .our-location .cities {
@@ -4820,7 +4822,7 @@ section#main h2.h3.title {
 }
 
 .footer-widget h3 {
-    font-weight: 300;
+    font-weight: bold;
     color: #000;
     line-height: 28px;
     margin-bottom: 20px;

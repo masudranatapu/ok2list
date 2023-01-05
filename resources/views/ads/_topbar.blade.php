@@ -13,7 +13,6 @@
 		@endif
 	</ol>
 </div>
-
 @if(isset($data['detail_page1']) && ($data['detail_page1']) != null )
 	<div class="">
 		<div class="ads_banner text-center mb-5">
