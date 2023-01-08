@@ -606,11 +606,10 @@ textarea {
 }
 
 .banner-form {
-    background-color: rgb(255 255 255 / 44%);
+    background-color: rgb(206 206 206 / 81%);
     padding: 8px;
-    max-width: 805px;
-    margin: 12px auto;
-    border-radius: 5px;
+    max-width: 750px;
+    margin: 13px auto;
     text-align: left;
 }
 
@@ -1742,7 +1741,7 @@ section#home-two-info {
 }
 
 .home-one .banner-form {
-    border-radius: 10px;
+    border-radius: 2px;
 }
 
 .home-one .banner-form input[type="text"] {
