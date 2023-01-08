@@ -2036,7 +2036,7 @@ section#home-two-info {
 }
 
 #something-sell h2.title {
-    font-weight: 400;
+    font-weight: 600;
     font-size: 30px;
     margin-bottom: 14px;
     margin-top: 20px;
@@ -4814,11 +4814,11 @@ section#main h2.h3.title {
 }
 
 .footer-widget h3 {
-    font-weight: bold;
+    font-weight: 500;
     color: #000;
     line-height: 28px;
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .social-widget h3,
