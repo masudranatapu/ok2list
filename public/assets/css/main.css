@@ -120,7 +120,7 @@ select:focus,
     line-height: 34px;
     color: #fff;
     font-family: 'Rubik';
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .parallax-section {
@@ -608,7 +608,7 @@ textarea {
 .banner-form {
     background-color: rgb(255 255 255 / 44%);
     padding: 8px;
-    max-width: 750px;
+    max-width: 805px;
     margin: 12px auto;
     border-radius: 5px;
     text-align: left;
@@ -732,7 +732,7 @@ textarea {
 .banner-form .form-control,
 .banner-form .category-dropdown {
     display: inline-block;
-    height: 46px;
+    height: 50px;
     font-size: 16px;
 }
 
@@ -1095,7 +1095,7 @@ textarea {
 }
 
 .freatured_card .card-body {
-    background: #ed90202b;
+    background: #f4433608;
     padding: 25px 12px 58px 12px;
 }
 
@@ -1221,7 +1221,6 @@ a.verified i {
     transform: rotate(-45deg);
     width: 120px;
     text-align: center;
-    border: 1px dotted #ddd;
     text-transform: uppercase;
     font-size: 11px;
 }
@@ -2172,8 +2171,8 @@ section#home-two-info {
 
 .card-header button {
     color: #000;
-    font-weight: 400;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 16px;
     border: 0;
     display: block;
     width: 100%;
@@ -7050,7 +7049,20 @@ text-align: left;
     .sub-main--gAGCF {
             padding: 0 32px;
         }
-
 } 
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #efefef;
+    border-radius: 0.25rem;
+}
 
 
