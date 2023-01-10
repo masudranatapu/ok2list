@@ -51,7 +51,7 @@ class AdsController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getAdsList(Request $request, string $area_query = 'Sri Lanka', string $category_query = null)
+    public function getAdsList(Request $request, string $area_query = 'Nigeria', string $category_query = null)
     {
         // return $area_query;
         $page_count             = 0;
