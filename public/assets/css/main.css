@@ -5509,12 +5509,15 @@ section#main h2.h3.title {
 .pricing-section .pric h2 {
     font-size: 18px;
     margin-bottom: 0;
+    font-family: 'Rubik';
+    font-weight: bold;
 }
 
 .pricing-section .pric h3 {
     font-size: 35px;
-    font-weight: 300;
+    font-weight: bold;
     line-height: 40px;
+    font-family: 'Rubik';
     margin-top: 28px;
 }
 
