@@ -51,7 +51,7 @@
                                     @endif
                                 </a></li> -->
 
-                            <li><a href="{{ route('dooRstep-delivery') }}">DooRstep Delivery
+                            <li><a href="{{ route('doorstep-delivery') }}">DooRstep Delivery
                                 </a></li>
                         </ul>
                     </div>
