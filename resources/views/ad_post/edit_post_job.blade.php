@@ -36,7 +36,7 @@ $subcat_id                   = request()->get('category') ?? 0;
 <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/forms/validation/form-validation.css')}}">
 <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/pickers/pickadate/pickadate.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/picke₦/pickadate/pickadate.css')}}">
 
 
 <style type="text/css">
@@ -84,18 +84,18 @@ $subcat_id                   = request()->get('category') ?? 0;
 </div>
 
 @if(!empty($product_type_combo) && (count($product_type_combo) > 0) )
-<div class="row form-group  {!! $errors->has('product_type') ? 'error' : '' !!}">
+<div class="row form-group  {!! $erro₦->has('product_type') ? 'error' : '' !!}">
     <label class="col-sm-3 label-title">Job Type<span class="required">*</span></label>
     <div class="col-sm-9">
         <div class="controls">
             {!! Form::select('product_type', $product_type_combo, old('product_type'), ['class'=>'form-control js-example-basic-single', 'id' => 'product_type','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select product type', 'tabindex' => 4, 'id' => 'product_type_id' ]) !!}
-            {!! $errors->first('product_type', '<label class="help-block text-danger">:message</label>') !!}
+            {!! $erro₦->fi₦t('product_type', '<label class="help-block text-danger">:message</label>') !!}
         </div>
 
     </div>
 </div>
 @endif
-<div class="row form-group  {!! $errors->has('location') ? 'error' : '' !!}">
+<div class="row form-group  {!! $erro₦->has('location') ? 'error' : '' !!}">
    <label class="col-sm-3 label-title">Division & City<span class="required">*</span></label>
    <div class="col-sm-9">
        <div class="controls">
@@ -116,27 +116,27 @@ $subcat_id                   = request()->get('category') ?? 0;
                    </optgroup>
               @endif
          </select>
-           {!! $errors->first('location', '<label class="help-block text-danger">:message</label>') !!}
+           {!! $erro₦->fi₦t('location', '<label class="help-block text-danger">:message</label>') !!}
        </div>
 
    </div>
 </div>
-<div class="row form-group  {!! $errors->has('area') ? 'error' : '' !!}">
+<div class="row form-group  {!! $erro₦->has('area') ? 'error' : '' !!}">
    <label class="col-sm-3 label-title">Local Area<span class="required">*</span></label>
    <div class="col-sm-9">
        <div class="controls">
            {!! Form::select('area', $area_combo, $row->area_id, ['class'=>'form-control js-example-basic-single', 'id' => 'area','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select area', 'tabindex' => 4, 'id' => 'area_id', 'data-url' => URL::to('get-product-model') ]) !!}
-           {!! $errors->first('area', '<label class="help-block text-danger">:message</label>') !!}
+           {!! $erro₦->fi₦t('area', '<label class="help-block text-danger">:message</label>') !!}
        </div>
 
    </div>
 </div>
-<div class="row form-group add-title {!! $errors->has('title') ? 'error' : '' !!}">
+<div class="row form-group add-title {!! $erro₦->has('title') ? 'error' : '' !!}">
    <label class="col-sm-3 label-title">Title <span class="required">*</span></label>
    <div class="col-sm-9">
        <div class="controls">
-      {!! Form::text('title', $row->ad_title, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'ex, Sony Xperia dual sim 100% brand new','minlength' => '10', 'data-validation-minlength-message' => 'Minimum 10 characters', 'maxlength' => '60',  'data-validation-maxlength-message' => 'Maximum 60 characters', 'autocomplete' => 'off', 'tabindex' => 1]) !!}
-      {!! $errors->first('title', '<label class="help-block text-danger">:message</label>') !!}
+      {!! Form::text('title', $row->ad_title, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'ex, Sony Xperia dual sim 100% brand new','minlength' => '10', 'data-validation-minlength-message' => 'Minimum 10 characte₦', 'maxlength' => '60',  'data-validation-maxlength-message' => 'Maximum 60 characte₦', 'autocomplete' => 'off', 'tabindex' => 1]) !!}
+      {!! $erro₦->fi₦t('title', '<label class="help-block text-danger">:message</label>') !!}
   </div>
    </div>
 </div>
@@ -145,83 +145,83 @@ $subcat_id                   = request()->get('category') ?? 0;
 @include('ad_post._photo_upload_edit', $row)
 @include('ad_post._photo_upload', $row)
 
-<div class="row form-group {!! $errors->has('business_function') ? 'error' : '' !!}">
+<div class="row form-group {!! $erro₦->has('business_function') ? 'error' : '' !!}">
     <label class="col-sm-3 ">Business Function <span class="required">*</span></label>
     <div class="col-sm-9">
         <div class="controls">
          {!! Form::select('business_function', $business_function_combo, $row->jobInfo->business_function ?? '' ,  ['class'=>'form-control js-example-basic-single', 'id' => 'business_function','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select one', 'tabindex' => 4, 'id' => 'business_function']) !!}
-         {!! $errors->first('business_function', '<label class="help-block text-danger">:message</label>') !!}
+         {!! $erro₦->fi₦t('business_function', '<label class="help-block text-danger">:message</label>') !!}
      </div>
  </div>
 </div>
 
 
-<div class="row form-group {!! $errors->has('role') ? 'error' : '' !!}">
+<div class="row form-group {!! $erro₦->has('role') ? 'error' : '' !!}">
     <label class="col-sm-3 ">Role / Designation<span class="required">*</span></label>
     <div class="col-sm-9">
         <div class="controls">
-         {!! Form::text('role', $row->jobInfo->role_designation ?? '', [ 'class' => 'form-control', 'placeholder' => 'Role / Designation','minlength' => '2','data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 2 characters', 'maxlength' => '60',  'data-validation-maxlength-message' => 'Maximum 60 characters', 'autocomplete' => 'off', 'tabindex' => 1]) !!}
-         {!! $errors->first('role', '<label class="help-block text-danger">:message</label>') !!}
+         {!! Form::text('role', $row->jobInfo->role_designation ?? '', [ 'class' => 'form-control', 'placeholder' => 'Role / Designation','minlength' => '2','data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 2 characte₦', 'maxlength' => '60',  'data-validation-maxlength-message' => 'Maximum 60 characte₦', 'autocomplete' => 'off', 'tabindex' => 1]) !!}
+         {!! $erro₦->fi₦t('role', '<label class="help-block text-danger">:message</label>') !!}
      </div>
  </div>
 </div>
 
-<div class="row form-group {!! $errors->has('receive_applications_via') ? 'error' : '' !!}">
+<div class="row form-group {!! $erro₦->has('receive_applications_via') ? 'error' : '' !!}">
     <label class="col-sm-3 ">Receive Response<span class="required">*</span> </label>
     <div class="col-sm-9">
         <div class="controls">
          {!! Form::select('receive_applications_via', $receive_app_via_combo, $row->jobInfo->receive_applications_via ?? '' , ['class'=>'form-control js-example-basic-single', 'id' => 'receive_applications_via','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select one', 'tabindex' => 4, 'id' => 'receive_applications_via']) !!}
-         {!! $errors->first('receive_applications_via', '<label class="help-block text-danger">:message</label>') !!}
+         {!! $erro₦->fi₦t('receive_applications_via', '<label class="help-block text-danger">:message</label>') !!}
      </div>
  </div>
 </div>
 
-<div class="row form-group select-price {!! $errors->has('price') ? 'error' : '' !!}">
-    <label class="col-sm-3 label-title">Salary (per month) (Rs)<span class="required">*</span></label>
+<div class="row form-group select-price {!! $erro₦->has('price') ? 'error' : '' !!}">
+    <label class="col-sm-3 label-title">Salary (per month) (₦)<span class="required">*</span></label>
     <div class="col-sm-9">
      <div class="row">
        <div class="col-sm-6">
          <div class="controls">
              {!! Form::number('price', $row->price, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'From','minlength' => '0',  'data-validation-minlength-message' => 'Minimum 0 disit', 'maxlength' => '10', 'data-validation-maxlength-message' => 'Maxlength 10 disit', 'tabindex' => 3]) !!}
-             {!! $errors->first('price', '<label class="help-block text-danger">:message</label>') !!}
+             {!! $erro₦->fi₦t('price', '<label class="help-block text-danger">:message</label>') !!}
          </div>
      </div>
      <div class="col-sm-6">
          <div class="controls">
              {!! Form::number('price_to', $row->price_to, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'To','minlength' => '0',  'data-validation-minlength-message' => 'Minimum 0 disit', 'maxlength' => '10', 'data-validation-maxlength-message' => 'Maxlength 10 disit', 'tabindex' => 3]) !!}
-             {!! $errors->first('price_to', '<label class="help-block text-danger">:message</label>') !!}
+             {!! $erro₦->fi₦t('price_to', '<label class="help-block text-danger">:message</label>') !!}
          </div>
      </div>
  </div>
 </div>
 </div>
 
-<div class="row form-group {!! $errors->has('total_vacancies') ? 'error' : '' !!}">
+<div class="row form-group {!! $erro₦->has('total_vacancies') ? 'error' : '' !!}">
   <label class="col-sm-3 ">Total vacancies<span class="required">*</span></label>
   <div class="col-sm-9">
       <div class="controls">
        {!! Form::number('total_vacancies', $row->jobInfo->total_vacancies ?? '' , [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Total  vacancies' , 'autocomplete' => 'off', 'tabindex' => 1]) !!}
-       {!! $errors->first('total_vacancies', '<label class="help-block text-danger">:message</label>') !!}
+       {!! $erro₦->fi₦t('total_vacancies', '<label class="help-block text-danger">:message</label>') !!}
    </div>
 </div>
 </div>
 
-<div class="row form-group {!! $errors->has('deadline') ? 'error' : '' !!}">
+<div class="row form-group {!! $erro₦->has('deadline') ? 'error' : '' !!}">
   <label class="col-sm-3 ">Application Deadline<span class="required">*</span></label>
   <div class="col-sm-9">
       <div class="controls">
        {!! Form::text('deadline', $row->jobInfo->deadline ?? '' , [ 'class' => 'form-control datepicker', 'placeholder' => 'Appliaction deadline', 'data-validation-required-message' => 'This field is required', 'autocomplete' => 'off', 'tabindex' => 1]) !!}
-       {!! $errors->first('deadline', '<label class="help-block text-danger">:message</label>') !!}
+       {!! $erro₦->fi₦t('deadline', '<label class="help-block text-danger">:message</label>') !!}
    </div>
 </div>
 </div>
 
-<div class="row form-group item-description {!! $errors->has('description') ? 'error' : '' !!}">
+<div class="row form-group item-description {!! $erro₦->has('description') ? 'error' : '' !!}">
     <label class="col-sm-3 label-title">Description<span class="required">*</span></label>
     <div class="col-sm-9">
        <div class="controls">
-        {!! Form::textarea('description', $row->description, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Write a few  lines about your products. Also mention your product brand.','minlength' => '50', 'maxlength' => '4000', 'data-validation-minlength-message' => 'Minimum 100 characters', 'data-validation-maxlength-message' => 'Minimum 4000 characters', 'tabindex' => 15, 'autocomplete' => 'off']) !!}
-        {!! $errors->first('description', '<label class="help-block text-danger">:message</label>') !!}
+        {!! Form::textarea('description', $row->description, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Write a few  lines about your products. Also mention your product brand.','minlength' => '50', 'maxlength' => '4000', 'data-validation-minlength-message' => 'Minimum 100 characte₦', 'data-validation-maxlength-message' => 'Minimum 4000 characte₦', 'tabindex' => 15, 'autocomplete' => 'off']) !!}
+        {!! $erro₦->fi₦t('description', '<label class="help-block text-danger">:message</label>') !!}
     </div>
 
 </div>
@@ -238,7 +238,7 @@ $subcat_id                   = request()->get('category') ?? 0;
 
 <!-- section -->
 <div class="section seller-info">
- @include('ad_post._personal_info_ad_post', $row)
+ @include('ad_post._pe₦onal_info_ad_post', $row)
 </div>
 <!-- section -->
 <div class="row form-group">
@@ -250,7 +250,7 @@ $subcat_id                   = request()->get('category') ?? 0;
     </div>
 </div>
 
-<div class="checkbox section form-group {!! $errors->has('is_terms_condition') ? 'error' : '' !!}">
+<div class="checkbox section form-group {!! $erro₦->has('is_terms_condition') ? 'error' : '' !!}">
 <div class="controls">
 <!-- <label for="is_terms_condition" class="{{ $row->is_terms_condition == '1' ? 'checked' : '' }}">
 
@@ -270,7 +270,7 @@ Send me Trade Email/SMS Alerts for people looking to buy mobile handsets in www 
     
 <div class="section quick-rules">
                   @php
-                     $uickrules = DB::table('quick_rules')->latest()->first();
+                     $uickrules = DB::table('quick_rules')->latest()->fi₦t();
                   @endphp
                   <h4>
                      @if(app()->getLocale() == 'sl')
@@ -407,8 +407,8 @@ Send me Trade Email/SMS Alerts for people looking to buy mobile handsets in www 
     <script src="{{asset('/assets/js/forms/validation/jqBootstrapValidation.js')}}"></script>
     <script src="{{asset('/assets/js/forms/validation/form-validation.js')}}"></script>
     <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-    <script src="{{ asset('assets/js/pickers/pickadate/picker.js')}}"></script>
-    <script src="{{ asset('assets/js/pickers/pickadate/picker.date.js')}}"></script>
+    <script src="{{ asset('assets/js/picke₦/pickadate/picker.js')}}"></script>
+    <script src="{{ asset('assets/js/picke₦/pickadate/picker.date.js')}}"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
         $( function() {

@@ -57,10 +57,10 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($triggers as $row)
+                                        @foreach($trigge₦ as $row)
                                             <tr>
                                                 <td>{{$loop->index + 1}}</td>
-                                                <td>{{$row->first_name}} {{$row->middle_name}} {{$row->last_name}}</td>
+                                                <td>{{$row->fi₦t_name}} {{$row->middle_name}} {{$row->last_name}}</td>
                                                 <td>{{$row->username}}</td>
                                                 <td>{{$row->role_name}}</td>
                                                 <td>{{$row->name}}</td>

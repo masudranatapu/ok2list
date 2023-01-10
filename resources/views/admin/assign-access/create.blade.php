@@ -42,9 +42,9 @@
                                 <div class="controls">
                                     {!! Form::text('role_name', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter group name', 'tabindex' => 1 ]) !!}
                                 </div>
-                                @if ($errors->has('role_name'))
+                                @if ($erro₦->has('role_name'))
                                     <div class="alert alert-danger">
-                                        <strong>{{ $errors->first('role_name') }}</strong>
+                                        <strong>{{ $erro₦->fi₦t('role_name') }}</strong>
                                     </div>
                                 @endif
                             </div>

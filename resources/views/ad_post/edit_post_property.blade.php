@@ -89,18 +89,18 @@
                      </div>
 
                      @if(!empty($product_type_combo) && (count($product_type_combo) > 0) )
-                    <div class="row form-group brand-name {!! $errors->has('product_type') ? 'error' : '' !!}">
+                    <div class="row form-group brand-name {!! $erro₦->has('product_type') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Product Type<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
                                 {!! Form::select('product_type', $product_type_combo, $row->prod_type, ['class'=>'form-control select2', 'id' => 'product_type','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select product type', 'tabindex' => 4, 'id' => 'product_type_id' ]) !!}
-                                {!! $errors->first('product_type', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erro₦->fi₦t('product_type', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
                      </div>
                      @endif
-                     <div class="row form-group brand-name {!! $errors->has('location') ? 'error' : '' !!}">
+                     <div class="row form-group brand-name {!! $erro₦->has('location') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Division & City<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
@@ -121,27 +121,27 @@
                                         </optgroup>
                                    @endif
                               </select>
-                                {!! $errors->first('location', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erro₦->fi₦t('location', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
                      </div>
-                     <div class="row form-group brand-name {!! $errors->has('area') ? 'error' : '' !!}">
+                     <div class="row form-group brand-name {!! $erro₦->has('area') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Local Area<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
                                 {!! Form::select('area', $area_combo, $row->area_id, ['class'=>'form-control js-example-basic-single', 'id' => 'area','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select area', 'tabindex' => 4, 'id' => 'area_id', 'data-url' => URL::to('get-product-model') ]) !!}
-                                {!! $errors->first('area', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erro₦->fi₦t('area', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
                      </div>
-                     <div class="row form-group add-title {!! $errors->has('title') ? 'error' : '' !!}">
+                     <div class="row form-group add-title {!! $erro₦->has('title') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Title for your Ad<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
-                           {!! Form::text('title', $row->ad_title, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'ex, Sony Xperia dual sim 100% brand new','minlength' => '10', 'data-validation-minlength-message' => 'Minimum 10 characters', 'maxlength' => '60',  'data-validation-maxlength-message' => 'Maximum 60 characters', 'autocomplete' => 'off', 'tabindex' => 1]) !!}
-                           {!! $errors->first('title', '<label class="help-block text-danger">:message</label>') !!}
+                           {!! Form::text('title', $row->ad_title, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'ex, Sony Xperia dual sim 100% brand new','minlength' => '10', 'data-validation-minlength-message' => 'Minimum 10 characte₦', 'maxlength' => '60',  'data-validation-maxlength-message' => 'Maximum 60 characte₦', 'autocomplete' => 'off', 'tabindex' => 1]) !!}
+                           {!! $erro₦->fi₦t('title', '<label class="help-block text-danger">:message</label>') !!}
                        </div>
                         </div>
                      </div>
@@ -172,12 +172,12 @@
 
 
 
-                     <div class="row form-group select-price {!! $errors->has('price') ? 'error' : '' !!}">
-                        <label class="col-sm-3 label-title"><span id="price_label">Rent (Rs) /month</span><span class="required">*</span></label>
+                     <div class="row form-group select-price {!! $erro₦->has('price') ? 'error' : '' !!}">
+                        <label class="col-sm-3 label-title"><span id="price_label">Rent (₦) /month</span><span class="required">*</span></label>
                         <div class="col-sm-9">
                            <div class="controls">
                            {!! Form::number('price', $row->price, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'ex, 120','minlength' => '0',  'data-validation-minlength-message' => 'Minimum 0 disit', 'maxlength' => '10', 'data-validation-maxlength-message' => 'Maxlength 10 disit', 'tabindex' => 3]) !!}
-                           {!! $errors->first('price', '<label class="help-block text-danger">:message</label>') !!}
+                           {!! $erro₦->fi₦t('price', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                            <input type="checkbox" name="price_negotiable" value="1" id="negotiable"  {{ $row->is_negotiable == '1' ? 'checked' : ''}} >
@@ -186,12 +186,12 @@
                      </div>
 
                       @if( $subcat_id == 33  )
-                     <div class="row form-group brand-name {!! $errors->has('bed') ? 'error' : '' !!}">
+                     <div class="row form-group brand-name {!! $erro₦->has('bed') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Bed<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
                                 {!! Form::select('bed', $bed_combo, $row->bed_no, ['class'=>'form-control js-example-basic-single', 'id' => 'bed','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select bed', 'tabindex' => 4, 'id' => 'bed_id']) !!}
-                                {!! $errors->first('bed', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erro₦->fi₦t('bed', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
@@ -199,12 +199,12 @@
                      @endif
 
                       @if( $subcat_id == 33  )
-                     <div class="row form-group brand-name {!! $errors->has('bath') ? 'error' : '' !!}">
+                     <div class="row form-group brand-name {!! $erro₦->has('bath') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Bath<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
                                 {!! Form::select('bath', $bath_combo, $row->bath_no, ['class'=>'form-control js-example-basic-single', 'id' => 'bath','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select bath', 'tabindex' => 4, 'id' => 'bath_id']) !!}
-                                {!! $errors->first('bath', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erro₦->fi₦t('bath', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
@@ -238,32 +238,32 @@
                      @endif
 
                      @if( ($subcat_id == 33 ) || ( $subcat_id == 107 ) )
-                     <div class="row form-group  {!! $errors->has('size') ? 'error' : '' !!}">
+                     <div class="row form-group  {!! $erro₦->has('size') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-size">Size (sqft)<span class="required">*</span></label>
                         <div class="col-sm-9">
                           <div class="controls">
                            {!! Form::number('size', old('size'), [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Size','minlength' => '0', 'data-validation-minlength-message' => 'Minimum 0 digit', 'maxlength' => '9999999999',  'data-validation-maxlength-message' => 'Maximum 10 digit', 'autocomplete' => 'off', 'tabindex' => 1, 'step' => '0.01']) !!}
-                           {!! $errors->first('size', '<label class="help-block text-danger">:message</label>') !!}
+                           {!! $erro₦->fi₦t('size', '<label class="help-block text-danger">:message</label>') !!}
                        </div>
                         </div>
                      </div>
                      @endif
 
                      @if(($subcat_id == 32) || ($subcat_id == 30) )
-                     <div class="row form-group  {!! $errors->has('size') ? 'error' : '' !!}">
+                     <div class="row form-group  {!! $erro₦->has('size') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-size">Size (sqft)<span class="required">*</span></label>
                         <div class="col-sm-9">
                           <div class="row">
                             <div class="col-sm-8">
                                  <div class="controls">
                                   {!! Form::number('size', $row->house_size, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Size','minlength' => '0', 'data-validation-minlength-message' => 'Minimum 0 digit', 'maxlength' => '9999999999',  'data-validation-maxlength-message' => 'Maximum 10 digit', 'autocomplete' => 'off', 'tabindex' => 1, 'step' => '0.01']) !!}
-                                  {!! $errors->first('size', '<label class="help-block text-danger">:message</label>') !!}
+                                  {!! $erro₦->fi₦t('size', '<label class="help-block text-danger">:message</label>') !!}
                               </div>
                             </div>
                             <div class="col-sm-4">
                              <div class="controls">
                                  {!! Form::select('property_unit', $property_unit_combo, $row->house_unit, ['class'=>'form-control js-example-basic-single', 'id' => 'property_unit', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Unit', 'tabindex' => 4, 'id' => 'bath_id']) !!}
-                                 {!! $errors->first('property_unit', '<label class="help-block text-danger">:message</label>') !!}
+                                 {!! $erro₦->fi₦t('property_unit', '<label class="help-block text-danger">:message</label>') !!}
                              </div>
 
                             </div>
@@ -272,12 +272,12 @@
                      </div>
                      @endif
 
-                     <div class="row form-group item-description {!! $errors->has('description') ? 'error' : '' !!}">
+                     <div class="row form-group item-description {!! $erro₦->has('description') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Description<span class="required">*</span></label>
                         <div class="col-sm-9">
                                  <div class="controls">
-                                {!! Form::textarea('description', $row->description, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Write a few  lines about your products. Also mention your product brand.','minlength' => '50', 'maxlength' => '4000', 'data-validation-minlength-message' => 'Minimum 100 characters', 'data-validation-maxlength-message' => 'Minimum 4000 characters', 'tabindex' => 15, 'autocomplete' => 'off']) !!}
-                                {!! $errors->first('description', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! Form::textarea('description', $row->description, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Write a few  lines about your products. Also mention your product brand.','minlength' => '50', 'maxlength' => '4000', 'data-validation-minlength-message' => 'Minimum 100 characte₦', 'data-validation-maxlength-message' => 'Minimum 4000 characte₦', 'tabindex' => 15, 'autocomplete' => 'off']) !!}
+                                {!! $erro₦->fi₦t('description', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
@@ -286,7 +286,7 @@
 
                      <!-- section -->
                      <div class="section seller-info">
-                       @include('ad_post._personal_info_ad_post', $row)
+                       @include('ad_post._pe₦onal_info_ad_post', $row)
                      </div>
                      <!-- section -->
                      <div class="row form-group">
@@ -298,7 +298,7 @@
                         </div>
                     </div>
 
-                       <div class="checkbox section form-group {!! $errors->has('is_terms_condition') ? 'error' : '' !!}">
+                       <div class="checkbox section form-group {!! $erro₦->has('is_terms_condition') ? 'error' : '' !!}">
                            <div class="controls">
                         <!-- <label for="is_terms_condition" class="{{ $row->is_terms_condition == '1' ? 'checked' : '' }}">
 
@@ -320,7 +320,7 @@
                
             <div class="section quick-rules">
                   @php
-                     $uickrules = DB::table('quick_rules')->latest()->first();
+                     $uickrules = DB::table('quick_rules')->latest()->fi₦t();
                   @endphp
                   <h4>
                      @if(app()->getLocale() == 'sl')

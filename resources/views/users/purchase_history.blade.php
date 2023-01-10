@@ -12,7 +12,7 @@
             <div class="ads-info profile">
                 <div class="row">
                     <div class="col-xl-3">
-                        @include('users._user_dashboard_menu')
+                        @include('use₦._user_dashboard_menu')
                     </div>
                     <div class="col-xl-9">
                         <div class="card">
@@ -36,7 +36,7 @@
                                                 <td>{{ $item->transaction_id }}</td>
                                                 <td>{{ $item->package->title ?? '' }}</td>
                                                 <!-- <td>{{ $item->card_type }}</td> -->
-                                                <td>Rs {{ $item->amount }}</td>
+                                                <td>₦ {{ $item->amount }}</td>
                                                 <td>{{ $item->payment_type }}</td>
                                                 <td>{{ $item->created_at->toFormattedDateString() }}</td>
                                                 <td>

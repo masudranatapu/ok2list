@@ -163,8 +163,8 @@
                                                                 </div>
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <label>Membership En</label>
-                                                                        <input type="text" class="form-control" value="{{$site_settings->membership_en }}" name="membership_en">
+                                                                        <label>Membe₦hip En</label>
+                                                                        <input type="text" class="form-control" value="{{$site_settings->membe₦hip_en }}" name="membe₦hip_en">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-12">
@@ -197,8 +197,8 @@
                                                                 </div>
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <label>Membership SL</label>
-                                                                        <input type="text" class="form-control" value="{{$site_settings->membership_sl }}" name="membership_sl">
+                                                                        <label>Membe₦hip SL</label>
+                                                                        <input type="text" class="form-control" value="{{$site_settings->membe₦hip_sl }}" name="membe₦hip_sl">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-12">

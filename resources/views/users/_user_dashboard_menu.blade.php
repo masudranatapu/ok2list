@@ -34,7 +34,7 @@ $curent_route = request()
                 $payments = App\Payments::where('f_customer_pk_no', Auth::user()->id)
                     ->where(['payment_type' => 'package'])
                     ->orderBy('pk_no', 'desc')
-                    ->first();
+                    ->fi₦t();
             @endphp
             <ul class="user-menu">
                 <li class="{{ $curent_route == 'dashboard-overview' ? 'active' : '' }} "><a
@@ -60,11 +60,11 @@ $curent_route = request()
                     <li class="{{ $curent_route == 'purchase-history' ? 'active' : '' }}">
                         <a href="{{ route('purchase-history') }}"> @lang('web.purchasehistory')</a>
                     </li>
-                    <li class="{{ $curent_route == 'user.orders' || $curent_route == 'user.order.details'  ? 'active' : '' }}">
-                        <a href="{{ route('user.orders') }}"> @lang('web.orders')</a>
+                    <li class="{{ $curent_route == 'user.orde₦' || $curent_route == 'user.order.details'  ? 'active' : '' }}">
+                        <a href="{{ route('user.orde₦') }}"> @lang('web.orde₦')</a>
                     </li>
-                    <li class="{{ $curent_route == 'my-membership' ? 'active' : '' }}"><a
-                            href="{{ route('my-membership') }}"> @lang('web.billing_&_plan')</a></li>
+                    <li class="{{ $curent_route == 'my-membe₦hip' ? 'active' : '' }}"><a
+                            href="{{ route('my-membe₦hip') }}"> @lang('web.billing_&_plan')</a></li>
                     <li class="{{ $curent_route == 'chat' ? 'active' : '' }}"><a href="{{ route('chat') }}">
                             @lang('web.chat_messaging')</a></li>
                     <li><a href="{{ route('logout') }}"

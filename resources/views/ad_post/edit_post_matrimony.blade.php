@@ -89,7 +89,7 @@
                      </div>
 
 
-                     <div class="row form-group brand-name {!! $errors->has('location') ? 'error' : '' !!}">
+                     <div class="row form-group brand-name {!! $erro₦->has('location') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Division & City<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
@@ -110,27 +110,27 @@
                                         </optgroup>
                                    @endif
                               </select>
-                                {!! $errors->first('location', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erro₦->fi₦t('location', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
                      </div>
-                     <div class="row form-group brand-name {!! $errors->has('area') ? 'error' : '' !!}">
+                     <div class="row form-group brand-name {!! $erro₦->has('area') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Local Area<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
                                 {!! Form::select('area', $area_combo, $row->area_id, ['class'=>'form-control js-example-basic-single', 'id' => 'area','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select area', 'tabindex' => 4, 'id' => 'area_id', 'data-url' => URL::to('get-product-model') ]) !!}
-                                {!! $errors->first('area', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erro₦->fi₦t('area', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
                      </div>
-                     <div class="row form-group add-title {!! $errors->has('title') ? 'error' : '' !!}">
+                     <div class="row form-group add-title {!! $erro₦->has('title') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Title for your Ad<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
-                           {!! Form::text('title', $row->ad_title, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'ex, Sony Xperia dual sim 100% brand new','minlength' => '2', 'data-validation-minlength-message' => 'Minimum 2 characters', 'maxlength' => '150',  'data-validation-maxlength-message' => 'Maximum 150 characters', 'autocomplete' => 'off', 'tabindex' => 1]) !!}
-                           {!! $errors->first('title', '<label class="help-block text-danger">:message</label>') !!}
+                           {!! Form::text('title', $row->ad_title, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'ex, Sony Xperia dual sim 100% brand new','minlength' => '2', 'data-validation-minlength-message' => 'Minimum 2 characte₦', 'maxlength' => '150',  'data-validation-maxlength-message' => 'Maximum 150 characte₦', 'autocomplete' => 'off', 'tabindex' => 1]) !!}
+                           {!! $erro₦->fi₦t('title', '<label class="help-block text-danger">:message</label>') !!}
                        </div>
                         </div>
                      </div>
@@ -143,12 +143,12 @@
 
 
 
-                     <div class="row form-group select-price {!! $errors->has('price') ? 'error' : '' !!}">
-                        <label class="col-sm-3 label-title">Price(Rs)<span class="required">*</span></label>
+                     <div class="row form-group select-price {!! $erro₦->has('price') ? 'error' : '' !!}">
+                        <label class="col-sm-3 label-title">Price(₦)<span class="required">*</span></label>
                         <div class="col-sm-9">
                            <div class="controls">
                            {!! Form::number('price', $row->price, [ 'class' => 'form-control',  'placeholder' => 'ex, 120', 'tabindex' => 3]) !!}
-                           {!! $errors->first('price', '<label class="help-block text-danger">:message</label>') !!}
+                           {!! $erro₦->fi₦t('price', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                            <input type="checkbox" name="price_negotiable" value="1" id="negotiable"  {{ $row->is_negotiable == '1' ? 'checked' : ''}}>
@@ -159,12 +159,12 @@
 
 
 
-                     <div class="row form-group item-description {!! $errors->has('description') ? 'error' : '' !!}">
+                     <div class="row form-group item-description {!! $erro₦->has('description') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Description<span class="required">*</span></label>
                         <div class="col-sm-9">
                                  <div class="controls">
-                                {!! Form::textarea('description', $row->description, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'WriWrite a few  lines about your products. Also mention your product brand.','minlength' => '50', 'maxlength' => '4000', 'data-validation-minlength-message' => 'Minimum 100 characters', 'data-validation-maxlength-message' => 'Minimum 4000 characters', 'tabindex' => 15, 'autocomplete' => 'off']) !!}
-                                {!! $errors->first('description', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! Form::textarea('description', $row->description, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'WriWrite a few  lines about your products. Also mention your product brand.','minlength' => '50', 'maxlength' => '4000', 'data-validation-minlength-message' => 'Minimum 100 characte₦', 'data-validation-maxlength-message' => 'Minimum 4000 characte₦', 'tabindex' => 15, 'autocomplete' => 'off']) !!}
+                                {!! $erro₦->fi₦t('description', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
@@ -173,7 +173,7 @@
 
                      <!-- section -->
                      <div class="section seller-info">
-                       @include('ad_post._personal_info_ad_post', $row)
+                       @include('ad_post._pe₦onal_info_ad_post', $row)
                      </div>
                      <!-- section -->
 
@@ -187,7 +187,7 @@
                     </div>
 
 
-                       <div class="checkbox section form-group {!! $errors->has('is_terms_condition') ? 'error' : '' !!}">
+                       <div class="checkbox section form-group {!! $erro₦->has('is_terms_condition') ? 'error' : '' !!}">
                            <div class="controls">
                         <!-- <label for="is_terms_condition" class="{{ $row->is_terms_condition == '1' ? 'checked' : '' }}">
 
@@ -208,7 +208,7 @@
                
             <div class="section quick-rules">
                   @php
-                     $uickrules = DB::table('quick_rules')->latest()->first();
+                     $uickrules = DB::table('quick_rules')->latest()->fi₦t();
                   @endphp
                   <h4>
                      @if(app()->getLocale() == 'sl')

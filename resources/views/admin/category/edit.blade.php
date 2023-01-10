@@ -30,38 +30,38 @@ $row = $data['data'];
 
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group {!! $errors->has('name') ? 'error' : '' !!}">
+                                <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
                                     <label>@lang('form.name')<span class="text-danger">*</span></label>
                                     <div class="controls">
                                         {!! Form::text('name', $row->name, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product category name', 'tabindex' => 2 ]) !!}
-                                        {!! $errors->first('name', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group {!! $errors->has('parent') ? 'error' : '' !!}">
+                                <div class="form-group {!! $erro₦->has('parent') ? 'error' : '' !!}">
                                     <label>{{trans('form.parent_category')}}</label>
                                     <div class="controls">
                                         {!! Form::select('parent', $parent_cat_combo, $row->parent_id, ['class'=>'form-control mb-1 select2', 'id' => 'parent',  'placeholder' => 'Select parent', 'tabindex' => 2 ]) !!}
-                                        {!! $errors->first('parent', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('parent', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div class="form-group {!! $errors->has('description') ? 'error' : '' !!}">
+                                <div class="form-group {!! $erro₦->has('description') ? 'error' : '' !!}">
                                     <label>@lang('form.description')</label>
                                     <div class="controls">
                                         {!! Form::textarea('description', $row->description, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product category description', 'tabindex' => 2, 'rows' => 3 ]) !!}
-                                        {!! $errors->first('description', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('description', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div class="form-group {!! $errors->has('seo_des') ? 'error' : '' !!}">
+                                <div class="form-group {!! $erro₦->has('seo_des') ? 'error' : '' !!}">
                                     <label>@lang('form.seo_des')</label>
                                     <div class="controls">
                                         {!! Form::textarea('seo_des', $row->seo_des, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product category seo_des', 'tabindex' => 2, 'rows' => '3']) !!}
-                                        {!! $errors->first('seo_des', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('seo_des', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@ $row = $data['data'];
                                     <label>@lang('form.logo') (64X64)</label>
                                     <div class="controls">
                                         <input type="file" name="logo" >
-                                        {!! $errors->first('logo', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('logo', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                     <div class="mt-1">
                                         <img src="{{$row->logo_path}}" style="width: 64px" >
@@ -82,7 +82,7 @@ $row = $data['data'];
                                     <label>@lang('form.icon') (16X16)</label>
                                     <div class="controls">
                                         <input type="file" name="icon" >
-                                        {!! $errors->first('icon', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('icon', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                     <div class="mt-1">
                                         <img src="{{$row->icon_path}}" style="width: 64px" >
@@ -94,7 +94,7 @@ $row = $data['data'];
                                     <label>@lang('form.banner') (970X250)</label>
                                     <div class="controls">
                                         <input type="file" name="banner" >
-                                        {!! $errors->first('banner', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('banner', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                     <div class="mt-1">
                                         <img src="{{$row->banner_path}}" style="width: 80px" >
@@ -106,7 +106,7 @@ $row = $data['data'];
                                     <br>
                                     <div class="controls">
                                         <label><input type="checkbox" name="is_top" {{$row->is_top == 1 ? 'checked' : ''}}> <small>{{ trans('form.is_top') }} </small></label>
-                                        {!! $errors->first('is_top', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('is_top', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@ $row = $data['data'];
                                     <br>
                                     <div class="controls">
                                         <label><input type="checkbox" name="is_new" {{$row->is_new == 1 ? 'checked' : ''}}> <small>{{ trans('form.is_new') }} </small></label>
-                                        {!! $errors->first('is_new', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('is_new', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@ $row = $data['data'];
                                     <br>
                                     <div class="controls">
                                         <label><input type="checkbox" name="is_feature" {{$row->is_feature == 1 ? 'checked' : ''}}> <small>{{ trans('form.is_feature') }} </small></label>
-                                        {!! $errors->first('is_feature', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('is_feature', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@ $row = $data['data'];
                                     <label>Order id</label>
                                     <div class="controls">
                                         <input type="number" name="order_id" class="form-control" value="{{$row->order_id}}"> 
-                                        {!! $errors->first('order_id', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('order_id', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>

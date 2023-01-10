@@ -32,38 +32,38 @@ $row                = $data['data'];
                         <input type="hidden" name="pk_no" value="{{$row->pk_no}}" />
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $errors->has('name') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
                                         <label>@lang('form.name')<span class="text-danger">*</span></label>
                                         <div class="controls">
                                             {!! Form::text('name', $row->name, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter area name', 'data-validation-required-message' => 'This field is required', 'tabindex' => 2 ]) !!}
-                                            {!! $errors->first('name', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $errors->has('city_id') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('city_id') ? 'error' : '' !!}">
                                         <label>{{trans('form.city')}}</label>
                                         <div class="controls">
                                             {!! Form::select('city_id', $city_combo, $row->city_pk_no, ['class'=>'form-control mb-1 select2', 'id' => 'city_id',  'placeholder' => 'Select city', 'tabindex' => 2 ]) !!}
-                                            {!! $errors->first('city_id', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('city_id', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $errors->has('   division_id') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('   division_id') ? 'error' : '' !!}">
                                         <label>{{trans('form.division')}}</label>
                                         <div class="controls">
                                             {!! Form::select('division_id', $division_combo, $row->division_pk_no, ['class'=>'form-control mb-1 select2', 'id' => '  division_id',  'placeholder' => 'Select division', 'tabindex' => 2 ]) !!}
-                                            {!! $errors->first('    division_id', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('    division_id', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $errors->has('order_id') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('order_id') ? 'error' : '' !!}">
                                         <label>@lang('form.order')</label>
                                         <div class="controls">
                                             {!! Form::text('order_id', $row->order_id, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter order', 'tabindex' => 3]) !!}
-                                            {!! $errors->first('order_id', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('order_id', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@ $row                = $data['data'];
                                         <br>
                                         <div class="controls">
                                             <label><input type="checkbox" name="is_active"  checked="true"> <small>{{ trans('form.is_active') }} </small></label>
-                                            {!! $errors->first('is_active', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('is_active', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>

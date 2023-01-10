@@ -8,16 +8,16 @@ $jobInfo = $row ?? null ;
 ?>
 
 <h4>About the company / employer</h4>
-    <div class="row form-group {!! $errors->has('company_name') ? 'error' : '' !!}">
+    <div class="row form-group {!! $erro₦->has('company_name') ? 'error' : '' !!}">
         <label class="col-sm-3 label-title">Company / Employer<span class="required">*</span></label>
         <div class="col-sm-9">
             <div class="controls">
-                {!! Form::text('company_name', $row->company_name ?? old('company_name'), [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'maxlength' => '60', 'data-validation-maxlength-message' => 'Maxlength 60 characters', 'placeholder' => 'Enter company name', 'tabindex' => 18]) !!}
-                {!! $errors->first('company_name', '<label class="help-block text-danger">:message</label>') !!}
+                {!! Form::text('company_name', $row->company_name ?? old('company_name'), [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'maxlength' => '60', 'data-validation-maxlength-message' => 'Maxlength 60 characte₦', 'placeholder' => 'Enter company name', 'tabindex' => 18]) !!}
+                {!! $erro₦->fi₦t('company_name', '<label class="help-block text-danger">:message</label>') !!}
             </div>
         </div>
     </div>
-    <div class="row form-group {!! $errors->has('company_logo') ? 'error' : '' !!}">
+    <div class="row form-group {!! $erro₦->has('company_logo') ? 'error' : '' !!}">
         <label class="col-sm-3 label-title">Company Logo</label>
         <div class="col-sm-9">
             <div class="controls">

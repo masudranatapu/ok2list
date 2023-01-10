@@ -55,9 +55,9 @@
                                                                 <div class="form-body">                                                        
                                                                     {!! Form::text('search_string', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' =>__('form.field_required'), 'placeholder' => __('assign_access.assign_access_search_field_placeholder'), 'tabindex' => 1 ]) !!}
                                                                 </div>
-                                                                @if ($errors->has('search_string'))
+                                                                @if ($erro₦->has('search_string'))
                                                                     <div class="help-block">
-                                                                        <strong>{{ $errors->first('search_string') }}</strong>
+                                                                        <strong>{{ $erro₦->fi₦t('search_string') }}</strong>
                                                                     </div>
                                                                 @endif
                                                                 <div class="form-actions border-0 pb-0 text-right">
@@ -82,7 +82,7 @@
                                 </div>
                                 @endif  
                                 <!--Start Search Result If not Empty -->
-                                @if($triggers)                                
+                                @if($trigge₦)                                
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard text-center">
                                         <div class="table-responsive">
@@ -106,14 +106,14 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($triggers as $row)
+                                                @foreach($trigge₦ as $row)
                                                     <tr>
                                                         <td>{{$loop->index + 1}}</td>
                                                         <td>
                                                             <img align="middle" width="50" height="50"
                                                                  src="{{$row->profile_pic_url}}" alt="No image">
                                                         </td>
-                                                        <td>{{$row->first_name}} {{$row->middle_name}} {{$row->last_name}}</td>
+                                                        <td>{{$row->fi₦t_name}} {{$row->middle_name}} {{$row->last_name}}</td>
                                                         <td>{{$row->username}}</td>                                                
                                                         <td>{{$row->designation}}</td>
                                                         <td>{{$row->email}}</td>

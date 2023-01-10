@@ -19,7 +19,7 @@
 @endphp
 
 @push('custom_css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/selects/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendo₦/css/forms/selects/select2.min.css') }}">
 @endpush
 
 @section('content')
@@ -36,10 +36,10 @@
                     </ul>
                 </div>
             </div>
-            @if ($errors->any())
+            @if ($erro₦->any())
                     <div class="alert alert-danger">
                         <ul>
-                            @foreach ($errors->all() as $error)
+                            @foreach ($erro₦->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
                         </ul>
@@ -55,29 +55,29 @@
 
                                 
                                  <div class="col-md-6 offset-3">
-                                    <div class="form-group {!! $errors->has('category') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('category') ? 'error' : '' !!}">
                                         <label>{{trans('form.category')}}<span class="text-danger">*</span></label>
                                         <div class="controls">
                                             {!! Form::select('category', $category_combo, $row->cat_pk_no, ['class'=>'form-control mb-1 select2', 'id' => 'category','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select category', 'tabindex' => 2, 'data-url' => URL::to('prod_subcategory')]) !!}
-                                            {!! $errors->first('category', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('category', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 offset-3">
-                                    <div class="form-group {!! $errors->has('sub_category') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('sub_category') ? 'error' : '' !!}">
                                         <label>{{trans('form.sub_category')}}<span class="text-danger">*</span></label>
                                         <div class="controls">
                                             {!! Form::select('sub_category', $sub_category_combo, $row->scat_pk_no, ['class'=>'form-control mb-1 select2', 'id' => 'sub_category', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Select sub category', 'data-url' => URL::to('get_hscode_by_scat'), 'tabindex' => 2] ) !!}
-                                            {!! $errors->first('sub_category', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('sub_category', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 offset-3">
-                                    <div class="form-group {!! $errors->has('name') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
                                         <label>@lang('form.type')<span class="text-danger">*</span></label>
                                         <div class="controls">
                                             {!! Form::text('name', $row->name, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product type', 'tabindex' => 2 ]) !!}
-                                            {!! $errors->first('name', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@
 @endsection
 
 @push('custom_js')
-    <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>\
+    <script src="{{ asset('app-assets/vendo₦/js/forms/select/select2.full.min.js')}}"></script>\
     <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
     <script src="{{ asset('app-assets/pages/product.js')}}"></script>
 @endpush

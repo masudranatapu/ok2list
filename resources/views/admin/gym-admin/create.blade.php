@@ -37,13 +37,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>First Name</label>
+                                <label>Fi₦t Name</label>
                                 <div class="controls">
-                                    {!! Form::text('first_name', null,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter first name', 'tabindex' => 1 ]) !!}
+                                    {!! Form::text('fi₦t_name', null,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter fi₦t name', 'tabindex' => 1 ]) !!}
                                 </div>
-                                @if ($errors->has('first_name'))
+                                @if ($erro₦->has('fi₦t_name'))
                                     <span class="alert alert-danger">
-                                                <strong>{{ $errors->first('first_name') }}</strong>
+                                                <strong>{{ $erro₦->fi₦t('fi₦t_name') }}</strong>
                                             </span>
                                 @endif
                             </div>
@@ -56,9 +56,9 @@
                                     {!! Form::text('last_name', null,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter last name', 'tabindex' => 1 ]) !!}
                                 </div>
                             </div>
-                            @if ($errors->has('last_name'))
+                            @if ($erro₦->has('last_name'))
                                 <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('last_name') }}</strong>
+                                            <strong>{{ $erro₦->fi₦t('last_name') }}</strong>
                                         </span>
                             @endif
                         </div>
@@ -71,9 +71,9 @@
                                     {!! Form::text('designation', null,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter designation', 'tabindex' => 1 ]) !!}
                                 </div>
                             </div>
-                            @if ($errors->has('designation'))
+                            @if ($erro₦->has('designation'))
                                 <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('designation') }}</strong>
+                                            <strong>{{ $erro₦->fi₦t('designation') }}</strong>
                                         </span>
                             @endif
                         </div>
@@ -83,9 +83,9 @@
                                 <div class="controls">
                                     {!! Form::select('status', ['1' => 'Yes', '0' => 'No'], null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select status', 'data-validation-required-message' => 'This field is required']) !!}
                                 </div>
-                                @if ($errors->has('status'))
+                                @if ($erro₦->has('status'))
                                     <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('status') }}</strong>
+                                            <strong>{{ $erro₦->fi₦t('status') }}</strong>
                                         </span>
                                 @endif
                             </div>
@@ -102,9 +102,9 @@
                             <div class="controls">
                                 {!! Form::text('username', null,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter username', 'tabindex' => 1 ]) !!}
                             </div>
-                            @if ($errors->has('username'))
+                            @if ($erro₦->has('username'))
                                 <span class="alert alert-danger">
-                                                <strong>{{ $errors->first('username') }}</strong>
+                                                <strong>{{ $erro₦->fi₦t('username') }}</strong>
                                             </span>
                             @endif
                         </div>
@@ -115,9 +115,9 @@
                             <div class="controls">
                                 {!! Form::text('mobile_no', null,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter contact number', 'tabindex' => 1 ]) !!}
                             </div>
-                            @if ($errors->has('mobile_no'))
+                            @if ($erro₦->has('mobile_no'))
                                 <span class="alert alert-danger">
-                                                <strong>{{ $errors->first('mobile_no') }}</strong>
+                                                <strong>{{ $erro₦->fi₦t('mobile_no') }}</strong>
                                             </span>
                             @endif
                         </div>
@@ -128,9 +128,9 @@
                     <div class="controls">
                         {!! Form::text('email', null,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter email', 'tabindex' => 1 ]) !!}
                     </div>
-                    @if ($errors->has('email'))
+                    @if ($erro₦->has('email'))
                         <span class="alert alert-danger">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $erro₦->fi₦t('email') }}</strong>
                                     </span>
                     @endif
                 </div>
@@ -141,9 +141,9 @@
                             <div class="controls">
                                 {!! Form::password('password',[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter password', 'tabindex' => 1 ]) !!}
                             </div>
-                            @if ($errors->has('password'))
+                            @if ($erro₦->has('password'))
                                 <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('password') }}</strong>
+                                            <strong>{{ $erro₦->fi₦t('password') }}</strong>
                                         </span>
                             @endif
                         </div>
@@ -154,9 +154,9 @@
                             <div class="controls">
                                 {!! Form::password('password_confirmation',[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter confirm password', 'tabindex' => 1 ]) !!}
                             </div>
-                            @if ($errors->has('password_confirmation'))
+                            @if ($erro₦->has('password_confirmation'))
                                 <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                            <strong>{{ $erro₦->fi₦t('password_confirmation') }}</strong>
                                         </span>
                             @endif
                         </div>
@@ -170,9 +170,9 @@
                             <div class="controls">
                                 {!! Form::select('gender', ['1' => 'Male', '0' => 'Female'] , null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select gender', 'data-validation-required-message' => 'This field is required']) !!}
                             </div>
-                            @if ($errors->has('gender'))
+                            @if ($erro₦->has('gender'))
                                 <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('gender') }}</strong>
+                                            <strong>{{ $erro₦->fi₦t('gender') }}</strong>
                                         </span>
                             @endif
                         </div>
@@ -183,9 +183,9 @@
                             <div class="controls">
                                 {!! Form::select('can_login', ['1' => 'Yes', '0' => 'No'] , null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select who can login', 'data-validation-required-message' => 'This field is required']) !!}
                             </div>
-                            @if ($errors->has('can_login'))
+                            @if ($erro₦->has('can_login'))
                                 <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('can_login') }}</strong>
+                                            <strong>{{ $erro₦->fi₦t('can_login') }}</strong>
                                         </span>
                             @endif
                         </div>
@@ -198,9 +198,9 @@
                             <div class="controls">
                                 {!! Form::select('role', $role, null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select role name', 'data-validation-required-message' => 'This field is required']) !!}
                             </div>
-                            @if ($errors->has('role'))
+                            @if ($erro₦->has('role'))
                                 <span class="alert alert-danger">
-                                        <strong>{{ $errors->first('role') }}</strong>
+                                        <strong>{{ $erro₦->fi₦t('role') }}</strong>
                                     </span>
                             @endif
                         </div>
@@ -211,9 +211,9 @@
                             <div class="controls">
                                 {!! Form::select('gym', $gym, null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select gym name', 'data-validation-required-message' => 'This field is required']) !!}
                             </div>
-                            @if ($errors->has('gym'))
+                            @if ($erro₦->has('gym'))
                                 <span class="alert alert-danger">
-                                        <strong>{{ $errors->first('gym') }}</strong>
+                                        <strong>{{ $erro₦->fi₦t('gym') }}</strong>
                                     </span>
                             @endif
                         </div>
@@ -224,9 +224,9 @@
                     <div class="controls">
                         {!! Form::file('profile_pic', null, ['class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required']); !!}
                     </div>
-                    @if ($errors->has('profile_pic'))
+                    @if ($erro₦->has('profile_pic'))
                         <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('profile_pic') }}</strong>
+                                            <strong>{{ $erro₦->fi₦t('profile_pic') }}</strong>
                                         </span>
                     @endif
                 </div>

@@ -32,8 +32,8 @@
             </div>
             <div class="card-content collapse show">
                 <div class="card-body">
-                    @if ($errors->any())
-                        @foreach ($errors->all() as $error)
+                    @if ($erro₦->any())
+                        @foreach ($erro₦->all() as $error)
                             <div>{{$error}}</div>
                         @endforeach
                     @endif
@@ -47,9 +47,9 @@
                                     <div class="controls">
                                         {!! Form::text('role_name',$role->role_name, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter group name', 'tabindex' => 1 ]) !!}
                                     </div>
-                                    @if ($errors->has('role_name'))
+                                    @if ($erro₦->has('role_name'))
                                         <div class="alert alert-danger">
-                                            <strong>{{ $errors->first('role_name') }}</strong>
+                                            <strong>{{ $erro₦->fi₦t('role_name') }}</strong>
                                         </div>
                                     @endif
                                 </div>

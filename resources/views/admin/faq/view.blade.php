@@ -28,13 +28,13 @@ $row = $data['data'];
                         <input type="hidden" name="pk_no" value="{{$row->pk_no}}" />
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="form-group {!! $errors->has('name') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
                                         <label>Question</label>
                                         <input type="text" readonly="" name="" class="form-control" value="{{$row->question}}">
                                      </div>
                                   </div>
                                 <div class="col-12">
-                                    <div class="form-group {!! $errors->has('answer') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('answer') ? 'error' : '' !!}">
                                         <label>Answer</label>
                                         <textarea rows="5" readonly="" class="form-control">{{$row->answer}}</textarea>
                                     </div>

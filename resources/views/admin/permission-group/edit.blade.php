@@ -41,9 +41,9 @@
                                 <div class="controls">
                                     {!! Form::text('permission_group_name',$permissionGroup->group_name, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => __('form.field_required'), 'placeholder' => __('form.edit_menu_form_placeholder'), 'tabindex' => 1 ]) !!}
                                 </div>
-                                @if ($errors->has('permission_group_name'))
+                                @if ($erro₦->has('permission_group_name'))
                                     <div class="alert alert-danger">
-                                        <strong>{{ $errors->first('permission_group_name') }}</strong>
+                                        <strong>{{ $erro₦->fi₦t('permission_group_name') }}</strong>
                                     </div>
                                 @endif
                             </div>

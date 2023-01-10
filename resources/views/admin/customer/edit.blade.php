@@ -23,7 +23,7 @@ $division_combo = $data['division'] ?? array();
 
 <!--push from page-->
 @push('custom_css')
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/selects/select2.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendo₦/css/forms/selects/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('app-assets/file_upload/image-uploader.min.css')}}">
 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 @endpush('custom_css')
@@ -60,16 +60,16 @@ $division_combo = $data['division'] ?? array();
                             <h5><label>{{trans('form.email')}} : <strong>{{$row->email}}</strong></label></h5>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $errors->has('name') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
                                         <label>{{trans('form.name')}}<span class="text-danger">*</span></label>
                                         <div class="controls">
                                             {!! Form::text('name',  $row->name, ['class'=>'form-control mb-1', 'id' => 'name', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter Name', 'tabindex' => 1, 'autocomplete' => 'off'  ]) !!}
-                                            {!! $errors->first('name', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $errors->has('location') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('location') ? 'error' : '' !!}">
                                         <label>{{trans('form.location')}}</label>
                                         <div class="controls">
                                             <select id="location" class="form-control mb-1" name="location" >
@@ -92,12 +92,12 @@ $division_combo = $data['division'] ?? array();
 
                                             </select>
 
-                                            {!! $errors->first('location', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('location', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $errors->has('area') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('area') ? 'error' : '' !!}">
                                         <label>{{trans('form.area')}}</label>
                                         <div class="controls">
                                             <select class="form-control mb-1" name="area" id="area">
@@ -105,12 +105,12 @@ $division_combo = $data['division'] ?? array();
                                             </select>
 
 
-                                            {!! $errors->first('area', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('area', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $errors->has('is_verified') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('is_verified') ? 'error' : '' !!}">
                                         <label>Is Verified</label>
                                         <div class="controls">
                                             <select class="form-control mb-1" name="is_verified">
@@ -119,12 +119,12 @@ $division_combo = $data['division'] ?? array();
                                             </select>
 
 
-                                            {!! $errors->first('is_verified', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('is_verified', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $errors->has('is_active') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('is_active') ? 'error' : '' !!}">
                                         <label>Is Active</label>
                                         <div class="controls">
                                             <select class="form-control mb-1" name="is_active">
@@ -133,17 +133,17 @@ $division_combo = $data['division'] ?? array();
                                             </select>
 
 
-                                            {!! $errors->first('is_active', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erro₦->fi₦t('is_active', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $errors->has('password') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erro₦->has('password') ? 'error' : '' !!}">
                                         <label>{{trans('form.password')}}</label>
                                         <div class="controls">
-                                            {!! Form::text('password', null, [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-minlength-message' => 'Minimum 6 characters', 'placeholder' => 'Enter password', 'tabindex' => 2, 'autocomplete' => 'off']) !!}
-                                            {!! $errors->first('password', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! Form::text('password', null, [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-minlength-message' => 'Minimum 6 characte₦', 'placeholder' => 'Enter password', 'tabindex' => 2, 'autocomplete' => 'off']) !!}
+                                            {!! $erro₦->fi₦t('password', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@ $division_combo = $data['division'] ?? array();
 @endsection
 <!--push from page-->
 @push('custom_js')
-<script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
+<script src="{{ asset('app-assets/vendo₦/js/forms/select/select2.full.min.js')}}"></script>
 <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
 <script type="text/javascript" src="{{ asset('app-assets/pages/customer.js')}}"></script>
 

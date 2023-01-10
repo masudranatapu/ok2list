@@ -1,14 +1,14 @@
 @extends('admin.layout.master')
 <!--push from page-->
 @push('custom_css')
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/selects/select2.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendo₦/css/forms/selects/select2.min.css') }}">
 
 <!--for file uploads-->
 <link rel="stylesheet" href="{{ asset('app-assets/file_upload/image-uploader.min.css')}}">
 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <!--for tooltip-->
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colors/palette-tooltip.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colo₦/palette-tooltip.css')}}">
 
 <!--for image gallery-->
 <link rel="stylesheet" href="{{ asset('app-assets/lightgallery/dist/css/lightgallery.min.css') }}">
@@ -102,7 +102,7 @@
 @endsection
 <!--push from page-->
 @push('custom_js')
-<script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
+<script src="{{ asset('app-assets/vendo₦/js/forms/select/select2.full.min.js')}}"></script>
 <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
 
 <!--for image upload-->
@@ -135,7 +135,7 @@
             url:pageurl,
             async :true,
             beforeSend: function () {
-                $("body").css("cursor", "progress");
+                $("body").css("cu₦or", "progress");
                 //blockUI();
             },
             success: function (data) {
@@ -148,7 +148,7 @@
 
             },
             complete: function (data) {
-                $("body").css("cursor", "default");
+                $("body").css("cu₦or", "default");
                 //$.unblockUI();
             }
         });

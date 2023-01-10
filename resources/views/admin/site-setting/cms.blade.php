@@ -25,7 +25,7 @@
                     <a class="nav-link " id="basic-tab" data-toggle="pill" href="#promotion" role="tab" aria-controls="basic" aria-selected="true">Promotions</a>
                 </li>
                  <li class="nav-item" role="presentation">
-                    <a class="nav-link " id="basic-tab" data-toggle="pill" href="#membership" role="tab" aria-controls="basic" aria-selected="true">Membership</a>
+                    <a class="nav-link " id="basic-tab" data-toggle="pill" href="#membe₦hip" role="tab" aria-controls="basic" aria-selected="true">Membe₦hip</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a class="nav-link " id="basic-tab" data-toggle="pill" href="#sell_fast" role="tab" aria-controls="basic" aria-selected="true">How To Sell Fast</a>
@@ -153,16 +153,16 @@
                       </form>
                 </div>
 
-                <!-- Membership -->
-                <div class="tab-pane fade " id="membership" role="tabpanel" aria-labelledby="basic-tab">
+                <!-- Membe₦hip -->
+                <div class="tab-pane fade " id="membe₦hip" role="tabpanel" aria-labelledby="basic-tab">
                     <form action="#" method="post">
                           <div class="row">
                                <div class="col-12 mb-2">
-                                   <label class="form-label">Membership Body</label>
-                                   <textarea name="" id="membership_ck" class="form-control"></textarea>
+                                   <label class="form-label">Membe₦hip Body</label>
+                                   <textarea name="" id="membe₦hip_ck" class="form-control"></textarea>
                                </div>
                                <div class="col-12">
-                                   <button type="submit" class="btn btn-primary">Update Membership Setting</button>
+                                   <button type="submit" class="btn btn-primary">Update Membe₦hip Setting</button>
                                </div>
                           </div>
                       </form>
@@ -194,7 +194,7 @@
     CKEDITOR.replace('privacy_ck')
     CKEDITOR.replace('posting_ck')
     CKEDITOR.replace('promotion_ck')
-    CKEDITOR.replace('membership_ck')
+    CKEDITOR.replace('membe₦hip_ck')
     CKEDITOR.replace('sell_fast_ck')
 </script>
 @endsection

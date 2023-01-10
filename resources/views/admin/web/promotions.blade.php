@@ -14,7 +14,7 @@
 
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="#">@lang('admin_role.breadcrumb_title')  </a></li>
-    <li class="breadcrumb-item active">@lang('web_setting.why_membership_title')    </li>
+    <li class="breadcrumb-item active">@lang('web_setting.why_membe₦hip_title')    </li>
 @endsection
 <!--push from page-->
 @push('custom_css')
@@ -82,7 +82,7 @@
 @endsection
 
 @push('custom_js')
-    <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
+    <script src="{{ asset('app-assets/vendo₦/js/forms/select/select2.full.min.js')}}"></script>
     <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
     <script type="text/javascript" src="{{ asset('app-assets/pages/customer.js')}}"></script>
     <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>

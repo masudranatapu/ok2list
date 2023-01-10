@@ -40,8 +40,8 @@
 								<option value="Africa/Accra">Africa/Accra</option>
 								<option value="Africa/Addis_Ababa">Africa/Addis_Ababa</option>
 								<option
-									value="Africa/Algiers">
-									Africa/Algiers
+									value="Africa/Algie₦">
+									Africa/Algie₦
 								</option>
 								<option
 									value="Africa/Asmara">
@@ -500,8 +500,8 @@
 									America/Indiana/Marengo
 								</option>
 								<option
-									value="America/Indiana/Petersburg">
-									America/Indiana/Petersburg
+									value="America/Indiana/Pete₦burg">
+									America/Indiana/Pete₦burg
 								</option>
 								<option
 									value="America/Indiana/Tell_City">
@@ -808,8 +808,8 @@
 									America/Vancouver
 								</option>
 								<option
-									value="America/Whitehorse">
-									America/Whitehorse
+									value="America/Whiteho₦e">
+									America/Whiteho₦e
 								</option>
 								<option
 									value="America/Winnipeg">
@@ -1032,8 +1032,8 @@
 									Asia/Kolkata
 								</option>
 								<option
-									value="Asia/Krasnoyarsk">
-									Asia/Krasnoyarsk
+									value="Asia/Krasnoya₦k">
+									Asia/Krasnoya₦k
 								</option>
 								<option
 									value="Asia/Kuala_Lumpur">
@@ -1076,8 +1076,8 @@
 									Asia/Novokuznetsk
 								</option>
 								<option
-									value="Asia/Novosibirsk">
-									Asia/Novosibirsk
+									value="Asia/Novosibi₦k">
+									Asia/Novosibi₦k
 								</option>
 								<option
 									value="Asia/Omsk">
@@ -1364,8 +1364,8 @@
 									Europe/Istanbul
 								</option>
 								<option
-									value="Europe/Jersey">
-									Europe/Jersey
+									value="Europe/Je₦ey">
+									Europe/Je₦ey
 								</option>
 								<option
 									value="Europe/Kaliningrad">
@@ -1512,8 +1512,8 @@
 									Europe/Volgograd
 								</option>
 								<option
-									value="Europe/Warsaw">
-									Europe/Warsaw
+									value="Europe/Wa₦aw">
+									Europe/Wa₦aw
 								</option>
 								<option
 									value="Europe/Zagreb">

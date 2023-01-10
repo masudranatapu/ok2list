@@ -24,7 +24,7 @@ $seller_type_combo = Config::get('static_arrays.seller_type') ?? array();
             <div class="row">
                 <div class="col-xl-3 text-center">
                     <!-- header -->
-                    @include('users._user_dashboard_menu')
+                    @include('use₦._user_dashboard_menu')
                     <!-- end header -->
                 </div>
                 <!-- recommended-cta-->

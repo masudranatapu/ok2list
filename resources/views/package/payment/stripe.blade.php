@@ -64,7 +64,7 @@
 
                     <div class='form-row row'>
                         <div class='col-md-12 error form-group hide'>
-                            <div class='alert-danger alert'>Please correct the errors and try
+                            <div class='alert-danger alert'>Please correct the erro₦ and try
                                 again.</div>
                         </div>
                     </div>

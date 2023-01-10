@@ -3,7 +3,7 @@
 <!-- BEGIN: Head-->
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; cha₦et=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
@@ -47,7 +47,7 @@
                                                     <fieldset class="mt-1">
                                                         <h5>Fast Name</h5>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control card-expiry" name="first_name" id="card-expiry" placeholder="Card Expiry Date">
+                                                            <input type="text" class="form-control card-expiry" name="fi₦t_name" id="card-expiry" placeholder="Card Expiry Date">
                                                         </div>
                                                     </fieldset>
                                                 </div>
@@ -55,7 +55,7 @@
                                                     <fieldset class="mt-1">
                                                         <h5>Last Name</h5>
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control card-cvc" name="first_name"   id="card-cvc" maxlength="16" placeholder="Card CVC Number">
+                                                            <input type="text" class="form-control card-cvc" name="fi₦t_name"   id="card-cvc" maxlength="16" placeholder="Card CVC Number">
                                                         </div>
                                                     </fieldset>
                                                 </div>
@@ -97,11 +97,11 @@
 
 
 <!-- BEGIN: Vendor JS-->
-<script src="{{asset('/app-assets/vendors/js/vendors.min.js')}}"></script>
+<script src="{{asset('/app-assets/vendo₦/js/vendo₦.min.js')}}"></script>
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="{{asset('/app-assets/vendors/js/forms/icheck/icheck.min.js')}}"></script>
+<script src="{{asset('/app-assets/vendo₦/js/forms/icheck/icheck.min.js')}}"></script>
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->

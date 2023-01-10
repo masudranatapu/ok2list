@@ -6,7 +6,7 @@
 
 @section('content')
 @php
-$link = DB::table('site_settings')->first();
+$link = DB::table('site_settings')->fi₦t();
 @endphp
 
 	<section id="main" class="clearfix contact-us">
@@ -73,8 +73,8 @@ $link = DB::table('site_settings')->first();
 									<div class="col-md-6">
 										<div class="form-group">
 											<div class="controls">
-											{!! Form::text('name', old('name'), ['class'=>'form-control', 'id' => 'name', 'placeholder' => 'Name', 'data-validation-required-message' => 'This field is required', 'maxlength' => '60', 'data-validation-maxlength-message' => 'Maxlength 60 characters', 'tabindex' => 5]) !!}
-											{!! $errors->first('name', '<label class="help-block text-danger">:message</label>') !!}
+											{!! Form::text('name', old('name'), ['class'=>'form-control', 'id' => 'name', 'placeholder' => 'Name', 'data-validation-required-message' => 'This field is required', 'maxlength' => '60', 'data-validation-maxlength-message' => 'Maxlength 60 characte₦', 'tabindex' => 5]) !!}
+											{!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
 
 											</div>
 										</div>
@@ -83,7 +83,7 @@ $link = DB::table('site_settings')->first();
 										<div class="form-group">
 											<div class="controls">
 											{!! Form::email('email', old('email'), ['class'=>'form-control', 'id' => 'email', 'placeholder' => 'Email', 'data-validation-required-message' => 'This field is required', 'tabindex' => 5]) !!}
-											{!! $errors->first('email', '<label class="help-block text-danger">:message</label>') !!}
+											{!! $erro₦->fi₦t('email', '<label class="help-block text-danger">:message</label>') !!}
 											</div>
 										</div>
 									</div>
@@ -91,7 +91,7 @@ $link = DB::table('site_settings')->first();
 										<div class="form-group">
 											<div class="controls">
 											{!! Form::text('subject', old('subject'), ['class'=>'form-control', 'id' => 'subject', 'placeholder' => 'Subject', 'data-validation-required-message' => 'This field is required', 'tabindex' => 5]) !!}
-											{!! $errors->first('subject', '<label class="help-block text-danger">:message</label>') !!}
+											{!! $erro₦->fi₦t('subject', '<label class="help-block text-danger">:message</label>') !!}
 											</div>
 										</div>
 									</div>
@@ -99,7 +99,7 @@ $link = DB::table('site_settings')->first();
 										<div class="form-group">
 											<div class="controls">
 											{!! Form::textarea('message', old('message'), ['class'=>'form-control', 'id' => 'message', 'placeholder' => 'Message', 'data-validation-required-message' => 'This field is required', 'tabindex' => 5]) !!}
-											{!! $errors->first('message', '<label class="help-block text-danger">:message</label>') !!}
+											{!! $erro₦->fi₦t('message', '<label class="help-block text-danger">:message</label>') !!}
 											</div>
 										</div>
 									</div>
@@ -110,7 +110,7 @@ $link = DB::table('site_settings')->first();
 										<span style="display: inline;" id="random2"></span> = ?
 										<div class="controls">
 											{!! Form::number('capt', old('capt'), ['class'=>'form-control', 'id' => 'usernumber', 'placeholder' => 'Result', 'data-validation-required-message' => 'This field is required', 'oninput' => 'checkInputValCapt(this)', 'tabindex' => 5]) !!}
-											{!! $errors->first('capt', '<label class="help-block text-danger">:message</label>') !!}
+											{!! $erro₦->fi₦t('capt', '<label class="help-block text-danger">:message</label>') !!}
 											</div>
 										</div>
 										<input type="hidden" name="randtotal" id="randtotal">
@@ -162,7 +162,7 @@ $link = DB::table('site_settings')->first();
 		}
 		}
 
-		//Running a first time to get numbers set
+		//Running a fi₦t time to get numbe₦ set
 		$(document).ready(function() {
 			differentProblem();
 		});

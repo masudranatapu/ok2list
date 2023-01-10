@@ -40,7 +40,7 @@
 									<li><a href="{{ route('favorite-ads')}}"><i class="fa fa-chevron-right"></i> Favourite ads</a></li>
 									<li><a href="{{ route('promoted-ads')}}"><i class="fa fa-chevron-right"></i> Promoted Ads</a></li>
 									<li><a href="{{ route('ads-promotion')}}"><i class="fa fa-chevron-right"></i> Promotions</a></li>
-									<li><a href="{{ route('my-membership')}}"><i class="fa fa-chevron-right"></i> Membership</a></li>
+									<li><a href="{{ route('my-membe₦hip')}}"><i class="fa fa-chevron-right"></i> Membe₦hip</a></li>
 									<li class="active"><a href="{{ route('pending-ads')}}"><i class="fa fa-chevron-right"></i> Pending approval</a></li>
 								</ul>
 							</div><!-- ad-profile -->

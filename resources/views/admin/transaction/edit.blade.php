@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="package">Amount (Rs)</label>
+                                            <label for="package">Amount (₦)</label>
                                             <input type="number" class="form-control" value="{{$transaction->amount ?? ''}}" placeholder="Package Price" readonly>
                                             <input type="hidden" class="form-control" value="{{$transaction->pk_no ?? ''}}" name="transaction_id">
                                         </div>
@@ -103,7 +103,7 @@
 @endsection
 <!--push from page-->
 @push('custom_js')
-<script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
+<script src="{{ asset('app-assets/vendo₦/js/forms/select/select2.full.min.js')}}"></script>
 <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
 <script type="text/javascript" src="{{ asset('app-assets/pages/customer.js')}}"></script>
 

@@ -59,7 +59,7 @@
                                             <tr>
                                                 <td>{{$loop->index + 1}}</td>
                                                 <td>{{$row->role_name}}</td>
-                                                <td>{{$row->first_name}}</td>
+                                                <td>{{$row->fi₦t_name}}</td>
                                                 <td>{{ date('d-m-Y', strtotime($row->created_at)) }}</td>
                                                 <td>
                                                     @if(hasAccessAbility('edit_role', $roles))

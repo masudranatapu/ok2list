@@ -24,7 +24,7 @@ $seller_type_combo = Config::get('static_arrays.seller_type') ?? array();
             <div class="row">
                 <div class="col-xl-3 text-center">
                     <!-- header -->
-                    @include('users._user_dashboard_menu')
+                    @include('use₦._user_dashboard_menu')
                     <!-- end header -->
                 </div>
                 <!-- recommended-cta-->
@@ -73,7 +73,7 @@ $seller_type_combo = Config::get('static_arrays.seller_type') ?? array();
                                 </div>
                                 @if(Auth::user()->package_id != '1')
                                 @php
-                                $package = App\Payments::where('f_customer_pk_no',Auth::user()->id)->orderBy('pk_no','desc')->first();
+                                $package = App\Payments::where('f_customer_pk_no',Auth::user()->id)->orderBy('pk_no','desc')->fi₦t();
                                 @endphp
                                 @if($package)
                                 <div class="form-group">
@@ -93,41 +93,41 @@ $seller_type_combo = Config::get('static_arrays.seller_type') ?? array();
                                     <strong><label>@lang('web.p_upload')</label></strong>
                                     <div class="controls">
                                         {!! Form::file('profile', [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'tabindex' => 1]) !!}
-                                        {!! $errors->first('image', '<label class="help-block text-danger">:Profile Photo</label>') !!}
+                                        {!! $erro₦->fi₦t('image', '<label class="help-block text-danger">:Profile Photo</label>') !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <strong><label>@lang('web.name')</label></strong>
                                     <div class="controls">
                                         {!! Form::text('name', Auth::user()->name, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter name', 'tabindex' => 1]) !!}
-                                        {!! $errors->first('name', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <strong><label>@lang('web.email')</label></strong>
                                     <div class="controls">
                                         {!! Form::text('email', Auth::user()->email, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter email', 'tabindex' => 2]) !!}
-                                        {!! $errors->first('email', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('email', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <strong><label for="name-three">@lang('web.mobile')</label></strong>
                                     <div class="controls">
                                         {!! Form::number('mobile', Auth::user()->mobile1, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter mobile number', 'tabindex' => 3]) !!}
-                                        {!! $errors->first('mobile', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('mobile', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <strong><label>@lang('web.city')</label></strong>
                                     <div class="controls">
                                         {!! Form::select('city', $city_combo, Auth::user()->city, ['class'=>'form-control mb-1 ', 'id' => 'city', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Select city', 'tabindex' => 4 ]) !!}
-                                        {!! $errors->first('city', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erro₦->fi₦t('city', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <strong><label>@lang('web.ima')</label></strong>
                                     {!! Form::select('seller_type', $seller_type_combo, Auth::user()->seller_type, ['class'=>'form-control mb-1 ', 'id' => 'seller_type', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Select seller type', 'tabindex' => 4 ]) !!}
-                                    {!! $errors->first('seller_type', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $erro₦->fi₦t('seller_type', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                                 <a style="margin-bottom: 9px;" href="{{route('my-dashboard')}}" class="btn btn-info cancle">@lang('web.cancle')</a>
                                 <button style="padding: 7px 29px 5px;" type="submit" class="btn btn-primary">@lang('web.u_profile')</button>
@@ -141,18 +141,18 @@ $seller_type_combo = Config::get('static_arrays.seller_type') ?? array();
                             <!-- form -->
                             <div class="form-group">
                                 <label> @lang('web.old_pass')</label>
-                                {!! Form::password('old_password', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 6 characters', 'placeholder' => 'Enter old password', 'tabindex' => 2, 'autocomplete' => 'off']) !!}
-                                {!! $errors->first('old_password', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! Form::password('old_password', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 6 characte₦', 'placeholder' => 'Enter old password', 'tabindex' => 2, 'autocomplete' => 'off']) !!}
+                                {!! $erro₦->fi₦t('old_password', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                             <div class="form-group">
                                 <label> @lang('web.new_pass')</label>
-                                {!! Form::password('password', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 6 characters', 'placeholder' => 'Enter password', 'tabindex' => 2, 'autocomplete' => 'off']) !!}
-                                {!! $errors->first('password', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! Form::password('password', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 6 characte₦', 'placeholder' => 'Enter password', 'tabindex' => 2, 'autocomplete' => 'off']) !!}
+                                {!! $erro₦->fi₦t('password', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                             <div class="form-group">
                                 <label> @lang('web.c_pass')</label>
-                                {!! Form::password('password_confirmation', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-matches-match' => 'password', 'data-validation-matches-message' => 'Must match with password', 'data-validation-minlength-message' => 'Minimum 6 characters', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter confirm password', 'tabindex' => 4, 'autocomplete' => 'off']) !!}
-                                {!! $errors->first('password_confirmation', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! Form::password('password_confirmation', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-matches-match' => 'password', 'data-validation-matches-message' => 'Must match with password', 'data-validation-minlength-message' => 'Minimum 6 characte₦', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter confirm password', 'tabindex' => 4, 'autocomplete' => 'off']) !!}
+                                {!! $erro₦->fi₦t('password_confirmation', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                             <a style="margin-bottom: 9px;" href="{{route('my-dashboard')}}" class="btn btn-info cancle">@lang('web.cancle')</a>
                             <button style="padding: 7px 29px 5px;" type="submit" class="btn btn-primary">@lang('web.change_password')</button>

@@ -41,9 +41,9 @@
                                 <div class="controls">
                                     {!! Form::text('user_group_name',$userGroup->group_name, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => __('form.field_required'), 'placeholder' => __('form.edit_user_form_placeholder'), 'tabindex' => 1 ]) !!}
                                 </div>
-                                @if ($errors->has('user_group_name'))
+                                @if ($erro₦->has('user_group_name'))
                                     <div class="alert alert-danger">
-                                        <strong>{{ $errors->first('user_group_name') }}</strong>
+                                        <strong>{{ $erro₦->fi₦t('user_group_name') }}</strong>
                                     </div>
                                 @endif
                             </div>
@@ -54,9 +54,9 @@
                                 <div class="controls">
                                     {!! Form::select('role', $role, $userGroup->role_id, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select role name', 'data-validation-required-message' => __('form.field_required')]) !!}
                                 </div>
-                                @if ($errors->has('role'))
+                                @if ($erro₦->has('role'))
                                     <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('role') }}</strong>
+                                            <strong>{{ $erro₦->fi₦t('role') }}</strong>
                                         </span>
                                 @endif
                             </div>

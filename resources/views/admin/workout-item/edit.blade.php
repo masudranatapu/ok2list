@@ -29,10 +29,10 @@
             </div>
         </div>
 
-        @if ($errors->any())
+        @if ($erro₦->any())
             <div class="alert alert-danger">
                 <ul style="margin-bottom: 0px !important;">
-                    @foreach ($errors->all() as $error)
+                    @foreach ($erro₦->all() as $error)
                         <li>* {{ $error }}</li>
                     @endforeach
                 </ul>
@@ -51,9 +51,9 @@
                                 <div class="controls">
                                     {!! Form::text('workout_name', $item->workout_name,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter work name', 'tabindex' => 1 ]) !!}
                                 </div>
-                                @if ($errors->has('workout_name'))
+                                @if ($erro₦->has('workout_name'))
                                     <span class="alert alert-danger">
-                                                <strong>{{ $errors->first('workout_name') }}</strong>
+                                                <strong>{{ $erro₦->fi₦t('workout_name') }}</strong>
                                             </span>
                                 @endif
                             </div>
@@ -67,9 +67,9 @@
                                     {{--                                    {!! Form::hidden('id', $bodyparts->body_parts_id, null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select body parts name', 'data-validation-required-message' => 'This field is required']) !!}--}}
                                     {!! Form::select('body_parts_id', $bodyparts, $item->body_parts_id, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select body parts name', 'data-validation-required-message' => 'This field is required']) !!}
                                 </div>
-                                @if ($errors->has('body_parts_id'))
+                                @if ($erro₦->has('body_parts_id'))
                                     <span class="alert alert-danger">
-                                        <strong>{{ $errors->first('body_parts_id') }}</strong>
+                                        <strong>{{ $erro₦->fi₦t('body_parts_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -80,9 +80,9 @@
                                 <div class="controls">
                                     {!! Form::select('status', ['1' => 'Yes', '0' => 'No'], $item->status, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select status', 'data-validation-required-message' => 'This field is required']) !!}
                                 </div>
-                                @if ($errors->has('status'))
+                                @if ($erro₦->has('status'))
                                     <span class="alert alert-danger">
-                                                    <strong>{{ $errors->first('status') }}</strong>
+                                                    <strong>{{ $erro₦->fi₦t('status') }}</strong>
                                                 </span>
                                 @endif
                             </div>
@@ -96,9 +96,9 @@
                                  src="{{$item->photo_url}}" alt="Profile_pic">
                             {!! Form::file('photo', ['class' => 'form-control mb-1']); !!}
                         </div>
-                        @if ($errors->has('photo'))
+                        @if ($erro₦->has('photo'))
                             <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('photo') }}</strong>
+                                            <strong>{{ $erro₦->fi₦t('photo') }}</strong>
                                         </span>
                         @endif
                     </div>

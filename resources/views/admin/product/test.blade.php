@@ -3,7 +3,7 @@
 <!-- BEGIN: Head-->
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; cha₦et=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
@@ -16,7 +16,7 @@
 
     <!-- BEGIN: Vendor CSS-->
     
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/file-uploaders/dropzone.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendo₦/css/file-uploade₦/dropzone.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -26,7 +26,7 @@
 
     <!-- BEGIN: Page CSS-->
    
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/file-uploaders/dropzone.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/file-uploade₦/dropzone.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/dropzone.css">
     <!-- END: Page CSS-->
 
@@ -66,11 +66,11 @@
     </div>
 
     <!-- BEGIN: Vendor JS-->
-    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+    <script src="../../../app-assets/vendo₦/js/vendo₦.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="../../../app-assets/vendors/js/extensions/dropzone.min.js"></script>
+    <script src="../../../app-assets/vendo₦/js/extensions/dropzone.min.js"></script>
 
     <!-- END: Page Vendor JS-->
 

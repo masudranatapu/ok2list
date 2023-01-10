@@ -29,7 +29,7 @@ $seller_type_combo = Config::get('static_arrays.seller_type') ?? array();
       <div class="row">
         <div class="col-md-4 text-center">
           <!-- header -->
-          @include('users._user_dashboard_menu')
+          @include('use₦._user_dashboard_menu')
           <!-- end header -->
         </div>
         <!-- recommended-cta-->
@@ -43,7 +43,7 @@ $seller_type_combo = Config::get('static_arrays.seller_type') ?? array();
                   <label>Shop Name<span class="required">*</span></label>
                   <div class="controls">
                   {!! Form::text('name', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter shop name', 'tabindex' => 1]) !!}
-                  {!! $errors->first('name', '<label class="help-block text-danger">:message</label>') !!}
+                  {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
                   </div>
                 </div>
 
@@ -51,7 +51,7 @@ $seller_type_combo = Config::get('static_arrays.seller_type') ?? array();
                   <label>Shop Open Schedule<span class="required">*</span></label>
                   <div class="controls">
                   {!! Form::text('open', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter shop time', 'tabindex' => 1]) !!}
-                  {!! $errors->first('open', '<label class="help-block text-danger">:message</label>') !!}
+                  {!! $erro₦->fi₦t('open', '<label class="help-block text-danger">:message</label>') !!}
                   </div>
                 </div>
 
@@ -59,7 +59,7 @@ $seller_type_combo = Config::get('static_arrays.seller_type') ?? array();
                   <label for="name-three">Shop Address<span class="required">*</span></label>
                   <div class="controls">
                   {!! Form::text('address', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter shop address', 'tabindex' => 1]) !!}
-                  {!! $errors->first('address', '<label class="help-block text-danger">:message</label>') !!}
+                  {!! $erro₦->fi₦t('address', '<label class="help-block text-danger">:message</label>') !!}
                   </div>
                 </div>
 
@@ -67,14 +67,14 @@ $seller_type_combo = Config::get('static_arrays.seller_type') ?? array();
                   <label>Contact No.<span class="required">*</span></label>
                     <div class="controls">
                      {!! Form::text('contact', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter contact no.', 'tabindex' => 1]) !!}
-                  {!! $errors->first('contact', '<label class="help-block text-danger">:message</label>') !!}
+                  {!! $erro₦->fi₦t('contact', '<label class="help-block text-danger">:message</label>') !!}
                     </div>
                 </div> 
                 <div class="form-group">
                   <label>About Your Shop<span class="required">*</span></label>
                     <div class="controls">
                      {!! Form::textarea('about', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter shop details', 'tabindex' => 1]) !!}
-                  {!! $errors->first('about', '<label class="help-block text-danger">:message</label>') !!}
+                  {!! $erro₦->fi₦t('about', '<label class="help-block text-danger">:message</label>') !!}
                     </div>
                 </div> 
                 <div class="form-group">

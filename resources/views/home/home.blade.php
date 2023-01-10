@@ -13,7 +13,7 @@
 @section('content')
     @if(Auth::user())
         <?php
-            $payments = App\Payments::where('f_customer_pk_no',Auth::user()->id)->where(['payment_type'=>'package'])->orderBy('pk_no','desc')->first();
+            $payments = App\Payments::where('f_customer_pk_no',Auth::user()->id)->where(['payment_type'=>'package'])->orderBy('pk_no','desc')->fi₦t();
         ?>
     @endif
     <section id="home-one-info" class="clearfix home-one">

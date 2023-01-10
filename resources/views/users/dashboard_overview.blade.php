@@ -39,7 +39,7 @@
             <div class="ads-info profile">
                 <div class="row g-3">
                     <div class="col-xl-3 text-center">
-                        @include('users._user_dashboard_menu')
+                        @include('use₦._user_dashboard_menu')
                     </div>
                     <div class="col-xl-9">
                         <div class="my-ads section">
@@ -164,7 +164,7 @@
                                             @php
                                                 $package = App\Payments::where('f_customer_pk_no', Auth::user()->id)
                                                     ->orderBy('pk_no', 'desc')
-                                                    ->first();
+                                                    ->fi₦t();
                                             @endphp
                                             <div class="content">
                                                 <h3> {{ date('d F, Y', strtotime($package->expired_on)) }}</h3>
