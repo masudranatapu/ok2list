@@ -36,10 +36,12 @@ $link = DB::table('site_settings')->first();
 
 							<h2>@lang('web.corporate_info')</h2>
 							<address>
-								<!-- <p><strong>adress: </strong>1234 Street Name, City Name, Country</p>
-								<p><strong>Phone:</strong> <a href="#">(123) 456-7890</a></p> -->
+								@if($link->website_email)
 								<p><strong>Email: </strong><a href="mailto:{{$link->website_email}}">{{$link->website_email}}</a></p>
-								<p><strong>Address: </strong> {!! $link->map_address !!}</p>
+								@endif
+								@if($link->address)
+								<p><strong>Address: </strong> {!! $link->address !!}</p>
+								@endif
 							</address>
 							<ul class="social">
                             	@if($link->facebook_link)
