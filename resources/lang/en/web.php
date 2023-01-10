@@ -49,7 +49,7 @@ return [
     'password' => 'Password',
     'remember' => 'Remember Me',
     'forget_password' => 'Forgot Password?',
-    'bysigningup' => 'By signing up for an account you agree to our',
+    'bysigningup' => 'By signing up for an account you agree to our ',
     'already_reg' => ' Already registered, ',
     'login_here' => 'Login Here',
     'iread' => 'I read the ',
