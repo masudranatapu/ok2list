@@ -131,7 +131,7 @@ $cate = DB::table('prd_category')
                         </div>
                         <div class="single_content slider-text pt-3">
                             <h2>
-                               ₦{{ number_format($row->price, 2) }}
+                               ₦ {{ number_format($row->price, 2) }}
                                 <div class="float-right">
                                     @if ($row->is_like == '1')
                                         <a href="{{ route('ad-post-dislike', $row->pk_no) }}" class="like_ads btn-sm"
@@ -167,7 +167,7 @@ $cate = DB::table('prd_category')
 
                             <!-- buy product -->
                             <div class="buy_product contact-with">
-                                <a href="{{ route('checkout.shipping') }}" onclick="addToCart({{ $row->pk_no }})" class="btn btn-red w-100">Buy Product</a>
+                                <a href="{{ route('checkout.shipping') }}" onclick="addToCart({{ $row->pk_no }})" class="btn btn-red w-100">Order Online</a>
                             </div>
                             <!-- buy product -->
 
