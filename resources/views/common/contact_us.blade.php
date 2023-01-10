@@ -42,6 +42,9 @@ $link = DB::table('site_settings')->first();
 								@if($link->address)
 								<p><strong>Address: </strong> {!! $link->address !!}</p>
 								@endif
+								@if($link->map_address)
+									<p>{!! $link->map_address !!}</p>
+								@endif
 							</address>
 							<ul class="social">
                             	@if($link->facebook_link)
@@ -63,11 +66,6 @@ $link = DB::table('site_settings')->first();
 									<li><a href="{{$link->youtube_link}}"><i style="color: #c1272d;" class="fa fa-youtube-play"></i></a></li>
 								@endif
 							</ul>
-							<address>
-							@if($link->map_address)
-									<p><strong>Address: </strong> {!! $link->map_address !!}</p>
-								@endif
-							</address>
 						</div>
 					</div><!-- contact-info -->
 
