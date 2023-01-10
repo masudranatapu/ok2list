@@ -140,7 +140,7 @@
 
                                             <!-- ad-info -->
                                             <div class="ad-info">
-                                                <h3 class="item-price">rs {{ number_format($row->price, 2) }}</h3>
+                                                <h3 class="item-price">₦ {{ number_format($row->price, 2) }}</h3>
                                                 <h4 class="item-title"><a
                                                         href="{{ route('ad.details', ['pk_no' => $row->pk_no, 'url_slug' => $row->url_slug]) }}">{{ $row->ad_title }}</a>
                                                 </h4>

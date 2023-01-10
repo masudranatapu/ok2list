@@ -71,7 +71,7 @@
                                     @endif
                                 </div>
                               <div class="card-body">
-                                    <h3 class="item-price">rs {{number_format($ad->price,2)}}</h3>
+                                    <h3 class="item-price">₦ {{number_format($ad->price,2)}}</h3>
                                     <h4 class="item-title"><a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{ $ad->ad_title }}</a></h4>
                                     <div class="item-cat">
                                         <span><a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{ $ad->subcategory->name ?? '' }}</a></span>
@@ -110,7 +110,7 @@
                                 @endif
                             </div>
                             <div class="ad-info">
-                                <h3 class="item-price">rs {{number_format($ad->price,2)}}</h3>
+                                <h3 class="item-price">₦ {{number_format($ad->price,2)}}</h3>
                                 <h4 class="item-title"><a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{ $ad->ad_title }}</a></h4>
                                 <div class="item-cat">
                                     <span><a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{ $ad->subcategory->name ?? '' }}</a></span>

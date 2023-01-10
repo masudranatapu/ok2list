@@ -55,7 +55,7 @@
 										</div>
 										<div class="item-info col-lg-8">
 											<div class="ad-info">
-												<h3 class="item-price">rs {{ number_format($row->price,2) }} <a href="{{route('promoted-ads.create',$row->pk_no)}}">(Promote this ad)</a></h3>
+												<h3 class="item-price">₦ {{ number_format($row->price,2) }} <a href="{{route('promoted-ads.create',$row->pk_no)}}">(Promote this ad)</a></h3>
 
 												@if($row->is_delete == 1)
 												<a href="javascript:void(0)"  class="pull-right c-btn"> Rejected</a>

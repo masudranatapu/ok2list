@@ -63,7 +63,7 @@
                                             <tr>
                                                 <td>01</td>
                                                 <td>{{ $row->promotion->name ?? '' }}</td>
-                                                <td>rs {{ number_format($row->price, 2) }} </td>
+                                                <td>₦ {{ number_format($row->price, 2) }} </td>
                                                 <td>{{ $row->day_limit }} Day</td>
                                                 <td class="text-center">
 

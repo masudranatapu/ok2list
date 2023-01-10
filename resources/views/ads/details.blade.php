@@ -495,7 +495,7 @@ $cate = DB::table('prd_category')
                                                     <p class="mb-0">{{ $row->area->name ?? '' }},
                                                         {{ $row->area->city->name ?? '' }}{{ $row->division->name ?? '' }}
                                                     </p>
-                                                    <p class="mb-0 text-success">rs {{ number_format($row->price, 2) }}
+                                                    <p class="mb-0 text-success">₦ {{ number_format($row->price, 2) }}
                                                     </p>
                                                 </div>
                                             </div>

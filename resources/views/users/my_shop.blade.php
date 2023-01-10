@@ -171,7 +171,7 @@
                         
                         <!-- ad-info -->
                         <div class="ad-info">
-                            <h3 class="item-price">rs {{$val->price}}</h3>
+                            <h3 class="item-price">₦ {{$val->price}}</h3>
                             <h4 class="item-title"><a href="#">{{$val->ad_title}}</a></h4>
                             <div class="item-cat">
                                 <span><a href="#">{{$val->main_category}}</a></span> 

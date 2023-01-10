@@ -246,11 +246,11 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                         <div class="item-info col-lg-8">
                                             <div class="ad-info">
                                                 {{-- @if ($row->promotion_to >= Carbon\Carbon::today())
-												<h3 class="item-price">rs {{ number_format($row->price) }}
+												<h3 class="item-price">₦ {{ number_format($row->price) }}
 													@if ($row->promotion == 'Top') <span class="topadtag">{{ $row->promotion}}</span> @endif
 												</h3>
 												@endif --}}
-                                                <h3 class="item-price">rs {{ number_format($row->price) }}
+                                                <h3 class="item-price">₦ {{ number_format($row->price) }}
                                                     @if ($row->promotion == 'Top')
                                                         <span class="topadtag">{{ $row->promotion }}</span>
                                                     @endif

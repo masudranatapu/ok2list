@@ -49,7 +49,7 @@
 												(Prod-{{ $row->prd_pk_no }}) --}}
 											</h5>
 											<p class="mb-0" style="font-size: 12px; line-height: 16px;">{{ $row->ad_title }} {{-- ({{$row->owner_pk_no}}) --}}</p>
-											<p class="mb-0 text-success" style="font-size: 12px; line-height: 16px;">rs {{ number_format($row->price,2)  }} {{-- 'Chat_pk-'({{ $row->row_pk}}) --}}</p>
+											<p class="mb-0 text-success" style="font-size: 12px; line-height: 16px;">₦ {{ number_format($row->price,2)  }} {{-- 'Chat_pk-'({{ $row->row_pk}}) --}}</p>
 											<br>
 											{{-- {{$row->created_at}} --}}
 										</div>
@@ -93,7 +93,7 @@
 													{{ $parti ?? '' }}
 													</h5>
 												<p class="mb-0" style="font-size: 12px; line-height: 16px;">{{ $firstRow->ad_title }} </p>
-												<p class="mb-0 text-success" style="font-size: 12px; line-height: 16px;">rs {{ number_format($firstRow->price,2)  }} </p>
+												<p class="mb-0 text-success" style="font-size: 12px; line-height: 16px;">₦ {{ number_format($firstRow->price,2)  }} </p>
 												<br>
 
 											</div>
