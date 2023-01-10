@@ -20,7 +20,7 @@ $subcategory_combo  = $data['subcategory'] ?? array();
 ?>
 
 @push('custom_css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendo₦/css/forms/selects/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendoRs/css/forms/selects/select2.min.css') }}">
 @endpush
 
 @section('content')
@@ -31,37 +31,37 @@ $subcategory_combo  = $data['subcategory'] ?? array();
             <div class="card">
                 <div class="card-content collapse show">
                     <div class="card-body">
-                        <?php vError($erro₦) ?>
+                        <?php vError($erroRs) ?>
                         {!! Form::open([ 'route' => 'admin.brand.store', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true , 'novalidate']) !!}
 
                         <div class="row">
 
                             <div class="col-md-4 offset-4">
-                                <div class="form-group {!! $erro₦->has('category') ? 'error' : '' !!}">
+                                <div class="form-group {!! $erroRs->has('category') ? 'error' : '' !!}">
                                     <label>{{trans('form.category')}}<span class="text-danger">*</span></label>
                                     <div class="controls">
                                         {!! Form::select('category', $category_combo, null, ['class'=>'form-control mb-1 select2', 'id' => 'category','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select category', 'tabindex' => 2, 'data-url' => URL::to('admin/prod_subcategory')]) !!}
-                                        {!! $erro₦->fi₦t('category', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erroRs->fiRst('category', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4 offset-4">
-                                <div class="form-group {!! $erro₦->has('sub_category') ? 'error' : '' !!}">
+                                <div class="form-group {!! $erroRs->has('sub_category') ? 'error' : '' !!}">
                                     <label>{{trans('form.sub_category')}}<span class="text-danger">*</span></label>
                                     <div class="controls">
                                         {!! Form::select('sub_category', $subcategory_combo, null, ['class'=>'form-control mb-1 select2', 'id' => 'sub_category', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Select sub category', 'data-url' => URL::to('get_hscode_by_scat'), 'tabindex' => 2] ) !!}
-                                        {!! $erro₦->fi₦t('sub_category', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erroRs->fiRst('sub_category', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>
 
 
                             <div class="col-md-4 offset-4">
-                                <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
+                                <div class="form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
                                     <label>@lang('form.brand_name')<span class="text-danger">*</span></label>
                                     <div class="controls">
                                         {!! Form::text('name', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product name', 'data-validation-required-message' => 'This field is required', 'tabindex' => 1 ]) !!}
-                                        {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@ $subcategory_combo  = $data['subcategory'] ?? array();
 @endsection
 
 @push('custom_js')
-    <script src="{{ asset('app-assets/vendo₦/js/forms/select/select2.full.min.js')}}"></script>
+    <script src="{{ asset('app-assets/vendoRs/js/forms/select/select2.full.min.js')}}"></script>
     <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
     <script src="{{ asset('app-assets/pages/product.js')}}"></script>
 @endpush

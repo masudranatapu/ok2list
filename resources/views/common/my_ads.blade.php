@@ -41,14 +41,14 @@
 									<li><a href="favourite-ads.html"><i class="fa fa-chevron-right"></i> Favourite ads</a></li>
 									<li><a href="promoted-ads.html"><i class="fa fa-chevron-right"></i> Promoted Ads</a></li>
 									<li><a href="promotion.html"><i class="fa fa-chevron-right"></i> Promotions</a></li>
-									<li><a href="membe₦hip.html"><i class="fa fa-chevron-right"></i> Membe₦hip</a></li>
+									<li><a href="membeRship.html"><i class="fa fa-chevron-right"></i> MembeRship</a></li>
 									<li><a href="pending-ads.html"><i class="fa fa-chevron-right"></i> Pending approval</a></li>
 									<li><a href="{{ route('my-profile')}}"><i class="fa fa-chevron-right"></i> My Profile</a></li>
 									<li class="active"><a href="{{ route('my-ads')}}"><i class="fa fa-chevron-right"></i> My ads</a></li>
 									<li><a href="{{ route('favorite-ads')}}"><i class="fa fa-chevron-right"></i> Favourite ads</a></li>
 									<li><a href="{{ route('promoted-ads')}}"><i class="fa fa-chevron-right"></i> Promoted Ads</a></li>
 									<li><a href="{{ route('ads-promotion')}}"><i class="fa fa-chevron-right"></i> Promotions</a></li>
-									<li><a href="{{ route('membe₦hip-ads')}}"><i class="fa fa-chevron-right"></i> Membe₦hip</a></li>
+									<li><a href="{{ route('membeRship-ads')}}"><i class="fa fa-chevron-right"></i> MembeRship</a></li>
 									<li><a href="{{ route('pending-ads')}}"><i class="fa fa-chevron-right"></i> Pending approval</a></li>
 								</ul>
 							</div><!-- ad-profile -->
@@ -84,7 +84,7 @@
 								<div class="ad-meta">
 									<div class="meta-content">
 										<span class="dated">Posted On: <a href="#">7 Jan, 16  10:10 pm </a></span>
-										<span class="visito₦">Visito₦: 221</span>
+										<span class="visitoRs">VisitoRs: 221</span>
 									</div>
 									<!-- item-info-right -->
 									<div class="user-option pull-right">
@@ -120,7 +120,7 @@
 								<div class="ad-meta">
 									<div class="meta-content">
 										<span class="dated">Posted On: <a href="#">7 Jan, 16  10:10 pm </a></span>
-										<span class="visito₦">Visito₦: 221</span>
+										<span class="visitoRs">VisitoRs: 221</span>
 									</div>
 									<!-- item-info-right -->
 									<div class="user-option pull-right">
@@ -156,7 +156,7 @@
 								<div class="ad-meta">
 									<div class="meta-content">
 										<span class="dated">Posted On: <a href="#">7 Jan, 16  10:10 pm </a></span>
-										<span class="visito₦">Visito₦: 221</span>
+										<span class="visitoRs">VisitoRs: 221</span>
 									</div>
 									<!-- item-info-right -->
 									<div class="user-option pull-right">
@@ -192,7 +192,7 @@
 								<div class="ad-meta">
 									<div class="meta-content">
 										<span class="dated">Posted On: <a href="#">7 Jan, 16  10:10 pm </a></span>
-										<span class="visito₦">Visito₦: 221</span>
+										<span class="visitoRs">VisitoRs: 221</span>
 									</div>
 									<!-- item-info-right -->
 									<div class="user-option pull-right">

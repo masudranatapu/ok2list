@@ -6,13 +6,13 @@
 			<div class="breadcrumb-section">
 				<ol class="breadcrumb">
 					<li><a href="{{url('/')}}">Home</a></li>
-					<li>@lang('web.membe₦hip')</li>
+					<li>@lang('web.membeRship')</li>
 				</ol>
 			</div>
-			<!-- @if(isset($data['membe₦hip_page1']) && ($data['membe₦hip_page1']) != null )
+			<!-- @if(isset($data['membeRship_page1']) && ($data['membeRship_page1']) != null )
 				<div class="">
 					<div class="ads_banner text-center mb-4">
-						<a href="{{ $data['membe₦hip_page1']->link }}" target="_blank" title="{{ $data['membe₦hip_page1']->name }}"><img src="{{ fileExit($data['membe₦hip_page1']->photo) }}" class="w-100" alt="{{ $data['membe₦hip_page1']->name }}" style="height: 96px;"></a>
+						<a href="{{ $data['membeRship_page1']->link }}" target="_blank" title="{{ $data['membeRship_page1']->name }}"><img src="{{ fileExit($data['membeRship_page1']->photo) }}" class="w-100" alt="{{ $data['membeRship_page1']->name }}" style="height: 96px;"></a>
 					</div>
 				</div>
 			@endif -->
@@ -20,13 +20,13 @@
 				<div class="row">
 					<div class="col-md-8">
 						<div class="my-ads section">
-							<h4>@lang('web.membe₦hip')</h4>
+							<h4>@lang('web.membeRship')</h4>
 							<div id="page-content">
-								@if($data['membe₦hip'])
+								@if($data['membeRship'])
 									@if(app()->getLocale() == 'en')
-										<p>{!! $data['membe₦hip']->description !!}</p>
+										<p>{!! $data['membeRship']->description !!}</p>
 									@else
-										<p>{!! $data['membe₦hip']->description_sl !!}</p>
+										<p>{!! $data['membeRship']->description_sl !!}</p>
 									@endif
 								@endif
 							</div>
@@ -96,10 +96,10 @@
 					</div>
 				</div>
 			</div>
-			<!-- @if(isset($data['membe₦hip_page2']) && ($data['membe₦hip_page2']) != null )
+			<!-- @if(isset($data['membeRship_page2']) && ($data['membeRship_page2']) != null )
 			
 					<div class="ads_banner text-center mb-4">
-						<a href="{{ $data['membe₦hip_page2']->link }}" target="_blank" title="{{ $data['membe₦hip_page2']->name }}"><img src="{{ fileExit($data['membe₦hip_page2']->photo) }}" class="w-100" alt="{{ $data['membe₦hip_page2']->name }}" style="height: 96px;"></a>
+						<a href="{{ $data['membeRship_page2']->link }}" target="_blank" title="{{ $data['membeRship_page2']->name }}"><img src="{{ fileExit($data['membeRship_page2']->photo) }}" class="w-100" alt="{{ $data['membeRship_page2']->name }}" style="height: 96px;"></a>
 					</div>
 				
 			@endif -->

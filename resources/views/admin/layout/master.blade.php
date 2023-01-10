@@ -1,10 +1,10 @@
 <?php
-    $setting = DB::table('site_settings')->fi₦t();
+    $setting = DB::table('site_settings')->fiRst();
 ?>
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; cha₦et=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; chaRset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
@@ -60,8 +60,8 @@
         <script src="{{asset('massage/toastr/toastr.js')}}"></script>
         {!! Toastr::message() !!}
         <script>
-            @if($erro₦->any())
-                @foreach($erro₦->all() as $error)
+            @if($erroRs->any())
+                @foreach($erroRs->all() as $error)
                     toastr.error('{{ $error }}','Error',{
                         closeButton:true,
                         progressBar:true,

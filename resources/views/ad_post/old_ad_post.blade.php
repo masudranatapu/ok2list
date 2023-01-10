@@ -35,7 +35,7 @@ $subcat_info = $data['subcat_info'] ?? null ;
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -53,7 +53,7 @@ $subcat_info = $data['subcat_info'] ?? null ;
 									</div>
 								</div>
 								<div class="row form-group select-price">
-									<label class="col-sm-3 label-title">Price(₦)</label>
+									<label class="col-sm-3 label-title">Price(Rs)</label>
 									<div class="col-sm-9">
 										<input type="text" class="form-control" placeholder="Pick a good price - what would you pay?" id="text1">
 										<input type="radio" name="price" value="negotiable1" id="negotiable1">
@@ -254,7 +254,7 @@ $subcat_info = $data['subcat_info'] ?? null ;
 									<div class="col-sm-9">
 										<select class="form-control" id="exampleFormControlSelect1">
 										      <option>Baby Food</option>
-										      <option>Diape₦ & Wipes</option>
+										      <option>DiapeRs & Wipes</option>
 										      <option>Skin & Haircare</option>
 										      <option>Baby accessories</option>
 										      <option>For Mom</option>
@@ -624,7 +624,7 @@ span.select2-selection.select2-selection--single{
 
 										<input type="radio" name="gps" value="gps" id="gps"> <label for="gps">GPS</label>
 										<input type="radio" name="keyboard" value="keyboard" id="keyboard"> <label for="keyboard">Physical keyboard</label>
-										<input type="radio" name="mothion" value="mothion" id="mothion"> <label for="mothion">Motion Senso₦</label>
+										<input type="radio" name="mothion" value="mothion" id="mothion"> <label for="mothion">Motion SensoRs</label>
 										<input type="radio" name="3g" value="3g" id="3g"> <label for="3g">3G</label>
 										<input type="radio" name="4g" value="4g" id="4g"> <label for="4g">4G</label>
 										<input type="radio" name="gsm" value="gsm" id="gsm"> <label for="gsm">GSM</label>
@@ -701,14 +701,14 @@ span.select2-selection.select2-selection--single{
 									<div class="col-sm-9">
 										<select class="form-control" id="exampleFormControlSelect1">
 										      <option>Power Banks</option>
-										      <option>Screen Protecto₦</option>
-										      <option>Charge₦</option>
+										      <option>Screen ProtectoRs</option>
+										      <option>ChargeRs</option>
 										      <option>Cables</option>
-										      <option>Holde₦ & Stands</option>
+										      <option>HoldeRs & Stands</option>
 										      <option>Bags & Cases</option>
 										      <option>VR Boxes</option>
 										      <option>Selfie Sticks</option>
-										      <option>Othe₦</option>
+										      <option>OtheRs</option>
 								    	</select>
 									</div>
 								</div>
@@ -918,7 +918,7 @@ span.select2-selection.select2-selection--single{
 						<hr/>
 
 						<p>Category Name: Electronics</p>
-						<p>Subcategory: Desktop Compute₦</p>
+						<p>Subcategory: Desktop ComputeRs</p>
 						<form action="#">
 								<div class="row form-group">
 									<label class="col-sm-3">Condition</label>
@@ -947,7 +947,7 @@ span.select2-selection.select2-selection--single{
 								<div class="row form-group add-title">
 									<label class="col-sm-3 label-title">Modal</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="text" placeholder="Enter your modal name, ve₦ion and color">
+										<input type="text" class="form-control" id="text" placeholder="Enter your modal name, veRsion and color">
 									</div>
 								</div>
 								<div class="row form-group add-title">
@@ -1039,7 +1039,7 @@ span.select2-selection.select2-selection--single{
 								<div class="row form-group add-title">
 									<label class="col-sm-3 label-title">Modal</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="text" placeholder="Enter your modal name, ve₦ion and color">
+										<input type="text" class="form-control" id="text" placeholder="Enter your modal name, veRsion and color">
 									</div>
 								</div>
 								<div class="row form-group add-title">
@@ -1122,7 +1122,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -1214,7 +1214,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -1222,7 +1222,7 @@ span.select2-selection.select2-selection--single{
 								<div class="row form-group add-title">
 									<label class="col-sm-3 label-title">Modal</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="text" placeholder="Enter your modal name, ve₦ion and color">
+										<input type="text" class="form-control" id="text" placeholder="Enter your modal name, veRsion and color">
 									</div>
 								</div>
 								<div class="row form-group add-title">
@@ -1305,7 +1305,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -1313,7 +1313,7 @@ span.select2-selection.select2-selection--single{
 								<div class="row form-group add-title">
 									<label class="col-sm-3 label-title">Modal</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="text" placeholder="Enter your modal name, ve₦ion and color">
+										<input type="text" class="form-control" id="text" placeholder="Enter your modal name, veRsion and color">
 									</div>
 								</div>
 								<div class="row form-group add-title">
@@ -1396,7 +1396,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -1464,7 +1464,7 @@ span.select2-selection.select2-selection--single{
 						<hr/>
 
 						<p>Category Name: Electronics</p>
-						<p>Subcategory: Cameras, Camcorde₦ & Accessories</p>
+						<p>Subcategory: Cameras, CamcordeRs & Accessories</p>
 						<form action="#">
 								<div class="row form-group">
 									<label class="col-sm-3">Condition</label>
@@ -1481,7 +1481,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -1494,7 +1494,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -1579,7 +1579,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -1725,7 +1725,7 @@ span.select2-selection.select2-selection--single{
 						<hr/>
 
 						<p>Category Name: Electronics</p>
-						<p>Subcategory: Photocopie₦</p>
+						<p>Subcategory: PhotocopieRs</p>
 						<form action="#">
 								<div class="row form-group">
 									<label class="col-sm-3">Condition</label>
@@ -1742,7 +1742,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -1750,7 +1750,7 @@ span.select2-selection.select2-selection--single{
 								<div class="row form-group add-title">
 									<label class="col-sm-3 label-title">Modal</label>
 									<div class="col-sm-9">
-										<input type="text" class="form-control" id="text" placeholder="Enter your modal number, ve₦ion and color">
+										<input type="text" class="form-control" id="text" placeholder="Enter your modal number, veRsion and color">
 									</div>
 								</div>
 								<div class="row form-group add-title">
@@ -1889,7 +1889,7 @@ span.select2-selection.select2-selection--single{
 						<hr/>
 
 						<p>Category Name: Vehicles</p>
-						<p>Subcategory: Ca₦</p>
+						<p>Subcategory: CaRs</p>
 						<form action="#">
 								<div class="row form-group add-title">
 									<label class="col-sm-3 label-title">Brand</label>
@@ -1899,7 +1899,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -1912,7 +1912,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -1959,7 +1959,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -1983,9 +1983,9 @@ span.select2-selection.select2-selection--single{
 									</div>
 								</div>
 								<div class="row form-group add-title">
-									<label class="col-sm-3 label-title">Kilomete₦ run (km)</label>
+									<label class="col-sm-3 label-title">KilometeRs run (km)</label>
 									<div class="col-sm-9">
-										<input type="number" class="form-control" step="0.01" id="text" placeholder="Kilomete₦ Run">
+										<input type="number" class="form-control" step="0.01" id="text" placeholder="KilometeRs Run">
 									</div>
 								</div>
 								<div class="row form-group item-description">
@@ -2045,7 +2045,7 @@ span.select2-selection.select2-selection--single{
 						<hr/>
 
 						<p>Category Name: Vehicles</p>
-						<p>Subcategory: Motorbikes & Scoote₦</p>
+						<p>Subcategory: Motorbikes & ScooteRs</p>
 						<form action="#">
 								<div class="row form-group">
 									<label class="col-sm-3">Condition</label>
@@ -2069,7 +2069,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -2082,7 +2082,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -2094,9 +2094,9 @@ span.select2-selection.select2-selection--single{
 									</div>
 								</div>
 								<div class="row form-group add-title">
-									<label class="col-sm-3 label-title">Kilomete₦ run (km)</label>
+									<label class="col-sm-3 label-title">KilometeRs run (km)</label>
 									<div class="col-sm-9">
-										<input type="number" class="form-control" step="0.01" id="text" placeholder="Kilomete₦ Run">
+										<input type="number" class="form-control" step="0.01" id="text" placeholder="KilometeRs Run">
 									</div>
 								</div>
 								<div class="row form-group add-title">
@@ -2163,7 +2163,7 @@ span.select2-selection.select2-selection--single{
 						<hr/>
 
 						<p>Category Name: Vehicles</p>
-						<p>Subcategory: Bicycles & Three Wheele₦</p>
+						<p>Subcategory: Bicycles & Three WheeleRs</p>
 						<form action="#">
 								<div class="row form-group">
 									<label class="col-sm-3">Condition</label>
@@ -2176,7 +2176,7 @@ span.select2-selection.select2-selection--single{
 									<label class="col-sm-3">Vehicle type</label>
 									<div class="col-sm-9 user-type">
 										<input type="radio" name="sellType" value="used12" id="used12"> <label for="used12">Bicycles </label>
-										<input type="radio" name="sellType" value="new12" id="new12"> <label for="new12">Three Wheele₦ & CNGs</label>
+										<input type="radio" name="sellType" value="new12" id="new12"> <label for="new12">Three WheeleRs & CNGs</label>
 									</div>
 								</div>
 								<div class="row form-group add-title">
@@ -2187,7 +2187,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -2281,7 +2281,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -2294,9 +2294,9 @@ span.select2-selection.select2-selection--single{
 									</div>
 								</div>
 								<div class="row form-group add-title">
-									<label class="col-sm-3 label-title">Kilomete₦ run (km)</label>
+									<label class="col-sm-3 label-title">KilometeRs run (km)</label>
 									<div class="col-sm-9">
-										<input type="number" class="form-control" step="0.01" id="text" placeholder="Kilomete₦ Run">
+										<input type="number" class="form-control" step="0.01" id="text" placeholder="KilometeRs Run">
 									</div>
 								</div>
 								<div class="row form-group item-description">
@@ -2356,7 +2356,7 @@ span.select2-selection.select2-selection--single{
 						<hr/>
 
 						<p>Category Name: Vehicles</p>
-						<p>Subcategory: Tracto₦ & Heavy-Duty</p>
+						<p>Subcategory: TractoRs & Heavy-Duty</p>
 						<form action="#">
 								<div class="row form-group">
 									<label class="col-sm-3">Condition</label>
@@ -2368,7 +2368,7 @@ span.select2-selection.select2-selection--single{
 								<div class="row form-group">
 									<label class="col-sm-3">Item type</label>
 									<div class="col-sm-9 user-type">
-										<input type="radio" name="sellType" value="used16" id="used16"> <label for="used16">Tracto₦</label>
+										<input type="radio" name="sellType" value="used16" id="used16"> <label for="used16">TractoRs</label>
 										<input type="radio" name="sellType" value="new16" id="new16"> <label for="new16">Heavy-Duty</label>
 									</div>
 								</div>
@@ -2453,7 +2453,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -2604,7 +2604,7 @@ span.select2-selection.select2-selection--single{
 										      <option>Farozen</option>
 										      <option>Rice & Pulses</option>
 										      <option>Canned, Dry & Packaged Foods</option>
-										      <option>Dai₦y & Chilled</option>
+										      <option>DaiRsy & Chilled</option>
 										      <option>Biscuits, Sanckes</option>
 								    	</select>
 									</div>
@@ -2794,7 +2794,7 @@ span.select2-selection.select2-selection--single{
 										</div>
 									</div>
 									<div class="row form-group select-price">
-										<label class="col-sm-3 label-title">Price(₦)<span class="required">*</span></label>
+										<label class="col-sm-3 label-title">Price(Rs)<span class="required">*</span></label>
 										<div class="col-sm-9">
 											<input type="text" class="form-control" id="text1">
 											<input type="radio" name="price" value="negotiable" id="negotiable">
@@ -2838,7 +2838,7 @@ span.select2-selection.select2-selection--single{
 									</div>
 									<div class="row">
 										<div class="col-sm-9 offset-sm-3">
-											<p>5000 characte₦ left</p>
+											<p>5000 characteRs left</p>
 										</div>
 									</div>
 								</div><!-- section -->
@@ -2896,7 +2896,7 @@ span.select2-selection.select2-selection--single{
 					<div class="col-lg-4">
                <div class="section quick-rules">
                   @php
-                     $uickrules = DB::table('quick_rules')->latest()->fi₦t();
+                     $uickrules = DB::table('quick_rules')->latest()->fiRst();
                   @endphp
                   <h4>
                      @if(app()->getLocale() == 'sl')

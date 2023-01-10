@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 <!--push from page-->
 @push('custom_css')
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendo₦/css/forms/selects/select2.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendoRs/css/forms/selects/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('app-assets/file_upload/image-uploader.min.css')}}">
 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 @endpush('custom_css')
@@ -41,7 +41,7 @@ $shipping_method_combo = [
     <div class="row">
         <div class="col-md-12">
             <div class="card card-sm" >
-                <!--?php vError($erro₦) ?-->
+                <!--?php vError($erroRs) ?-->
                 <div class="card-content">
                     <div class="card-body">
                         <ul class="nav nav-tabs nav-top-border no-hover-bg nav-justified no-border">
@@ -61,70 +61,70 @@ $shipping_method_combo = [
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('category') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('category') ? 'error' : '' !!}">
                                             <label>{{trans('form.category')}}<span class="text-danger">*</span></label>
                                             <div class="controls">
                                                 {!! Form::select('category', $categories_combo, null, ['class'=>'form-control mb-1 select2', 'id' => 'category', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Select category', 'tabindex' => 1, 'data-url' => URL::to('prod_subcategory') ]) !!}
-                                                {!! $erro₦->fi₦t('category', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('category', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('sub_category') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('sub_category') ? 'error' : '' !!}">
                                             <label>{{trans('form.sub_category')}}<span class="text-danger">*</span></label>
                                             <div class="controls">
                                                 {!! Form::select('sub_category', array(), null, ['class'=>'form-control mb-1 select2', 'id' => 'sub_category', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Select sub category', 'data-url' => URL::to('get_hscode_by_scat'), 'tabindex' => 2] ) !!}
-                                                {!! $erro₦->fi₦t('sub_category', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('sub_category', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('brand') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('brand') ? 'error' : '' !!}">
                                             <label>{{trans('form.brand')}}<span class="text-danger">*</span></label>
                                             <div class="controls">
                                                 {!! Form::select('brand', $brand_combo, null, ['class'=>'form-control mb-1 select2', 'id' => 'brand','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select brand', 'tabindex' => 3, 'data-url' => URL::to('prod_model')]) !!}
-                                                {!! $erro₦->fi₦t('brand', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('brand', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('prod_model') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('prod_model') ? 'error' : '' !!}">
                                             <label>{{trans('form.model')}}<span class="text-danger">*</span></label>
                                             <div class="controls">
                                                 {!! Form::select('prod_model', array(), null, ['class'=>'form-control mb-1 select2 prod_model_add', 'id' => 'prod_model','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select model', 'tabindex' => 4]) !!}
-                                                {!! $erro₦->fi₦t('prod_model', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('prod_model', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
                                             <label>{{trans('form.generic_name')}}<span class="text-danger">*</span></label>
                                             <div class="controls">
                                                 {!! Form::text('name', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter product name', 'tabindex' => 5]) !!}
-                                                {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>
                                     {{-- <div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('customs_name') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('customs_name') ? 'error' : '' !!}">
                                             <label>{{trans('form.customs_name')}}</label>
                                             <div class="controls">
                                                 {!! Form::text('customs_name', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product customs name', 'tabindex' => 6 ]) !!}
-                                                {!! $erro₦->fi₦t('customs_name', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('customs_name', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div> --}}
                                     <div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('mkt_code') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('mkt_code') ? 'error' : '' !!}">
                                             <label>{{trans('form.mkt_code')}}<span class="text-danger">*</span></label>
                                             <div class="controls">
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text ig_prefix_add" id="basic-addon1" style="height: 34px; line-height: 0;">ig prefix</span>
                                                         </div>
-                                                        {!! Form::text('mkt_code', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product ig code', 'tabindex' => 6, 'aria-describedby' => 'basic-addon1', 'data-validation-required-message' => 'This field is required', 'maxlength' => '8', 'data-validation-maxlength-message' => 'Max length 8 characte₦']) !!}
-                                                         {!! $erro₦->fi₦t('mkt_code', '<label class="help-block text-danger">:message</label>') !!}
+                                                        {!! Form::text('mkt_code', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product ig code', 'tabindex' => 6, 'aria-describedby' => 'basic-addon1', 'data-validation-required-message' => 'This field is required', 'maxlength' => '8', 'data-validation-maxlength-message' => 'Max length 8 characteRs']) !!}
+                                                         {!! $erroRs->fiRst('mkt_code', '<label class="help-block text-danger">:message</label>') !!}
 
                                                 </div>
 
@@ -135,47 +135,47 @@ $shipping_method_combo = [
 
 
                                     <div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('vat_class') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('vat_class') ? 'error' : '' !!}">
                                             <label>{{trans('form.vat_class')}}</label>
                                             <div class="controls">
                                                 {!! Form::select('vat_class', $vat_class_combo, null, ['class'=>'form-control mb-1 ', 'placeholder' => 'Select vat class', 'tabindex' => 7]) !!}
-                                                {!! $erro₦->fi₦t('vat_class', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('vat_class', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('hs_code') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('hs_code') ? 'error' : '' !!}">
                                             <label>{{trans('form.default_hs_code')}}</label>
                                             <div class="controls">
                                                 {!! Form::select('hs_code', array(), null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product HS code', 'tabindex' => 8, 'id' => 'hs_code']) !!}
-                                                {!! $erro₦->fi₦t('hs_code', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('hs_code', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>
                                     {{-- <div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('def_shipping_method') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('def_shipping_method') ? 'error' : '' !!}">
                                             <label>{{trans('form.default_shipping_method')}}</label>
                                             <div class="controls">
                                                 {!! Form::select('def_shipping_method', $shipping_method_combo, 'AIR', ['class'=>'form-control mb-1', 'placeholder' => 'Select def_shipping_method', 'tabindex' => 9]) !!}
-                                                {!! $erro₦->fi₦t('def_shipping_method', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('def_shipping_method', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>--}}
                                     {{--<div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('def_air_freight') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('def_air_freight') ? 'error' : '' !!}">
                                             <label>{{trans('form.default_air_freight')}}</label>
                                             <div class="controls">
                                                 {!! Form::number('def_air_freight', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter air freight cost', 'tabindex' => 10,'step' => '0.01', 'data-validation-number-message' => 'Please enter max 2 decimal point' ]) !!}
-                                                {!! $erro₦->fi₦t('def_air_freight', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('def_air_freight', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>--}}
                                     {{--<div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('def_sea_freight') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('def_sea_freight') ? 'error' : '' !!}">
                                             <label>{{trans('form.default_sea_freight')}}</label>
                                             <div class="controls">
                                                 {!! Form::number('def_sea_freight', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter sea freight cost', 'tabindex' => 11,'step' => '0.01', 'data-validation-number-message' => 'Please enter max 2 decimal point' ]) !!}
-                                                {!! $erro₦->fi₦t('def_sea_freight', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('def_sea_freight', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div> --}}
@@ -183,38 +183,38 @@ $shipping_method_combo = [
 
 
                                     {{--<div class="col-md-3">
-                                        <div class="form-group  {!! $erro₦->has('price') ? 'error' : '' !!}">
+                                        <div class="form-group  {!! $erroRs->has('price') ? 'error' : '' !!}">
                                             <label>{{trans('form.default_price')}}</label>
                                             <div class="controls">
                                                 {!! Form::number('def_price', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter price for fixed', 'tabindex' => 12, 'step' => '0.01', 'data-validation-number-message' => 'Please enter max 2 decimal point' ]) !!}
-                                                {!! $erro₦->fi₦t('def_price', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('def_price', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>--}}
                                     {{--<div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('price_ins') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('price_ins') ? 'error' : '' !!}">
                                             <label>{{trans('form.default_price_ins')}}</label>
                                             <div class="controls">
                                                 {!! Form::number('def_price_ins', null, ['class' => 'form-control mb-1', 'placeholder' => 'Enter price for installment', 'tabindex' => 13, 'step' => '0.01', 'data-validation-number-message' => 'Please enter max 2 decimal point']) !!}
-                                                {!! $erro₦->fi₦t('def_price_ins', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('def_price_ins', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>--}}
                                     {{--<div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('def_local_postage') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('def_local_postage') ? 'error' : '' !!}">
                                             <label>{{trans('form.default_local_postage')}}</label>
                                             <div class="controls">
                                                 {!! Form::number('def_local_postage', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter postage cost for local', 'tabindex' => 14, 'step' => '0.01', 'data-validation-number-message' => 'Please enter max 2 decimal point']) !!}
-                                                {!! $erro₦->fi₦t('def_local_postage', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('def_local_postage', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>--}}
                                     {{--<div class="col-md-3">
-                                        <div class="form-group {!! $erro₦->has('def_local_postage') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('def_local_postage') ? 'error' : '' !!}">
                                             <label>{{trans('form.default_interdistric_postage')}}</label>
                                             <div class="controls">
                                                 {!! Form::number('def_int_postage', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter postage cost for interdistrict', 'tabindex' => 15, 'step' => '0.01', 'data-validation-number-message' => 'Please enter max 2 decimal point']) !!}
-                                                {!! $erro₦->fi₦t('def_int_postage', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('def_int_postage', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>--}}
@@ -224,16 +224,16 @@ $shipping_method_combo = [
                                             <br>
                                             <div class="controls">
                                                 <label><input type="checkbox" name="is_barcode_by_mfg" checked="true"> <small>{{ trans('form.is_barcode_by_manufacturer') }} </small></label>
-                                                {!! $erro₦->fi₦t('is_barcode_by_mfg', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('is_barcode_by_mfg', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="form-group {!! $erro₦->has('def_narration') ? 'error' : '' !!}">
+                                        <div class="form-group {!! $erroRs->has('def_narration') ? 'error' : '' !!}">
                                             <label>{{trans('form.default_description')}}</label>
                                             <div class="controls">
                                                 {!! Form::textarea('def_narration', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter short description about the product', 'tabindex' => 16, 'rows' => 3 ]) !!}
-                                                {!! $erro₦->fi₦t('def_narration', '<label class="help-block text-danger">:message</label>') !!}
+                                                {!! $erroRs->fiRst('def_narration', '<label class="help-block text-danger">:message</label>') !!}
                                             </div>
                                         </div>
                                     </div>
@@ -263,7 +263,7 @@ $shipping_method_combo = [
                             </div>
                             <div class="tab-pane" id="linkIconOpt1" role="tabpanel" aria-labelledby="linkIconOpt1-tab1" aria-expanded="false">
                                 <p>Cookie icing tootsie roll cupcake jelly-o sesame snaps. Gummies cookie dragée cake jelly marzipan
-                                    donut pie macaroon. Gingerbread powder chocolate cake icing. Cheesecake gummi bea₦ ice cream
+                                    donut pie macaroon. Gingerbread powder chocolate cake icing. Cheesecake gummi beaRs ice cream
                                     marzipan.
                                 </p>
                             </div>
@@ -279,7 +279,7 @@ $shipping_method_combo = [
 @endsection
 <!--push from page-->
 @push('custom_js')
-<script src="{{ asset('app-assets/vendo₦/js/forms/select/select2.full.min.js')}}"></script>
+<script src="{{ asset('app-assets/vendoRs/js/forms/select/select2.full.min.js')}}"></script>
 <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
 <script type="text/javascript" src="{{ asset('app-assets/file_upload/image-uploader.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('app-assets/pages/product.js')}}"></script>

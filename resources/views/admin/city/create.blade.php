@@ -28,30 +28,30 @@ $country_combo = $data['country_combo'] ?? array();
 
                         <div class="row">
                             <div class="col-md-4 offset-4">
-                                <div class="form-group {!! $erro₦->has('country') ? 'error' : '' !!}">
+                                <div class="form-group {!! $erroRs->has('country') ? 'error' : '' !!}">
                                     <label>{{trans('form.country')}}<span class="text-danger">*</span></label>
                                     <div class="controls">
                                         {!! Form::select('country', $country_combo, 1, ['class'=>'form-control mb-1 select2', 'id' => 'country',  'placeholder' => 'Select country', 'data-validation-required-message' => 'This field is required', 'tabindex' => 2 ]) !!}
-                                        {!! $erro₦->fi₦t('country', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erroRs->fiRst('country', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-4 offset-4">
-                                <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
+                                <div class="form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
                                     <label>@lang('form.name')<span class="text-danger">*</span></label>
                                     <div class="controls">
                                         {!! Form::text('name', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter city name', 'data-validation-required-message' => 'This field is required', 'tabindex' => 1 ]) !!}
-                                        {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4 offset-4">
-                                <div class="form-group {!! $erro₦->has('order_id') ? 'error' : '' !!}">
+                                <div class="form-group {!! $erroRs->has('order_id') ? 'error' : '' !!}">
                                     <label>Order ID<span class="text-danger">*</span></label>
                                     <div class="controls">
                                         {!! Form::text('order_id', 1, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter order id', 'data-validation-required-message' => 'This field is required', 'tabindex' => 1 ]) !!}
-                                        {!! $erro₦->fi₦t('order_id', '<label class="help-block text-danger">:message</label>') !!}
+                                        {!! $erroRs->fiRst('order_id', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
                             </div>

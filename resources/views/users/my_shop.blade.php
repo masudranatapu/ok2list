@@ -3,7 +3,7 @@
 @push('custom_css')
 <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 <style type="text/css">
-.read-more-show,.read-more-hide{cu₦or:pointer;color: #00a651;font-weight: bold;}.hide_content{display: none;}
+.read-more-show,.read-more-hide{cuRsor:pointer;color: #00a651;font-weight: bold;}.hide_content{display: none;}
 </style>
 @endpush
 @section('content')
@@ -171,7 +171,7 @@
                         
                         <!-- ad-info -->
                         <div class="ad-info">
-                            <h3 class="item-price">₦ {{$val->price}}</h3>
+                            <h3 class="item-price">Rs {{$val->price}}</h3>
                             <h4 class="item-title"><a href="#">{{$val->ad_title}}</a></h4>
                             <div class="item-cat">
                                 <span><a href="#">{{$val->main_category}}</a></span> 

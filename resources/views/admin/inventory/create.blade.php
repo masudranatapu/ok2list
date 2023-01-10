@@ -29,9 +29,9 @@
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
-                                                    @if ($erro₦->has('inventory_name'))
+                                                    @if ($erroRs->has('inventory_name'))
                                                          <span class="alert alert-danger">
-                                                            <strong>{{ $erro₦->fi₦t('inventory_name') }}</strong>
+                                                            <strong>{{ $erroRs->fiRst('inventory_name') }}</strong>
                                                          </span>
                                                     @endif
                                                     <div class="form-group">
@@ -41,9 +41,9 @@
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
-                                                    @if ($erro₦->has('inventory_code'))
+                                                    @if ($erroRs->has('inventory_code'))
                                                          <span class="alert alert-danger">
-                                                            <strong>{{ $erro₦->fi₦t('inventory_code') }}</strong>
+                                                            <strong>{{ $erroRs->fiRst('inventory_code') }}</strong>
                                                          </span>
                                                     @endif
                                                     <div class="form-group">
@@ -53,9 +53,9 @@
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
-                                                    @if ($erro₦->has('inventory_location'))
+                                                    @if ($erroRs->has('inventory_location'))
                                                          <span class="alert alert-danger">
-                                                            <strong>{{ $erro₦->fi₦t('inventory_location') }}</strong>
+                                                            <strong>{{ $erroRs->fiRst('inventory_location') }}</strong>
                                                          </span>
                                                     @endif
                                                     <div class="form-group">
@@ -65,9 +65,9 @@
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
-                                                    @if ($erro₦->has('inventory_address'))
+                                                    @if ($erroRs->has('inventory_address'))
                                                          <span class="alert alert-danger">
-                                                            <strong>{{ $erro₦->fi₦t('inventory_address') }}</strong>
+                                                            <strong>{{ $erroRs->fiRst('inventory_address') }}</strong>
                                                          </span>
                                                     @endif
                                                     
@@ -81,9 +81,9 @@
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
-                                                    @if ($erro₦->has('inventory_manager'))
+                                                    @if ($erroRs->has('inventory_manager'))
                                                          <span class="alert alert-danger">
-                                                            <strong>{{ $erro₦->fi₦t('inventory_manager') }}</strong>
+                                                            <strong>{{ $erroRs->fiRst('inventory_manager') }}</strong>
                                                          </span>
                                                     @endif
                                                     <div class="form-group">
@@ -93,9 +93,9 @@
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
-                                                    @if ($erro₦->has('inventory_contact'))
+                                                    @if ($erroRs->has('inventory_contact'))
                                                          <span class="alert alert-danger">
-                                                            <strong>{{ $erro₦->fi₦t('inventory_contact') }}</strong>
+                                                            <strong>{{ $erroRs->fiRst('inventory_contact') }}</strong>
                                                          </span>
                                                     @endif
                                                     <div class="form-group">
@@ -105,9 +105,9 @@
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
-                                                    @if ($erro₦->has('inventory_country'))
+                                                    @if ($erroRs->has('inventory_country'))
                                                          <span class="alert alert-danger">
-                                                            <strong>{{ $erro₦->fi₦t('inventory_country') }}</strong>
+                                                            <strong>{{ $erroRs->fiRst('inventory_country') }}</strong>
                                                          </span>
                                                     @endif
                                                     <div class="form-group">
@@ -117,9 +117,9 @@
                                                             <div class="help-block"></div>
                                                         </div>
                                                     </div>
-                                                    @if ($erro₦->has('inventory_country_no'))
+                                                    @if ($erroRs->has('inventory_country_no'))
                                                          <span class="alert alert-danger">
-                                                            <strong>{{ $erro₦->fi₦t('inventory_country_no') }}</strong>
+                                                            <strong>{{ $erroRs->fiRst('inventory_country_no') }}</strong>
                                                          </span>
                                                     @endif
                                                     

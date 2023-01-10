@@ -32,10 +32,10 @@
                         <div class="shipping_form">
                             <div class="title mb-3">
                                 <h3>Shipping Address</h3>
-                                @if ($erro₦->any())
+                                @if ($erroRs->any())
                                     <div class="alert alert-danger">
                                         <ul>
-                                            @foreach ($erro₦->all() as $error)
+                                            @foreach ($erroRs->all() as $error)
                                                 <li>{{ $error }}</li>
                                             @endforeach
                                         </ul>
@@ -45,10 +45,10 @@
                             <form class="row" action="{{ route('checkout.shipping.store') }}" method="post">
                                 @csrf
                                 <div class="form-group col-md-6">
-                                    <label for="fi₦tname">Fi₦t Name</label>
-                                    <input type="text" name="fi₦tname" id="fi₦tname" value="{{ old('fi₦tname') ?? Session::get('shipping_address.fi₦tname') }}"
+                                    <label for="fiRstname">FiRst Name</label>
+                                    <input type="text" name="fiRstname" id="fiRstname" value="{{ old('fiRstname') ?? Session::get('shipping_address.fiRstname') }}"
                                         class="form-control" required>
-                                    @error('fi₦tname')
+                                    @error('fiRstname')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>

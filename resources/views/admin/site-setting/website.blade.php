@@ -4,7 +4,7 @@
 @section('site-setting', 'active')
 
 @push('custom_css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendo₦/css/forms/selects/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendoRs/css/forms/selects/select2.min.css') }}">
 @endpush
 
 @section('Category', 'active')
@@ -154,7 +154,7 @@
                     ]) !!}
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group {!! $erro₦->has('logo') ? 'error' : '' !!}">
+                            <div class="form-group {!! $erroRs->has('logo') ? 'error' : '' !!}">
                                 <label class="form-label">Logo</label>
                                 <div class="controls">
                                     <div class="mb-2">
@@ -165,7 +165,7 @@
                             </div>
                         </div>
                         {{-- <div class="col-md-6">
-                                <div class="form-group {!! $erro₦->has('favicon') ? 'error' : '' !!}">
+                                <div class="form-group {!! $erroRs->has('favicon') ? 'error' : '' !!}">
                                     <label class="form-label">Favicon</label>
                                     <div class="controls">
                                         <div class="mb-2">
@@ -176,31 +176,31 @@
                                 </div>
                             </div> --}}
                         <div class="col-md-6">
-                            <div class="form-group {!! $erro₦->has('website_title') ? 'error' : '' !!}">
+                            <div class="form-group {!! $erroRs->has('website_title') ? 'error' : '' !!}">
                                 <label>Website Title</label>
                                 <div class="controls">
                                     {!! Form::text('website_title', $setting->website_title ?? '', [
                                         'class' => 'form-control mb-1',
                                         'placeholder' => 'Website Title',
                                     ]) !!}
-                                    {!! $erro₦->fi₦t('website_title', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $erroRs->fiRst('website_title', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group {!! $erro₦->has('meta_description') ? 'error' : '' !!}">
+                            <div class="form-group {!! $erroRs->has('meta_description') ? 'error' : '' !!}">
                                 <label>Meta Description</label>
                                 <div class="controls">
                                     {!! Form::text('meta_description', $setting->meta_description ?? '', [
                                         'class' => 'form-control mb-1',
                                         'placeholder' => 'Meta Description',
                                     ]) !!}
-                                    {!! $erro₦->fi₦t('meta_description', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $erroRs->fiRst('meta_description', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group {!! $erro₦->has('meta_keyword') ? 'error' : '' !!}">
+                            <div class="form-group {!! $erroRs->has('meta_keyword') ? 'error' : '' !!}">
                                 <label>Meta Keyword</label>
                                 <div class="controls">
                                     {!! Form::text('meta_keyword', $setting->meta_keyword ?? '', [
@@ -208,7 +208,7 @@
                                         'placeholder' => 'Meta Keyword',
                                         'tabindex' => 3,
                                     ]) !!}
-                                    {!! $erro₦->fi₦t('meta_keyword', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $erroRs->fiRst('meta_keyword', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                             </div>
                         </div>

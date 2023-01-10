@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @push('custom_css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colo₦/palette-tooltip.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/coloRs/palette-tooltip.css')}}">
 @endpush
 
 @section('Package','open')
@@ -78,7 +78,7 @@
                                             <tr>
                                                 <td>{{ $key+1 }}</td>
                                                 <td>{{ $row->title }}</td>
-                                                <td>₦ {{ $row->price_per_month }}</td>
+                                                <td>Rs {{ $row->price_per_month }}</td>
                                                 <td>{{ $row->support_duration }}</td>
                                                 <td>{{ $row->discount_on_promotion }}</td>
                                                 <td>{{ $row->package_duration }}</td>

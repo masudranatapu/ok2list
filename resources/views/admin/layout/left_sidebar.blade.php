@@ -42,7 +42,7 @@
     <li class="nav-item @yield('order')">
         <a href="{{ route('admin.order.index') }}">
             <i class="la la-list"></i>
-            <span class="menu-title" data-i18n="#">Orde₦</span>
+            <span class="menu-title" data-i18n="#">OrdeRs</span>
         </a>
     </li>
 
@@ -293,19 +293,19 @@
             </li>
 
             @if(hasAccessAbility('view_howtosell', $roles))
-            <li class="@yield('howto_sell_fi₦t')">
+            <li class="@yield('howto_sell_fiRst')">
                 <a class="menu-item" href="{{route('admin.howtosell.fast')}}">
                     <i></i>
-                    <span data-i18n="howto_sell_fi₦t">How to Sell Fast</span>
+                    <span data-i18n="howto_sell_fiRst">How to Sell Fast</span>
                 </a>
             </li>
             @endif
 
-            @if(hasAccessAbility('view_why_membe₦hip', $roles))
-            <li class="@yield('why_membe₦hip')">
-                <a class="menu-item" href="{{route('admin.why.membe₦hip')}}">
+            @if(hasAccessAbility('view_why_membeRship', $roles))
+            <li class="@yield('why_membeRship')">
+                <a class="menu-item" href="{{route('admin.why.membeRship')}}">
                     <i></i>
-                    <span data-i18n="why_membe₦hip">Why membe₦hip</span>
+                    <span data-i18n="why_membeRship">Why membeRship</span>
                 </a>
             </li>
             @endif

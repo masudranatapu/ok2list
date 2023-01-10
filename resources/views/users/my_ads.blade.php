@@ -39,7 +39,7 @@
 			<div class="ads-info profile">
 				<div class="row">
 					<div class="col-xl-3 text-center">
-						@include('use₦._user_dashboard_menu')
+						@include('useRs._user_dashboard_menu')
 					</div>
 					<div class="col-xl-9">
 						<div class="my-ads section">
@@ -55,7 +55,7 @@
 										</div>
 										<div class="item-info col-lg-8">
 											<div class="ad-info">
-												<h3 class="item-price">₦ {{ number_format($row->price,2) }} <a href="{{route('promoted-ads.create',$row->pk_no)}}">(Promote this ad)</a></h3>
+												<h3 class="item-price">Rs {{ number_format($row->price,2) }} <a href="{{route('promoted-ads.create',$row->pk_no)}}">(Promote this ad)</a></h3>
 
 												@if($row->is_delete == 1)
 												<a href="javascript:void(0)"  class="pull-right c-btn"> Rejected</a>
@@ -79,14 +79,14 @@
 												</div>
 											</div>
 											@php
-												$ss_packages = DB::table('ss_packages')->where('pk_no', Auth::user()->package_id)->fi₦t();
+												$ss_packages = DB::table('ss_packages')->where('pk_no', Auth::user()->package_id)->fiRst();
 											@endphp
 											<div class="ad-meta">
 												<div class="meta-content">
 													<span class="dated" style="">Posted On: <a href="#">{{date('d M Y, H:i A ', strtotime($row->created_at))}}</a></span>
 													@if($ss_packages->analytics == 1)
-														<span class="visito₦" title="Visitor">Visitor <i class="fa fa-eye"></i> : {{ $row->total_view ?? '0' }}</span>
-														<span class="visito₦"> Like <i class="fa fa-thumbs-up"></i> : {{ $row->total_like ?? '0' }}</span>
+														<span class="visitoRs" title="Visitor">Visitor <i class="fa fa-eye"></i> : {{ $row->total_view ?? '0' }}</span>
+														<span class="visitoRs"> Like <i class="fa fa-thumbs-up"></i> : {{ $row->total_like ?? '0' }}</span>
 													@endif
 												</div>
 												<div class="user-option pull-right">

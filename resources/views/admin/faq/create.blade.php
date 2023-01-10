@@ -36,20 +36,20 @@ $parent_cat_combo = $data['parent_category_combo'] ?? array();
                             {!! Form::open([ 'route' => 'admin.faq.store', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true , 'novalidate']) !!}
                                 <div class="row">
                                  <div class="col-12">
-                                    <div class="form-group {!! $erro₦->has('question') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erroRs->has('question') ? 'error' : '' !!}">
                                         <label>@lang('form.faq_question')<span class="text-danger">*</span></label>
                                         <div class="controls">
                                             {!! Form::text('question', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter question', 'data-validation-required-message' => 'This field is required', 'tabindex' => 1 ]) !!}
-                                            {!! $erro₦->fi₦t('question', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('question', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                  <div class="col-12">
-                                    <div class="form-group {!! $erro₦->has('answer') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erroRs->has('answer') ? 'error' : '' !!}">
                                         <label>@lang('form.faq_answer')<span class="text-danger">*</span></label>
                                         <div class="controls">
                                             {!! Form::textarea('answer', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter answer', 'data-validation-required-message' => 'This field is required', 'tabindex' => 1 ]) !!}
-                                            {!! $erro₦->fi₦t('answer', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('answer', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>

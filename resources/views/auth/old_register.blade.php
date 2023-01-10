@@ -21,33 +21,33 @@
                     {!! Form::open([ 'route' => 'register', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true , 'novalidate']) !!}
 
 
-                    <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
+                    <div class="form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
                         <label class="label-title">Name<span class="required">*</span></label>
                         <div class="controls">
                         {!! Form::text('name', null, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Name', 'tabindex' => 1]) !!}
-                        {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
+                        {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
                       </div>
                     </div>
                     <div class="form-group">
                         <label class="label-title">Email<span class="required">*</span></label>
                         <div class="controls">
                         {!! Form::text('email', null, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'email', 'tabindex' => 1]) !!}
-                        {!! $erro₦->fi₦t('email', '<label class="help-block text-danger">:message</label>') !!}
+                        {!! $erroRs->fiRst('email', '<label class="help-block text-danger">:message</label>') !!}
                         </div>
                     </div>
                     <div class="form-group">
                       <label class="label-title">Password<span class="required">*</span></label>
                        <div class="controls">
-                     {!! Form::password('password', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 6 characte₦', 'placeholder' => 'Enter  password', 'tabindex' => 1, 'autocomplete' => 'off']) !!}
-                     {!! $erro₦->fi₦t('password', '<label class="help-block text-danger">:message</label>') !!}
+                     {!! Form::password('password', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 6 characteRs', 'placeholder' => 'Enter  password', 'tabindex' => 1, 'autocomplete' => 'off']) !!}
+                     {!! $erroRs->fiRst('password', '<label class="help-block text-danger">:message</label>') !!}
                     </div>
                  </div>
                  <div class="form-group">
                     <label class="label-title">Confirm Password<span class="required">*</span></label>
                        <div class="controls">
-                    {!! Form::password('password_confirmation', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-matches-match' => 'password', 'data-validation-matches-message' => 'Must match with password', 'data-validation-minlength-message' => 'Minimum 6 characte₦', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter confirm password', 'tabindex' => 1, 'autocomplete' => 'off']) !!}
+                    {!! Form::password('password_confirmation', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-matches-match' => 'password', 'data-validation-matches-message' => 'Must match with password', 'data-validation-minlength-message' => 'Minimum 6 characteRs', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter confirm password', 'tabindex' => 1, 'autocomplete' => 'off']) !!}
 
-                    {!! $erro₦->fi₦t('password_confirmation', '<label class="help-block text-danger">:message</label>') !!}
+                    {!! $erroRs->fiRst('password_confirmation', '<label class="help-block text-danger">:message</label>') !!}
                     </div>
                 </div>
                 <div class="form-group row">
@@ -79,7 +79,7 @@
 
                 <div class="form-group">
                     {!! Form::text('mobile', null, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Mobile', 'tabindex' => 1]) !!}
-                    {!! $erro₦->fi₦t('mobile', '<label class="help-block text-danger">:message</label>') !!}
+                    {!! $erroRs->fiRst('mobile', '<label class="help-block text-danger">:message</label>') !!}
 
                 </div>
                 <div class="checkbox">
@@ -115,8 +115,8 @@
 {!! Toastr::message() !!}
 <script type="text/javascript">
         jQuery(document).ready(function ($) {
-            let n1 = pa₦eInt($('#n1').val());
-            let n2 = pa₦eInt($('#n2').val());
+            let n1 = paRseInt($('#n1').val());
+            let n2 = paRseInt($('#n2').val());
             let captcha = $('#captcha_input');
 
             captcha.keyup(function () {
@@ -126,7 +126,7 @@
             $('#captcha_input').keyup(function (e) {
                 e.preventDefault();
 
-                if (n1 + n2 !== pa₦eInt(captcha.val())) {
+                if (n1 + n2 !== paRseInt(captcha.val())) {
                     captcha.next().next().show();
                 }
             });

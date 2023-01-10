@@ -91,11 +91,11 @@ $tabindex = 1;
 
                             {!! Form::open([ 'route' => 'register', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true , 'novalidate']) !!}
 
-                                <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
+                                <div class="form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
                                     <label class="label-title">@lang('web.name')<span class="required">*</span></label>
                                     <div class="controls">
                                     {!! Form::text('name', null, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Name', 'tabindex' => $tabindex++]) !!}
-                                    {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
                                   </div>
                                 </div>
 
@@ -103,15 +103,15 @@ $tabindex = 1;
                                     <label class="label-title">@lang('web.email')<span class="required">*</span></label>
                                     <div class="controls">
                                     {!! Form::text('email', null, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'email', 'tabindex' => $tabindex++]) !!}
-                                    {!! $erro₦->fi₦t('email', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $erroRs->fiRst('email', '<label class="help-block text-danger">:message</label>') !!}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="label-title">@lang('web.password')<span class="required">*</span></label>
                                      <div class="controls">
-                                   {!! Form::password('password', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 6 characte₦', 'placeholder' => 'Enter  password', 'tabindex' => $tabindex++, 'autocomplete' => 'off']) !!}
-                                   {!! $erro₦->fi₦t('password', '<label class="help-block text-danger">:message</label>') !!}
+                                   {!! Form::password('password', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 6 characteRs', 'placeholder' => 'Enter  password', 'tabindex' => $tabindex++, 'autocomplete' => 'off']) !!}
+                                   {!! $erroRs->fiRst('password', '<label class="help-block text-danger">:message</label>') !!}
                                   </div>
                                </div>
 
@@ -125,7 +125,7 @@ $tabindex = 1;
                                                     <input type="checkbox" name="tc" id="logged" required tabindex="{{ $tabindex++ }}" value="1">@lang('web.bysigningup')<a href="{{route('terms-conditions')}}">@lang('web.t_conditions')</a>
                                                 </label>
                                             </div>
-                                            {!! $erro₦->fi₦t('tc', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('tc', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
@@ -158,8 +158,8 @@ $tabindex = 1;
 {!! Toastr::message() !!}
 <script type="text/javascript">
         jQuery(document).ready(function ($) {
-            let n1 = pa₦eInt($('#n1').val());
-            let n2 = pa₦eInt($('#n2').val());
+            let n1 = paRseInt($('#n1').val());
+            let n2 = paRseInt($('#n2').val());
             let captcha = $('#captcha_input');
 
             captcha.keyup(function () {
@@ -169,7 +169,7 @@ $tabindex = 1;
             $('#captcha_input').keyup(function (e) {
                 e.preventDefault();
 
-                if (n1 + n2 !== pa₦eInt(captcha.val())) {
+                if (n1 + n2 !== paRseInt(captcha.val())) {
                     captcha.next().next().show();
                 }
             });

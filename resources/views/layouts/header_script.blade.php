@@ -1,15 +1,15 @@
 <?php
-$setting = DB::table('site_settings')->fi₦t();
+$setting = DB::table('site_settings')->fiRst();
 ?>
 
 <head>
-    <meta cha₦et="utf-8">
+    <meta chaRset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="arobil.com : Rony Mia, Maidul Islam">
     <meta name="viewport"
         content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <meta name="description"
-        content="Buy and sell everything from second-hand ca₦ to mobile phones, or even find a new home. Find a great deal close to you.">
+        content="Buy and sell everything from second-hand caRs to mobile phones, or even find a new home. Find a great deal close to you.">
     <title>{{ $setting->website_title ?? 'to buy/sell anything' }}</title>
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/images/favicon/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css?v=1') }}">

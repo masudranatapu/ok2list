@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <!-- header -->
-                        @include('use₦._user_dashboard_menu')
+                        @include('useRs._user_dashboard_menu')
                         <!-- end header -->
                     </div>
                     <div class="col-md-8">
@@ -60,7 +60,7 @@
                                                         'placeholder' => 'Enter shop name',
                                                         'tabindex' => 1,
                                                     ]) !!}
-                                                    {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
+                                                    {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -72,7 +72,7 @@
                                                         'placeholder' => 'Enter shop time',
                                                         'tabindex' => 1,
                                                     ]) !!}
-                                                    {!! $erro₦->fi₦t('open', '<label class="help-block text-danger">:message</label>') !!}
+                                                    {!! $erroRs->fiRst('open', '<label class="help-block text-danger">:message</label>') !!}
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -84,7 +84,7 @@
                                                         'placeholder' => 'Enter shop address',
                                                         'tabindex' => 1,
                                                     ]) !!}
-                                                    {!! $erro₦->fi₦t('address', '<label class="help-block text-danger">:message</label>') !!}
+                                                    {!! $erroRs->fiRst('address', '<label class="help-block text-danger">:message</label>') !!}
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -96,7 +96,7 @@
                                                         'placeholder' => 'Enter contact no.',
                                                         'tabindex' => 1,
                                                     ]) !!}
-                                                    {!! $erro₦->fi₦t('contact', '<label class="help-block text-danger">:message</label>') !!}
+                                                    {!! $erroRs->fiRst('contact', '<label class="help-block text-danger">:message</label>') !!}
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -108,7 +108,7 @@
                                                         'placeholder' => 'Enter shop details',
                                                         'tabindex' => 1,
                                                     ]) !!}
-                                                    {!! $erro₦->fi₦t('about', '<label class="help-block text-danger">:message</label>') !!}
+                                                    {!! $erroRs->fiRst('about', '<label class="help-block text-danger">:message</label>') !!}
                                                 </div>
                                             </div>
                                             <div class="form-group">

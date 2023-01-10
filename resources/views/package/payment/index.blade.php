@@ -4,7 +4,7 @@
 
 
 @php
-    $ss_packages = DB::table('ss_packages')->where('pk_no', request()->get('promid'))->fi₦t();
+    $ss_packages = DB::table('ss_packages')->where('pk_no', request()->get('promid'))->fiRst();
 @endphp
 
 <section id="main" class="clearfix contact-us">
@@ -38,13 +38,13 @@
                                                 </div>
                                             </td>
                                             <td class="text-bold">
-                                                ₦. {{request()->get('price')}}
+                                                Rs. {{request()->get('price')}}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="h3"> @lang('web.t_pay') </td>
                                             <td class="h3"> 
-                                                ₦. {{request()->get('price')}}
+                                                Rs. {{request()->get('price')}}
                                             </td>
                                         </tr>
                                     </tbody>
@@ -61,7 +61,7 @@
                                 <p><strong> @lang('web.acc_num')  :</strong> 1000114100</p>
                                 <p><strong> @lang('web.acc_type') :</strong> Current Account</p>
                                 <p><strong> @lang('web.branch') :</strong> Mawanella</p>
-                                <p><strong> @lang('web.currency') :</strong> Srilankan Rupees (SL₦)</p>
+                                <p><strong> @lang('web.currency') :</strong> Srilankan Rupees (SLRs)</p>
                                 <p><strong> @lang('web.s_c') :</strong> CCEYLKLX</p>
                             </div>
                         </div>

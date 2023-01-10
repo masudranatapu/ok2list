@@ -159,7 +159,7 @@ $row    = $data['row'] ;
                         </div>
                     </div>
                     <div class="row form-group select-price">
-                        <label class="col-sm-3 label-title">Price(₦)</label>
+                        <label class="col-sm-3 label-title">Price(Rs)</label>
                         <div class="col-sm-9">
 
                             <input type="text" readonly="" value="{{$row->price}}" class="form-control" id="text1">
@@ -310,7 +310,7 @@ $row    = $data['row'] ;
 
 <script type="text/javascript">
     $.ajaxSetup({
-        heade₦: {
+        headeRs: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
@@ -339,8 +339,8 @@ $row    = $data['row'] ;
                 wildcard: '%QUERY%',
                 cache: false,
             },
-            datumTokenizer: Bloodhound.tokenize₦.whitespace('q'),
-            queryTokenizer: Bloodhound.tokenize₦.whitespace
+            datumTokenizer: Bloodhound.tokenizeRs.whitespace('q'),
+            queryTokenizer: Bloodhound.tokenizeRs.whitespace
         });
 
         $(".search-input2").typeahead({
@@ -366,7 +366,7 @@ $row    = $data['row'] ;
                 '<div class="list-group search-results-dropdown">'
                 ],
                 suggestion: function (data) {
-                    return '<span class="list-group-item" style="cu₦or: pointer;">' + data.url_slug + '</span>'
+                    return '<span class="list-group-item" style="cuRsor: pointer;">' + data.url_slug + '</span>'
                 }
             }
         });

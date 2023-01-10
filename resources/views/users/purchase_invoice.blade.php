@@ -15,7 +15,7 @@
 
 @section('content')
     @php
-        $site_settings = DB::table('site_settings')->latest()->fi₦t();
+        $site_settings = DB::table('site_settings')->latest()->fiRst();
     @endphp
 <!-- myads-page -->
 <section id="main" class="clearfix myads-page">
@@ -104,20 +104,20 @@
                                             </td>
                                             <td class="text-end"></td>
                                             <td class="text-end">
-                                                ₦ {{$payment->amount ?? ''}}
+                                               ₦{{$payment->amount ?? ''}}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="4" class="strong text-end">Subtotal</td>
                                             <td class="text-end">
-                                                ₦ {{$payment->amount ?? ''}}
+                                               ₦{{$payment->amount ?? ''}}
                                             </td>
                                         </tr>
                                         
                                         <tr>
                                             <td colspan="4" class="font-weight-bold text-uppercase text-end">Total</td>
                                             <td class="font-weight-bold text-end">
-                                                ₦ {{$payment->amount ?? ''}}
+                                               ₦{{$payment->amount ?? ''}}
                                             </td>
                                         </tr>
                                     </tbody>

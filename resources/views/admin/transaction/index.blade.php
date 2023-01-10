@@ -50,7 +50,7 @@ Transaction History
                                         <td>{{$item->package->title ?? ''}}</td>
                                         <td>{{$item->card_type}}</td>
                                         <td>{{$item->payment_type}}</td>
-                                        <td>₦ {{$item->amount}}</td>
+                                        <td>Rs {{$item->amount}}</td>
                                         <td>{{$item->created_at->toFormattedDateString()}}</td>
                                         <td>@php
                                             if($item->status == "VALID"){

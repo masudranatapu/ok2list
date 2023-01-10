@@ -16,7 +16,7 @@ $row = $data['row'];
 $reject_reason = Config::get('static_arrays.reject_reason') ?? [];
 $cate = DB::table('prd_category')
     ->where('pk_no', $row->f_cat_pk_no)
-    ->fi₦t();
+    ->fiRst();
 ?>
 @section('content')
     <!-- main -->
@@ -57,7 +57,7 @@ $cate = DB::table('prd_category')
                                     $payment = App\Payments::where('f_customer_pk_no', $row->customer_pk_no)
                                         ->where('status', 'VALID')
                                         ->orderBy('pk_no', 'desc')
-                                        ->fi₦t();
+                                        ->fiRst();
                                 @endphp
                                 @if ($payment)
                                     <div class="">
@@ -87,8 +87,8 @@ $cate = DB::table('prd_category')
                                     {{ $row->area->city->name ?? '' }}{{ $row->division->name ?? '' }}</a></span>
                             </div>
 
-                            <!-- Indicato₦ -->
-                            <ol class="carousel-indicato₦">
+                            <!-- IndicatoRs -->
+                            <ol class="carousel-indicatoRs">
                                 @if ($data['photos'] && count($data['photos']) > 0)
                                     @foreach ($data['photos'] as $key => $photo)
                                         <li data-target="#product-carousel" data-slide-to="{{ $key }}"
@@ -126,12 +126,12 @@ $cate = DB::table('prd_category')
                     </div><!-- Controls -->
                     <!-- slider-text -->
                     <div class="col-lg-4">
-                        <div class="doo₦tep_item text-center">
-                            <span>Doo₦tep Delivery</span>
+                        <div class="dooRstep_item text-center">
+                            <span>DooRstep Delivery</span>
                         </div>
                         <div class="single_content slider-text pt-3">
                             <h2>
-                                ₦ {{ number_format($row->price, 2) }}
+                               ₦{{ number_format($row->price, 2) }}
                                 <div class="float-right">
                                     @if ($row->is_like == '1')
                                         <a href="{{ route('ad-post-dislike', $row->pk_no) }}" class="like_ads btn-sm"
@@ -245,7 +245,7 @@ $cate = DB::table('prd_category')
                                                 <div class="item-info col-lg-8">
                                                     <div class="ad-info">
                                                         <h3 class="item-price">
-                                                            ₦ {{ number_format($srow->price, 2) }}
+                                                           ₦{{ number_format($srow->price, 2) }}
                                                             <div class="float-right">
 
                                                                 @if ($row->is_like == '1')
@@ -323,7 +323,7 @@ $cate = DB::table('prd_category')
                                                 @endif
                                             @else
                                                 <li><i class="fa fa-heart"></i><a href="javascript:void(0)"
-                                                        onclick="return confirm('Please login fi₦t!');">@lang('web.save')</a></li>
+                                                        onclick="return confirm('Please login fiRst!');">@lang('web.save')</a></li>
                                             @endif
                                             <li><i class="fa fa-exclamation-triangle"></i><a data-toggle="modal"
                                                     data-target="#reportad" href="javascript:void(0)">@lang('web.report')</a>
@@ -419,7 +419,7 @@ $cate = DB::table('prd_category')
                             'novalidate',
                             'autocomplete' => 'off',
                         ]) !!}
-                        <div class="form-group {!! $erro₦->has('reject_reason') ? 'error' : '' !!}">
+                        <div class="form-group {!! $erroRs->has('reject_reason') ? 'error' : '' !!}">
                             <label for="reason">@lang('web.reason')</label>
                             <div class="controls">
                                 {!! Form::select('reject_reason', $reject_reason, old('reject_reason'), [
@@ -429,34 +429,34 @@ $cate = DB::table('prd_category')
                                     'placeholder' => 'Select reason',
                                     'tabindex' => 2,
                                 ]) !!}
-                                {!! $erro₦->fi₦t('reject_reason', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erroRs->fiRst('reject_reason', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
-                        <div class="form-group {!! $erro₦->has('email') ? 'error' : '' !!}">
+                        <div class="form-group {!! $erroRs->has('email') ? 'error' : '' !!}">
                             <label for="exampleFormControlSelect1">@lang('web.email')</label>
                             <div class="controls">
                                 {!! Form::email('email', null, [
                                     'class' => 'form-control',
                                     'data-validation-required-message' => 'This field is required',
                                     'maxlength' => '50',
-                                    'data-validation-maxlength-message' => 'Maxlength 50 characte₦',
+                                    'data-validation-maxlength-message' => 'Maxlength 50 characteRs',
                                     'placeholder' => 'Enter email',
                                     'tabindex' => 2,
                                 ]) !!}
-                                {!! $erro₦->fi₦t('email', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erroRs->fiRst('email', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
-                        <div class="form-group {!! $erro₦->has('message') ? 'error' : '' !!}">
+                        <div class="form-group {!! $erroRs->has('message') ? 'error' : '' !!}">
                             <div class="controls">
                                 {!! Form::textarea('message', null, [
                                     'class' => 'form-control ctext',
                                     'maxlength' => '50',
-                                    'data-validation-maxlength-message' => 'Maxlength 50 characte₦',
+                                    'data-validation-maxlength-message' => 'Maxlength 50 characteRs',
                                     'placeholder' => 'Enter message',
                                     'tabindex' => 3,
                                     'rows' => 3,
                                 ]) !!}
-                                {!! $erro₦->fi₦t('message', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erroRs->fiRst('message', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                         <button type="submit" class="btn" style="width: 100%;">@lang('web.submit')</button>
@@ -495,7 +495,7 @@ $cate = DB::table('prd_category')
                                                     <p class="mb-0">{{ $row->area->name ?? '' }},
                                                         {{ $row->area->city->name ?? '' }}{{ $row->division->name ?? '' }}
                                                     </p>
-                                                    <p class="mb-0 text-success">₦ {{ number_format($row->price, 2) }}
+                                                    <p class="mb-0 text-success">Rs {{ number_format($row->price, 2) }}
                                                     </p>
                                                 </div>
                                             </div>
@@ -592,7 +592,7 @@ $cate = DB::table('prd_category')
                 url: pageurl,
                 async: true,
                 beforeSend: function() {
-                    $("body").css("cu₦or", "progress");
+                    $("body").css("cuRsor", "progress");
                 },
                 success: function(data) {
                     if (data.status == true) {
@@ -603,7 +603,7 @@ $cate = DB::table('prd_category')
                     }
                 },
                 complete: function(data) {
-                    $("body").css("cu₦or", "default");
+                    $("body").css("cuRsor", "default");
                 }
             });
         })

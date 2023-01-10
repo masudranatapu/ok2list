@@ -16,7 +16,7 @@
 					<div class="col-md-4">
 						<div class="pric">
 							<h2>{{ $row->title }}</h2>
-							<h3><sup>₦</sup>{{ number_format($row->price_per_month)}}<span>/Per Month</span></h3>
+							<h3><sup>Rs</sup>{{ number_format($row->price_per_month)}}<span>/Per Month</span></h3>
 							<div class="pric-menu">
 								<ul>
 									<li><i class="fa fa-check" aria-hidden="true"></i>{{ $row->ad_limit_in_montrh }} Ads Monthly</li>

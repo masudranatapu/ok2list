@@ -21,7 +21,7 @@ $brand_id               = request()->get('brand') ?? null;
 
 ?>
 @push('custom_css')
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendo₦/css/forms/selects/select2.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendoRs/css/forms/selects/select2.min.css') }}">
 @endpush
 
 @section('content')
@@ -46,39 +46,39 @@ $brand_id               = request()->get('brand') ?? null;
             <div class="form-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="form-group {!! $erro₦->has('category') ? 'error' : '' !!}">
+                        <div class="form-group {!! $erroRs->has('category') ? 'error' : '' !!}">
                             <label>{{trans('form.category')}}<span class="text-danger">*</span></label>
                             <div class="controls">
                                 {!! Form::select('category', $category_combo, null, ['class'=>'form-control mb-1 select2', 'id' => 'category','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select category', 'tabindex' => 2, 'data-url' => URL::to('admin/prod_subcategory')]) !!}
-                                {!! $erro₦->fi₦t('category', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erroRs->fiRst('category', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group {!! $erro₦->has('sub_category') ? 'error' : '' !!}">
+                        <div class="form-group {!! $erroRs->has('sub_category') ? 'error' : '' !!}">
                             <label>{{trans('form.sub_category')}}<span class="text-danger">*</span></label>
                             <div class="controls">
                                 {!! Form::select('sub_category', $subcategory_combo, null, ['class'=>'form-control mb-1 select2', 'id' => 'sub_category',  'placeholder' => 'Select subcategory', 'data-validation-required-message' => 'This field is required', 'tabindex' => 1, 'id' => 'sub_category', 'data-url' => URL::to('admin/get_brand')  ]) !!}
-                                {!! $erro₦->fi₦t('sub_category', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erroRs->fiRst('sub_category', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group {!! $erro₦->has('brand') ? 'error' : '' !!}">
+                        <div class="form-group {!! $erroRs->has('brand') ? 'error' : '' !!}">
                             <label>{{trans('form.brand')}}<span class="text-danger">*</span></label>
                             <div class="controls">
                                 {!! Form::select('brand', $brand_combo, $brand_id, ['class'=>'form-control mb-1 select2', 'id' => 'brand','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select brand', 'tabindex' => 1, 'id' => 'brand_id']) !!}
-                                {!! $erro₦->fi₦t('brand', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erroRs->fiRst('brand', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6">
-                        <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
+                        <div class="form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
                             <label>@lang('form.name')<span class="text-danger">*</span></label>
                             <div class="controls">
                                 {!! Form::text('name', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product model name', 'data-validation-required-message' => 'This field is required', 'tabindex' => 2 ]) !!}
-                                {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@ $brand_id               = request()->get('brand') ?? null;
 @endsection
 
 @push('custom_js')
-<script src="{{ asset('app-assets/vendo₦/js/forms/select/select2.full.min.js')}}"></script>\
+<script src="{{ asset('app-assets/vendoRs/js/forms/select/select2.full.min.js')}}"></script>\
 <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
  <script src="{{ asset('app-assets/pages/product.js')}}"></script>
 <script type="text/javascript">
@@ -124,7 +124,7 @@ $brand_id               = request()->get('brand') ?? null;
             url:pageurl,
             async :true,
             beforeSend: function () {
-                $("body").css("cu₦or", "progress");
+                $("body").css("cuRsor", "progress");
             },
             success: function (data) {
                 if(data != '' ){
@@ -135,7 +135,7 @@ $brand_id               = request()->get('brand') ?? null;
 
             },
             complete: function (data) {
-                $("body").css("cu₦or", "default");
+                $("body").css("cuRsor", "default");
 
             }
         });

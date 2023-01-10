@@ -42,8 +42,8 @@
                             <div class="controls">
                                 {!! Form::text('user_group_name', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' =>__('form.field_required'), 'placeholder' => __('form.new_group_form_placeholder'), 'tabindex' => 1 ]) !!}
                             </div>
-                            @if ($erro₦->has('user_group_name'))
-                            <div class="help-block"><ul role="alert"><li>{{ $erro₦->fi₦t('user_group_name') }}</li></ul></div>                                
+                            @if ($erroRs->has('user_group_name'))
+                            <div class="help-block"><ul role="alert"><li>{{ $erroRs->fiRst('user_group_name') }}</li></ul></div>                                
                             @endif
                         </div>
                     </div>
@@ -53,9 +53,9 @@
                             <div class="controls">
                                 {!! Form::select('role', $role, null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select role name', 'data-validation-required-message' => __('form.field_required')]) !!}
                             </div>
-                            @if ($erro₦->has('role'))
+                            @if ($erroRs->has('role'))
                                 <span class="alert alert-danger">
-                                <strong>{{ $erro₦->fi₦t('role') }}</strong>
+                                <strong>{{ $erroRs->fiRst('role') }}</strong>
                             </span>
                             @endif
                         </div>

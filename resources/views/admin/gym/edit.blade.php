@@ -41,9 +41,9 @@
                                 <div class="controls">
                                     {!! Form::text('name', $user->name, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter user name', 'tabindex' => 1 ]) !!}
                                 </div>
-                                @if ($erro₦->has('name'))
+                                @if ($erroRs->has('name'))
                                     <span class="alert alert-danger">
-                                        <strong>{{ $erro₦->fi₦t('name') }}</strong>
+                                        <strong>{{ $erroRs->fiRst('name') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -56,9 +56,9 @@
                                     {!! Form::text('code', $user->code,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter user code', 'tabindex' => 1 ]) !!}
                                 </div>
                             </div>
-                            @if ($erro₦->has('code'))
+                            @if ($erroRs->has('code'))
                                 <span class="alert alert-danger">
-                                    <strong>{{ $erro₦->fi₦t('code') }}</strong>
+                                    <strong>{{ $erroRs->fiRst('code') }}</strong>
                                 </span>
                             @endif
                         </div>
@@ -71,9 +71,9 @@
                                     {!! Form::text('moto', $user->moto,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter moto', 'tabindex' => 1 ]) !!}
                                 </div>
                             </div>
-                            @if ($erro₦->has('moto'))
+                            @if ($erroRs->has('moto'))
                                 <span class="alert alert-danger">
-                                    <strong>{{ $erro₦->fi₦t('moto') }}</strong>
+                                    <strong>{{ $erroRs->fiRst('moto') }}</strong>
                                 </span>
                             @endif
                         </div>
@@ -84,9 +84,9 @@
                                     {!! Form::text('address', $user->address, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter address', 'tabindex' => 1 ]) !!}
                                 </div>
                             </div>
-                            @if ($erro₦->has('address'))
+                            @if ($erroRs->has('address'))
                                 <span class="alert alert-danger">
-                                    <strong>{{ $erro₦->fi₦t('address') }}</strong>
+                                    <strong>{{ $erroRs->fiRst('address') }}</strong>
                                 </span>
                             @endif
                         </div>
@@ -96,9 +96,9 @@
                         <div class="controls">
                             {!! Form::text('established', $user->established, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter established', 'tabindex' => 1 ]) !!}
                         </div>
-                        @if ($erro₦->has('established'))
+                        @if ($erroRs->has('established'))
                             <span class="alert alert-danger">
-                                <strong>{{ $erro₦->fi₦t('established') }}</strong>
+                                <strong>{{ $erroRs->fiRst('established') }}</strong>
                             </span>
                         @endif
                     </div>
@@ -111,9 +111,9 @@
                                          src="{{$user->logo_url}}" alt="">
                                     {!! Form::file('logo' ,['class' => 'form-control mb-1']); !!}
                                 </div>
-                                @if ($erro₦->has('logo'))
+                                @if ($erroRs->has('logo'))
                                     <span class="alert alert-danger">
-                                        <strong>{{ $erro₦->fi₦t('logo') }}</strong>
+                                        <strong>{{ $erroRs->fiRst('logo') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -126,9 +126,9 @@
                                          src="{{ $user->banner_url }}" alt="">
                                     {!! Form::file('banner', ['class' => 'form-control mb-1']); !!}
                                 </div>
-                                @if ($erro₦->has('banner'))
+                                @if ($erroRs->has('banner'))
                                     <span class="alert alert-danger">
-                                        <strong>{{ $erro₦->fi₦t('banner') }}</strong>
+                                        <strong>{{ $erroRs->fiRst('banner') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -141,9 +141,9 @@
                                 <div class="controls">
                                     {!! Form::select('status', ['1' => 'Yes', '0' => 'No'], $user->status, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select status', 'data-validation-required-message' => 'This field is required']) !!}
                                 </div>
-                                @if ($erro₦->has('status'))
+                                @if ($erroRs->has('status'))
                                     <span class="alert alert-danger">
-                                        <strong>{{ $erro₦->fi₦t('status') }}</strong>
+                                        <strong>{{ $erroRs->fiRst('status') }}</strong>
                                     </span>
                                 @endif
                             </div>

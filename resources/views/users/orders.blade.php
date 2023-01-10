@@ -12,7 +12,7 @@
             <div class="ads-info profile">
                 <div class="row">
                     <div class="col-xl-3">
-                        @include('use₦._user_dashboard_menu')
+                        @include('useRs._user_dashboard_menu')
                     </div>
                     <div class="col-xl-9">
                         <div class="card">
@@ -31,11 +31,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($orde₦ as $item)
+                                        @foreach ($ordeRs as $item)
                                             <tr>
                                                 <td>{{ $item->product->ad_title }}</td>
                                                 <td>{{ ($item->amount) }}</td>
-                                                <td>{{ ucfi₦t($item->payment_method ?? 'paystack' ) }}</td>
+                                                <td>{{ ucfiRst($item->payment_method ?? 'paystack' ) }}</td>
                                                 <td>{{ $item->transaction_number }}</td>
                                                 <td>
                                                     @if ($item->payment_status == 'paid')
@@ -45,7 +45,7 @@
                                                     @endif
                                                 </td>
                                                 <td>{{ $item->created_at->toFormattedDateString() }}</td>
-                                                <td>{{ ucfi₦t($item->order_status) }}</td>
+                                                <td>{{ ucfiRst($item->order_status) }}</td>
                                                 <td>
                                                     <a target="_blank" href="{{ route('user.order.details', $item->id) }}"
                                                         class="btn-sm "><i class="fa fa-eye"></i></a>

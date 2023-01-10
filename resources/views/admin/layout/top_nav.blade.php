@@ -1,7 +1,7 @@
 <div class="navbar-header">
     <ul class="nav navbar-nav flex-row">
         @php
-            $setting = App\SiteSetting::fi₦t();
+            $setting = App\SiteSetting::fiRst();
         @endphp
         <li class="nav-item mobile-menu d-lg-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
 

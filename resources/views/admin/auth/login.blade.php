@@ -3,7 +3,7 @@
 <!-- BEGIN: Head-->
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; cha₦et=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; chaRset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="description" content="ok2list.com admin login">
@@ -42,9 +42,9 @@
                                 <div class="card-title text-center">
                                     <div  class="p-1"><img width="150" src="{{url('app-assets/images/logo/logo2.png')}}" alt="branding logo" ></div>
                                 </div>
-                                 @if ($erro₦->any())
+                                 @if ($erroRs->any())
                                         <div class="alert alert-danger">
-                                            @foreach ($erro₦->all() as $error)
+                                            @foreach ($erroRs->all() as $error)
                                                 {{ $error }}<br/>
                                             @endforeach
                                         </div>

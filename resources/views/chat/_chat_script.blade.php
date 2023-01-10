@@ -4,8 +4,8 @@
 
 <script>
 	toastr.options.progressBar = true;
-	@if(count($erro₦) > 0)
-		@foreach($erro₦->all() as $error)
+	@if(count($erroRs) > 0)
+		@foreach($erroRs->all() as $error)
 			toastr.error("{{ $error }}");
 		@endforeach
 	@endif
@@ -68,7 +68,7 @@ function getChatData(pId,toId)
 		async :true,
 		beforeSend: function () 
 		{
-			$("body").css("cu₦or", "progress");
+			$("body").css("cuRsor", "progress");
 		},
 		success: function (data) 
 		{
@@ -84,7 +84,7 @@ function getChatData(pId,toId)
 		},
 		complete: function (data) 
 		{
-			$("body").css("cu₦or", "default");
+			$("body").css("cuRsor", "default");
 			$('#textSmg').focus();
 
 		}
@@ -112,7 +112,7 @@ $(document).on('click','#sendSmg',function(e){
 			async :true,
 			beforeSend: function () 
 			{
-				$("body").css("cu₦or", "progress");
+				$("body").css("cuRsor", "progress");
 			},
 			success: function (data) 
 			{
@@ -128,7 +128,7 @@ $(document).on('click','#sendSmg',function(e){
 			},
 			complete: function (data) 
 			{
-				$("body").css("cu₦or", "default");
+				$("body").css("cuRsor", "default");
 				$('#textSmg').val('').focus();
 
 

@@ -88,18 +88,18 @@
                                 {!! Form::open([ 'route' => 'login', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true , 'novalidate']) !!}
                                     <input type="hidden" value="{{ request()->get('referer') }}" name="referer" />
                                     <input type="hidden" value="{{ request()->get('pakid') }}" name="pakid" />
-                                    <div class="form-group {!! $erro₦->has('email') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erroRs->has('email') ? 'error' : '' !!}">
                                         <label class="label-title">@lang('web.email')<span class="required">*</span></label>
                                         <div class="controls">
                                             {!! Form::text('email', null, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Email', 'tabindex' => $tabindex++]) !!}
-                                            {!! $erro₦->fi₦t('email', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('email', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="label-title">@lang('web.password')<span class="required">*</span></label>
                                         <div class="controls">
-                                            {!! Form::password('password', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 6 characte₦', 'placeholder' => 'Enter  password', 'tabindex' => $tabindex++, 'autocomplete' => 'off']) !!}
-                                            {!! $erro₦->fi₦t('password', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! Form::password('password', [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 6 characteRs', 'placeholder' => 'Enter  password', 'tabindex' => $tabindex++, 'autocomplete' => 'off']) !!}
+                                            {!! $erroRs->fiRst('password', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                     <div class="row">
@@ -139,8 +139,8 @@
     {!! Toastr::message() !!}
     <script type="text/javascript">
             jQuery(document).ready(function ($) {
-                let n1 = pa₦eInt($('#n1').val());
-                let n2 = pa₦eInt($('#n2').val());
+                let n1 = paRseInt($('#n1').val());
+                let n2 = paRseInt($('#n2').val());
                 let captcha = $('#captcha_input');
 
                 captcha.keyup(function () {
@@ -150,7 +150,7 @@
                 $('#captcha_input').keyup(function (e) {
                     e.preventDefault();
 
-                    if (n1 + n2 !== pa₦eInt(captcha.val())) {
+                    if (n1 + n2 !== paRseInt(captcha.val())) {
                         captcha.next().next().show();
                     }
                 });

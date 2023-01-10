@@ -41,7 +41,7 @@
                 <div class="form-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group {!! $erro₦->has('customer') ? 'error' : '' !!}">
+                            <div class="form-group {!! $erroRs->has('customer') ? 'error' : '' !!}">
                                 <div class="controls">
                                     <label>@lang('order.customer')<span class="text-danger">*</span></label>
                                     <select name="customer" class="form-control" id="customer">
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group {!! $erro₦->has('shipping_type') ? 'error' : '' !!}">
+                            <div class="form-group {!! $erroRs->has('shipping_type') ? 'error' : '' !!}">
                                 <label>@lang('order.shipping_type')<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     <div>
@@ -81,27 +81,27 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group {!! $erro₦->has('from_address') ? 'error' : '' !!}">
+                            <div class="form-group {!! $erroRs->has('from_address') ? 'error' : '' !!}">
                                 <label>@lang('order.from_address')<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     {!! Form::textarea('from_address', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter short from address description about the order', 'tabindex' => 1, 'rows' => 3 ]) !!}
-                                    {!! $erro₦->fi₦t('from_address', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $erroRs->fiRst('from_address', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group {!! $erro₦->has('delivery_address') ? 'error' : '' !!}">
+                            <div class="form-group {!! $erroRs->has('delivery_address') ? 'error' : '' !!}">
                                 <label>@lang('order.delivery_address')<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     {!! Form::textarea('delivery_address', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter delivery address about the order', 'tabindex' => 1, 'rows' => 3 ]) !!}
-                                    {!! $erro₦->fi₦t('delivery_address', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $erroRs->fiRst('delivery_address', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group {!! $erro₦->has('sales_agent') ? 'error' : '' !!}">
+                            <div class="form-group {!! $erroRs->has('sales_agent') ? 'error' : '' !!}">
                                 <div class="controls">
                                     <label>@lang('order.sales_agent')<span class="text-danger">*</span></label>
                                     <select name="sales_agent" class="form-control" id="sales_agent">
@@ -116,7 +116,7 @@
                         <div class="col-md-6">
 
 
-                            <div class="form-group {!! $erro₦->has('shipping_location') ? 'error' : '' !!}">
+                            <div class="form-group {!! $erroRs->has('shipping_location') ? 'error' : '' !!}">
                                 <div class="controls">
                                     <label>@lang('order.shipping_location')<span class="text-danger">*</span></label>
                                     <select name="shipping_location" class="form-control" id="shipping_location">
@@ -165,6 +165,6 @@
 
 <!--push from page-->
 @push('custom_js')
-    <script src="{{ asset('app-assets/vendo₦/js/forms/select/select2.full.min.js')}}"></script>
+    <script src="{{ asset('app-assets/vendoRs/js/forms/select/select2.full.min.js')}}"></script>
     <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
 @endpush('custom_js')

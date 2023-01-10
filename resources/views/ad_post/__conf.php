@@ -41,11 +41,11 @@
 											<input type="radio" name="sellType" value="buy" id="buy"> <label for="buy">want to buy</label>	
 										</div>
 									</div>
-									<div class="row form-group add-title {!! $erro₦->has('name') ? 'error' : '' !!}">
+									<div class="row form-group add-title {!! $erroRs->has('name') ? 'error' : '' !!}">
 										<label class="col-sm-3 label-title">Title for your Ad<span class="required">*</span></label>
 										<div class="col-sm-9">
 											{!! Form::text('name', old('name'), [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'ex, Sony Xperia dual sim 100% brand new', 'tabindex' => 1]) !!}
-											{!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
+											{!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
 											
 										</div>
 									</div>
@@ -174,7 +174,7 @@
 									<div class="row form-group select-price">
 										<label class="col-sm-3 label-title">Price<span class="required">*</span></label>
 										<div class="col-sm-9">
-											<label>₦</label>
+											<label>Rs</label>
 											<input type="text" class="form-control" id="text1">
 											<input type="radio" name="price" value="negotiable" id="negotiable">
 											<label for="negotiable">Negotiable </label>
@@ -196,23 +196,23 @@
 												<label for="3g"><input type="checkbox" name="3g" id="3g"> 3G</label>
 >>>>>>> e6331304d5ec9f4a8bd1772cd8358cea72480c0b
 
-                     <div class="row form-group {!! $erro₦->has('engine_capacity') ? 'error' : '' !!}">
+                     <div class="row form-group {!! $erroRs->has('engine_capacity') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Engine capacity (cc)</label>
                         <div class="col-sm-9">
                             <div class="controls">
                                 
                                 {!! Form::number('engine_capacity', old('engine_capacity'), ['class'=>'form-control', 'id' => 'engine_capacity', 'placeholder' => 'Engine capacity', 'data-validation-required-message' => 'This field is required', 'maxlength' => '99', 'data-validation-maxlength-message' => 'Maxlength 99 digit', 'tabindex' => 12, 'autocomplete' => 'off']) !!}
-                                {!! $erro₦->fi₦t(' engine_capacity', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $erroRs->fiRst(' engine_capacity', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                      </div>
-                     <div class="row form-group model-name {!! $erro₦->has('kilomete₦_run') ? 'error' : '' !!}">
-                        <label class="col-sm-3 label-title">Kilomete₦ run (km)</label>
+                     <div class="row form-group model-name {!! $erroRs->has('kilometeRs_run') ? 'error' : '' !!}">
+                        <label class="col-sm-3 label-title">KilometeRs run (km)</label>
                         <div class="col-sm-9">
                             <div class="controls">
                                 
-                                {!! Form::number('kilomete₦_run', null, ['class'=>'form-control', 'id' => 'kilomete₦_run', 'placeholder' => 'Kilomete₦ run', 'maxlength' => '9999999999',  'data-validation-required-message' => 'This field is required', 'data-validation-maxlength-message' => 'Maxlength 9999999999 digit', 'tabindex' => 13, 'autocomplete' => 'off' ]) !!}
-                                {!! $erro₦->fi₦t('kilomete₦_run', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! Form::number('kilometeRs_run', null, ['class'=>'form-control', 'id' => 'kilometeRs_run', 'placeholder' => 'KilometeRs run', 'maxlength' => '9999999999',  'data-validation-required-message' => 'This field is required', 'data-validation-maxlength-message' => 'Maxlength 9999999999 digit', 'tabindex' => 13, 'autocomplete' => 'off' ]) !!}
+                                {!! $erroRs->fiRst('kilometeRs_run', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                      </div>
@@ -229,19 +229,19 @@
                            </div>
                         </div>
                      </div> --}}
-                     <div class="row form-group item-description {!! $erro₦->has('description') ? 'error' : '' !!}">
+                     <div class="row form-group item-description {!! $erroRs->has('description') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Description<span class="required">*</span></label>
                         <div class="col-sm-9">
                                  <div class="controls">
-                                {!! Form::textarea('description', null, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Write a few  lines about your products. Also mention your product brand.','minlength' => '50', 'maxlength' => '4000', 'data-validation-minlength-message' => 'Minimum 100 characte₦', 'data-validation-maxlength-message' => 'Minimum 4000 characte₦', 'tabindex' => 15, 'autocomplete' => 'off']) !!}
-                                {!! $erro₦->fi₦t('description', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! Form::textarea('description', null, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Write a few  lines about your products. Also mention your product brand.','minlength' => '50', 'maxlength' => '4000', 'data-validation-minlength-message' => 'Minimum 100 characteRs', 'data-validation-maxlength-message' => 'Minimum 4000 characteRs', 'tabindex' => 15, 'autocomplete' => 'off']) !!}
+                                {!! $erroRs->fiRst('description', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                                
                         </div>
                      </div>
                      <div class="row">
                         <div class="col-sm-9 offset-sm-3">
-                           <p>4000 characte₦ left</p>
+                           <p>4000 characteRs left</p>
                         </div>
                      </div>
                   </div>
@@ -257,25 +257,25 @@
                            <label for="dealer">Dealer</label>
                         </div>
                      </div>
-                     <div class="row form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
+                     <div class="row form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Your Name<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
-                            {!! Form::text('name', Auth::user()->name, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'maxlength' => '50', 'data-validation-maxlength-message' => 'Maxlength 50 characte₦', 'placeholder' => 'Enter name', 'readonly' => 'true', 'tabindex' => 17]) !!}
-                            {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
+                            {!! Form::text('name', Auth::user()->name, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'maxlength' => '50', 'data-validation-maxlength-message' => 'Maxlength 50 characteRs', 'placeholder' => 'Enter name', 'readonly' => 'true', 'tabindex' => 17]) !!}
+                            {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                      </div>
-                     <div class="row form-group {!! $erro₦->has('email') ? 'error' : '' !!}">
+                     <div class="row form-group {!! $erroRs->has('email') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Your Email ID<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
-                            {!! Form::text('email', Auth::user()->email, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'readonly' => 'true', 'maxlength' => '50', 'data-validation-maxlength-message' => 'Maxlength 50 characte₦', 'placeholder' => 'Enter email', 'tabindex' => 18]) !!}
-                            {!! $erro₦->fi₦t('email', '<label class="help-block text-danger">:message</label>') !!}
+                            {!! Form::text('email', Auth::user()->email, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'readonly' => 'true', 'maxlength' => '50', 'data-validation-maxlength-message' => 'Maxlength 50 characteRs', 'placeholder' => 'Enter email', 'tabindex' => 18]) !!}
+                            {!! $erroRs->fiRst('email', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                      </div>
-                     <div class="row form-group {!! $erro₦->has('mobile') ? 'error' : '' !!}">
+                     <div class="row form-group {!! $erroRs->has('mobile') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Mobile Number<span class="required">*</span></label>
                         <div class="col-sm-9">
                            <div>Enter the OTP sent to <span id="number_otp_1"></span> <button type="button" class="text-info">Edit</button> </div>
@@ -286,7 +286,7 @@
                                 <span class="input-group-text check_otp1" data-url="{{URL::to('check-otp')}}">Add</span>
                               </div>
                             </div>
-                            {!! $erro₦->fi₦t('mobile', '<label class="help-block text-danger">:message</label>') !!}
+                            {!! $erroRs->fiRst('mobile', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                             <div class="controls verify_div_otp1">
                             <div class="input-group">
@@ -305,13 +305,13 @@
                             <span class="error err_mobile text-info" style="display: none; display: block;">test</span>
                         </div>
                      </div>
-                     <div class="row form-group {!! $erro₦->has('mobile1') ? 'error' : '' !!}">
+                     <div class="row form-group {!! $erroRs->has('mobile1') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Mobile Number</label>
                         <div class="col-sm-9">
                             <div class="controls">
                               <div class="input-group">
                             {!! Form::number('mobile1', Auth::user()->mobile1, [ 'class' => 'form-control', 'minlength' => '11', 'maxlength' => '11', 'data-validation-minlength-message' => 'Minimum 11 digit', 'data-validation-maxlength-message' => 'Maximum 11 digit', 'placeholder' => 'Enter another number', 'tabindex' => 19 , 'autocomplete' => 'off']) !!}
-                            {!! $erro₦->fi₦t('mobile1', '<label class="help-block text-danger">:message</label>') !!}
+                            {!! $erroRs->fiRst('mobile1', '<label class="help-block text-danger">:message</label>') !!}
                               <div class="input-group-append cp">
                                 <span class="input-group-text" id="basic-addon2">Add</span>
                               </div>
@@ -321,19 +321,19 @@
                             <label for="negotiable">Hide Phone Number </label>
                         </div>
                      </div>
-                     <div class="row form-group {!! $erro₦->has('address') ? 'error' : '' !!}">
+                     <div class="row form-group {!! $erroRs->has('address') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Address</label>
                         <div class="col-sm-9">
                             <div class="controls">
-                            {!! Form::text('address', Auth::user()->address, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter address', 'minlength' => '5', 'data-validation-minlength-message' => 'Minimum 5 characte₦', 'maxlength' => '150', 'data-validation-maxlength-message' => 'Maxlength 150 characte₦', 'tabindex' => 20, 'autocomplete' => 'off' ]) !!}
-                            {!! $erro₦->fi₦t('address', '<label class="help-block text-danger">:message</label>') !!}
+                            {!! Form::text('address', Auth::user()->address, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter address', 'minlength' => '5', 'data-validation-minlength-message' => 'Minimum 5 characteRs', 'maxlength' => '150', 'data-validation-maxlength-message' => 'Maxlength 150 characteRs', 'tabindex' => 20, 'autocomplete' => 'off' ]) !!}
+                            {!! $erroRs->fiRst('address', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                      </div>
                   </div>
                   <!-- section -->
                  
-                    <div class="checkbox section form-group {!! $erro₦->has('is_terms_condition') ? 'error' : '' !!}">
+                    <div class="checkbox section form-group {!! $erroRs->has('is_terms_condition') ? 'error' : '' !!}">
                         <div class="controls">
                      <label for="is_terms_condition">
                          
@@ -352,7 +352,7 @@
             <div class="col-lg-4">
                <div class="section quick-rules">
     @php
-        $uickrules = DB::table('quick_rules')->latest()->fi₦t();
+        $uickrules = DB::table('quick_rules')->latest()->fiRst();
     @endphp
   <h4>
     @if(app()->getLocale() == 'sl')

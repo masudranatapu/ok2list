@@ -21,7 +21,7 @@ $method_name = request()->route()->getActionMethod();
 
 <!--push from page-->
 @push('custom_css')
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendo₦/css/forms/selects/select2.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendoRs/css/forms/selects/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('app-assets/file_upload/image-uploader.min.css')}}">
 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 @endpush('custom_css')
@@ -57,40 +57,40 @@ $method_name = request()->route()->getActionMethod();
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
                                         <label>{{trans('form.name')}}<span class="text-danger">*</span></label>
                                         <div class="controls">
                                             {!! Form::text('name',  null, ['class'=>'form-control mb-1', 'id' => 'name', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter Name', 'tabindex' => 1, 'autocomplete' => 'off'  ]) !!}
-                                            {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group {!! $erro₦->has('email') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erroRs->has('email') ? 'error' : '' !!}">
                                         <label>{{trans('form.email')}}</label>
                                         <div class="controls">
                                             {!! Form::email('email',  null, ['class'=>'form-control mb-1', 'id' => 'email', 'data-validation-required-message' => 'This field is required',  'placeholder' => 'Enter Email', 'tabindex' => 4, 'autocomplete' => 'off' ]) !!}
-                                            {!! $erro₦->fi₦t('email', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('email', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <div class="form-group {!! $erro₦->has('password') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erroRs->has('password') ? 'error' : '' !!}">
                                         <label>{{trans('form.password')}}<span class="text-danger">*</span></label>
                                         <div class="controls">
-                                            {!! Form::text('password', null, [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 6 characte₦', 'placeholder' => 'Enter password', 'tabindex' => 2, 'autocomplete' => 'off']) !!}
-                                            {!! $erro₦->fi₦t('password', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! Form::text('password', null, [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-required-message' => 'This field is required', 'data-validation-minlength-message' => 'Minimum 6 characteRs', 'placeholder' => 'Enter password', 'tabindex' => 2, 'autocomplete' => 'off']) !!}
+                                            {!! $erroRs->fiRst('password', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <div class="form-group {!! $erro₦->has('password_confirmation') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erroRs->has('password_confirmation') ? 'error' : '' !!}">
                                         <label>{{trans('form.password_confirmation')}}<span class="text-danger">*</span></label>
                                         <div class="controls">
-                                            {!! Form::text('passwordAgain', null, [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-matches-match' => 'password', 'data-validation-matches-message' => 'Must match with password', 'data-validation-minlength-message' => 'Minimum 6 characte₦', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter password', 'tabindex' => 2, 'autocomplete' => 'off']) !!}
-                                            {!! $erro₦->fi₦t('password_confirmation', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! Form::text('passwordAgain', null, [ 'class' => 'form-control mb-1', 'minlength' => '6', 'data-validation-matches-match' => 'password', 'data-validation-matches-message' => 'Must match with password', 'data-validation-minlength-message' => 'Minimum 6 characteRs', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter password', 'tabindex' => 2, 'autocomplete' => 'off']) !!}
+                                            {!! $erroRs->fiRst('password_confirmation', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +121,7 @@ $method_name = request()->route()->getActionMethod();
 @endsection
 <!--push from page-->
 @push('custom_js')
-<script src="{{ asset('app-assets/vendo₦/js/forms/select/select2.full.min.js')}}"></script>
+<script src="{{ asset('app-assets/vendoRs/js/forms/select/select2.full.min.js')}}"></script>
 <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
 <script type="text/javascript" src="{{ asset('app-assets/pages/customer.js')}}"></script>
 

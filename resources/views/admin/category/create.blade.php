@@ -25,38 +25,38 @@ $parent_cat_combo = $data['parent_category_combo'] ?? array();
                         {!! Form::open([ 'route' => 'product.category.store', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true , 'novalidate']) !!}
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group {!! $erro₦->has('parent') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erroRs->has('parent') ? 'error' : '' !!}">
                                         <label>{{trans('form.parent_category')}}</label>
                                         <div class="controls">
                                             {!! Form::select('parent', $parent_cat_combo, null, ['class'=>'form-control mb-1 select2', 'id' => 'parent',  'placeholder' => 'Select parent', 'tabindex' => 2 ]) !!}
-                                            {!! $erro₦->fi₦t('parent', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('parent', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group {!! $erro₦->has('name') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
                                         <label>@lang('form.name')<span class="text-danger">*</span></label>
                                         <div class="controls">
                                             {!! Form::text('name', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product category name', 'data-validation-required-message' => 'This field is required', 'tabindex' => 2 ]) !!}
-                                            {!! $erro₦->fi₦t('name', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="form-group {!! $erro₦->has('description') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erroRs->has('description') ? 'error' : '' !!}">
                                         <label>@lang('form.description')</label>
                                         <div class="controls">
                                             {!! Form::textarea('description', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product category description', 'tabindex' => 2, 'rows' => 3 ]) !!}
-                                            {!! $erro₦->fi₦t('description', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('description', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="form-group {!! $erro₦->has('seo_des') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $erroRs->has('seo_des') ? 'error' : '' !!}">
                                         <label>@lang('form.seo_des')</label>
                                         <div class="controls">
                                             {!! Form::textarea('seo_des', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter product category seo description', 'tabindex' => 2, 'rows' => 3 ]) !!}
-                                            {!! $erro₦->fi₦t('seo_des', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('seo_des', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@ $parent_cat_combo = $data['parent_category_combo'] ?? array();
                                         <label>@lang('form.logo') (64X64)</label>
                                         <div class="controls">
                                             <input type="file" name="logo" >
-                                            {!! $erro₦->fi₦t('logo', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('logo', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@ $parent_cat_combo = $data['parent_category_combo'] ?? array();
                                         <label>@lang('form.icon') (16X16)</label>
                                         <div class="controls">
                                             <input type="file" name="icon" >
-                                            {!! $erro₦->fi₦t('icon', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('icon', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +83,7 @@ $parent_cat_combo = $data['parent_category_combo'] ?? array();
                                         <label>@lang('form.banner') (970X250)</label>
                                         <div class="controls">
                                             <input type="file" name="banner" >
-                                            {!! $erro₦->fi₦t('banner', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('banner', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@ $parent_cat_combo = $data['parent_category_combo'] ?? array();
                                         <br>
                                         <div class="controls">
                                             <label><input type="checkbox" name="is_top" > <small>{{ trans('form.is_top') }} </small></label>
-                                            {!! $erro₦->fi₦t('is_top', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('is_top', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@ $parent_cat_combo = $data['parent_category_combo'] ?? array();
                                         <br>
                                         <div class="controls">
                                             <label><input type="checkbox" name="is_new" > <small>{{ trans('form.is_new') }} </small></label>
-                                            {!! $erro₦->fi₦t('is_new', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('is_new', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
@@ -111,7 +111,7 @@ $parent_cat_combo = $data['parent_category_combo'] ?? array();
                                         <br>
                                         <div class="controls">
                                             <label><input type="checkbox" name="is_feature" > <small>{{ trans('form.is_feature') }} </small></label>
-                                            {!! $erro₦->fi₦t('is_feature', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $erroRs->fiRst('is_feature', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>

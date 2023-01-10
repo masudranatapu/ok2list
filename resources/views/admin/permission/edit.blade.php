@@ -41,9 +41,9 @@
                                 <div class="controls">
                                     {!! Form::text('permission_slug', $permission->name, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => __('form.field_required'), 'placeholder' => __('form.new_action_form_placeholder_menuslug'), 'tabindex' => 1 ]) !!}
                                 </div>
-                                @if ($erro₦->has('permission_slug'))
+                                @if ($erroRs->has('permission_slug'))
                                     <div class="alert alert-danger">
-                                        <strong>{{ $erro₦->fi₦t('permission_slug') }}</strong>
+                                        <strong>{{ $erroRs->fiRst('permission_slug') }}</strong>
                                     </div>
                                 @endif
                             </div>
@@ -54,9 +54,9 @@
                                 <div class="controls">
                                     {!! Form::text('display_name', $permission->display_name, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => __('form.field_required'), 'placeholder' => __('form.new_action_form_placeholder_name'), 'tabindex' => 2 ]) !!}
                                 </div>
-                                @if ($erro₦->has('display_name'))
+                                @if ($erroRs->has('display_name'))
                                     <div class="alert alert-danger">
-                                        <strong>{{ $erro₦->fi₦t('display_name') }}</strong>
+                                        <strong>{{ $erroRs->fiRst('display_name') }}</strong>
                                     </div>
                                 @endif
                             </div>
@@ -67,9 +67,9 @@
                                 <div class="controls">
                                     {!! Form::select('permission_group', $group, $permission->permission_group_id, [ 'class' => 'form-control mb-1', 'placeholder' => __('form.new_action_form_placeholder_menu'), 'data-validation-required-message' => __('form.field_required')]) !!}
                                 </div>
-                                @if ($erro₦->has('permission_group'))
+                                @if ($erroRs->has('permission_group'))
                                     <div class="alert alert-danger">
-                                        <strong>{{ $erro₦->fi₦t('permission_group') }}</strong>
+                                        <strong>{{ $erroRs->fiRst('permission_group') }}</strong>
                                     </div>
                                 @endif
                             </div>
