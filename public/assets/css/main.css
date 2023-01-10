@@ -3248,12 +3248,14 @@ span.typewrite {
     Ad Details
  =========================================================================*/
 
-.adpost-details h4 {
+ .adpost-details h4 {
     border-bottom: 1px dotted #ddd;
     color: #000;
-    font-size: 18px;
+    font-size: 25px;
     padding-bottom: 10px;
     margin-top: 0;
+    font-weight: bold;
+    font-family: 'Rubik';
 }
 
 .social-links h4 {
@@ -4294,11 +4296,12 @@ p.mt-2.loginor {
 
 .about-us h3 {
     color: #000000;
-    font-weight: 400;
-    font-size: 18px;
+    font-weight: bold;
+    font-size: 25px;
     margin-bottom: 5px;
     border-bottom: 1px dotted #ddd;
     padding-bottom: 5px;
+    font-family: 'Rubik';
 }
 
 .about-us-images img {
