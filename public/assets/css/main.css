@@ -874,7 +874,7 @@ textarea {
 .category-ad {
     background-color: #fff;
     display: inline-block;
-    padding: 28px 18px;
+    padding: 6px 18px;
     border-radius: 12px;
 }
 
@@ -6443,7 +6443,14 @@ h3.alert.alert-danger.pendinguser {
     max-height: 800px;
     overflow-x: auto;
 }
-
+p#staticBackdropLabel {
+    font-size: 20px;
+    color: #000;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-family: 'Rubik';
+    margin: 0 auto;
+}
 .sitemap_wrapper {
     border-bottom: 1px solid #f3f3f3;
     padding-bottom: 15px;
