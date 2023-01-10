@@ -25,7 +25,7 @@ $row = $data['row'];
 				<div class="col-md-8">
 					<div class="user-pro-section">
 						<div class="profile-details section">
-							<h2 style="padding: 0px; margin: 0px;">Promote your Ad </h2>
+							<h2 style="padding: 0px; margin: 0px;">Promote Your Ad </h2>
 							<hr>
 							<div class="removepromo">
 								<div class="promote">

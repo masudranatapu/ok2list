@@ -50,9 +50,6 @@
                                         {{ $setting->sitemap_en }}
                                     @endif
                                 </a></li> -->
-
-                            <li><a href="{{ route('doorstep-delivery') }}">Doorstep Delivery
-                                </a></li>
                         </ul>
                     </div>
                 </div>
@@ -86,6 +83,9 @@
                                     @else
                                         {{ $setting->promote_your_ad_en }}
                                     @endif
+                                </a></li>
+                                <li><a href="{{ route('doorstep-delivery') }}">
+                                    Doorstep Delivery
                                 </a></li>
                             <li><a href="{{ route('faq') }}">
                                     @if (app()->getLocale() == 'sl')
