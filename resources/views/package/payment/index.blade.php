@@ -61,7 +61,7 @@
                                 <p><strong> @lang('web.acc_num')  :</strong> 1000114100</p>
                                 <p><strong> @lang('web.acc_type') :</strong> Current Account</p>
                                 <p><strong> @lang('web.branch') :</strong> Mawanella</p>
-                                <p><strong> @lang('web.currency') :</strong> Srilankan Rupees (SLrs)</p>
+                                <p><strong> @lang('web.currency') :</strong> Nigeria Nira (₦)</p>
                                 <p><strong> @lang('web.s_c') :</strong> CCEYLKLX</p>
                             </div>
                         </div>

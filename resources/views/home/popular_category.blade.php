@@ -14,7 +14,7 @@
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
                         <div class="category-item">
                             <div class="{{$cat->url_slug}}">
-                                <a href="{{route('ads.list', ['area' => 'srilanka', 'category' => $cat->url_slug])}}">
+                                <a href="{{route('ads.list', ['area' => 'Nigeria', 'category' => $cat->url_slug])}}">
                                     <div class="category-icon"><img src="{{ asset($cat->icon_src)}}" alt="images" class="img-fluid" ></div>
                                     <span class="category-title" style="color:#000000;">
                                         @if($cat->url_slug == 'property')

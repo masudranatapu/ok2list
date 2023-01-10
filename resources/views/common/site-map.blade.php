@@ -44,7 +44,7 @@
                         @foreach ($data['data']['category'] as $key => $cat)
                             <div class="sitemap_wrapper">
                                 <h3><a target="_blank"
-                                        href="{{ route('ads.list', ['area' => 'srilanka', 'category' => $cat->url_slug]) }}">{{ $cat->name }}</a>
+                                        href="{{ route('ads.list', ['area' => 'Nigeria', 'category' => $cat->url_slug]) }}">{{ $cat->name }}</a>
                                 </h3>
                                 <div class="row">
                                     @if ($data['data']['subcategory'] && count($data['data']['subcategory']) > 0)
@@ -55,7 +55,7 @@
 
                                                         <li>
                                                             <a target="_blank"
-                                                                href="{{ route('ads.list', ['area' => 'srilanka', 'category' => $scat->url_slug]) }}"><i
+                                                                href="{{ route('ads.list', ['area' => 'Nigeria', 'category' => $scat->url_slug]) }}"><i
                                                                     class="fa fa-book"></i> {{ $scat->name }}</a>
                                                         </li>
 
