@@ -73,7 +73,7 @@
                                         {{ $setting->how_to_sell_fast_en }}
                                     @endif
                                 </a></li> -->
-                            <li><a href="{{ route('get-membership') }}">
+                            <li><a href="{{ route('packages') }}">
                                     @if (app()->getLocale() == 'sl')
                                         {{ $setting->membership_sl }}
                                     @else

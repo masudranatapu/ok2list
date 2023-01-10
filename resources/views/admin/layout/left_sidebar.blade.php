@@ -310,17 +310,6 @@
             </li>
             @endif
 
-
-
-            {{-- @if(hasAccessAbility('view_mail_configuration', $roles))
-            <li class="@yield('mail_config')">
-                <a class="menu-item" href="{{route('admin.mail.configuration')}}">
-                    <i></i>
-                    <span data-i18n="mail_config">Mail Configaration</span>
-                </a>
-            </li>
-            @endif --}}
-
             @if(hasAccessAbility('view_footer', $roles))
             <li class="@yield('footer')">
                 <a class="menu-item" href="{{route('admin.footer')}}">
@@ -337,9 +326,6 @@
                 </a>
             </li>
             @endif
-
-
-
 
         </ul>
     </li>
