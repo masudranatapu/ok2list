@@ -38,13 +38,13 @@
                                                 </div>
                                             </td>
                                             <td class="text-bold">
-                                                rs. {{request()->get('price')}}
+                                               ₦. {{request()->get('price')}}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="h3"> @lang('web.t_pay') </td>
                                             <td class="h3"> 
-                                                rs. {{request()->get('price')}}
+                                               ₦. {{request()->get('price')}}
                                             </td>
                                         </tr>
                                     </tbody>
