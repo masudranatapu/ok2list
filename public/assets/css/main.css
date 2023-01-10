@@ -420,12 +420,11 @@ textarea {
     color: #000;
 }
 
-#header a.btn,
-.download-button a.btn {
+#header a.btn, .download-button a.btn {
     padding: 5px 25px 7px;
     background-color: #ee1d23;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 16px;
     color: #fff;
     margin-left: 20px;
     font-family: "Rubik";
@@ -2130,6 +2129,8 @@ section#home-two-info {
     font-family: "Rubik";
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
     background: #ee1d23;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 #something-sell a.btn:hover {
