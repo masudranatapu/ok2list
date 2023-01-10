@@ -1058,6 +1058,7 @@ textarea {
     color: #000;
     font-size: 15px;
     margin-bottom: 9px;
+    font-weight: bold;
 }
 
 .freatured_card .item-title a {
