@@ -36,7 +36,7 @@
 								
 								@endif
 								
-								<li class="contacts-list clist {{ $key == 0 ? 'clist-active' : '' }} " data-pid="{{ $row->prd_pk_no }}" data-toid="{{ $toId ?? '' }}" style="cuRsor: pointer;">
+								<li class="contacts-list clist {{ $key == 0 ? 'clist-active' : '' }} " data-pid="{{ $row->prd_pk_no }}" data-toid="{{ $toId ?? '' }}" style="cursor: pointer;">
 									<div class="media p-1">
 										<img src="{{ $row->img_path_thumb }}" alt="John Doe" class="mr-1" style="height:60px;">
 										<div class="media-body">
@@ -49,7 +49,7 @@
 												(Prod-{{ $row->prd_pk_no }}) --}}
 											</h5>
 											<p class="mb-0" style="font-size: 12px; line-height: 16px;">{{ $row->ad_title }} {{-- ({{$row->owner_pk_no}}) --}}</p>
-											<p class="mb-0 text-success" style="font-size: 12px; line-height: 16px;">Rs {{ number_format($row->price,2)  }} {{-- 'Chat_pk-'({{ $row->row_pk}}) --}}</p>
+											<p class="mb-0 text-success" style="font-size: 12px; line-height: 16px;">rs {{ number_format($row->price,2)  }} {{-- 'Chat_pk-'({{ $row->row_pk}}) --}}</p>
 											<br>
 											{{-- {{$row->created_at}} --}}
 										</div>
@@ -68,32 +68,32 @@
 						<div class="card-header msg_head">
 							<div class="d-flex bd-highlight">
 								@if($data['rows'] && count($data['rows']) > 0 )
-								<?php $fiRstRow = $data['rows'][0];  ?>
+								<?php $firstRow = $data['rows'][0];  ?>
 
-								@if($fiRstRow->to_pk_no == Auth::user()->id)
+								@if($firstRow->to_pk_no == Auth::user()->id)
 									@php
-									$parti = $fiRstRow->from_name ;
-									$toId  = $fiRstRow->from_pk_no;
+									$parti = $firstRow->from_name ;
+									$toId  = $firstRow->from_pk_no;
 									@endphp
 								@endif
 								
-								@if($fiRstRow->from_pk_no == Auth::user()->id)
+								@if($firstRow->from_pk_no == Auth::user()->id)
 									@php
-									$parti = $fiRstRow->to_name ; 
-									$toId  = $fiRstRow->to_pk_no;
+									$parti = $firstRow->to_name ; 
+									$toId  = $firstRow->to_pk_no;
 									@endphp
 								@endif
 
 								<ul id="to_parti">
-									<li class="contacts-list clist  " data-pid="{{ $fiRstRow->prd_pk_no }}" data-toid="{{ $toId ?? '' }}" style="cuRsor: pointer;">
+									<li class="contacts-list clist  " data-pid="{{ $firstRow->prd_pk_no }}" data-toid="{{ $toId ?? '' }}" style="cursor: pointer;">
 										<div class="media p-1">
-											<img src="{{ $fiRstRow->img_path_thumb }}" alt="{{ $fiRstRow->from_name }}" class="mr-1" style="height:60px;">
+											<img src="{{ $firstRow->img_path_thumb }}" alt="{{ $firstRow->from_name }}" class="mr-1" style="height:60px;">
 											<div class="media-body">
 												<h5 style="font-size: 16px; color: #000; margin-bottom: 2px; margin-top: 3px;">
 													{{ $parti ?? '' }}
 													</h5>
-												<p class="mb-0" style="font-size: 12px; line-height: 16px;">{{ $fiRstRow->ad_title }} </p>
-												<p class="mb-0 text-success" style="font-size: 12px; line-height: 16px;">Rs {{ number_format($fiRstRow->price,2)  }} </p>
+												<p class="mb-0" style="font-size: 12px; line-height: 16px;">{{ $firstRow->ad_title }} </p>
+												<p class="mb-0 text-success" style="font-size: 12px; line-height: 16px;">rs {{ number_format($firstRow->price,2)  }} </p>
 												<br>
 
 											</div>
@@ -106,8 +106,8 @@
 						</div>
 						<div class="card-body msg_card_body" id="msg_card_body">
 
-							@if($data['fiRst_text'] && count($data['fiRst_text']) > 0 )
-							@foreach($data['fiRst_text'] as $key => $txt )
+							@if($data['first_text'] && count($data['first_text']) > 0 )
+							@foreach($data['first_text'] as $key => $txt )
 							
 							
 							@if(Auth::user()->id != $txt->created_by)
@@ -140,9 +140,9 @@
 							{!! Form::open([ 'route' => 'chat.store', 'method' => 'post', 'class' => 'form-horizontal', 'id' => 'frmSmg','files' => true , 'novalidate', 'autocomplete' => 'off']) !!}
 
 							@if($data['rows'] && count($data['rows']) > 0 )
-							<?php $fiRstRow = $data['rows'][0];   ?>
-							<input type="hidden" name="postid" value="{{ $fiRstRow->prd_pk_no }}" id="postid" />
-							<input type="hidden" name="to_user" value="{{ $fiRstRow->from_pk_no == Auth::user()->id ? $fiRstRow->to_pk_no : $fiRstRow->from_pk_no }}" id="to_user" />
+							<?php $firstRow = $data['rows'][0];   ?>
+							<input type="hidden" name="postid" value="{{ $firstRow->prd_pk_no }}" id="postid" />
+							<input type="hidden" name="to_user" value="{{ $firstRow->from_pk_no == Auth::user()->id ? $firstRow->to_pk_no : $firstRow->from_pk_no }}" id="to_user" />
 							@endif
 							<div class="form-group" id="textfg">
 								<div class="input-group">

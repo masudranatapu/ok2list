@@ -54,7 +54,7 @@ return [
     'workout_item'          => 'Workout Item',
     'product_management'    => 'Product Management',
     'product_list'          => 'Product List',
-    'otheRs'                => 'OtheRs',
+    'others'                => 'Others',
     'product_brand'         => 'Product Brand',
     'product_color'         => 'Color',
     'product_size'          => 'Size',

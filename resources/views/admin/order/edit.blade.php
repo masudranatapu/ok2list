@@ -16,7 +16,7 @@
 @endsection
 <!--push from page-->
 @push('custom_css')
- <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendoRs/css/forms/selects/select2.min.css') }}">
+ <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/selects/select2.min.css') }}">
 @endpush('custom_css')
 @section('content')
     <div class="card" style="height: 943.5px;">
@@ -40,22 +40,22 @@
                     <h4 class="form-section"><i class="la la-eye"></i> Edit Vendor</h4>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group {!! $erroRs->has('code') ? 'error' : '' !!}">
+                            <div class="form-group {!! $errors->has('code') ? 'error' : '' !!}">
                                 <label>@lang('vendor.code')</label>
                                 <div class="controls">
                                     {!! Form::text('code', $vendor->CODE,[ 'class' => 'form-control mb-1', 'placeholder' => 'Enter code', 'tabindex' => 1 ]) !!}
-                                    {!! $erroRs->fiRst('code', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $errors->first('code', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                                 
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
+                            <div class="form-group {!! $errors->has('name') ? 'error' : '' !!}">
                                 <label>@lang('vendor.name')<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     {!! Form::text('name', $vendor->NAME,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter name', 'tabindex' => 1 ]) !!}
-                                    {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $errors->first('name', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                             </div>
                         </div>
@@ -63,40 +63,40 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6"> 
-                            <div class="form-group {!! $erroRs->has('phone') ? 'error' : '' !!}">
+                            <div class="form-group {!! $errors->has('phone') ? 'error' : '' !!}">
                                 <label>@lang('vendor.phone')<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     {!! Form::text('phone', $vendor->PHONE,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter phone number', 'tabindex' => 1 ]) !!}
-                                    {!! $erroRs->fiRst('phone', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $errors->first('phone', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group {!! $erroRs->has('address') ? 'error' : '' !!}">
+                            <div class="form-group {!! $errors->has('address') ? 'error' : '' !!}">
                                 <label>@lang('vendor.address')<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     {!! Form::text('address', $vendor->ADDRESS,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter address', 'tabindex' => 1 ]) !!}
-                                    {!! $erroRs->fiRst('address', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $errors->first('address', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group {!! $erroRs->has('country') ? 'error' : '' !!}">
+                            <div class="form-group {!! $errors->has('country') ? 'error' : '' !!}">
                                 <label>@lang('vendor.country')<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     {!! Form::select('country', $country, $vendor->F_COUNTRY, [ 'class' => 'form-control mb-1 select2', 'placeholder' => 'Please select country', 'data-validation-required-message' => 'This field is required']) !!}
-                                    {!! $erroRs->fiRst('country', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $errors->first('country', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group {!! $erroRs->has('has_loyality') ? 'error' : '' !!}">
+                            <div class="form-group {!! $errors->has('has_loyality') ? 'error' : '' !!}">
                                 <label>@lang('vendor.has_loyality')<span class="text-danger">*</span></label>
                                 <div class="controls">
                                     {!! Form::select('has_loyality', ['1' => 'Yes', '0' => 'No'], $vendor->HAS_LOYALITY, [ 'class' => 'form-control mb-1 select2', 'placeholder' => 'Please select', 'data-validation-required-message' => 'This field is required']) !!}
-                                    {!! $erroRs->fiRst('has_loyality', '<label class="help-block text-danger">:message</label>') !!}
+                                    {!! $errors->first('has_loyality', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                             </div>
                         </div>
@@ -120,6 +120,6 @@
 @endsection
 <!--push from page-->
 @push('custom_js')
- <script src="{{ asset('app-assets/vendoRs/js/forms/select/select2.full.min.js')}}"></script>
+ <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
  <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
 @endpush('custom_js')

@@ -82,18 +82,18 @@
                         </div>
                      </div>
                      @if(count($product_type_combo) > 0 )
-                    <div class="row form-group  {!! $erroRs->has('product_type') ? 'error' : '' !!}">
+                    <div class="row form-group  {!! $errors->has('product_type') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Product Type<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
                                 {!! Form::select('product_type', $product_type_combo, old('product_type'), ['class'=>'form-control js-example-basic-single', 'id' => 'product_type','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select product type', 'tabindex' => 4 ]) !!}
-                                {!! $erroRs->fiRst('product_type', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $errors->first('product_type', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
                      </div>
                      @endif
-                     <div class="row form-group  {!! $erroRs->has('location') ? 'error' : '' !!}">
+                     <div class="row form-group  {!! $errors->has('location') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">City<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
@@ -114,27 +114,27 @@
                               </optgroup>
                               @endif
                               </select>
-                                {!! $erroRs->fiRst('location', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $errors->first('location', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
                      </div>
-                     <div class="row form-group  {!! $erroRs->has('area') ? 'error' : '' !!}">
+                     <div class="row form-group  {!! $errors->has('area') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Local Area<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
                                 {!! Form::select('area', $area_combo, old('area'), ['class'=>'form-control js-example-basic-single', 'id' => 'area','data-validation-required-message' => 'This field is required', 'placeholder' => 'Select area', 'tabindex' => 4, 'id' => 'area_id', 'data-url' => URL::to('get-product-model') ]) !!}
-                                {!! $erroRs->fiRst('area', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $errors->first('area', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
                      </div>
-                     <div class="row form-group add-title {!! $erroRs->has('title') ? 'error' : '' !!}">
+                     <div class="row form-group add-title {!! $errors->has('title') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Title for your Ad<span class="required">*</span></label>
                         <div class="col-sm-9">
                             <div class="controls">
-                           {!! Form::text('title', old('title'), [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Your ads title','minlength' => '10', 'data-validation-minlength-message' => 'Minimum 10 characteRs', 'maxlength' => '60',  'data-validation-maxlength-message' => 'Maximum 60 characteRs', 'autocomplete' => 'off', 'tabindex' => 1]) !!}
-                           {!! $erroRs->fiRst('title', '<label class="help-block text-danger">:message</label>') !!}
+                           {!! Form::text('title', old('title'), [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Your ads title','minlength' => '10', 'data-validation-minlength-message' => 'Minimum 10 characters', 'maxlength' => '60',  'data-validation-maxlength-message' => 'Maximum 60 characters', 'autocomplete' => 'off', 'tabindex' => 1]) !!}
+                           {!! $errors->first('title', '<label class="help-block text-danger">:message</label>') !!}
                        </div>
                         </div>
                      </div>
@@ -168,13 +168,13 @@
                            </div>
                         </div>
                      @endif
-                     <div class="row form-group select-price {!! $erroRs->has('price') ? 'error' : '' !!}">
-                        <label class="col-sm-3 label-title">Price(Rs)<span class="required">*</span></label>
+                     <div class="row form-group select-price {!! $errors->has('price') ? 'error' : '' !!}">
+                        <label class="col-sm-3 label-title">Price(rs)<span class="required">*</span></label>
                         <div class="col-sm-9">
 
                            <div class="controls">
                            {!! Form::number('price', old('price'), [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'ex, 120','minlength' => '0',  'data-validation-minlength-message' => 'Minimum 0 disit', 'maxlength' => '10', 'data-validation-maxlength-message' => 'Maxlength 10 disit', 'tabindex' => 3]) !!}
-                           {!! $erroRs->fiRst('price', '<label class="help-block text-danger">:message</label>') !!}
+                           {!! $errors->first('price', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                            <input type="checkbox" {{old('price_negotiable') ? 'checked' : ''}} name="price_negotiable" value="1" id="negotiable" >
                            <label for="negotiable">Negotiable </label>
@@ -183,35 +183,35 @@
                      @if(request()->get('type') == 'services')
 
                      @else
-                        <div class="row form-group  {!! $erroRs->has('brand') ? 'error' : '' !!}">
+                        <div class="row form-group  {!! $errors->has('brand') ? 'error' : '' !!}">
                            <label class="col-sm-3 label-title">Brand</label>
                            <div class="col-sm-9">
                               <div class="controls">
                                  {!! Form::select('brand', $brand_combo, old('brand'), ['class'=>'form-control js-example-basic-single2', 'id' => 'brand', 'placeholder' => 'Select brand', 'tabindex' => 4, 'id' => 'brand_id', 'data-url' => URL::to('get-product-model') ]) !!}
-                                 {!! $erroRs->fiRst('brand', '<label class="help-block text-danger">:message</label>') !!}
+                                 {!! $errors->first('brand', '<label class="help-block text-danger">:message</label>') !!}
                               </div>
                            </div>
                         </div>
                      @endif
                      @if($subcat_id == 13 || ($subcat_id == 14) || ($subcat_id == 21))
-                     <div class="row form-group model-name {!! $erroRs->has('prod_model') ? 'error' : '' !!}">
+                     <div class="row form-group model-name {!! $errors->has('prod_model') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Model</label>
                         <div class="col-sm-9">
                             <div class="controls">
                            {!! Form::select('prod_model', array(), old('prod_model'), ['class'=>'form-control js-example-basic-single2 prod_model_add', 'id' => 'prod_model', 'placeholder' => 'Select model', 'tabindex' => 5]) !!}
-                           {!! $erroRs->fiRst('prod_model', '<label class="help-block text-danger">:message</label>') !!}
+                           {!! $errors->first('prod_model', '<label class="help-block text-danger">:message</label>') !!}
                            </div>
                         </div>
                      </div>
                      @endif
 
                     @if($subcat_id == 20 || ($subcat_id == 22) || ($subcat_id == 27) )
-                     <div class="row form-group model-name {!! $erroRs->has('custom_model') ? 'error' : '' !!}">
+                     <div class="row form-group model-name {!! $errors->has('custom_model') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Model</label>
                         <div class="col-sm-9">
                             <div class="controls">
-                           {!! Form::text('custom_model', old('custom_model'), ['class'=>'form-control custom_model', 'id' => 'custom_model', 'placeholder' => 'Product model name (max 60 characteRs )', 'maxlength' => '60', 'data-validation-maxlength-message' => 'Maxlength 60 characteRs', 'tabindex' => 5]) !!}
-                           {!! $erroRs->fiRst('custom_model', '<label class="help-block text-danger">:message</label>') !!}
+                           {!! Form::text('custom_model', old('custom_model'), ['class'=>'form-control custom_model', 'id' => 'custom_model', 'placeholder' => 'Product model name (max 60 characters )', 'maxlength' => '60', 'data-validation-maxlength-message' => 'Maxlength 60 characters', 'tabindex' => 5]) !!}
+                           {!! $errors->first('custom_model', '<label class="help-block text-danger">:message</label>') !!}
                            </div>
                         </div>
                      </div>
@@ -219,36 +219,36 @@
 
 
                     @if($subcat_id == 13 || ($subcat_id == 14) || ($subcat_id == 21) )
-                     <div class="row form-group {!! $erroRs->has('edition') ? 'error' : '' !!}">
+                     <div class="row form-group {!! $errors->has('edition') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Edition </label>
                         <div class="col-sm-9">
                            <div class="controls">
-                               {!! Form::text('edition', old('edition'), ['class'=>'form-control', 'id' => 'edition', 'placeholder' => 'Edition (Max 40 characteRs)', 'tabindex' => 6, 'autocomplete' => 'off', 'maxlength' => '40', 'data-validation-maxlength-message' => 'Maxlength 40 characteRs' ]) !!}
-                               {!! $erroRs->fiRst('edition', '<label class="help-block text-danger">:message</label>') !!}
+                               {!! Form::text('edition', old('edition'), ['class'=>'form-control', 'id' => 'edition', 'placeholder' => 'Edition (Max 40 characters)', 'tabindex' => 6, 'autocomplete' => 'off', 'maxlength' => '40', 'data-validation-maxlength-message' => 'Maxlength 40 characters' ]) !!}
+                               {!! $errors->first('edition', '<label class="help-block text-danger">:message</label>') !!}
                            </div>
                         </div>
                      </div>
                      @endif
 
                     @if($subcat_id == 13 || ($subcat_id == 14) || ($subcat_id == 17) )
-                    <div class="row form-group {!! $erroRs->has('model_year') ? 'error' : '' !!}">
+                    <div class="row form-group {!! $errors->has('model_year') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Model year</label>
                         <div class="col-sm-9">
                            <div class="controls">
                                {!! Form::number('model_year', old('model_year'), ['class'=>'form-control', 'id' => 'model_year', 'maxlength' => '4', 'data-validation-maxlength-message' => 'Maxlength 4 digit',  'placeholder' => 'Model year', 'autocomplete' => 'off', 'tabindex' => 7]) !!}
-                               {!! $erroRs->fiRst('model_year', '<label class="help-block text-danger">:message</label>') !!}
+                               {!! $errors->first('model_year', '<label class="help-block text-danger">:message</label>') !!}
                            </div>
                         </div>
                     </div>
                     @endif
 
                     @if($subcat_id == 13)
-                    <div class="row form-group {!! $erroRs->has('registration_year') ? 'error' : '' !!}">
+                    <div class="row form-group {!! $errors->has('registration_year') ? 'error' : '' !!}">
                        <label class="col-sm-3 label-title">Registration year </label>
                        <div class="col-sm-9">
                           <div class="controls">
                               {!! Form::number('registration_year', old('registration_year'), ['class'=>'form-control', 'id' => 'registration_year', 'placeholder' => 'Registration year', 'maxlength' => '4', 'data-validation-maxlength-message' => 'Maxlength 4 digit', 'autocomplete' => 'off', 'tabindex' => 8]) !!}
-                              {!! $erroRs->fiRst('registration_year', '<label class="help-block text-danger">:message</label>') !!}
+                              {!! $errors->first('registration_year', '<label class="help-block text-danger">:message</label>') !!}
                           </div>
                        </div>
                     </div>
@@ -266,12 +266,12 @@
                     @endif
 
                     @if($subcat_id == 13)
-                    <div class="row form-group  {!! $erroRs->has('body_type') ? 'error' : '' !!}">
+                    <div class="row form-group  {!! $errors->has('body_type') ? 'error' : '' !!}">
                        <label class="col-sm-3 label-title">Body type </label>
                        <div class="col-sm-9">
                            <div class="controls">
                                {!! Form::select('body_type', $car_body_type, null, ['class'=>'form-control  js-example-basic-single', 'id' => 'body_type', 'placeholder' => 'Select body type', 'tabindex' => 10, 'id' => 'body_type_id' ]) !!}
-                               {!! $erroRs->fiRst('body_type', '<label class="help-block text-danger">:message</label>') !!}
+                               {!! $errors->first('body_type', '<label class="help-block text-danger">:message</label>') !!}
                            </div>
 
                        </div>
@@ -294,26 +294,26 @@
                     @endif
 
                     @if($subcat_id == 13 )
-                    <div class="row form-group {!! $erroRs->has('engine_capacity') ? 'error' : '' !!}">
+                    <div class="row form-group {!! $errors->has('engine_capacity') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Engine capacity (cc)</label>
                         <div class="col-sm-9">
                             <div class="controls">
 
                                 {!! Form::number('engine_capacity', old('engine_capacity'), ['class'=>'form-control', 'id' => 'engine_capacity', 'placeholder' => 'Engine capacity (maximum 5000)', 'maxlength' => '5000', 'data-validation-maxlength-message' => 'Maxlength 99 digit', 'tabindex' => 12, 'autocomplete' => 'off']) !!}
-                                {!! $erroRs->fiRst(' engine_capacity', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $errors->first(' engine_capacity', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                     </div>
                     @endif
 
                     @if($subcat_id == 13 || ($subcat_id == 14) || ($subcat_id == 17) )
-                     <div class="row form-group model-name {!! $erroRs->has('kilometeRs_run') ? 'error' : '' !!}">
-                        <label class="col-sm-3 label-title">KilometeRs run (km)</label>
+                     <div class="row form-group model-name {!! $errors->has('kilometers_run') ? 'error' : '' !!}">
+                        <label class="col-sm-3 label-title">Kilometers run (km)</label>
                         <div class="col-sm-9">
                             <div class="controls">
 
-                                {!! Form::number('kilometeRs_run', null, ['class'=>'form-control', 'id' => 'kilometeRs_run', 'placeholder' => 'KilometeRs run', 'maxlength' => '9999999999', 'data-validation-maxlength-message' => 'Maxlength 9999999999 digit', 'tabindex' => 13, 'autocomplete' => 'off' ]) !!}
-                                {!! $erroRs->fiRst('kilometeRs_run', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! Form::number('kilometers_run', null, ['class'=>'form-control', 'id' => 'kilometers_run', 'placeholder' => 'Kilometers run', 'maxlength' => '9999999999', 'data-validation-maxlength-message' => 'Maxlength 9999999999 digit', 'tabindex' => 13, 'autocomplete' => 'off' ]) !!}
+                                {!! $errors->first('kilometers_run', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                      </div>
@@ -334,12 +334,12 @@
                      </div>
                      @endif
 
-                     <div class="row form-group item-description {!! $erroRs->has('description') ? 'error' : '' !!}">
+                     <div class="row form-group item-description {!! $errors->has('description') ? 'error' : '' !!}">
                         <label class="col-sm-3 label-title">Description<span class="required">*</span></label>
                         <div class="col-sm-9">
                                  <div class="controls">
-                                {!! Form::textarea('description', null, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Write a few  lines about your products. Also mention your product brand.','minlength' => '50', 'maxlength' => '4000', 'data-validation-minlength-message' => 'Minimum 100 characteRs', 'data-validation-maxlength-message' => 'Minimum 4000 characteRs', 'tabindex' => 15, 'autocomplete' => 'off']) !!}
-                                {!! $erroRs->fiRst('description', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! Form::textarea('description', null, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Write a few  lines about your products. Also mention your product brand.','minlength' => '50', 'maxlength' => '4000', 'data-validation-minlength-message' => 'Minimum 100 characters', 'data-validation-maxlength-message' => 'Minimum 4000 characters', 'tabindex' => 15, 'autocomplete' => 'off']) !!}
+                                {!! $errors->first('description', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
 
                         </div>
@@ -348,11 +348,11 @@
 
                      <!-- section -->
                      <div class="section seller-info">
-                       @include('ad_post._peRsonal_info_ad_post')
+                       @include('ad_post._personal_info_ad_post')
                      </div>
                      <!-- section -->
 
-                       <div class="checkbox section form-group {!! $erroRs->has('is_terms_condition') ? 'error' : '' !!}">
+                       <div class="checkbox section form-group {!! $errors->has('is_terms_condition') ? 'error' : '' !!}">
                            <div class="controls">
                         <!-- <label for="is_terms_condition" class="{{old('price_negotiable') ? 'checked' : ''}}">
 
@@ -395,7 +395,7 @@
             <div class="col-lg-4">
                <div class="section quick-rules">
                   @php
-                     $uickrules = DB::table('quick_rules')->latest()->fiRst();
+                     $uickrules = DB::table('quick_rules')->latest()->first();
                   @endphp
                   <h4>
                      @if(app()->getLocale() == 'sl')
@@ -555,8 +555,8 @@
 
    <script>
    toastr.options.progressBar = true;
-      @if(count($erroRs) > 0)
-         @foreach($erroRs->all() as $error)
+      @if(count($errors) > 0)
+         @foreach($errors->all() as $error)
                toastr.error("{{ $error }}");
          @endforeach
       @endif

@@ -6,7 +6,7 @@
 
 @section('content')
 @php
-$link = DB::table('site_settings')->fiRst();
+$link = DB::table('site_settings')->first();
 @endphp
 
 	<section id="main" class="clearfix contact-us">
@@ -73,8 +73,8 @@ $link = DB::table('site_settings')->fiRst();
 									<div class="col-md-6">
 										<div class="form-group">
 											<div class="controls">
-											{!! Form::text('name', old('name'), ['class'=>'form-control', 'id' => 'name', 'placeholder' => 'Name', 'data-validation-required-message' => 'This field is required', 'maxlength' => '60', 'data-validation-maxlength-message' => 'Maxlength 60 characteRs', 'tabindex' => 5]) !!}
-											{!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
+											{!! Form::text('name', old('name'), ['class'=>'form-control', 'id' => 'name', 'placeholder' => 'Name', 'data-validation-required-message' => 'This field is required', 'maxlength' => '60', 'data-validation-maxlength-message' => 'Maxlength 60 characters', 'tabindex' => 5]) !!}
+											{!! $errors->first('name', '<label class="help-block text-danger">:message</label>') !!}
 
 											</div>
 										</div>
@@ -83,7 +83,7 @@ $link = DB::table('site_settings')->fiRst();
 										<div class="form-group">
 											<div class="controls">
 											{!! Form::email('email', old('email'), ['class'=>'form-control', 'id' => 'email', 'placeholder' => 'Email', 'data-validation-required-message' => 'This field is required', 'tabindex' => 5]) !!}
-											{!! $erroRs->fiRst('email', '<label class="help-block text-danger">:message</label>') !!}
+											{!! $errors->first('email', '<label class="help-block text-danger">:message</label>') !!}
 											</div>
 										</div>
 									</div>
@@ -91,7 +91,7 @@ $link = DB::table('site_settings')->fiRst();
 										<div class="form-group">
 											<div class="controls">
 											{!! Form::text('subject', old('subject'), ['class'=>'form-control', 'id' => 'subject', 'placeholder' => 'Subject', 'data-validation-required-message' => 'This field is required', 'tabindex' => 5]) !!}
-											{!! $erroRs->fiRst('subject', '<label class="help-block text-danger">:message</label>') !!}
+											{!! $errors->first('subject', '<label class="help-block text-danger">:message</label>') !!}
 											</div>
 										</div>
 									</div>
@@ -99,7 +99,7 @@ $link = DB::table('site_settings')->fiRst();
 										<div class="form-group">
 											<div class="controls">
 											{!! Form::textarea('message', old('message'), ['class'=>'form-control', 'id' => 'message', 'placeholder' => 'Message', 'data-validation-required-message' => 'This field is required', 'tabindex' => 5]) !!}
-											{!! $erroRs->fiRst('message', '<label class="help-block text-danger">:message</label>') !!}
+											{!! $errors->first('message', '<label class="help-block text-danger">:message</label>') !!}
 											</div>
 										</div>
 									</div>
@@ -110,7 +110,7 @@ $link = DB::table('site_settings')->fiRst();
 										<span style="display: inline;" id="random2"></span> = ?
 										<div class="controls">
 											{!! Form::number('capt', old('capt'), ['class'=>'form-control', 'id' => 'usernumber', 'placeholder' => 'Result', 'data-validation-required-message' => 'This field is required', 'oninput' => 'checkInputValCapt(this)', 'tabindex' => 5]) !!}
-											{!! $erroRs->fiRst('capt', '<label class="help-block text-danger">:message</label>') !!}
+											{!! $errors->first('capt', '<label class="help-block text-danger">:message</label>') !!}
 											</div>
 										</div>
 										<input type="hidden" name="randtotal" id="randtotal">
@@ -162,7 +162,7 @@ $link = DB::table('site_settings')->fiRst();
 		}
 		}
 
-		//Running a fiRst time to get numbeRs set
+		//Running a first time to get numbers set
 		$(document).ready(function() {
 			differentProblem();
 		});

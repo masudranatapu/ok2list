@@ -19,7 +19,7 @@ $row = $data['row'];
 			<div class="row">
 				<div class="col-md-4 text-center">
 					<!-- header -->
-					@include('useRs._user_dashboard_menu')
+					@include('users._user_dashboard_menu')
 					<!-- end header -->
 				</div><!-- recommended-cta-->
 				<div class="col-md-8">
@@ -64,7 +64,7 @@ $row = $data['row'];
 											      <td scope="col">For {{ $cprom->day_limit }} Days</td>
 											      <td scope="col" style="text-align:center">
 													 ₦{{number_format($discounted,2)}}
-													   <sub><del>Rs {{ number_format($cprom->price,2) }}</del></sub> {{Auth::user()->package->discount_on_promotion}}% discount</td>
+													   <sub><del>rs {{ number_format($cprom->price,2) }}</del></sub> {{Auth::user()->package->discount_on_promotion}}% discount</td>
 											    </tr>
 											    @endforeach
 											    @endif

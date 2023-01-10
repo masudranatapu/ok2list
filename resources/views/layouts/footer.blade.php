@@ -51,7 +51,7 @@
                                     @endif
                                 </a></li> -->
 
-                            <li><a href="{{ route('doorstep-delivery') }}">DooRstep Delivery
+                            <li><a href="{{ route('doorstep-delivery') }}">Doorstep Delivery
                                 </a></li>
                         </ul>
                     </div>
@@ -73,11 +73,11 @@
                                         {{ $setting->how_to_sell_fast_en }}
                                     @endif
                                 </a></li> -->
-                            <li><a href="{{ route('get-membeRship') }}">
+                            <li><a href="{{ route('get-membership') }}">
                                     @if (app()->getLocale() == 'sl')
-                                        {{ $setting->membeRship_sl }}
+                                        {{ $setting->membership_sl }}
                                     @else
-                                        {{ $setting->membeRship_en }}
+                                        {{ $setting->membership_en }}
                                     @endif
                                 </a></li>
                             <li><a href="{{ route('promote-ads') }}">
@@ -220,7 +220,7 @@
                                     'data-validation-required-message' => 'This field is required',
                                     'tabindex' => 5,
                                 ]) !!}
-                                {!! $erroRs->fiRst('email', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $errors->first('email', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">@lang('web.subscriptbe')</button>

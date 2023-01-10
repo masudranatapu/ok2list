@@ -1,10 +1,10 @@
 @extends('admin.layout.master')
 @section('order','active')
 @section('title')
-OrdeRs
+Orders
 @endsection
 @section('page-name')
-OrdeRs
+Orders
 @endsection
 @section('breadcrumb')
 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a>
@@ -42,17 +42,17 @@ OrdeRs
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($ordeRs as $item)
+                                    @foreach ($orders as $item)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$item->product->ad_title}}</td>
                                         <td>{{$item->transaction_number}}</td>
                                         <td> <a href="{{url('admin/customer')}}">{{$item->user->name ?? ''}}</a> </td>
                                         <td> <a href="{{url('admin/customer')}}">{{$item->seller->name ?? ''}}</a> </td>
-                                        <td>{{ucfiRst($item->payment_method ?? 'paystack')}}</td>
+                                        <td>{{ucfirst($item->payment_method ?? 'paystack')}}</td>
                                         <td> {{$item->amount}}</td>
                                         <td>{{$item->created_at->toFormattedDateString()}}</td>
-                                        <td>{{ ucfiRst($item->order_status) }}</td>
+                                        <td>{{ ucfirst($item->order_status) }}</td>
                                         <td>
                                             <a href="{{ route('admin.order.details', $item->id) }}" class="btn btn-xs btn-outline-primary mr-1" title="View"><i class="la la-eye"></i></a>
                                             <a href="{{ route('admin.order.edit', $item->id) }}" class="btn btn-xs btn-outline-primary mr-1" title="EDIT"><i class="la la-edit"></i></a>

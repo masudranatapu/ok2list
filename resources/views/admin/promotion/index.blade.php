@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @push('custom_css')
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/coloRs/palette-tooltip.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colors/palette-tooltip.css')}}">
 @endpush
 
 @section('Promotion','open')
@@ -63,7 +63,7 @@
                                             <tr>
                                                 <td>01</td>
                                                 <td>{{ $row->promotion->name ?? '' }}</td>
-                                                <td>Rs {{ number_format($row->price, 2) }} </td>
+                                                <td>rs {{ number_format($row->price, 2) }} </td>
                                                 <td>{{ $row->day_limit }} Day</td>
                                                 <td class="text-center">
 

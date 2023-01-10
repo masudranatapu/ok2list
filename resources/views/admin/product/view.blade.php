@@ -14,7 +14,7 @@
 @endsection
 
 @push('custom_css')
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendoRs/css/forms/selects/select2.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/selects/select2.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/lightbox.css') }}">
 
 <!--for file uploads-->
@@ -22,7 +22,7 @@
 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <!--for tooltip-->
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/coloRs/palette-tooltip.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colors/palette-tooltip.css')}}">
 
 <!--for image gallery-->
 <link rel="stylesheet" href="{{ asset('app-assets/lightgallery/dist/css/lightgallery.min.css') }}">
@@ -210,7 +210,7 @@
 @endsection
 <!--push from page-->
 @push('custom_js')
-<script src="{{ asset('app-assets/vendoRs/js/forms/select/select2.full.min.js')}}"></script>
+<script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
 <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
 <script src="{{ asset('app-assets/js/lightbox.js')}}"></script>
 
@@ -244,7 +244,7 @@
             url:pageurl,
             async :true,
             beforeSend: function () {
-                $("body").css("cuRsor", "progress");
+                $("body").css("cursor", "progress");
                 //blockUI();
             },
             success: function (data) {
@@ -257,7 +257,7 @@
 
             },
             complete: function (data) {
-                $("body").css("cuRsor", "default");
+                $("body").css("cursor", "default");
                 //$.unblockUI();
             }
         });

@@ -2,12 +2,12 @@
 @if(Auth::user())
     <?php
         $counter =  \DB::table('ss_chat')->where('is_seen','0')->where('to_pk_no',Auth::user()->id)->count();
-        $payments = App\Payments::where('f_customer_pk_no',Auth::user()->id)->where(['payment_type'=>'package'])->orderBy('pk_no','desc')->fiRst();
+        $payments = App\Payments::where('f_customer_pk_no',Auth::user()->id)->where(['payment_type'=>'package'])->orderBy('pk_no','desc')->first();
     ?>
 @endif
 <header id="header" class="clearfix">
     @php
-        $setting = App\SiteSetting::fiRst();
+        $setting = App\SiteSetting::first();
     @endphp
     <nav class="navbar navbar-default navbar-expand-lg">
         <div class="container">
@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="tr-mainmenu">
                 <ul class="nav navbar-nav">
                     <li><a href="{{route('ads.list')}}">@lang('web.all_ads')</a></li>
-                    <li><a href="{{route('packages')}}">@lang('web.membeRship')</a></li>
+                    <li><a href="{{route('packages')}}">@lang('web.membership')</a></li>
                 </ul>
             </div>
             <div class="nav-right">

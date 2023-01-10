@@ -12,7 +12,7 @@
             <div class="ads-info profile">
                 <div class="row">
                     <div class="col-xl-3">
-                        @include('useRs._user_dashboard_menu')
+                        @include('users._user_dashboard_menu')
                     </div>
                     <div class="col-xl-9">
                         <div class="card">
@@ -31,11 +31,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($ordeRs as $item)
+                                        @foreach ($orders as $item)
                                             <tr>
                                                 <td>{{ $item->product->ad_title }}</td>
                                                 <td>{{ ($item->amount) }}</td>
-                                                <td>{{ ucfiRst($item->payment_method ?? 'paystack' ) }}</td>
+                                                <td>{{ ucfirst($item->payment_method ?? 'paystack' ) }}</td>
                                                 <td>{{ $item->transaction_number }}</td>
                                                 <td>
                                                     @if ($item->payment_status == 'paid')
@@ -45,7 +45,7 @@
                                                     @endif
                                                 </td>
                                                 <td>{{ $item->created_at->toFormattedDateString() }}</td>
-                                                <td>{{ ucfiRst($item->order_status) }}</td>
+                                                <td>{{ ucfirst($item->order_status) }}</td>
                                                 <td>
                                                     <a target="_blank" href="{{ route('user.order.details', $item->id) }}"
                                                         class="btn-sm "><i class="fa fa-eye"></i></a>

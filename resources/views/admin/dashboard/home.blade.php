@@ -61,7 +61,7 @@ Dashboard
                             <div class="media d-flex">
                                 <div class="media-body text-left">
                                     <h3 class="success">146</h3>
-                                    <h6>New CustomeRs</h6>
+                                    <h6>New Customers</h6>
                                 </div>
                                 <div>
                                     <i class="icon-user-follow success font-large-2 float-right"></i>
@@ -328,11 +328,11 @@ Dashboard
                     </div>
                     <div class="card-content mt-1">
                         <div class="table-responsive">
-                            <table id="recent-ordeRs" class="table table-hover table-xl mb-0">
+                            <table id="recent-orders" class="table table-hover table-xl mb-0">
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">Product</th>
-                                        <th class="border-top-0">CustomeRs</th>
+                                        <th class="border-top-0">Customers</th>
                                         <th class="border-top-0">Categories</th>
                                         <th class="border-top-0">Popularity</th>
                                         <th class="border-top-0">Amount</th>
@@ -342,7 +342,7 @@ Dashboard
                                     <tr>
                                         <td class="text-truncate">iPhone X</td>
                                         <td class="text-truncate p-1">
-                                            <ul class="list-unstyled useRs-list m-0">
+                                            <ul class="list-unstyled users-list m-0">
                                                 <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
                                                     <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-4.png" alt="Avatar">
                                                 </li>
@@ -370,7 +370,7 @@ Dashboard
                                     <tr>
                                         <td class="text-truncate">iPad</td>
                                         <td class="text-truncate p-1">
-                                            <ul class="list-unstyled useRs-list m-0">
+                                            <ul class="list-unstyled users-list m-0">
                                                 <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
                                                     <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-7.png" alt="Avatar">
                                                 </li>
@@ -395,7 +395,7 @@ Dashboard
                                     <tr>
                                         <td class="text-truncate">OnePlus</td>
                                         <td class="text-truncate p-1">
-                                            <ul class="list-unstyled useRs-list m-0">
+                                            <ul class="list-unstyled users-list m-0">
                                                 <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
                                                     <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-1.png" alt="Avatar">
                                                 </li>
@@ -423,7 +423,7 @@ Dashboard
                                     <tr>
                                         <td class="text-truncate">ZenPad</td>
                                         <td class="text-truncate p-1">
-                                            <ul class="list-unstyled useRs-list m-0">
+                                            <ul class="list-unstyled users-list m-0">
                                                 <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
                                                     <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-11.png" alt="Avatar">
                                                 </li>
@@ -445,7 +445,7 @@ Dashboard
                                     <tr>
                                         <td class="text-truncate">Pixel 2</td>
                                         <td class="text-truncate p-1">
-                                            <ul class="list-unstyled useRs-list m-0">
+                                            <ul class="list-unstyled users-list m-0">
                                                 <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
                                                     <img class="media-object rounded-circle" src="../../../app-assets/images/portrait/small/avatar-s-6.png" alt="Avatar">
                                                 </li>
@@ -489,7 +489,7 @@ Dashboard
                     </div>
                     <div class="card-content">
                         <div class="table-responsive">
-                            <table id="recent-ordeRs" class="table table-hover table-xl mb-0">
+                            <table id="recent-orders" class="table table-hover table-xl mb-0">
                                 <thead>
                                     <tr>
                                         <th class="border-top-0">Status</th>
@@ -512,7 +512,7 @@ Dashboard
                                             <span>Elizabeth W.</span>
                                         </td>
                                         <td class="text-truncate p-1">
-                                            <ul class="list-unstyled useRs-list m-0">
+                                            <ul class="list-unstyled users-list m-0">
                                                 <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
                                                     <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius" src="../../../app-assets/images/portfolio/portfolio-1.jpg" alt="Avatar">
                                                 </li>
@@ -547,7 +547,7 @@ Dashboard
                                             <span>Doris R.</span>
                                         </td>
                                         <td class="text-truncate p-1">
-                                            <ul class="list-unstyled useRs-list m-0">
+                                            <ul class="list-unstyled users-list m-0">
                                                 <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
                                                     <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius" src="../../../app-assets/images/portfolio/portfolio-5.jpg" alt="Avatar">
                                                 </li>
@@ -579,7 +579,7 @@ Dashboard
                                             <span>Megan S.</span>
                                         </td>
                                         <td class="text-truncate p-1">
-                                            <ul class="list-unstyled useRs-list m-0">
+                                            <ul class="list-unstyled users-list m-0">
                                                 <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
                                                     <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius" src="../../../app-assets/images/portfolio/portfolio-2.jpg" alt="Avatar">
                                                 </li>
@@ -608,7 +608,7 @@ Dashboard
                                             <span>Andrew D.</span>
                                         </td>
                                         <td class="text-truncate p-1">
-                                            <ul class="list-unstyled useRs-list m-0">
+                                            <ul class="list-unstyled users-list m-0">
                                                 <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
                                                     <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius" src="../../../app-assets/images/portfolio/portfolio-6.jpg" alt="Avatar">
                                                 </li>
@@ -640,7 +640,7 @@ Dashboard
                                             <span>Walter R.</span>
                                         </td>
                                         <td class="text-truncate p-1">
-                                            <ul class="list-unstyled useRs-list m-0">
+                                            <ul class="list-unstyled users-list m-0">
                                                 <li data-toggle="tooltip" data-popup="tooltip-custom" data-original-title="Kimberly Simmons" class="avatar avatar-sm pull-up">
                                                     <img class="media-object rounded-circle no-border-top-radius no-border-bottom-radius" src="../../../app-assets/images/portfolio/portfolio-5.jpg" alt="Avatar">
                                                 </li>

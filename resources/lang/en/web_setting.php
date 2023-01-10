@@ -9,7 +9,7 @@ return [
     'footer_title'               =>     'Footer',
     'copy_right_title'           =>     'Copyright',
     'howto_sell_title'           =>     'How to Sell Fast',
-    'why_membeRship_title'       =>     'Why MembeRship',
+    'why_membership_title'       =>     'Why Membership',
     'client_query_title'         =>     'Client Query',
     'query_view_title'           =>     'View Query',
     'query_reply_title'          =>     'Reply Query',

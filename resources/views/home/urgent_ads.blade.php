@@ -62,7 +62,7 @@
                     <div class="col-md-6 col-lg-3 mb-4">
                         <div class="card freatured_card">
                               <div class="featured-image">
-                                  <span class="featured-ad dooRstep_tag">DooRstep</span>
+                                  <span class="featured-ad doorstep_tag">Doorstep</span>
                               </div>
                               <div class="featured-image">
                                     <a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}"><img src="{{ asset('assets/images/default-load.png')}}"  data-src="{{ asset($ad->img_path_thumb)}}" alt="{{$ad->ad_title}}" class="img-fluid"></a>
@@ -71,13 +71,13 @@
                                     @endif
                                 </div>
                               <div class="card-body">
-                                    <h3 class="item-price">Rs {{number_format($ad->price,2)}}</h3>
+                                    <h3 class="item-price">rs {{number_format($ad->price,2)}}</h3>
                                     <h4 class="item-title"><a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{ $ad->ad_title }}</a></h4>
                                     <div class="item-cat">
                                         <span><a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{ $ad->subcategory->name ?? '' }}</a></span>
                                     </div>
                                     @php
-                                        $payment = App\Payments::where('f_customer_pk_no',$ad->customer_pk_no)->where('status','VALID')->orderBy('pk_no','desc')->fiRst();
+                                        $payment = App\Payments::where('f_customer_pk_no',$ad->customer_pk_no)->where('status','VALID')->orderBy('pk_no','desc')->first();
                                     @endphp
                                     @if($payment)
                                         <div class="premier_ads">
@@ -110,13 +110,13 @@
                                 @endif
                             </div>
                             <div class="ad-info">
-                                <h3 class="item-price">Rs {{number_format($ad->price,2)}}</h3>
+                                <h3 class="item-price">rs {{number_format($ad->price,2)}}</h3>
                                 <h4 class="item-title"><a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{ $ad->ad_title }}</a></h4>
                                 <div class="item-cat">
                                     <span><a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{ $ad->subcategory->name ?? '' }}</a></span>
                                 </div>
                                 @php
-                                $payment = App\Payments::where('f_customer_pk_no',$ad->customer_pk_no)->where('status','VALID')->orderBy('pk_no','desc')->fiRst();
+                                $payment = App\Payments::where('f_customer_pk_no',$ad->customer_pk_no)->where('status','VALID')->orderBy('pk_no','desc')->first();
                             @endphp
                             @if($payment)
                                 <div class="premier_ads">

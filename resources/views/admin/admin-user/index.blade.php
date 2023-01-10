@@ -66,14 +66,14 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($triggeRs as $row)
+                                        @foreach($triggers as $row)
                                             <tr>
                                                 <td>{{$loop->index + 1}}</td>
                                                 <td>
                                                     <img align="middle" width="50" height="50"
                                                          src="{{$row->profile_pic_url}}" alt="No image">
                                                 </td>
-                                                <td>{{$row->fiRst_name}} {{$row->middle_name}} {{$row->last_name}}</td>
+                                                <td>{{$row->first_name}} {{$row->middle_name}} {{$row->last_name}}</td>
                                                 <td>{{$row->username}}</td>
                                                 <td>{{$row->designation}}</td>
                                                 <td>{{$row->email}}</td>

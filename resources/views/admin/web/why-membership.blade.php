@@ -2,19 +2,19 @@
 
 @section('Web Setting','open')
 
-@section('why_membeRship','active')
+@section('why_membership','active')
 
 @section('title')
-    @lang('web_setting.why_membeRship_title')
+    @lang('web_setting.why_membership_title')
 @endsection
 
 @section('page-name')
-    @lang('web_setting.why_membeRship_title')
+    @lang('web_setting.why_membership_title')
 @endsection
 
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="#">@lang('admin_role.breadcrumb_title')  </a></li>
-    <li class="breadcrumb-item active">@lang('web_setting.why_membeRship_title')    </li>
+    <li class="breadcrumb-item active">@lang('web_setting.why_membership_title')    </li>
 @endsection
 <!--push from page-->
 @push('custom_css')
@@ -40,17 +40,17 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <form action="{{route('admin.why.membeRship.update', $membeRship->id)}}" method="POST">
+                                <form action="{{route('admin.why.membership.update', $membership->id)}}" method="POST">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="package">Description ( En )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="desc"  placeholder="Details English">{{$membeRship->description}}</textarea>
+                                                <textarea cols="30" rows="5" class="form-control" name="desc"  placeholder="Details English">{{$membership->description}}</textarea>
                                             </div>
                                             <div class="form-group">
                                                 <label for="package">Description ( SL )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="desc1"  placeholder="Details SL">{{$membeRship->description_sl}}</textarea>
+                                                <textarea cols="30" rows="5" class="form-control" name="desc1"  placeholder="Details SL">{{$membership->description_sl}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@
 @endsection
 
 @push('custom_js')
-    <script src="{{ asset('app-assets/vendoRs/js/forms/select/select2.full.min.js')}}"></script>
+    <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
     <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
     <script type="text/javascript" src="{{ asset('app-assets/pages/customer.js')}}"></script>
     <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>

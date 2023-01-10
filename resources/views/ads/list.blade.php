@@ -43,7 +43,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
         $payments = App\Payments::where('f_customer_pk_no', Auth::user()->id)
             ->where(['payment_type' => 'package'])
             ->orderBy('pk_no', 'desc')
-            ->fiRst();
+            ->first();
         ?>
     @endif
     <section id="main" class="clearfix category-page main-categories">
@@ -102,9 +102,9 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                             <input type="checkbox" class="filter_by" name="used" id="used"
                                                 value="used" {{ $used_ad == 1 ? 'checked' : '' }}> Used</label>
 
-                                        <label for="dooRstep_delivery" class="">
-                                            <input type="checkbox" class="filter_by" name="dooRstep_delivery"
-                                                id="dooRstep_delivery" value="dooRstep">DooRstep Delivery</label>
+                                        <label for="doorstep_delivery" class="">
+                                            <input type="checkbox" class="filter_by" name="doorstep_delivery"
+                                                id="doorstep_delivery" value="doorstep">Doorstep Delivery</label>
                                     </div>
                                 </div>
                             </div>
@@ -225,7 +225,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                         <div class="item-image-box col-lg-4">
                                             <div class="item-image">
                                                 <div class="featured-image">
-                                                      <span class="featured-ad dooRstep_tag">DooRstep</span>
+                                                      <span class="featured-ad doorstep_tag">Doorstep</span>
                                                   </div>
                                                 <a href="{{ route('ad.details', ['pk_no' => $row->pk_no, 'url_slug' => $row->url_slug]) }}"
                                                     title="{{ $row->ad_title }}">
@@ -246,11 +246,11 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                         <div class="item-info col-lg-8">
                                             <div class="ad-info">
                                                 {{-- @if ($row->promotion_to >= Carbon\Carbon::today())
-												<h3 class="item-price">Rs {{ number_format($row->price) }}
+												<h3 class="item-price">rs {{ number_format($row->price) }}
 													@if ($row->promotion == 'Top') <span class="topadtag">{{ $row->promotion}}</span> @endif
 												</h3>
 												@endif --}}
-                                                <h3 class="item-price">Rs {{ number_format($row->price) }}
+                                                <h3 class="item-price">rs {{ number_format($row->price) }}
                                                     @if ($row->promotion == 'Top')
                                                         <span class="topadtag">{{ $row->promotion }}</span>
                                                     @endif
@@ -288,7 +288,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                                     $payment = App\Payments::where('f_customer_pk_no', $row->customer_pk_no)
                                                         ->where('status', 'VALID')
                                                         ->orderBy('pk_no', 'desc')
-                                                        ->fiRst();
+                                                        ->first();
                                                 @endphp
                                                 @if ($payment)
                                                     <div class="premier_ads">

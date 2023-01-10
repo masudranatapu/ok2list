@@ -30,7 +30,7 @@
     @php
         $site_settings = DB::table('site_settings')
             ->latest()
-            ->fiRst();
+            ->first();
     @endphp
     <!-- myads-page -->
     <section id="main" class="clearfix myads-page">
@@ -101,9 +101,9 @@
                                             <br>
                                             <strong>Referance No:</strong> {{ $order->referance }}
                                             <br>
-                                            <strong>Order Status:</strong> {{ ucfiRst($order->order_status) }}
+                                            <strong>Order Status:</strong> {{ ucfirst($order->order_status) }}
                                             <br>
-                                            <strong>Payment Status:</strong> {{ ucfiRst($order->payment_status) }}
+                                            <strong>Payment Status:</strong> {{ ucfirst($order->payment_status) }}
                                         </address>
                                     </div>
                                 </div>
@@ -111,7 +111,7 @@
                                     <div class="invoice_info">
                                         <p class="h3">Shipping Address</p>
                                         <address>
-                                            <strong>Name:</strong> {{ $shipping['fiRstname'] }}
+                                            <strong>Name:</strong> {{ $shipping['firstname'] }}
                                             {{ $shipping['lastname'] }}<br>
                                             <strong>Email:</strong> {{ $shipping['email'] }}<br>
                                             <strong>Phone:</strong> {{ $shipping['phone_number'] }}<br>
@@ -129,7 +129,7 @@
                                     <div class="invoice_info">
                                         <p class="h3">billing Address</p>
                                         <address>
-                                            <strong>Name:</strong> {{ $billing['bill_fiRst_name'] }}
+                                            <strong>Name:</strong> {{ $billing['bill_first_name'] }}
                                             {{ $billing['bill_last_name'] }}<br>
                                             <strong>Email:</strong> {{ $billing['bill_email'] }}<br>
                                             <strong>Phone:</strong> {{ $billing['bill_phone_number'] }}<br>

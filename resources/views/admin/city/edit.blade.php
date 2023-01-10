@@ -31,29 +31,29 @@ $country = $country ?? array();
 
                                         <div class="row">
                                             <div class="col-md-4 offset-4">
-                                                <div class="form-group {!! $erroRs->has('country') ? 'error' : '' !!}">
+                                                <div class="form-group {!! $errors->has('country') ? 'error' : '' !!}">
                                                     <label>{{trans('form.country')}}<span class="text-danger">*</span></label>
                                                     <div class="controls">
                                                         {!! Form::select('country', $country, $city->country_pk_no, ['class'=>'form-control mb-1 select2', 'id' => 'country',  'placeholder' => 'Select country', 'data-validation-required-message' => 'This field is required', 'tabindex' => 2 ]) !!}
-                                                        {!! $erroRs->fiRst('country', '<label class="help-block text-danger">:message</label>') !!}
+                                                        {!! $errors->first('country', '<label class="help-block text-danger">:message</label>') !!}
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 offset-4">
-                                                <div class="form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
+                                                <div class="form-group {!! $errors->has('name') ? 'error' : '' !!}">
                                                     <label>@lang('form.name')<span class="text-danger">*</span></label>
                                                     <div class="controls">
                                                         {!! Form::text('name', $city->name, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter city name', 'data-validation-required-message' => 'This field is required', 'tabindex' => 1 ]) !!}
-                                                        {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
+                                                        {!! $errors->first('name', '<label class="help-block text-danger">:message</label>') !!}
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 offset-4">
-                                                <div class="form-group {!! $erroRs->has('order_id') ? 'error' : '' !!}">
+                                                <div class="form-group {!! $errors->has('order_id') ? 'error' : '' !!}">
                                                     <label>Order ID<span class="text-danger">*</span></label>
                                                     <div class="controls">
                                                         {!! Form::text('order_id', $city->order_id, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter order id', 'data-validation-required-message' => 'This field is required', 'tabindex' => 1 ]) !!}
-                                                        {!! $erroRs->fiRst('order_id', '<label class="help-block text-danger">:message</label>') !!}
+                                                        {!! $errors->first('order_id', '<label class="help-block text-danger">:message</label>') !!}
                                                     </div>
                                                 </div>
                                             </div>

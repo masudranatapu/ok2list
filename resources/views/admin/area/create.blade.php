@@ -30,38 +30,38 @@ $division_combo     = $data['division_combo'] ?? array();
                         {!! Form::open([ 'route' => 'admin.area.store', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true , 'novalidate']) !!}
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $errors->has('name') ? 'error' : '' !!}">
                                         <label>@lang('form.name')<span class="text-danger">*</span></label>
                                         <div class="controls">
                                             {!! Form::text('name', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter area name', 'data-validation-required-message' => 'This field is required', 'tabindex' => 2 ]) !!}
-                                            {!! $erroRs->fiRst('name', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $errors->first('name', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $erroRs->has('city_id') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $errors->has('city_id') ? 'error' : '' !!}">
                                         <label>{{trans('form.city')}}</label>
                                         <div class="controls">
                                             {!! Form::select('city_id', $city_combo, null, ['class'=>'form-control mb-1 select2', 'id' => 'city_id',  'placeholder' => 'Select city', 'tabindex' => 2 ]) !!}
-                                            {!! $erroRs->fiRst('city_id', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $errors->first('city_id', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $erroRs->has('   division_id') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $errors->has('   division_id') ? 'error' : '' !!}">
                                         <label>{{trans('form.division')}}</label>
                                         <div class="controls">
                                             {!! Form::select('  division_id', $division_combo, null, ['class'=>'form-control mb-1 select2', 'id' => '  division_id',  'placeholder' => 'Select division', 'tabindex' => 2 ]) !!}
-                                            {!! $erroRs->fiRst('    division_id', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $errors->first('    division_id', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-group {!! $erroRs->has('order_id') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $errors->has('order_id') ? 'error' : '' !!}">
                                         <label>@lang('form.order')</label>
                                         <div class="controls">
                                             {!! Form::text('order_id', null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter order', 'tabindex' => 3]) !!}
-                                            {!! $erroRs->fiRst('order_id', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $errors->first('order_id', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@ $division_combo     = $data['division_combo'] ?? array();
                                         <br>
                                         <div class="controls">
                                             <label><input type="checkbox" name="is_active"  checked="true"> <small>{{ trans('form.is_active') }} </small></label>
-                                            {!! $erroRs->fiRst('is_active', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $errors->first('is_active', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>

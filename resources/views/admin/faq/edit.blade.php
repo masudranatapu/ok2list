@@ -29,20 +29,20 @@ $row = $data['data'];
                         <input type="hidden" name="pk_no" value="{{$row->pk_no}}" />
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="form-group {!! $erroRs->has('name') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $errors->has('name') ? 'error' : '' !!}">
                                         <label>Question<span class="text-danger">*</span></label>
                                         <div class="controls">
                                             {!! Form::text('question', $row->question, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter question', 'data-validation-required-message' => 'This field is required', 'tabindex' => 2 ]) !!}
-                                            {!! $erroRs->fiRst('question', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $errors->first('question', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-group {!! $erroRs->has('answer') ? 'error' : '' !!}">
+                                    <div class="form-group {!! $errors->has('answer') ? 'error' : '' !!}">
                                         <label>@lang('form.faq_answer')<span class="text-danger">*</span></label>
                                         <div class="controls">
                                             {!! Form::textarea('answer', $row->answer, [ 'class' => 'form-control mb-1', 'placeholder' => 'Enter answer', 'data-validation-required-message' => 'This field is required', 'tabindex' => 1 ]) !!}
-                                            {!! $erroRs->fiRst('answer', '<label class="help-block text-danger">:message</label>') !!}
+                                            {!! $errors->first('answer', '<label class="help-block text-danger">:message</label>') !!}
                                         </div>
                                     </div>
                                 </div>

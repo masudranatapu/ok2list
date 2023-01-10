@@ -7,7 +7,7 @@
     <style type="text/css">
         .read-more-show,
         .read-more-hide {
-            cuRsor: pointer;
+            cursor: pointer;
             color: #00a651;
             font-weight: bold;
         }
@@ -140,7 +140,7 @@
 
                                             <!-- ad-info -->
                                             <div class="ad-info">
-                                                <h3 class="item-price">Rs {{ number_format($row->price, 2) }}</h3>
+                                                <h3 class="item-price">rs {{ number_format($row->price, 2) }}</h3>
                                                 <h4 class="item-title"><a
                                                         href="{{ route('ad.details', ['pk_no' => $row->pk_no, 'url_slug' => $row->url_slug]) }}">{{ $row->ad_title }}</a>
                                                 </h4>
@@ -190,7 +190,7 @@
                                                 <div class="content">
                                                     <ul>
 
-                                                        @for ($i = 0; $i < $review->staRs; $i++)
+                                                        @for ($i = 0; $i < $review->stars; $i++)
                                                             <li><i class="fa fa-star"></i></li>
                                                         @endfor
                                                     </ul>
@@ -214,7 +214,7 @@
                                         @csrf
                                         <div class="mb-3">
                                             <div id="rateYo"></div>
-                                            <input type="hidden" id="rating" name="staRs" value="0">
+                                            <input type="hidden" id="rating" name="stars" value="0">
                                             <input type="hidden" id="seller_id" name="seller_id"
                                                 value="{{ $shop_info->customer_pk_no ?? null }}">
                                         </div>

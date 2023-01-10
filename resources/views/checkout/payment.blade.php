@@ -41,7 +41,7 @@
                                         <table class="table">
                                             <tr>
                                                 <td>Full Name:</td>
-                                                <td>{{ Session::get('shipping_address.fiRstname') }}
+                                                <td>{{ Session::get('shipping_address.firstname') }}
                                                     {{ Session::get('shipping_address.lastname') }}</td>
                                             </tr>
                                             <tr>
@@ -75,7 +75,7 @@
                                         <table class="table">
                                             <tr>
                                                 <td>Full Name:</td>
-                                                <td>{{ Session::get('billing_address.bill_fiRst_name') }}
+                                                <td>{{ Session::get('billing_address.bill_first_name') }}
                                                     {{ Session::get('billing_address.bill_last_name') }}</td>
                                             </tr>
                                             <tr>

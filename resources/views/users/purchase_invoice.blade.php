@@ -15,7 +15,7 @@
 
 @section('content')
     @php
-        $site_settings = DB::table('site_settings')->latest()->fiRst();
+        $site_settings = DB::table('site_settings')->latest()->first();
     @endphp
 <!-- myads-page -->
 <section id="main" class="clearfix myads-page">

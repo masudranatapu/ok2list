@@ -14,7 +14,7 @@
                 <table class="table table-borderless table-responsive">
                     <tr>
                         <th class="w-50">Cart Subtotal: </th>
-                        <td class="w-50 text-right">Rs. {{ $product->price }}</td>
+                        <td class="w-50 text-right">rs. {{ $product->price }}</td>
                     </tr>
                     {{-- <tr>
                         <th class="w-50">State tax:</th>
@@ -22,15 +22,15 @@
                     </tr> --}}
                     <tr>
                         <th class="w-50">Tax:</th>
-                        <td class="w-50 text-right">Rs. <span id="tax">{{ $tax }}</span></td>
+                        <td class="w-50 text-right">rs. <span id="tax">{{ $tax }}</span></td>
                     </tr>
                     <tr>
                         <th class="w-50">Shipping:</th>
-                        <td class="w-50 text-right">Rs. {{ $shipping }}</td>
+                        <td class="w-50 text-right">rs. {{ $shipping }}</td>
                     </tr>
                     <tr class="text-danger">
                         <th class="w-50"><strong>Order Total:</strong></th>
-                        <td class="w-50 text-right"><strong>Rs. {{ $total }}</strong></td>
+                        <td class="w-50 text-right"><strong>rs. {{ $total }}</strong></td>
                     </tr>
                 </table>
             </div>

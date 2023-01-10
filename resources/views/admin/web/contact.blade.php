@@ -119,7 +119,7 @@
 @endsection
 <!--push from page-->
 @push('custom_js')
-<script src="{{ asset('app-assets/vendoRs/js/forms/select/select2.full.min.js')}}"></script>
+<script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
 <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
 <script type="text/javascript" src="{{ asset('app-assets/pages/customer.js')}}"></script>
 <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>

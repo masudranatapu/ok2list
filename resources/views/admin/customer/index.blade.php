@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 
 @push('custom_css')
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/coloRs/palette-tooltip.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colors/palette-tooltip.css')}}">
 @endpush
 
 @section('Customer Management','open')

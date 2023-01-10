@@ -39,9 +39,9 @@
                             <div class="controls">
                                 {!! Form::text('name', $bodyparts->name, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter body parts name', 'tabindex' => 1 ]) !!}
                             </div>
-                            @if ($erroRs->has('name'))
+                            @if ($errors->has('name'))
                                 <div class="alert alert-danger">
-                                    <strong>{{ $erroRs->fiRst('name') }}</strong>
+                                    <strong>{{ $errors->first('name') }}</strong>
                                 </div>
                             @endif
                         </div>

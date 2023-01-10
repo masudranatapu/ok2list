@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-xl-3 text-center">
 					<!-- header -->
-					@include('useRs._user_dashboard_menu')
+					@include('users._user_dashboard_menu')
 					<!-- end header -->
 
 				</div>
@@ -54,7 +54,7 @@
 								<div class="ad-meta">
 									<div class="meta-content">
 										<span class="dated" style="">Posted On: <a href="#">{{date('d M Y, H:i A ', strtotime($row->created_at))}}</a></span>
-										<span class="visitoRs">VisitoRs: {{ $row->total_view ?? '0' }}</span> 
+										<span class="visitors">Visitors: {{ $row->total_view ?? '0' }}</span> 
 									</div>										
 									
 									<div class="user-option pull-right">

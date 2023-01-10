@@ -36,7 +36,7 @@
 			<div class="row">
 				<div class="col-md-4 text-center">
 					<!-- header -->
-					@include('useRs._user_dashboard_menu')
+					@include('users._user_dashboard_menu')
 					<!-- end header -->
 				</div>
 				<div class="col-md-8">
@@ -52,7 +52,7 @@
 								</div>
 								<div class="item-info col-lg-8">
 									<div class="ad-info">
-										<h3 class="item-price">Rs {{ number_format($row->price,2) }} <a href="javascript:void(0)"  class="pull-right c-btn">{{ $row->promotion }}</a></h3>
+										<h3 class="item-price">rs {{ number_format($row->price,2) }} <a href="javascript:void(0)"  class="pull-right c-btn">{{ $row->promotion }}</a></h3>
 										<h4 class="item-title"><a href="{{ route('ad.details',['pk_no' => $row->pk_no,'url_slug' => $row->url_slug]) }}" title="{{ $row->ad_title }}">{{ $row->ad_title }}</a></h4>
 										<div class="item-cat">
 											<span><a href="javascript:void(0)">{{ $row->category->name ?? '' }}</a></span> /
@@ -63,11 +63,11 @@
 										<div class="meta-content">
 											<span class="dated">{{ date('d M, Y H:i A',strtotime($row->created_at)) }}</span>
 											@php
-												$ss_packages = DB::table('ss_packages')->where('pk_no', Auth::user()->package_id)->fiRst();
+												$ss_packages = DB::table('ss_packages')->where('pk_no', Auth::user()->package_id)->first();
 											@endphp
 											{{--@if($ss_packages->analytics == 1)
-											<span class="visitoRs">VisitoRs: {{ $row->total_view ?? '0' }}</span>
-											<span class="visitoRs">Likes: {{ $row->total_like ?? '0' }}</span>
+											<span class="visitors">Visitors: {{ $row->total_view ?? '0' }}</span>
+											<span class="visitors">Likes: {{ $row->total_like ?? '0' }}</span>
 										    @endif--}}
 											@if($row->useing_codition)
 											 <a href="javascript:void(0)" class="tag"><i class="fa fa-tags"></i> {{ $row->using_condition }}</a>

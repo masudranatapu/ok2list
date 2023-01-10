@@ -40,8 +40,8 @@
 								<option value="Africa/Accra">Africa/Accra</option>
 								<option value="Africa/Addis_Ababa">Africa/Addis_Ababa</option>
 								<option
-									value="Africa/AlgieRs">
-									Africa/AlgieRs
+									value="Africa/Algiers">
+									Africa/Algiers
 								</option>
 								<option
 									value="Africa/Asmara">
@@ -500,8 +500,8 @@
 									America/Indiana/Marengo
 								</option>
 								<option
-									value="America/Indiana/PeteRsburg">
-									America/Indiana/PeteRsburg
+									value="America/Indiana/Petersburg">
+									America/Indiana/Petersburg
 								</option>
 								<option
 									value="America/Indiana/Tell_City">
@@ -808,8 +808,8 @@
 									America/Vancouver
 								</option>
 								<option
-									value="America/WhitehoRse">
-									America/WhitehoRse
+									value="America/Whitehorse">
+									America/Whitehorse
 								</option>
 								<option
 									value="America/Winnipeg">
@@ -1032,8 +1032,8 @@
 									Asia/Kolkata
 								</option>
 								<option
-									value="Asia/KrasnoyaRsk">
-									Asia/KrasnoyaRsk
+									value="Asia/Krasnoyarsk">
+									Asia/Krasnoyarsk
 								</option>
 								<option
 									value="Asia/Kuala_Lumpur">
@@ -1076,8 +1076,8 @@
 									Asia/Novokuznetsk
 								</option>
 								<option
-									value="Asia/NovosibiRsk">
-									Asia/NovosibiRsk
+									value="Asia/Novosibirsk">
+									Asia/Novosibirsk
 								</option>
 								<option
 									value="Asia/Omsk">
@@ -1364,8 +1364,8 @@
 									Europe/Istanbul
 								</option>
 								<option
-									value="Europe/JeRsey">
-									Europe/JeRsey
+									value="Europe/Jersey">
+									Europe/Jersey
 								</option>
 								<option
 									value="Europe/Kaliningrad">
@@ -1512,8 +1512,8 @@
 									Europe/Volgograd
 								</option>
 								<option
-									value="Europe/WaRsaw">
-									Europe/WaRsaw
+									value="Europe/Warsaw">
+									Europe/Warsaw
 								</option>
 								<option
 									value="Europe/Zagreb">

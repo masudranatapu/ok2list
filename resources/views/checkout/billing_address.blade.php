@@ -36,11 +36,11 @@
                             <form class="row" action="{{ route('checkout.billing.store') }}" method="post">
                                 @csrf
                                 <div class="form-group col-md-6">
-                                    <label for="fiRstname">FiRst Name</label>
-                                    <input type="text" name="bill_fiRst_name" id="fiRstname"
-                                        value="{{ old('bill_fiRst_name') ?? Session::get('billing_address.bill_fiRst_name') }}"
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" name="bill_first_name" id="firstname"
+                                        value="{{ old('bill_first_name') ?? Session::get('billing_address.bill_first_name') }}"
                                         class="form-control" required>
-                                    @error('bill_fiRst_name')
+                                    @error('bill_first_name')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>

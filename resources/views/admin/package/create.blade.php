@@ -48,7 +48,7 @@
     
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="package">Package Price (Rs)</label>
+                                            <label for="package">Package Price (rs)</label>
                                             <input type="number" class="form-control" name="price_per_month" placeholder="Package Price" required>
                                         </div>
                                     </div>
@@ -140,7 +140,7 @@
 @endsection
 <!--push from page-->
 @push('custom_js')
-<script src="{{ asset('app-assets/vendoRs/js/forms/select/select2.full.min.js')}}"></script>
+<script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
 <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
 <script type="text/javascript" src="{{ asset('app-assets/pages/customer.js')}}"></script>
 

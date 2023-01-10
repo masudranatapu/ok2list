@@ -41,9 +41,9 @@
                                         <div class="controls">
                                             {!! Form::text('name', null,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter user name', 'tabindex' => 1 ]) !!}
                                         </div>
-                                        @if ($erroRs->has('name'))
+                                        @if ($errors->has('name'))
                                             <span class="alert alert-danger">
-                                                <strong>{{ $erroRs->fiRst('name') }}</strong>
+                                                <strong>{{ $errors->first('name') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -56,9 +56,9 @@
                                             {!! Form::text('code', null,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter user code', 'tabindex' => 1 ]) !!}
                                         </div>
                                     </div>
-                                    @if ($erroRs->has('code'))
+                                    @if ($errors->has('code'))
                                         <span class="alert alert-danger">
-                                            <strong>{{ $erroRs->fiRst('code') }}</strong>
+                                            <strong>{{ $errors->first('code') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -71,9 +71,9 @@
                                             {!! Form::text('moto', null,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter moto', 'tabindex' => 1 ]) !!}
                                         </div>
                                     </div>
-                                    @if ($erroRs->has('moto'))
+                                    @if ($errors->has('moto'))
                                         <span class="alert alert-danger">
-                                            <strong>{{ $erroRs->fiRst('moto') }}</strong>
+                                            <strong>{{ $errors->first('moto') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -84,9 +84,9 @@
                                             {!! Form::text('address', null,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter address', 'tabindex' => 1 ]) !!}
                                         </div>
                                     </div>
-                                    @if ($erroRs->has('address'))
+                                    @if ($errors->has('address'))
                                         <span class="alert alert-danger">
-                                            <strong>{{ $erroRs->fiRst('address') }}</strong>
+                                            <strong>{{ $errors->first('address') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -96,9 +96,9 @@
                                 <div class="controls">
                                     {!! Form::text('established', null,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter established', 'tabindex' => 1 ]) !!}
                                 </div>
-                                @if ($erroRs->has('established'))
+                                @if ($errors->has('established'))
                                     <span class="alert alert-danger">
-                                    <strong>{{ $erroRs->fiRst('established') }}</strong>
+                                    <strong>{{ $errors->first('established') }}</strong>
                                 </span>
                                 @endif
                             </div>
@@ -109,9 +109,9 @@
                                         <div class="controls">
                                             {!! Form::file('logo', null, ['class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required']); !!}
                                         </div>
-                                        @if ($erroRs->has('logo'))
+                                        @if ($errors->has('logo'))
                                             <span class="alert alert-danger">
-                                                <strong>{{ $erroRs->fiRst('logo') }}</strong>
+                                                <strong>{{ $errors->first('logo') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -122,9 +122,9 @@
                                         <div class="controls">
                                             {!! Form::file('banner', null, ['class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required']); !!}
                                         </div>
-                                        @if ($erroRs->has('banner'))
+                                        @if ($errors->has('banner'))
                                             <span class="alert alert-danger">
-                                                <strong>{{ $erroRs->fiRst('banner') }}</strong>
+                                                <strong>{{ $errors->first('banner') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -137,9 +137,9 @@
                                         <div class="controls">
                                             {!! Form::select('status', ['1' => 'Yes', '0' => 'No'], null, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select status', 'data-validation-required-message' => 'This field is required']) !!}
                                         </div>
-                                        @if ($erroRs->has('status'))
+                                        @if ($errors->has('status'))
                                             <span class="alert alert-danger">
-                                            <strong>{{ $erroRs->fiRst('status') }}</strong>
+                                            <strong>{{ $errors->first('status') }}</strong>
                                         </span>
                                         @endif
                                     </div>
