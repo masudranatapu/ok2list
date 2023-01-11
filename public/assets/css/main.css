@@ -4056,6 +4056,7 @@ p.mt-2.loginor {
 .user-profile {
     overflow: hidden;
     padding: 0 25px;
+    text-align: center;
 }
 
 .user-images {
