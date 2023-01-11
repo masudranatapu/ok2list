@@ -24,12 +24,12 @@
             </div>
             <div class="ads-info profile">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-xl-3">
                         <!-- header -->
                         @include('users._user_dashboard_menu')
                         <!-- end header -->
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-xl-9">
                         <div class="my-ads section">
                             <h3 class="align-items-center">
                                 Update Shop
@@ -164,7 +164,8 @@
                                             <p>Kindy hit the Create Your Shop button and create now. It's won't take more
                                                 than 2 minutes !</p>
                                         </div>
-                                        <a href="{{ route('create-shop') }}" class="btn-lg btn-site" style="margin-left: 25px">Create Your Shop</a>
+                                        <a href="{{ route('create-shop') }}" class="btn-lg btn-site"
+                                            style="margin-left: 25px">Create Your Shop</a>
                                     @endif
                                 </div>
                             </div>
