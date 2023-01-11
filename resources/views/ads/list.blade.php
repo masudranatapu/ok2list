@@ -102,9 +102,9 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                             <input type="checkbox" class="filter_by" name="used" id="used"
                                                 value="used" {{ $used_ad == 1 ? 'checked' : '' }}> Used</label>
 
-                                        <label for="doorstep_delivery" class="">
+                                        <label for="doorstep_delivery" class="{{ request('doorstep') == 1 ? 'checked' : '' }}">
                                             <input type="checkbox" class="filter_by" name="doorstep_delivery"
-                                                id="doorstep_delivery" value="doorstep">Doorstep Delivery</label>
+                                                id="doorstep_delivery" value="doorstep" {{ request('doorstep') == 1 ? 'checked' : '' }} >Doorstep Delivery</label>
                                     </div>
                                 </div>
                             </div>
@@ -400,7 +400,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                 @if( Auth::user()->is_verified == 1 )
                                     <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-primary">@lang('web.post_free_ad')</a>
                                 @endif
-                            @else 
+                            @else
                                 <a href="{{route('login')}}" class="btn btn-primary">@lang('web.post_free_ad')</a>
                             @endif
                         @endif
