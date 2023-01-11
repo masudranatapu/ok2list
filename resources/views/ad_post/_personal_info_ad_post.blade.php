@@ -36,22 +36,22 @@
                 {!! Form::number('mobile1', $row->mobile ?? Auth::user()->mobile1, [ 'class' => 'form-control', 'id' => 'mobile1', 'data-validation-required-message' => 'This field is required','minlength' => '11', 'maxlength' => '11', 'data-validation-minlength-message' => 'Minimum 11 digit', 'data-validation-maxlength-message' => 'Maximum 11 digit', 'placeholder' => 'Enter mobile number (11 digit)', 'tabindex' => 19 , 'autocomplete' => 'off', Auth::user()->mobile1_is_verified == '1' ? 'readonly' : '', ]) !!}
                 <div class="input-group-append cp">
                     
-                    <span style="@if(Auth::user()->mobile1_is_verified == '1') display: block; @else  display: none;  @endif" class="input-group-text otp_verified1" data-sl="1" data-url="{{URL::to('check-otp')}}" >Verified</span>
+                    {{-- <span style="@if(Auth::user()->mobile1_is_verified == '1') display: block; @else  display: none;  @endif" class="input-group-text otp_verified1" data-sl="1" data-url="{{URL::to('check-otp')}}" >Verified</span> --}}
                     
-                    <span style="@if(Auth::user()->mobile1_is_verified == 0) display: block; @else  display: none;  @endif" class="input-group-text check_otp check_otp_add1" data-sl="1" data-url="{{URL::to('check-otp')}}">Add</span>
+                    {{-- <span style="@if(Auth::user()->mobile1_is_verified == 0) display: block; @else  display: none;  @endif" class="input-group-text check_otp check_otp_add1" data-sl="1" data-url="{{URL::to('check-otp')}}">Add</span> --}}
                     
                 </div>
             </div>
             {!! $errors->first('mobile1', '<label class="help-block text-danger">:message</label>') !!}
         </div>
         <div class="controls verify_div_otp1">
-            <div class="input-group">
+            {{-- <div class="input-group">
                 <input type="number" name="otp_1" class="form-control" autocomplete="off" placeholder="Enter OTP (4 digits)" maxlength="4" id="otp_1" />
                 <div class="input-group-append cp">
                     <span class="input-group-text verify_otp"  data-url="{{URL::to('verify-otp')}}" data-sl="1">Verify</span>
                 </div>
-            </div>
-            <div class="text-success mt-1 "><button type="button" class="check_otp text-success" id="resent_otp1" data-sl="1" data-url="{{URL::to('check-otp')}}"  disabled="true">Resent OTP </button> <span id="counter1"></span></div>
+            </div> --}}
+            {{-- <div class="text-success mt-1 "><button type="button" class="check_otp text-success" id="resent_otp1" data-sl="1" data-url="{{URL::to('check-otp')}}"  disabled="true">Resent OTP </button> <span id="counter1"></span></div> --}}
         </div>
         
         <label for="is_hide_mobile" class="@if($row != null ) {{ $row->is_hide_mobile1 == '1' ? 'checked' : ''}} @endif"><input type="checkbox" name="is_hide_mobile" value="1" id="is_hide_mobile" @if($row != null ) {{ $row->is_hide_mobile1 == '1' ? 'checked' : ''}} @endif> Hide Phone Number  </label>
@@ -72,7 +72,7 @@
                     
                     <span style="@if(Auth::user()->mobile2_is_verified == '1') display: block; @else  display: none;  @endif" class="input-group-text " data-sl="2" data-url="{{URL::to('check-otp')}}">Verified</span>
                     
-                    <span style="@if(Auth::user()->mobile2_is_verified == 0) display: block; @else  display: none;  @endif" class="input-group-text check_otp check_otp_add1" data-sl="2" data-url="{{URL::to('check-otp')}}">Add</span>
+                    {{-- <span style="@if(Auth::user()->mobile2_is_verified == 0) display: block; @else  display: none;  @endif" class="input-group-text check_otp check_otp_add1" data-sl="2" data-url="{{URL::to('check-otp')}}">Add</span> --}}
                     
                 </div>
             </div>
