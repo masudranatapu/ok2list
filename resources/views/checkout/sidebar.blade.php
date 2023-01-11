@@ -14,7 +14,7 @@
                 <table class="table table-borderless table-responsive">
                     <tr>
                         <th class="w-50">Cart Subtotal: </th>
-                        <td class="w-50 text-right">rs. {{ $product->price }}</td>
+                        <td class="w-50 text-right">₦ {{ $product->price }}</td>
                     </tr>
                     {{-- <tr>
                         <th class="w-50">State tax:</th>
