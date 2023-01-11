@@ -3954,13 +3954,13 @@ p.mt-2.loginor {
 
     font-weight: 400;
 }
-
 .product-show h5 {
     color: #000;
-    font-size: 17px;
-    font-weight: 400;
-   font-family: 'Rubik', sans-serif;
-
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Rubik', sans-serif;
+    border-bottom: 1px dotted #dddd;
+    padding-bottom: 4px;
 }
 
 .info-list {
@@ -6766,16 +6766,19 @@ text-align: left;
     border: none !important;
     padding: 5px 15px;
     border-radius: 4px !important;
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: bold;
     background: transparent;
     color: #888;
+    font-family: 'Rubik';
 }
 
-.seller_profile .nav-pills .nav-link.active,
-.seller_profile .nav-pills .show>.nav-link {
+.seller_profile .nav-pills .nav-link.active, .seller_profile .nav-pills .show>.nav-link {
     color: #fff;
     background-color: #fd0202;
+    font-weight: bold;
+    font-family: 'Rubik';
+    font-size: 16px;
 }
 
 .review_form .form-control::placeholder {
@@ -7088,6 +7091,9 @@ text-align: left;
     background-clip: border-box;
     border: 1px solid #efefef;
     border-radius: 0.25rem;
+}
+.text-primary {
+    color: #fd0202!important;
 }
 
 
