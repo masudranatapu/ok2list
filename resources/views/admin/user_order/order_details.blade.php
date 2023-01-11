@@ -164,7 +164,7 @@
                                         </td>
                                         <td class="text-end"></td>
                                         <td class="text-right">
-                                             {{ $order->product->price ?? '' }}
+                                            ₦ {{ $order->product->price ?? '' }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -182,29 +182,29 @@
                                         <td class="text-center">Shipping Charge</td>
                                         <td></td>
                                         <td class="text-right">
-                                             {{ $order->amount - ($order->product->price + $order->tax) ?? '0' }}
+                                            ₦ {{ $order->amount - ($order->product->price + $order->tax) ?? '0' }}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="4" class="font-weight-bold text-right">Subtotal</td>
                                         <td class="text-right">
-                                             {{ $order->amount ?? '' }}
+                                            ₦ {{ $order->amount ?? '' }}
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td colspan="4" class="font-weight-bold text-uppercase text-right">Total</td>
                                         <td class="font-weight-bold text-right">
-                                             {{ $order->amount ?? '' }}
+                                            ₦ {{ $order->amount ?? '' }}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="4" class="font-weight-bold text-uppercase text-right">Paid</td>
                                         <td class="font-weight-bold text-right">
                                             @if ($order->payment_status == 'paid')
-                                                 {{ $order->amount ?? '' }}
+                                            ₦ {{ $order->amount ?? '' }}
                                             @else
-                                                 0
+                                            ₦ 0
                                             @endif
                                         </td>
                                     </tr>
@@ -213,9 +213,9 @@
                                         <td colspan="4" class="font-weight-bold text-uppercase text-right">Due</td>
                                         <td class="font-weight-bold text-right">
                                             @if ($order->payment_status == 'unpaid')
-                                                 {{ $order->amount ?? '' }}
+                                            ₦ {{ $order->amount ?? '' }}
                                             @else
-                                                 0
+                                            ₦ 0
                                             @endif
                                         </td>
                                     </tr>

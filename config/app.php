@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Gogoads'),
+    'name' => env('APP_NAME', 'ok2list'),
 
     /*
     |--------------------------------------------------------------------------
@@ -68,9 +68,8 @@ return [
     */
 
     //'timezone' => 'UTC',
-    'timezone' => 'Asia/Colombo',
-    
-    // date_default_timezone_set('Asia/Colombo');
+    'timezone' => 'Africa/Lagos',
+    // date_default_timezone_set('Africa/Lagos');
 
     /*
     |--------------------------------------------------------------------------

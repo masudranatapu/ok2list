@@ -151,7 +151,7 @@
                                         <input class="form-check-input" name="trams_condition" type="checkbox"
                                             value="1" id="trams_condition">
                                         <label class="form-check-label" for="trams_condition">
-                                            I agree to the <a href="#">Trams of Condition & Privacy Policy</a>.
+                                            I agree to the <a href="#">Terms & Conditions & Privacy Policy</a>.
                                         </label>
                                         @error('trams_condition')
                                             <p class="text-danger">{{ $message }}</p>

@@ -307,7 +307,7 @@
   </div>
 </section>
 <section id="main" class="clearfix doorstep-delivery page">
-  <div class="container">
+  {{-- <div class="container">
     <div class="section-doorstep-get-in-touch">
       <h2 class="doorstep-get-in-touch-title">Want to get in touch quickly?</h2>
       <p class="doorstep-get-in-touch-sub-title">Every day from 10:00 AM to 6:00 PM</p>
@@ -338,5 +338,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 </section> @endsection @push('custom_footer_script') @endpush

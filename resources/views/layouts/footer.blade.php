@@ -50,9 +50,6 @@
                                         {{ $setting->sitemap_en }}
                                     @endif
                                 </a></li> -->
-
-                            <li><a href="{{ route('doorstep-delivery') }}">Doorstep Delivery
-                                </a></li>
                         </ul>
                     </div>
                 </div>
@@ -73,7 +70,7 @@
                                         {{ $setting->how_to_sell_fast_en }}
                                     @endif
                                 </a></li> -->
-                            <li><a href="{{ route('get-membership') }}">
+                            <li><a href="{{ route('packages') }}">
                                     @if (app()->getLocale() == 'sl')
                                         {{ $setting->membership_sl }}
                                     @else
@@ -87,13 +84,9 @@
                                         {{ $setting->promote_your_ad_en }}
                                     @endif
                                 </a></li>
-                           <!--  <li><a href="{{ route('promotions') }}">
-                                    @if (app()->getLocale() == 'sl')
-                                        {{ $setting->promotions_sl }}
-                                    @else
-                                        {{ $setting->promotions_en }}
-                                    @endif
-                                </a></li> -->
+                                <li><a href="{{ route('doorstep-delivery') }}">
+                                    Doorstep Delivery
+                                </a></li>
                             <li><a href="{{ route('faq') }}">
                                     @if (app()->getLocale() == 'sl')
                                         {{ $setting->faq_sl }}

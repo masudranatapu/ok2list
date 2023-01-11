@@ -48,7 +48,7 @@
     
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="package">Package Price (Rs)</label>
+                                            <label for="package">Package Price (₦)</label>
                                             <input type="number" class="form-control" name="price_per_month" placeholder="Package Price" required>
                                         </div>
                                     </div>

@@ -41,15 +41,10 @@
     Global
  ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-@font-face {
-    font-family: "Montserrat-Bold";
-    src: url('../fonts/Montserrat-Bold.woff') format('woff'), url('../fonts/Montserrat-Bold.eot') format('eot'), url('../fonts/Montserrat-Bold.ttf') format('truetype'), url('../fonts/Montserrat-Bold.svg') format('svg');
-}
 
 html,
 body {
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
     font-weight: 400;
     color: #6f6f6f;
@@ -64,7 +59,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Ubuntu";
+    font-family: "Rubik";
     font-weight: normal;
 }
 
@@ -75,7 +70,7 @@ ul {
 }
 
 a {
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
     color: #156EB6;
 }
@@ -124,8 +119,8 @@ select:focus,
 .title {
     line-height: 34px;
     color: #fff;
-    font-family: 'Montserrat-Bold';
-    font-weight: 700;
+    font-family: 'Rubik';
+    font-weight: 500;
 }
 
 .parallax-section {
@@ -169,7 +164,7 @@ select:focus,
 
 .section-title h4 {
     color: #000;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .form-control {
@@ -260,9 +255,9 @@ textarea {
 .nav li a,
 .navbar-default .navbar-nav>li>a {
     background-color: transparent;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 14px;
-    font-family: "Montserrat-Bold";
+    font-family: "Rubik";
     color: #0a0a0a;
     padding: 15px 12px 15px 12px;
     display: block;
@@ -417,21 +412,22 @@ textarea {
 .sign-in li a {
     color: #000000;
     font-size: 14px;
+    font-weight: bold;
+    font-family: 'Rubik';
 }
 
 .sign-in li a:hover {
     color: #000;
 }
 
-#header a.btn,
-.download-button a.btn {
+#header a.btn, .download-button a.btn {
     padding: 5px 25px 7px;
     background-color: #ee1d23;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: bold;
+    font-size: 16px;
     color: #fff;
     margin-left: 20px;
-    font-family: "Montserrat-Bold";
+    font-family: "Rubik";
 }
 
 #header a.btn:hover,
@@ -443,7 +439,7 @@ textarea {
     background-color: #000;
     margin-left: 5px;
     font-size: 10px;
-    font-weight: 500;
+    font-weight: 400;
     padding-bottom: 2px;
 }
 
@@ -457,7 +453,7 @@ textarea {
     color: #000;
     font-family: 'MyriadPro-Regular', sans-serif;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
     display: block;
 }
@@ -467,7 +463,7 @@ textarea {
     color: #000 !important;
     font-size: 14px !important;
     padding-bottom: 14px;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
     font-weight: 500 !IMPORTANT;
 }
@@ -504,9 +500,9 @@ textarea {
 
 .all-category-list .nav-pills .nav-link {
     color: #222 !important;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
     border-top: 1px solid #EEE;
     border-radius: 0px;
@@ -537,7 +533,7 @@ textarea {
     font-size: 16px;
     font-weight: 300;
     color: #000;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
 }
 
@@ -553,7 +549,7 @@ textarea {
 .tabs-cat-list ul li a {
     color: #222;
     font-size: 15px;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
     transition: all 0.3s ease;
     display: block;
@@ -565,9 +561,9 @@ textarea {
 
 .back-btn h5 {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
     color: #000;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
     border-bottom: 1px solid #ddd;
     cursor: pointer;
@@ -611,11 +607,10 @@ textarea {
 }
 
 .banner-form {
-    background-color: rgb(255 255 255 / 44%);
+    background-color: rgb(206 206 206 / 81%);
     padding: 8px;
     max-width: 750px;
-    margin: 12px auto;
-    border-radius: 5px;
+    margin: 13px auto;
     text-align: left;
 }
 
@@ -737,7 +732,7 @@ textarea {
 .banner-form .form-control,
 .banner-form .category-dropdown {
     display: inline-block;
-    height: 46px;
+    height: 50px;
     font-size: 16px;
 }
 
@@ -839,9 +834,10 @@ textarea {
 
 .featured-top h1 {
     color: #000;
-    font-size: 18px;
+    font-size: 25px;
     margin: 0px;
-    padding-bottom: 5px;
+    font-family: 'Rubik';
+    font-weight: bold;
 }
 
 .container.brand-sec img {
@@ -878,7 +874,7 @@ textarea {
 .category-ad {
     background-color: #fff;
     display: inline-block;
-    padding: 28px 18px;
+    padding: 6px 18px;
     border-radius: 12px;
 }
 
@@ -1012,7 +1008,7 @@ textarea {
     margin-top: 0;
     margin-bottom: 5px;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .ad-info .item-title {
@@ -1064,6 +1060,7 @@ textarea {
     color: #000;
     font-size: 15px;
     margin-bottom: 9px;
+    font-weight: bold;
 }
 
 .freatured_card .item-title a {
@@ -1100,7 +1097,7 @@ textarea {
 }
 
 .freatured_card .card-body {
-    background: #ed90202b;
+    background: #f4433608;
     padding: 25px 12px 58px 12px;
 }
 
@@ -1130,7 +1127,7 @@ textarea {
 
 .ad-meta .meta-content .dated,
 .ad-meta .meta-content .visitors {
-    font-weight: 500;
+    font-weight: 400;
     color: #9fa4a4;
 }
 
@@ -1226,7 +1223,6 @@ a.verified i {
     transform: rotate(-45deg);
     width: 120px;
     text-align: center;
-    border: 1px dotted #ddd;
     text-transform: uppercase;
     font-size: 11px;
 }
@@ -1531,7 +1527,7 @@ ul.howtosell li {
 
 .cta h4 {
     color: #000;
-    font-weight: 500;
+    font-weight: 400;
     margin: 28px 0 10px;
     font-size: 18px;
 }
@@ -1635,7 +1631,7 @@ table.promotable {
     font-weight: normal;
     margin: 0px;
     padding: 0px;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
 }
 
@@ -1748,7 +1744,7 @@ section#home-two-info {
 }
 
 .home-one .banner-form {
-    border-radius: 10px;
+    border-radius: 2px;
 }
 
 .home-one .banner-form input[type="text"] {
@@ -1838,10 +1834,12 @@ section#home-two-info {
 .home-two .featureds .featured-top h1,
 .home-three .featureds .featured-top h1 {
     padding-bottom: 5px;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: bold;
     color: #000;
     text-align: center;
+    font-family: 'Rubik';
+    text-transform: capitalize;
 }
 
 .home-one .ad-info .item-title a,
@@ -1981,7 +1979,7 @@ section#home-two-info {
 .single-service h5 {
     font-size: 16px;
     color: #505050;
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: 13px;
     margin-top: 10px;
 }
@@ -2032,7 +2030,7 @@ section#home-two-info {
 .breadcrumb li,
 .breadcrumb li a {
     color: #212529;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .breadcrumb>li+li:before {
@@ -2043,7 +2041,7 @@ section#home-two-info {
 }
 
 #something-sell h2.title {
-    font-weight: 400;
+    font-weight: 600;
     font-size: 30px;
     margin-bottom: 14px;
     margin-top: 20px;
@@ -2054,7 +2052,7 @@ section#home-two-info {
 }
 
 .recommended-ads h4 {
-    font-weight: 500;
+    font-weight: 400;
     color: #000;
     margin: 20px 0;
     display: inline;
@@ -2081,7 +2079,7 @@ section#home-two-info {
 
 .recommended-ads .change-text {
     color: #010101;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .recommended-ads .change-text+i {
@@ -2129,9 +2127,11 @@ section#home-two-info {
 #something-sell .btn.btn-primary {
     margin-top: 15px;
     border: 1px solid #ee1d23;
-    font-family: "Montserrat-Bold";
+    font-family: "Rubik";
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
     background: #ee1d23;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 #something-sell a.btn:hover {
@@ -2178,7 +2178,7 @@ section#home-two-info {
 .card-header button {
     color: #000;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 16px;
     border: 0;
     display: block;
     width: 100%;
@@ -2210,7 +2210,7 @@ section#home-two-info {
 
 .card-body a {
     color: #000;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 16px;
     line-height: 28px;
 }
@@ -2517,7 +2517,7 @@ i.fa.fa-chevron-up {
 .doorstep_item span {
     color: #212121;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .carousel-indicators {
@@ -2663,7 +2663,7 @@ i.fa.fa-chevron-up {
 .slider-text h2 {
     color: #ed1c24;
     font-size: 22px;
-    font-weight: 500;
+    font-weight: 400;
     margin: 0;
     margin-bottom: 10px;
 }
@@ -2678,7 +2678,7 @@ i.fa.fa-chevron-up {
 }
 
 .slider-text h4 {
-    font-weight: 500;
+    font-weight: 400;
     color: #272727;
     margin-bottom: 5px;
     font-size: 18px;
@@ -2700,7 +2700,7 @@ i.fa.fa-chevron-up {
 }
 
 .slider-text span a {
-    font-weight: 500;
+    font-weight: 400;
     color: #000;
     margin-right: 10px;
 }
@@ -2870,7 +2870,7 @@ span.typewrite {
 
 .description h4,
 .short-info h4 {
-    font-weight: 500;
+    font-weight: 400;
     color: #272727;
     border-bottom: 1px dotted #ddd;
     font-size: 15px;
@@ -3250,12 +3250,14 @@ span.typewrite {
     Ad Details
  =========================================================================*/
 
-.adpost-details h4 {
+ .adpost-details h4 {
     border-bottom: 1px dotted #ddd;
     color: #000;
-    font-size: 18px;
+    font-size: 25px;
     padding-bottom: 10px;
     margin-top: 0;
+    font-weight: bold;
+    font-family: 'Rubik';
 }
 
 .social-links h4 {
@@ -3569,7 +3571,7 @@ span.typewrite {
 
 .adpost-details .agreement label a,
 .quick-rules .lead a {
-    font-weight: 500;
+    font-weight: 400;
     color: #000;
 }
 
@@ -3911,7 +3913,7 @@ p.mt-2.loginor {
 
 .carousel-image .img-fluid {
     width: 100%;
-    max-height: 400px;
+    max-height: 550px;
 }
 
 .shop-gallery .ad-item {
@@ -3933,11 +3935,11 @@ p.mt-2.loginor {
 .prdut-name h3 {
     color: #000;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .product-content h2 {
-    font-weight: 500;
+    font-weight: 400;
     color: #000;
     font-size: 18px;
 }
@@ -3951,17 +3953,17 @@ p.mt-2.loginor {
 
 .product-content a {
     font-size: 14px;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
-    font-weight: 500;
+    font-weight: 400;
 }
-
 .product-show h5 {
     color: #000;
-    font-size: 17px;
-    font-weight: 400;
-   font-family: 'Ubuntu', sans-serif;
-
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Rubik', sans-serif;
+    border-bottom: 1px dotted #dddd;
+    padding-bottom: 4px;
 }
 
 .info-list {
@@ -3978,7 +3980,7 @@ p.mt-2.loginor {
 .info-artile p {
     font-size: 16px;
     font-weight: 400;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
     padding-left: 22px;
 }
@@ -4299,11 +4301,12 @@ p.mt-2.loginor {
 
 .about-us h3 {
     color: #000000;
-    font-weight: 400;
-    font-size: 18px;
+    font-weight: bold;
+    font-size: 25px;
     margin-bottom: 5px;
     border-bottom: 1px dotted #ddd;
     padding-bottom: 5px;
+    font-family: 'Rubik';
 }
 
 .about-us-images img {
@@ -4498,7 +4501,8 @@ section#main h2.h3.title {
 }
 
 #main.contact-us {
-    padding-bottom: 80px;
+    padding-bottom: 30px;
+    padding-top:10px;
 }
 
 .contact-us h2.title {
@@ -4531,12 +4535,13 @@ section#main h2.h3.title {
 
 .contact-info h2 {
     color: #000;
-    font-weight: 500;
-    font-size: 18px;
+    font-weight: bold;
+    font-size: 25px;
     border-bottom: 1px dotted #ddd;
     text-align: center;
     padding: 0px 0px 6px 0px;
     margin-bottom: 6px;
+    font-family: 'Rubik';
 }
 
 .contact-info address p {
@@ -4585,9 +4590,11 @@ section#main h2.h3.title {
 }
 
 .our-location .section-title h1 {
-    font-size: 18px;
+    font-size: 25px;
     text-align: center;
     color: #000000;
+    font-weight: bold;
+    font-family: 'Rubik';
 }
 
 .our-location .cities {
@@ -4657,7 +4664,7 @@ section#main h2.h3.title {
     color: #fff;
     font-size: 25px;
     font-weight: 400;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
     margin: 0;
     cursor: pointer;
@@ -4669,7 +4676,7 @@ section#main h2.h3.title {
     font-weight: 400;
     color: #fff;
     cursor: pointer;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
 }
 
@@ -4697,7 +4704,7 @@ section#main h2.h3.title {
 
 .our-location .location h4 {
     font-size: 18px;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
 }
 
@@ -4707,7 +4714,7 @@ section#main h2.h3.title {
 
 .our-location .location h3 {
     font-size: 16px;
-    font-family: "Montserrat-Bold";
+    font-family: "Rubik";
     color: #ee1d23;
     font-weight: bold;
 }
@@ -4727,12 +4734,13 @@ section#main h2.h3.title {
 
 .feedback h2 {
     color: #000;
-    font-weight: 500;
-    font-size: 18px;
+    font-weight: bold;
+    font-size: 25px;
     border-bottom: 1px dotted #ddd;
     text-align: center;
     padding: 3px 0px;
     margin-bottom: 15px;
+    font-family: 'Rubik';
 }
 
 .feedback textarea,
@@ -4822,11 +4830,12 @@ section#main h2.h3.title {
 }
 
 .footer-widget h3 {
-    font-weight: 300;
     color: #000;
     line-height: 28px;
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 15px;
+    font-family: 'Rubik';
+    font-weight: bold;
 }
 
 .social-widget h3,
@@ -4897,7 +4906,8 @@ section#main h2.h3.title {
 .footer-widget .btn.btn-primary {
     font-size: 14px;
     padding: 11px 26px 10px;
-    font-family: "Montserrat-Bold";
+    font-family: "Rubik";
+    font-weight: 400;
 }
 
 .footer-widget .form-control::-webkit-input-placeholder {
@@ -5343,7 +5353,7 @@ section#main h2.h3.title {
 }
 
 .about-trade h1 span {
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .about-trade .about {
@@ -5501,26 +5511,29 @@ section#main h2.h3.title {
     padding: 0 30px;
     color: #000;
     padding-top: 25px;
-    border-radius: 4px;
     padding-bottom: 45px;
     margin-bottom: 15px;
+    border-radius: 18px;
+    border: 1px solid #dad5d5;
 }
-
 .pricing-section .pric h2 {
     font-size: 18px;
     margin-bottom: 0;
+    font-family: 'Rubik';
+    font-weight: bold;
 }
 
 .pricing-section .pric h3 {
     font-size: 35px;
-    font-weight: 300;
-    margin-top: 0;
-    line-height: 90px;
+    font-weight: bold;
+    line-height: 40px;
+    font-family: 'Rubik';
+    margin-top: 28px;
 }
 
 .pricing-section .pric h3 sup {
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 400;
     top: -25px;
 }
 
@@ -5530,12 +5543,12 @@ section#main h2.h3.title {
 }
 
 .pricing-section .pric li {
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     font-size: 14px;
 }
 
 .pricing-section .pric li i {
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .pricing-section .pric li i.fa-check {
@@ -5547,7 +5560,12 @@ section#main h2.h3.title {
 }
 
 .pricing-section .pric-menu {
-    margin-top: 25px;
+    margin-top: 12px;
+}
+
+.pricing-section .pric li.disiable_item {
+    text-decoration: line-through;
+    color: #999;
 }
 
 .pricing-section .btn.btn-primary {
@@ -5602,7 +5620,7 @@ section#main h2.h3.title {
 
 .found-section h2 {
     color: #000;
-    font-weight: 500;
+    font-weight: 400;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -5622,7 +5640,7 @@ section#main h2.h3.title {
 
 .explore-nearby .featured-top h4 {
     color: #000;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .explore-nearby .ad-info {
@@ -5688,7 +5706,7 @@ section#main h2.h3.title {
 
 .page-direction ul li a {
     color: #555;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
     font-size: 12px;
 }
@@ -5700,25 +5718,25 @@ section#main h2.h3.title {
 .pro-carousel-article h3 {
     color: #000;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
     margin: 0;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
 }
 
 .pro-carousel-article h3 {
     color: #156EB6;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
     margin: 0;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
 }
 
 .pro-carousel-article h4 a {
     font-size: 19px;
     color: #000000;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'Rubik', sans-serif;
 
 }
 
@@ -5810,7 +5828,7 @@ a,
     Custom Fonts
  ========================================================================== */
 
-@font-face {
+/*@font-face {
     font-family: 'MyriadPro-Regular', sans-serif;
     src: url('fonts/MyriadPro-Regular.eot');
     src: url('fonts/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'), url('fonts/MyriadPro-Regular.woff2') format('woff2'), url('fonts/MyriadPro-Regular.woff') format('woff'), url('fonts/MyriadPro-Regular.ttf') format('truetype'), url('fonts/MyriadPro-Regular.svg#MyriadPro-Regular') format('svg');
@@ -5824,7 +5842,7 @@ a,
     src: url('fonts/devanagari-normal-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/devanagari-normal-webfont.woff2') format('woff2'), url('fonts/devanagari-normal-webfont.woff') format('woff'), url('fonts/devanagari-normal-webfont.ttf') format('truetype'), url('fonts/devanagari-normal-webfont.svg#devanagarinormal') format('svg');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 
 /*========================
@@ -6313,7 +6331,7 @@ focus {
 .invoice_info .h3 {
     font-size: 18px;
     color: #222;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .invoice_info address {
@@ -6325,7 +6343,7 @@ focus {
 .invoice_info h3 {
     font-size: 12px;
     color: #222;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .tex_number {
@@ -6429,7 +6447,14 @@ h3.alert.alert-danger.pendinguser {
     max-height: 800px;
     overflow-x: auto;
 }
-
+p#staticBackdropLabel {
+    font-size: 20px;
+    color: #000;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-family: 'Rubik';
+    margin: 0 auto;
+}
 .sitemap_wrapper {
     border-bottom: 1px solid #f3f3f3;
     padding-bottom: 15px;
@@ -6461,7 +6486,7 @@ h3.alert.alert-danger.pendinguser {
 }
 
 .site_item_list li a:hover {
-    font-weight: 500;
+    font-weight: 400;
     text-decoration: underline;
 }
 
@@ -6494,7 +6519,7 @@ h3.alert.alert-danger.pendinguser {
 .dashboard_wrap .content h6 {
     color: #444;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 400;
     /* font-family: 'Poppins'; */
 }
 
@@ -6635,7 +6660,7 @@ text-align: left;
             align-items: center;
             display: -ms-inline-flexbox;
             display: inline-flex;
-            font-weight: 500;
+            font-weight: 400;
             padding-left: 3px;
             font-size: 8px;
 
@@ -6744,16 +6769,19 @@ text-align: left;
     border: none !important;
     padding: 5px 15px;
     border-radius: 4px !important;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: bold;
     background: transparent;
     color: #888;
+    font-family: 'Rubik';
 }
 
-.seller_profile .nav-pills .nav-link.active,
-.seller_profile .nav-pills .show>.nav-link {
+.seller_profile .nav-pills .nav-link.active, .seller_profile .nav-pills .show>.nav-link {
     color: #fff;
     background-color: #fd0202;
+    font-weight: bold;
+    font-family: 'Rubik';
+    font-size: 16px;
 }
 
 .review_form .form-control::placeholder {
@@ -6903,7 +6931,7 @@ text-align: left;
 .doorstep_modal .modal-header h5 {
     font-size: 15px;
     color: #111;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .tab_nav, .card_pro_info{
@@ -6949,12 +6977,13 @@ text-align: left;
 }
 
 .card_pro_info .heading h3 {
-    font-size: 15px;
+    font-size: 20px;
     color: #212121;
-    font-weight: 500;
+    font-weight: bold;
     border-bottom: 1px solid #EEE;
     padding-bottom: 5px;
     margin: 0;
+    font-family: 'Rubik';
 }
 
 .pro_item h4 {
@@ -7000,10 +7029,11 @@ text-align: left;
 
 .shipping_form .title h3 {
     color: #212121;
-    font-size: 17px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: bold;
     border-bottom: 1px solid #f3f3f3;
     padding-bottom: 12px;
+    font-family: 'Rubik';
 }
 
 .customer_info h3 {
@@ -7031,7 +7061,7 @@ text-align: left;
     background: #f5f6f9;
     display: inline-block;
     color: #222;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 14px;
 }
 
@@ -7050,7 +7080,23 @@ text-align: left;
     .sub-main--gAGCF {
             padding: 0 32px;
         }
+}
 
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #efefef;
+    border-radius: 0.25rem;
+}
+.text-primary {
+    color: #fd0202!important;
 }
 
 

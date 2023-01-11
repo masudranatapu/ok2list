@@ -159,7 +159,7 @@ $row    = $data['row'] ;
                         </div>
                     </div>
                     <div class="row form-group select-price">
-                        <label class="col-sm-3 label-title">Price(Rs)</label>
+                        <label class="col-sm-3 label-title">Price(₦)</label>
                         <div class="col-sm-9">
 
                             <input type="text" readonly="" value="{{$row->price}}" class="form-control" id="text1">

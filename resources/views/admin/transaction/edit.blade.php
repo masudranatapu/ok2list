@@ -66,7 +66,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="package">Amount (Rs)</label>
+                                            <label for="package">Amount (₦)</label>
                                             <input type="number" class="form-control" value="{{$transaction->amount ?? ''}}" placeholder="Package Price" readonly>
                                             <input type="hidden" class="form-control" value="{{$transaction->pk_no ?? ''}}" name="transaction_id">
                                         </div>

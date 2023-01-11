@@ -25,7 +25,7 @@ $row = $data['row'];
 				<div class="col-md-8">
 					<div class="user-pro-section">
 						<div class="profile-details section">
-							<h2 style="padding: 0px; margin: 0px;">Promote your Ad </h2>
+							<h2 style="padding: 0px; margin: 0px;">Promote Your Ad </h2>
 							<hr>
 							<div class="removepromo">
 								<div class="promote">
@@ -63,8 +63,8 @@ $row = $data['row'];
 											      </td>
 											      <td scope="col">For {{ $cprom->day_limit }} Days</td>
 											      <td scope="col" style="text-align:center">
-													  Rs {{number_format($discounted,2)}}
-													   <sub><del>Rs {{ number_format($cprom->price,2) }}</del></sub> {{Auth::user()->package->discount_on_promotion}}% discount</td>
+													 ₦{{number_format($discounted,2)}}
+													   <sub><del>₦ {{ number_format($cprom->price,2) }}</del></sub> {{Auth::user()->package->discount_on_promotion}}% discount</td>
 											    </tr>
 											    @endforeach
 											    @endif

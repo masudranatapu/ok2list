@@ -174,7 +174,7 @@
 									<div class="row form-group select-price">
 										<label class="col-sm-3 label-title">Price<span class="required">*</span></label>
 										<div class="col-sm-9">
-											<label>Rs</label>
+											<label>rs</label>
 											<input type="text" class="form-control" id="text1">
 											<input type="radio" name="price" value="negotiable" id="negotiable">
 											<label for="negotiable">Negotiable </label>

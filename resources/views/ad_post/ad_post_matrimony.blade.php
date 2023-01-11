@@ -147,7 +147,7 @@
 
 
                      <div class="row form-group select-price {!! $errors->has('price') ? 'error' : '' !!}">
-                        <label class="col-sm-3 label-title"><span id="price_label">Price(Rs)</span></label>
+                        <label class="col-sm-3 label-title"><span id="price_label">Price(₦)</span></label>
                         <div class="col-sm-9">
                            <div class="controls">
                            {!! Form::number('price', old('price'), [ 'class' => 'form-control', 'placeholder' => 'ex, 120', 'tabindex' => 3]) !!}

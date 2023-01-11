@@ -169,7 +169,7 @@
                         </div>
                      @endif
                      <div class="row form-group select-price {!! $errors->has('price') ? 'error' : '' !!}">
-                        <label class="col-sm-3 label-title">Price(Rs)<span class="required">*</span></label>
+                        <label class="col-sm-3 label-title">Price(₦)<span class="required">*</span></label>
                         <div class="col-sm-9">
 
                            <div class="controls">

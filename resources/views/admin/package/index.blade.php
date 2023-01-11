@@ -78,7 +78,7 @@
                                             <tr>
                                                 <td>{{ $key+1 }}</td>
                                                 <td>{{ $row->title }}</td>
-                                                <td>Rs {{ $row->price_per_month }}</td>
+                                                <td>₦ {{ $row->price_per_month }}</td>
                                                 <td>{{ $row->support_duration }}</td>
                                                 <td>{{ $row->discount_on_promotion }}</td>
                                                 <td>{{ $row->package_duration }}</td>

@@ -122,7 +122,7 @@
                                     <select name="shipping_location" class="form-control" id="shipping_location">
                                         <option>UK</option>
                                         <option>Malaysia</option>
-                                        <option>srilanka</option>
+                                        <option>Nigeria</option>
                                         <option>KSA</option>
                                     </select>
                                 </div>

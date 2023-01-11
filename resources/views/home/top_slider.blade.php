@@ -11,7 +11,7 @@
                         </h3>
                         <!-- banner-form -->
                         <div class="banner-form">
-                            <form action="{{route('ads.list',['area' => 'srilanka'])}}" method="get">
+                            <form action="{{route('ads.list',['area' => 'Nigeria'])}}" method="get">
                                 <i class="fa fa-map-marker-alt"></i>
                                 <div class="dropdown category-dropdown select-category" data-toggle="modal" data-target="#divisioncitymodal">
                                     <span>@lang('web.s_loca')</span>

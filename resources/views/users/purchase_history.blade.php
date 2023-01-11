@@ -36,7 +36,7 @@
                                                 <td>{{ $item->transaction_id }}</td>
                                                 <td>{{ $item->package->title ?? '' }}</td>
                                                 <!-- <td>{{ $item->card_type }}</td> -->
-                                                <td>Rs {{ $item->amount }}</td>
+                                                <td>₦ {{ $item->amount }}</td>
                                                 <td>{{ $item->payment_type }}</td>
                                                 <td>{{ $item->created_at->toFormattedDateString() }}</td>
                                                 <td>

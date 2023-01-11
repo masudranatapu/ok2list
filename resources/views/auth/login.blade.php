@@ -63,7 +63,7 @@
                         </div> -->
                         <div class="col-md-7 col-lg-5">
                             <div class="login_form">
-                                <div class="social_login">
+                                {{-- <div class="social_login">
                                     <p>@lang('web.iread')<a href="{{route('terms-conditions')}}">@lang('web.t_conditions')</a> and <a href="{{ route('privacy-policy')}}">@lang('web.privacy_policy')</a> @lang('web.before_proceed')</p>    
                                     <div class="social_login_btn">
                                         <div class="row">
@@ -81,10 +81,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="divider">
+                                </div> --}}
+                                {{-- <div class="divider">
                                     <p>OR</p>
-                                </div>
+                                </div> --}}
                                 {!! Form::open([ 'route' => 'login', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true , 'novalidate']) !!}
                                     <input type="hidden" value="{{ request()->get('referer') }}" name="referer" />
                                     <input type="hidden" value="{{ request()->get('pakid') }}" name="pakid" />
