@@ -144,6 +144,7 @@ return [
     't_pay' => 'Total Payable',
     'bank_inof' => 'Bank Information',
     'bank_name' => 'Bank Name',
+    'bank_info' => 'Bank Info',
     'acc' => 'Account Name',
     'acc_num' => 'Account Number',
     'acc_type' => 'Account Type',
