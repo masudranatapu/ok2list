@@ -22,15 +22,15 @@
                     </tr> --}}
                     <tr>
                         <th class="w-50">Tax:</th>
-                        <td class="w-50 text-right">rs. <span id="tax">{{ $tax }}</span></td>
+                        <td class="w-50 text-right">₦ <span id="tax">{{ $tax }}</span></td>
                     </tr>
                     <tr>
                         <th class="w-50">Shipping:</th>
-                        <td class="w-50 text-right">rs. {{ $shipping }}</td>
+                        <td class="w-50 text-right">₦ {{ $shipping }}</td>
                     </tr>
                     <tr class="text-danger">
                         <th class="w-50"><strong>Order Total:</strong></th>
-                        <td class="w-50 text-right"><strong>rs. {{ $total }}</strong></td>
+                        <td class="w-50 text-right"><strong>₦ {{ $total }}</strong></td>
                     </tr>
                 </table>
             </div>
