@@ -96,7 +96,15 @@ class UserController extends Controller
 
     public function getMyMembership(Request $request)
     {
-        return view('users.my_membership');
+        $data = array();
+        $data['rows'] = $this->prodModel->getFavoriteAds();
+        $postedads = DB::table('prd_master')->where('customer_pk_no', Auth::user()->id)->get();
+        $expireads = DB::table('prd_master')->where('customer_pk_no', Auth::user()->id)->where('is_active', 2)->get();
+        // dd($postedads);
+
+        $package = Payments::where('f_customer_pk_no', Auth::user()->id)->where('f_package_pk_no', Auth::user()->package_id)->orderBy('pk_no', 'desc')->first();
+        $totalads = DB::table('prd_master')->whereBetween('created_at', [$package->validated_on, $package->expired_on])->get();
+        return view('users.my_membership', compact('data', 'postedads', 'expireads', 'package', 'totalads'));
     }
 
     public function getpromotedAds(Request $request)

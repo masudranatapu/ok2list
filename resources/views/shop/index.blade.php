@@ -35,7 +35,7 @@
                                 Update Shop
                                 @if (!empty($data['shop_data']))
                                     <a href="{{ route('shop_page_details', ['id' => $data['shop_data']->pk_no, 'url_slug' => $data['shop_data']->url_slug]) }}"
-                                        class="btn-sm btn-primary float-right">Let's go to your Shop</a>
+                                        class="btn-sm btn-site float-right">Let's go to your Shop</a>
                                 @endif
                             </h3>
                             <hr>
@@ -164,7 +164,7 @@
                                             <p>Kindy hit the Create Your Shop button and create now. It's won't take more
                                                 than 2 minutes !</p>
                                         </div>
-                                        <a href="{{ route('create-shop') }}" class="btn-primary btn">Create Your Shop</a>
+                                        <a href="{{ route('create-shop') }}" class="btn-lg btn-site" style="margin-left: 25px">Create Your Shop</a>
                                     @endif
                                 </div>
                             </div>

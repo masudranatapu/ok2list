@@ -7099,4 +7099,15 @@ text-align: left;
     color: #fd0202!important;
 }
 
+.btn-site{
+    background-color: #ee1d23;
+    color: #ffffff;
+    font-weight: bold;
+}
+.btn-site:hover{
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+}
+
 
