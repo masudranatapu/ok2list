@@ -173,7 +173,7 @@
 
 
                      <div class="row form-group select-price {!! $errors->has('price') ? 'error' : '' !!}">
-                        <label class="col-sm-3 label-title"><span id="price_label">Rent (rs) /month</span><span class="required">*</span></label>
+                        <label class="col-sm-3 label-title"><span id="price_label">Rent (₦) /month</span><span class="required">*</span></label>
                         <div class="col-sm-9">
                            <div class="controls">
                            {!! Form::number('price', $row->price, [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'ex, 120','minlength' => '0',  'data-validation-minlength-message' => 'Minimum 0 disit', 'maxlength' => '10', 'data-validation-maxlength-message' => 'Maxlength 10 disit', 'tabindex' => 3]) !!}

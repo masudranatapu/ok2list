@@ -177,7 +177,7 @@ $subcat_id                   = request()->get('category') ?? 0;
 </div>
 
 <div class="row form-group select-price {!! $errors->has('price') ? 'error' : '' !!}">
-    <label class="col-sm-3 label-title">Salary (per month) (rs)<span class="required">*</span></label>
+    <label class="col-sm-3 label-title">Salary (per month) (₦)<span class="required">*</span></label>
     <div class="col-sm-9">
      <div class="row">
        <div class="col-sm-6">

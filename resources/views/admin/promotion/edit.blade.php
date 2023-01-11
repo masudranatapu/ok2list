@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="package" >Price (rs)</label>
+                                        <label for="package" >Price (₦)</label>
                                         <input type="text"  class="form-control" name="price" value="{{ $data['row']->price }}">
                                     </div>
                                 </div>
