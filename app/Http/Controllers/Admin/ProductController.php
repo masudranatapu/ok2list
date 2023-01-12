@@ -112,7 +112,7 @@ class ProductController extends BaseController
     }
 
     public function putUpdate(Request $request, $id)
-    {
+    {;
 
         $this->resp = $this->productInt->postUpdate($request, $id);
         return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
@@ -156,7 +156,7 @@ class ProductController extends BaseController
 
     public function getDeleteall($id)
     {
-        
+
     }
     public function getDeleteallSelected(Request $request)
     {
@@ -173,5 +173,5 @@ class ProductController extends BaseController
             return redirect()->back();
         }
     }
-    
+
 }

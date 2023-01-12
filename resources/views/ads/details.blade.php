@@ -33,10 +33,10 @@ $cate = DB::table('prd_category')
 
             <!--  @if (isset($data['detail_page1']) && $data['detail_page1'] != null)
     <div class="ads_banner text-center mb-4">
-                        <a href="{{ $data['detail_page1']->link }}" target="_blank"
-                            title="{{ $data['detail_page1']->name }}"><img src="{{ fileExit($data['detail_page1']->photo) }}"
-                                class="w-100" alt="{{ $data['detail_page1']->name }}" style="height: 96px;"></a>
-                    </div>
+                                <a href="{{ $data['detail_page1']->link }}" target="_blank"
+                                    title="{{ $data['detail_page1']->name }}"><img src="{{ fileExit($data['detail_page1']->photo) }}"
+                                        class="w-100" alt="{{ $data['detail_page1']->name }}" style="height: 96px;"></a>
+                            </div>
     @endif -->
 
             <div class="mb-5">
@@ -89,9 +89,11 @@ $cate = DB::table('prd_category')
                     </div><!-- Controls -->
                     <!-- slider-text -->
                     <div class="col-lg-4">
-                        <div class="doorstep_item text-center">
-                            <span>Doorstep Delivery</span>
-                        </div>
+                        @if ($row->doorstep_delivery == 1)
+                            <div class="doorstep_item text-center">
+                                <span>Doorstep Delivery</span>
+                            </div>
+                        @endif
                         <div class="single_content slider-text pt-3">
                             <h2>
                                 ₦ {{ number_format($row->price, 2) }}
@@ -132,10 +134,12 @@ $cate = DB::table('prd_category')
 
 
                             <!-- buy product -->
-                            <div class="buy_product contact-with">
-                                <a href="{{ route('checkout.shipping') }}" onclick="addToCart({{ $row->pk_no }})"
-                                    class="btn btn-red w-100">Order Online</a>
-                            </div>
+                            @if ($row->doorstep_delivery == 1)
+                                <div class="buy_product contact-with">
+                                    <a href="{{ route('checkout.shipping') }}" onclick="addToCart({{ $row->pk_no }})"
+                                        class="btn btn-red w-100">Order Online</a>
+                                </div>
+                            @endif
                             <!-- buy product -->
 
 
@@ -349,13 +353,13 @@ $cate = DB::table('prd_category')
                                 </div>
                                 <!-- @if (isset($data['detail_page3']) && $data['detail_page3'] != null)
     <div class="col-12">
-                                            <div class="banner_ads short-info">
-                                                <a href="{{ $data['detail_page3']->link }}" target="_blank"
-                                                    title="{{ $data['detail_page3']->name }}"><img
-                                                        src="{{ fileExit($data['detail_page3']->photo) }}" class="w-100"
-                                                        alt="{{ $data['detail_page3']->name }}" style="height: 480px;"></a>
-                                            </div>
-                                        </div>
+                                                    <div class="banner_ads short-info">
+                                                        <a href="{{ $data['detail_page3']->link }}" target="_blank"
+                                                            title="{{ $data['detail_page3']->name }}"><img
+                                                                src="{{ fileExit($data['detail_page3']->photo) }}" class="w-100"
+                                                                alt="{{ $data['detail_page3']->name }}" style="height: 480px;"></a>
+                                                    </div>
+                                                </div>
     @endif -->
                             </div>
                         </div>
@@ -366,13 +370,13 @@ $cate = DB::table('prd_category')
 
             <!-- @if (isset($data['detail_page2']) && $data['detail_page2'] != null)
     <div class="">
-                        <div class="ads_banner text-center mb-5">
-                            <a href="{{ $data['detail_page2']->link }}" target="_blank"
-                                title="{{ $data['detail_page2']->name }}"><img
-                                    src="{{ fileExit($data['detail_page2']->photo) }}" class="w-100"
-                                    alt="{{ $data['detail_page2']->name }}" style="height: 96px;"></a>
-                        </div>
-                    </div>
+                                <div class="ads_banner text-center mb-5">
+                                    <a href="{{ $data['detail_page2']->link }}" target="_blank"
+                                        title="{{ $data['detail_page2']->name }}"><img
+                                            src="{{ fileExit($data['detail_page2']->photo) }}" class="w-100"
+                                            alt="{{ $data['detail_page2']->name }}" style="height: 96px;"></a>
+                                </div>
+                            </div>
     @endif -->
             <div class="recommended-info">
                 <div class="row">
