@@ -43,8 +43,8 @@
                                                     <select name="code" class="form-control" onchange="this.form.submit()">
                                                         <option disabled selected>{{ __('language') }}</option>
                                                         @foreach ($languages as $language)
-                                                            <option {{ $language->code == env('APP_DEFAULT_LANGUAGE') ? 'selected' : '' }}
-                                                                value="{{ $language->code }}"> {{ env('APP_DEFAULT_LANGUAGE') }}
+                                                            <option {{ ($language->default_lang == 1) ? 'selected' : '' }}
+                                                                value="{{ $language->code }}">
                                                                 {{ $language->name }}({{ $language->code }})
                                                             </option>
                                                         @endforeach
@@ -67,27 +67,27 @@
                         <table class="table table-hover text-nowrap table-bordered">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Code</th>
-                                    <th>Direction</th>
-                                    <th>Flag</th>
-                                    <th>Actions</th>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Code</th>
+                                    <th class="text-center">Direction</th>
+                                    <th class="text-center">Flag</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($languages as $key => $language)
                                     <tr>
-                                        <td>{{ $key + 1 }}</td>
-                                        <td>
+                                        <td class="text-center">{{ $key + 1 }}</td>
+                                        <td class="text-center">
                                             {{ $language->name }}
-                                            @if (env('APP_DEFAULT_LANGUAGE') == $language->code)
-                                                <span class="badge badge-pill badge-primary">{{ __('default') }}</span>
+                                            @if ($language->default_lang == 1)
+                                                <span class="badge badge-pill badge-success">{{ __('default') }}</span>
                                             @endif
                                         </td>
-                                        <td>{{ $language->code }}</td>
-                                        <td>{{ $language->direction }}</td>
-                                        <td><i class="flag-icon {{ $language->icon }}"></i></td>
+                                        <td class="text-center">{{ $language->code }}</td>
+                                        <td class="text-center">{{ $language->direction }}</td>
+                                        <td class="text-center"><i class="flag-icon {{ $language->icon }}"></i></td>
                                         <td class="d-flex justify-content-center align-items-center">
                                             <a href="{{ route('Language.setting', $language->code) }}" class="btn btn-secondary btn-sm mr-2">
                                                 <i class="la la-cog"></i>
@@ -98,16 +98,16 @@
                                                 </a>
                                             @endif
                                             @if ($language->code != 'en')
-                                                    <a href="{{ route('languages.edit', $language->id) }}" class="btn btn-info btn-sm mt-0 mr-2">
-                                                        <i class="la la-edit"></i>
-                                                    </a>
+                                                <a href="{{ route('languages.edit', $language->id) }}" class="btn btn-info btn-sm mt-0 mr-2">
+                                                    <i class="la la-edit"></i>
+                                                </a>
                                                 @if ($language->code !== 'en')
                                                     <form action="{{ route('languages.destroy', $language->id) }}" class="d-inline" method="POST">
                                                         @method('DELETE')
                                                         @csrf
                                                         <button data-toggle="tooltip" data-placement="top" title="{{ __('delete_language') }}"
                                                             onclick="return confirm('{{ __('are_you_sure_want_to_delete_this_item?') }}');"
-                                                            class="btn btn-sm bg-danger">
+                                                            class="btn btn-sm bg-danger text-white">
                                                             <i class="la la-trash"></i>
                                                         </button>
                                                     </form>

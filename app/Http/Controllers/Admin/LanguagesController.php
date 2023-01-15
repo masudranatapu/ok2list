@@ -47,7 +47,6 @@ class LanguagesController extends Controller
     public function store(Request $request)
     {
         //
-        
         $request->validate(
             [
                 'name' => "required|unique:languages,name",
@@ -80,7 +79,7 @@ class LanguagesController extends Controller
             copy($baseFile, $fileName);
             
             Toastr::success('Language successfully create :-)','Success');
-            return redirect()->back();
+            return redirect()->route('languages.index');
             
         } else {
 
@@ -150,7 +149,6 @@ class LanguagesController extends Controller
         );
 
         // rename file
-        
         $oldFile = $languages->code . '.json';
         $oldName = base_path('resources/lang/' . $oldFile);
         $newFile = Str::slug($request->code) . '.json';
@@ -180,17 +178,16 @@ class LanguagesController extends Controller
     public function destroy($id)
     {
         //
-
         $languages = Language::findOrFail($id);
 
-        if (env('APP_DEFAULT_LANGUAGE') == $languages->code) {
+        if ($languages->default_lang == 1) {
             Toastr::info('You can not delete default language :-)','Success');
             return redirect()->back();
         }
 
-        // if (File::exists(base_path('resources/lang/' . $languages->code . '.json'))) {
-        //     File::delete(base_path('resources/lang/' . $languages->code . '.json'));
-        // }
+        if (file_exists(base_path('resources/lang/' . $languages->code . '.json'))) {
+            unlink(base_path('resources/lang/' . $languages->code . '.json'));
+        }
         
         $languages->delete();
 
@@ -198,30 +195,16 @@ class LanguagesController extends Controller
         return redirect()->back();
 
     }
-
-    public function setLanguage(Request $request)
-    {
-        if (env('APP_DEFAULT_LANGUAGE') != $request->code) {
-            envReplace('APP_DEFAULT_LANGUAGE', $request->code);
-        }
-
-        Toastr::success('Default Language Set Successfully:-)','Success');
-        return redirect()->back();
-
-    }
-
+    
     public function setDefaultLanguage(Request $request)
     {
-        if (env('APP_DEFAULT_LANGUAGE') != $request->code) {
-            envReplace('APP_DEFAULT_LANGUAGE', $request->code);
-        }
+        Language::where('default_lang', 1)->update([
+            'default_lang' => 0,
+        ]);
 
-        if (session()->get('set_lang') != $request->code) {
-            session()->put('set_lang', $request->code);
-            app()->setLocale($request->code);
-        }
-        
-        // App::setLocale($request->code);
+        Language::where('code', $request->code)->update([
+            'default_lang' => 1,
+        ]);
 
         Toastr::success('Defualt language set successfully done :-)','Success');
         return redirect()->back();
@@ -239,8 +222,7 @@ class LanguagesController extends Controller
 
     }
 
-    // translate language 
-
+    // translate language
     public function transUpdate(Request $request)
     {
         $language = Language::findOrFail($request->lang_id);
@@ -261,11 +243,11 @@ class LanguagesController extends Controller
         $updated ? Toastr::success('Translations updated successfully:-)','Success') : Toastr::success('Something is worng. Please try again :-)','Success');
         
         return redirect()->back();
+        
     }
     
     public function autoTransSingle(Request $request)
     {
-
         $text = autoTransLation($request->lang, $request->text);
         return response()->json($text);
     }
@@ -284,8 +266,7 @@ class LanguagesController extends Controller
             $autoTransValue = $tr->translate($value);
             $afterTrans[$key] = $autoTransValue;
         }
-
-        // flashSuccess('Translations updated successfully');
+        
         return response()->json(['data' => $afterTrans]);
     }
 
