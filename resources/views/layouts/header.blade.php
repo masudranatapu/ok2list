@@ -5,6 +5,9 @@
         $payments = App\Payments::where('f_customer_pk_no',Auth::user()->id)->where(['payment_type'=>'package'])->orderBy('pk_no','desc')->first();
     ?>
 @endif
+@php
+    $languages = App\Models\Language::get();
+@endphp
 <header id="header" class="clearfix">
     @php
         $setting = App\SiteSetting::first();
@@ -24,6 +27,13 @@
                     <li><a href="{{route('ads.list')}}">@lang('web.all_ads')</a></li>
                     <li><a href="{{route('packages')}}">@lang('web.membership')</a></li>
                 </ul>
+                <form action="{{ route('changelang') }}" method="get">
+                    <select name="lang_code" id="" onchange="this.form.submit()">
+                        @foreach ($languages as $lang)
+                            <option value="{{ $lang->code }}">{{ $lang->name }}</option>
+                        @endforeach
+                    </select>
+                </form>
             </div>
             <div class="nav-right">
                 <!-- sign-in -->
