@@ -1,6 +1,9 @@
 <?php
 use App\Models\AdminUser;
 use App\Models\Auth as CustomAuth;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\App;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 if (!function_exists('getAuthId')) {
     function getAuthId()
@@ -220,9 +223,30 @@ if (!function_exists('webAdList')) {
     }
 }
 
+function envReplace($name, $value)
+{
+    $path = base_path('.env');
+    if (file_exists($path)) {
+        file_put_contents($path, str_replace(
+            $name . '=' . env($name),
+            $name . '=' . $value,
+            file_get_contents($path)
+        ));
+    }
 
+    if (file_exists(App::getCachedConfigPath())) {
+        Artisan::call("config:cache");
+    }
+    
+}
 
+if (!function_exists('autoTransLation')) {
 
-
-
-
+    function autoTransLation($lang, $text)
+    {
+        $tr = new GoogleTranslate($lang);
+        $afterTrans = $tr->translate($text);
+        return $afterTrans;
+    }
+    
+}

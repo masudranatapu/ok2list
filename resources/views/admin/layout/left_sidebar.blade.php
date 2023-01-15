@@ -84,6 +84,13 @@
 
         </ul>
     </li>
+    
+    <li class="nav-item {{ Request::is('admin/languages') || Request::is('admin/languages/create') || Request::is('admin/languages/*') ? 'active' : '' }}">
+        <a href="{{ route('languages.index') }}">
+            <i class="la la-list"></i>
+            <span class="menu-title" data-i18n="#">Languages</span>
+        </a>
+    </li>
 
     @if(hasAccessAbility('view_customer', $roles))
         <li class=" nav-item @yield('Customer Management')">
