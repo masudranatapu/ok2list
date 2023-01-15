@@ -321,70 +321,307 @@ $cate = DB::table('prd_category')
                             </div>
                         </div>
                     </div>
-                    @if (Auth::user() && Auth::user()->id == $row->customer_pk_no)
-                        <!-- NO  -->
-                    @else
-                        <div class="col-md-4">
-                            <div class="row">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-12">
+                                @if($data['row']->ad_type == 'jobs')
+                                    @php
+                                        $jobInfo = App\JobPreference::where('prod_pk_no', $data['row']->pk_no)->first();
+                                    @endphp
+                                        @if($jobInfo)
+                                        <div class="short-info" style="margin-top: 0px;">
+                                            <h4>Jobs Info</h4>
+                                            <ul>
+                                                @php
+                                                    $mini_qualification_combo    = Config::get('static_arrays.edu_qulafication') ?? array();
+                                                @endphp
+                                                @if($jobInfo->mini_qualification)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Min. Qualification : 
+                                                        <span>
+                                                            @if($jobInfo->mini_qualification == 'primary_school')
+                                                                Primary School
+                                                            @endif
+                                                            @if($jobInfo->mini_qualification == 'high_school')
+                                                                High School
+                                                            @endif
+                                                            @if($jobInfo->mini_qualification == 'ssc')
+                                                                SSC / O Level
+                                                            @endif
+                                                            @if($jobInfo->mini_qualification == 'hsc')
+                                                                HSC / A Level
+                                                            @endif
+                                                            @if($jobInfo->mini_qualification == 'diploma')
+                                                                Diploma
+                                                            @endif
+                                                            @if($jobInfo->mini_qualification == 'graduate')
+                                                                Bachelor / Honors
+                                                            @endif
+                                                            @if($jobInfo->mini_qualification == 'post_graduate')
+                                                                Masters
+                                                            @endif
+                                                            @if($jobInfo->mini_qualification == 'doctorate')
+                                                                PhD / Doctorate
+                                                            @endif
+                                                        </span>
+                                                    </li>
+                                                @endif
+                                                @if($jobInfo->req_expriance)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Req. Expriance : 
+                                                        <span>{{ $jobInfo->req_expriance }} Years</span>
+                                                    </li>
+                                                @endif
+                                                @if($jobInfo->edu_specialization)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Edu. Specialization : 
+                                                        <span>
+                                                            
+                                                            @if($jobInfo->edu_specialization == 'art_humanities')
+                                                            Art and Humanities
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'business_management')
+                                                            Business and Management
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'accounting')
+                                                            Accounting
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'design_fashion')
+                                                            Design and Fashion
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'engineering')
+                                                            Engineering
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'events_hospitality')
+                                                            Events and Hospitality
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'finance_commerce')
+                                                            Finance and Commerce
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'human_resources')
+                                                            Resources
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'info_technology')
+                                                            Information Technology
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'law')
+                                                            Law
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'marketing_sales')
+                                                            Marketing and Sales
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'mass_comm')
+                                                            Mass Communication
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'medicine')
+                                                            Medicine
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'sciences')
+                                                            Sciences
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'vocational')
+                                                            Vocational and Technical
+                                                            @endif
+                                                            @if($jobInfo->edu_specialization == 'others')
+                                                             Others
+                                                            @endif
+                                                        </span>
+                                                    </li>
+                                                @endif
+                                                @if($data['row']->company_name)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Company Name : 
+                                                        <span>{{ $data['row']->company_name }}</span>
+                                                    </li>
+                                                @endif
+                                                @if($jobInfo->receive_applications_via)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Receive Applications Via : 
+                                                        <span>
+                                                            @if($jobInfo->receive_applications_via == 'dashboard')
+                                                                Company Employee 
+                                                            @else 
+                                                                Phone
+                                                            @endif
+                                                        </span>
+                                                    </li>
+                                                @endif
+                                                @if($jobInfo->skill)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Skill : 
+                                                        <span>{{ $jobInfo->skill }}</span>
+                                                    </li>
+                                                @endif
+                                                @if($jobInfo->max_age)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Max Age : 
+                                                        <span>{{ $jobInfo->max_age }} Years</span>
+                                                    </li>
+                                                @endif
+                                                @if($jobInfo->pref_gender)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Gender : 
+                                                        <span>
+                                                            @if($jobInfo->pref_gender == 'any')
+                                                                Any
+                                                            @endif
+                                                            @if($jobInfo->pref_gender == 'female')
+                                                                Female
+                                                            @endif
+                                                            @if($jobInfo->pref_gender == 'others')
+                                                                Other
+                                                            @endif
+                                                            @if($jobInfo->pref_gender == 'male')
+                                                                Male
+                                                            @endif
+                                                        </span>
+                                                    </li>
+                                                @endif
+                                                @if($jobInfo->application_requirements)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Application Requirements : 
+                                                        <span>
+                                                            {{ $jobInfo->application_requirements }}
+                                                        </span>
+                                                    </li>
+                                                @endif
+                                                @if($jobInfo->role_designation)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Role Designation : 
+                                                        <span>{{ $jobInfo->role_designation }}</span>
+                                                    </li>
+                                                @endif
+                                                @if($jobInfo->total_vacancies)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Total Vacancies : 
+                                                        <span>{{ $jobInfo->total_vacancies }}</span>
+                                                    </li>
+                                                @endif
+                                                @if($jobInfo->deadline)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Deadline : 
+                                                        <span>{{ date('d M Y', strtotime($jobInfo->deadline)) }}</span>
+                                                    </li>
+                                                @endif
+                                                @if($jobInfo->business_function)
+                                                    <li class="d-flex justify-content-between align-items-center">
+                                                        Business Function : 
+                                                        <span>
+                                                            @if($jobInfo->business_function == 'administration')
+                                                                Administration
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'accounting_finance')
+                                                                Accounting and Finance
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'contractual')
+                                                                Contractual
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'customer_support')
+                                                                Customer Support
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'data_entry_analysis')
+                                                                Data Entry and Analysis
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'creative_design_architecture')
+                                                                Creative, Design and Architecture
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'education_training')
+                                                                Education and Training
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'hospitality')
+                                                                Hospitality
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'human_resources')
+                                                                Human Resources
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'it_telecom')
+                                                                IT and Telecom
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'legel')
+                                                                Legal
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'logistics')
+                                                                Logistics
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'management')
+                                                                Management
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'manufacturing')
+                                                                Manufacturing
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'marketing_salse')
+                                                                Marketing and Sales
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'operations')
+                                                                Operations
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'quality_assurance')
+                                                                Quality Assurance
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'research_technical')
+                                                                Research and Technical
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'security')
+                                                                Security
+                                                            @endif
+                                                            @if($jobInfo->business_function == 'others')
+                                                                Others
+                                                            @endif
+                                                        </span>
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                        </div>
+                                    @endif
+                                @endif
+                            </div>
+                            @if (Auth::user() && Auth::user()->id == $row->customer_pk_no)
+                                <!-- NO  -->
+                            @else
                                 <div class="col-12">
                                     <div class="short-info" style="margin-top: 0px;">
                                         <ul>
                                             @if (Auth::user())
                                                 @if ($row->is_favorite == 1)
-                                                    <li><i class="fa fa-heart"></i><a
-                                                            href="javascript:void(0)">@lang('web.added')</a></li>
+                                                    <li><i class="fa fa-heart"></i><a href="javascript:void(0)">@lang('web.added')</a></li>
                                                 @else
                                                     <li><i class="fa fa-heart"></i><a href="javascript:void(0)"
                                                             id="save_as_fav" data-adid="{{ $row->pk_no }}"
-                                                            data-uid="{{ Auth::user()->id ?? '' }}">@lang('web.save')</a>
-                                                    </li>
+                                                            data-uid="{{ Auth::user()->id ?? '' }}">@lang('web.save')</a></li>
                                                 @endif
                                             @else
                                                 <li><i class="fa fa-heart"></i><a href="javascript:void(0)"
-                                                        onclick="return confirm('Please login first!');">@lang('web.save')</a>
-                                                </li>
+                                                        onclick="return confirm('Please login first!');">@lang('web.save')</a></li>
                                             @endif
                                             <li><i class="fa fa-exclamation-triangle"></i><a data-toggle="modal"
-                                                    data-target="#reportad"
-                                                    href="javascript:void(0)">@lang('web.report')</a>
+                                                    data-target="#reportad" href="javascript:void(0)">@lang('web.report')</a>
                                             </li>
                                         </ul><!-- social-icon -->
                                     </div>
                                 </div>
-                                <!-- @if (isset($data['detail_page3']) && $data['detail_page3'] != null)
-    <div class="col-12">
-                                                    <div class="banner_ads short-info">
-                                                        <a href="{{ $data['detail_page3']->link }}" target="_blank"
-                                                            title="{{ $data['detail_page3']->name }}"><img
-                                                                src="{{ fileExit($data['detail_page3']->photo) }}" class="w-100"
-                                                                alt="{{ $data['detail_page3']->name }}" style="height: 480px;"></a>
-                                                    </div>
-                                                </div>
-    @endif -->
-                            </div>
+                                @if (isset($data['detail_page3']) && $data['detail_page3'] != null)
+                                    <div class="col-12">
+                                        <div class="banner_ads short-info">
+                                            <a href="{{ $data['detail_page3']->link }}" target="_blank"
+                                                title="{{ $data['detail_page3']->name }}"><img
+                                                    src="{{ fileExit($data['detail_page3']->photo) }}" class="w-100"
+                                                    alt="{{ $data['detail_page3']->name }}" style="height: 480px;"></a>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endif
                         </div>
-                    @endif
-                    <!-- description -->
-                </div><!-- row -->
-            </div><!-- description-info -->
-
-            <!-- @if (isset($data['detail_page2']) && $data['detail_page2'] != null)
-    <div class="">
-                                <div class="ads_banner text-center mb-5">
-                                    <a href="{{ $data['detail_page2']->link }}" target="_blank"
-                                        title="{{ $data['detail_page2']->name }}"><img
-                                            src="{{ fileExit($data['detail_page2']->photo) }}" class="w-100"
-                                            alt="{{ $data['detail_page2']->name }}" style="height: 96px;"></a>
-                                </div>
-                            </div>
-    @endif -->
+                    </div>
+                </div>
+            </div>
             <div class="recommended-info">
                 <div class="row">
-                </div><!-- row -->
-            </div><!-- recommended-info -->
-        </div><!-- container -->
-    </section><!-- main -->
-    <!-- download -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section id="something-sell" class="clearfix parallax-section"
         style="background-image: url('{{ asset('post-bg.jpg') }}');">
         <div class="container">
