@@ -188,7 +188,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::post('translation/update', [App\Http\Controllers\Admin\LanguagesController::class, 'transUpdate'])->name('translation.update');
     Route::post('auto/translation/single', [App\Http\Controllers\Admin\LanguagesController::class, 'autoTransSingle'])->name('translation.update.auto');
     Route::post('auto/translation/update/all', [App\Http\Controllers\Admin\LanguagesController::class, 'transUpdateAutoAll'])->name('translation.update.auto.all');
-    
+    // currency
+    Route::resource('currency', CurrencyController::class);
+    Route::get('setdefaultcurrency', [App\Http\Controllers\Admin\CurrencyController::class, 'setDefaultcurrency'])->name('setDefault.currency');
     // User-Group
     Route::get('user-group', ['middleware' => 'acl:view_user_group', 'as' => 'admin.user-group', 'uses' => 'UserGroupController@getIndex']);
     Route::get('user-group/new', ['middleware' => 'acl:new_user_group', 'as' => 'admin.user-group.new', 'uses' => 'UserGroupController@getCreate']);

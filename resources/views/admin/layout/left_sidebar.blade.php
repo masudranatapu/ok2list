@@ -91,6 +91,12 @@
             <span class="menu-title" data-i18n="#">Languages</span>
         </a>
     </li>
+    <li class="nav-item {{ Request::is('admin/currency') || Request::is('admin/currency/create') || Request::is('admin/currency/*') ? 'active' : '' }}">
+        <a href="{{ route('currency.index') }}">
+            <i class="la la-money"></i>
+            <span class="menu-title" data-i18n="#">Currency</span>
+        </a>
+    </li>
 
     @if(hasAccessAbility('view_customer', $roles))
         <li class=" nav-item @yield('Customer Management')">
