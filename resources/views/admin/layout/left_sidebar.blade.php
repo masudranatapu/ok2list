@@ -97,7 +97,6 @@
             <span class="menu-title" data-i18n="#">Currency</span>
         </a>
     </li>
-
     @if(hasAccessAbility('view_customer', $roles))
         <li class=" nav-item @yield('Customer Management')">
             <a href="#">
@@ -115,12 +114,16 @@
                         </a>
                     </li>
                 @endif
-
-
             </ul>
         </li>
     @endif
-
+    
+    <li class="nav-item {{ Request::is('admin/payment-gateway') || Request::is('admin/payment-gateway/create') || Request::is('admin/payment-gateway/*') ? 'active' : '' }}">
+        <a href="{{ route('payment-gateway.index') }}">
+            <i class="la la-money"></i>
+            <span class="menu-title" data-i18n="#">Payment Gateway</span>
+        </a>
+    </li>
 
     @if(hasAccessAbility('view_admin_user', $roles))
         <li class=" nav-item @yield('Admin Mangement')">

@@ -191,6 +191,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     // currency
     Route::resource('currency', CurrencyController::class);
     Route::get('setdefaultcurrency', [App\Http\Controllers\Admin\CurrencyController::class, 'setDefaultcurrency'])->name('setDefault.currency');
+    // payment
+    Route::resource('payment-gateway', PaymentController::class);
     // User-Group
     Route::get('user-group', ['middleware' => 'acl:view_user_group', 'as' => 'admin.user-group', 'uses' => 'UserGroupController@getIndex']);
     Route::get('user-group/new', ['middleware' => 'acl:new_user_group', 'as' => 'admin.user-group.new', 'uses' => 'UserGroupController@getCreate']);
