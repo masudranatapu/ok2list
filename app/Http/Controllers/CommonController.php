@@ -295,17 +295,27 @@ class CommonController extends Controller
         return response()->json($response);
     }
 
-    public function changelang(Request $request){
+    // public function changelang(Request $request){
 
-        // Session::put('applocale', $lang);
-        // return redirect()->back();
+    //     // Session::put('applocale', $lang);
+    //     // return redirect()->back();
 
-        session()->put('set_lang', $request->lang_code);
-        app()->setLocale($request->lang_code);
+    //     session()->put('set_lang', $request->lang_code);
+    //     app()->setLocale($request->lang_code);
+        
+    //     return redirect()->back();
+
+    // }
+
+    public function setLanguage(Request $request)
+    {
+        if (session()->get('set_lang') != $request->lang_code) {
+            session()->put('set_lang', $request->lang_code);
+            app()->setLocale($request->lang_code);
+        }
         
         return redirect()->back();
 
-        
     }
 
     public function getDoorstepDelivery(){

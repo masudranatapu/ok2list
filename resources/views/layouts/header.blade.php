@@ -30,7 +30,7 @@
                 <form action="{{ route('changelang') }}" method="get">
                     <select name="lang_code" id="" onchange="this.form.submit()">
                         @foreach ($languages as $lang)
-                            <option value="{{ $lang->code }}">{{ $lang->name }}</option>
+                            <option value="{{ $lang->code }}" @if(session()->has('set_lang')) {{ session()->get('set_lang') == $lang->code ? 'selected': '' }} @else  {{ $lang->default_lang == 1 ? 'selected': ''}}   @endif>{{ $lang->name }}</option>
                         @endforeach
                     </select>
                 </form>

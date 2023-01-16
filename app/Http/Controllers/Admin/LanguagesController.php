@@ -198,6 +198,7 @@ class LanguagesController extends Controller
     
     public function setDefaultLanguage(Request $request)
     {
+
         Language::where('default_lang', 1)->update([
             'default_lang' => 0,
         ]);
@@ -205,6 +206,12 @@ class LanguagesController extends Controller
         Language::where('code', $request->code)->update([
             'default_lang' => 1,
         ]);
+        
+
+        if (session()->get('set_lang') != $request->code) {
+            session()->put('set_lang', $request->code ?? 'en');
+            app()->setLocale($request->code);
+        }
 
         Toastr::success('Defualt language set successfully done :-)','Success');
         return redirect()->back();

@@ -17,12 +17,21 @@ class Language
      */
     public function handle($request, Closure $next)
     {
-        if (Session()->has('applocale')) {
-            App::setLocale(Session()->get('applocale'));
+        // if (Session()->has('applocale')) {
+        //     App::setLocale(Session()->get('applocale'));
+        // }
+        // else {
+        //     App::setLocale('en');
+        // }
+        // return $next($request);
+        
+        if (session()->has('set_lang')) {
+            app()->setLocale(session('set_lang'));
+        } else {
+            app()->setLocale(env('APP_DEFAULT_LANGUAGE'));
         }
-        else {
-            App::setLocale('en');
-        }
+
         return $next($request);
+
     }
 }
