@@ -70,6 +70,7 @@ class Product extends Model
 
     public function postAdGeneral($request)
     {
+        // dd($request->all());
 
         DB::beginTransaction();
 
@@ -144,6 +145,7 @@ class Product extends Model
             $prod->fuel_type            = $fuel_type ?? null;
             $prod->engine_capacity      = $request->engine_capacity;
             $prod->kilometers_run       = $request->kilometers_run;
+            $prod->doorstep_delivery       = $request->doorstep_delivery ? 1 : 0;
             // $prod->bed_no            = $request-> ;
             // $prod->bath              = $request-> ;
             // $prod->land_size         = $request-> ;
@@ -250,6 +252,7 @@ class Product extends Model
             $prod->kilometers_run       = $request->kilometers_run;
             $prod->user_name            = $request->name;
             $prod->is_terms_condition   = $request->is_terms_condition ? 1 : 0;
+            $prod->doorstep_delivery       = $request->doorstep_delivery ? 1 : 0;
 
             if ($request->is_active == 2) {
                 $prod->is_active   = 2;
@@ -321,6 +324,7 @@ class Product extends Model
             $prod->address              = $request->address;
             $prod->user_name            = $request->name;
             $prod->is_terms_condition   = $request->is_terms_condition ? 1 : 0;
+            $prod->doorstep_delivery    = $request->doorstep_delivery ? 1 : 0;
             if ($request->is_active == 2) {
                 $prod->is_active   = 2;
             } else {
@@ -579,6 +583,7 @@ class Product extends Model
             $prod->address              = $request->address;
             $prod->user_name            = $request->name;
             $prod->is_terms_condition   = $request->is_terms_condition ? 1 : 0;
+            $prod->doorstep_delivery    = $request->doorstep_delivery ? 1 : 0;
 
             if ($request->submit == 'draft') {
                 $prod->is_active = 3;

@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
+use function PHPUnit\Framework\returnSelf;
+
 class CommonController extends Controller
 {
     protected $category;
@@ -293,11 +295,37 @@ class CommonController extends Controller
         return response()->json($response);
     }
 
-    public function changelang($lang){
-        Session::put('applocale', $lang);
+    // public function changelang(Request $request){
+
+    //     // Session::put('applocale', $lang);
+    //     // return redirect()->back();
+
+    //     session()->put('set_lang', $request->lang_code);
+    //     app()->setLocale($request->lang_code);
+        
+    //     return redirect()->back();
+
+    // }
+
+    public function setLanguage(Request $request)
+    {
+        if (session()->get('set_lang') != $request->lang_code) {
+            session()->put('set_lang', $request->lang_code);
+            app()->setLocale($request->lang_code);
+        }
+        
         return redirect()->back();
+
     }
 
+    public function setCurrency(Request $request)
+    {
+        if (session()->get('set_currency') != $request->currency_symbol) {
+            session()->put('set_currency', $request->currency_symbol);
+        }
+        return redirect()->back();
+
+    }
 
     public function getDoorstepDelivery(){
         return view('common.doorstep_delivery');

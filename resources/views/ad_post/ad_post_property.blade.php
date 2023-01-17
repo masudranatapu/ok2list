@@ -106,6 +106,7 @@
                                     <select class="form-control js-example-basic-single select2-hidden-accessible" name="location" id="location" data-url="{{URL::to('get-area')}}">
                                     @if($city_combo)
                                        <optgroup label="City">
+                                        <option value="">Select city</option>
                                        @foreach($city_combo as $kc => $city )
                                           <option value="{{ $city->pk_no }}" data-type="city">{{$city->name}} City</option>
                                        @endforeach
@@ -171,7 +172,7 @@
 
 
                            <div class="row form-group select-price {!! $errors->has('price') ? 'error' : '' !!}">
-                              <label class="col-sm-3 label-title"><span id="price_label">Rent (Rs) /month</span><span class="required">*</span></label>
+                              <label class="col-sm-3 label-title"><span id="price_label">Rent (₦) /month</span><span class="required">*</span></label>
                               <div class="col-sm-9">
                                  <div class="controls">
                                  {!! Form::number('price', old('price'), [ 'class' => 'form-control', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'ex, 120','minlength' => '0',  'data-validation-minlength-message' => 'Minimum 0 disit', 'maxlength' => '10', 'data-validation-maxlength-message' => 'Maxlength 10 disit', 'tabindex' => 3]) !!}
@@ -279,7 +280,7 @@
                            </div>
 
                            <!-- section -->
-                           <div class="section seller-info">
+                           <div class="section seller-info pb-0 mb-0">
                               @include('ad_post._personal_info_ad_post')
                            </div>
                            <!-- section -->
@@ -489,7 +490,7 @@
 
         });
     </script>
-    
+
    {!! Toastr::message() !!}
 
 @endpush

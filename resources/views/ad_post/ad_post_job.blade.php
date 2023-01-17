@@ -103,6 +103,7 @@ $subcat_id                   = request()->get('category') ?? 0;
                 <select class="form-control js-example-basic-single select2-hidden-accessible" name="location" id="location" data-url="{{URL::to('get-area')}}">
                     @if($city_combo)
                     <optgroup label="City">
+                        <option value="">Select city</option>
                         @foreach($city_combo as $kc => $city )
                         <option value="{{ $city->pk_no }}" data-type="city">{{$city->name}} City</option>
                         @endforeach
@@ -178,7 +179,7 @@ $subcat_id                   = request()->get('category') ?? 0;
         </div>
 
         <div class="row form-group select-price {!! $errors->has('price') ? 'error' : '' !!}">
-            <label class="col-sm-3 label-title">Salary (per month) (Rs)<span class="required">*</span></label>
+            <label class="col-sm-3 label-title">Salary (per month) (₦)<span class="required">*</span></label>
             <div class="col-sm-9">
             <div class="row">
             <div class="col-sm-6">
@@ -444,7 +445,7 @@ $subcat_id                   = request()->get('category') ?? 0;
             $( ".datepicker" ).datepicker();
             $("#area_id").select2();
             $("#receive_applications_via").select2();
-            
+
             $("name['edu_specialization']").select2();
         } );
     </script>

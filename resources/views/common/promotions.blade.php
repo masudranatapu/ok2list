@@ -9,13 +9,13 @@
 					<li>@lang('web.promotions')</li>
 				</ol>
 			</div>
-			@if(isset($data['promotions_page1']) && ($data['promotions_page1']) != null )
+			<!-- @if(isset($data['promotions_page1']) && ($data['promotions_page1']) != null )
 				
 					<div class="ads_banner text-center mb-4">
 						<a href="{{ $data['promotions_page1']->link }}" target="_blank" title="{{ $data['promotions_page1']->name }}"><img src="{{ fileExit($data['promotions_page1']->photo) }}" class="w-100" alt="{{ $data['promotions_page1']->name }}" style="height: 96px;"></a>
 					</div>
 				
-			@endif
+			@endif -->
 			<div class="ads-info">
 				<div class="row">
 					<div class="col-md-8">
@@ -85,13 +85,13 @@
 					</div>
 				</div>
 			</div>
-			@if(isset($data['promotions_page2']) && ($data['promotions_page2']) != null )
+			<!-- @if(isset($data['promotions_page2']) && ($data['promotions_page2']) != null )
 				
 					<div class="ads_banner text-center mb-4">
 						<a href="{{ $data['promotions_page2']->link }}" target="_blank" title="{{ $data['promotions_page2']->name }}"><img src="{{ fileExit($data['promotions_page2']->photo) }}" class="w-100" alt="{{ $data['promotions_page2']->name }}" style="height: 96px;"></a>
 					</div>
 				
-			@endif
+			@endif -->
 		</div>
 	</section>
 @endsection

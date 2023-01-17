@@ -39,6 +39,12 @@
             <span class="menu-title" data-i18n="#">Transaction History</span>
         </a>
     </li>
+    <li class="nav-item @yield('order')">
+        <a href="{{ route('admin.order.index') }}">
+            <i class="la la-list"></i>
+            <span class="menu-title" data-i18n="#">Orders</span>
+        </a>
+    </li>
 
     <li class="nav-item @yield('main_components')"><a class="menu-item" href="#"><i class="la la-calendar"></i><span class="menu-title" data-i18n="@yield('main_components')">@lang('left_menu.main_components')</span></a>
         <ul class="menu-content">
@@ -78,7 +84,19 @@
 
         </ul>
     </li>
-
+    
+    <li class="nav-item {{ Request::is('admin/languages') || Request::is('admin/languages/create') || Request::is('admin/languages/*') ? 'active' : '' }}">
+        <a href="{{ route('languages.index') }}">
+            <i class="la la-list"></i>
+            <span class="menu-title" data-i18n="#">Languages</span>
+        </a>
+    </li>
+    <li class="nav-item {{ Request::is('admin/currency') || Request::is('admin/currency/create') || Request::is('admin/currency/*') ? 'active' : '' }}">
+        <a href="{{ route('currency.index') }}">
+            <i class="la la-money"></i>
+            <span class="menu-title" data-i18n="#">Currency</span>
+        </a>
+    </li>
     @if(hasAccessAbility('view_customer', $roles))
         <li class=" nav-item @yield('Customer Management')">
             <a href="#">
@@ -96,12 +114,16 @@
                         </a>
                     </li>
                 @endif
-
-
             </ul>
         </li>
     @endif
-
+    
+    {{-- <li class="nav-item {{ Request::is('admin/payment-gateway') || Request::is('admin/payment-gateway/create') || Request::is('admin/payment-gateway/*') ? 'active' : '' }}">
+        <a href="{{ route('payment-gateway.index') }}">
+            <i class="la la-money"></i>
+            <span class="menu-title" data-i18n="#">Payment Gateway</span>
+        </a>
+    </li> --}}
 
     @if(hasAccessAbility('view_admin_user', $roles))
         <li class=" nav-item @yield('Admin Mangement')">
@@ -264,7 +286,7 @@
                 </a>
             </li>
             @endif
-            
+
             <li class="@yield('promotions')">
                 <a class="menu-item" href="{{route('admin.promotions')}}">
                     <i></i>
@@ -304,17 +326,6 @@
             </li>
             @endif
 
-
-
-            {{-- @if(hasAccessAbility('view_mail_configuration', $roles))
-            <li class="@yield('mail_config')">
-                <a class="menu-item" href="{{route('admin.mail.configuration')}}">
-                    <i></i>
-                    <span data-i18n="mail_config">Mail Configaration</span>
-                </a>
-            </li>
-            @endif --}}
-
             @if(hasAccessAbility('view_footer', $roles))
             <li class="@yield('footer')">
                 <a class="menu-item" href="{{route('admin.footer')}}">
@@ -331,9 +342,6 @@
                 </a>
             </li>
             @endif
-
-
-
 
         </ul>
     </li>

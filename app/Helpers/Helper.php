@@ -1,6 +1,11 @@
 <?php
+
+
 use App\Models\AdminUser;
 use App\Models\Auth as CustomAuth;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\App;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 if (!function_exists('getAuthId')) {
     function getAuthId()
@@ -220,9 +225,70 @@ if (!function_exists('webAdList')) {
     }
 }
 
+function envReplace($name, $value)
+{
+    $path = base_path('.env');
+    if (file_exists($path)) {
+        file_put_contents($path, str_replace(
+            $name . '=' . env($name),
+            $name . '=' . $value,
+            file_get_contents($path)
+        ));
+    }
 
+    if (file_exists(App::getCachedConfigPath())) {
+        Artisan::call("config:cache");
+    }
+    
+}
 
+if (!function_exists('autoTransLation')) {
 
+    function autoTransLation($lang, $text)
+    {
+        $tr = new GoogleTranslate($lang);
+        $afterTrans = $tr->translate($text);
+        return $afterTrans;
+    }
+    
+}
 
+if(!function_exists('changeCurrency')) {
+    
+    function changeCurrency($amount) {
 
+        $currency_code = session()->get('set_currency');
 
+        if($currency_code) {
+
+            $currency = DB::table('currencies')->where('code', $currency_code)->first();
+            
+            $symbol = $currency->symbol;
+            $position = $currency->symbol_position;
+
+            $rate = $currency->conversion_rate;
+            
+            if ($position == 'left') {
+                return $symbol . ' ' . $rate*$amount;
+            } else {
+                return $rate*$amount . ' ' . $symbol;
+            }
+
+        }else {
+            
+            $defualt_currency = DB::table('currencies')->where('default_currencies', 1)->first();
+
+            $defualt_symbol = $defualt_currency->symbol;
+            $defualt_position = $defualt_currency->symbol_position;
+            
+            if ($defualt_position == 'left') {
+                return $defualt_symbol . ' ' . $amount;
+            } else {
+                return $amount . ' ' . $defualt_symbol;
+            }
+            
+
+        }
+        
+    }
+}

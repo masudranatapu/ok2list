@@ -38,13 +38,13 @@
                                                 </div>
                                             </td>
                                             <td class="text-bold">
-                                                Rs. {{request()->get('price')}}
+                                               ₦. {{request()->get('price')}}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="h3"> @lang('web.t_pay') </td>
                                             <td class="h3"> 
-                                                Rs. {{request()->get('price')}}
+                                               ₦. {{request()->get('price')}}
                                             </td>
                                         </tr>
                                     </tbody>
@@ -54,15 +54,15 @@
                     </div>
                     <div class="card section bank_info mb-4">
                         <div class="card-body">
-                            <h3 class="card-title">@lang('web.bang_info')</h3>
+                            <h3 class="card-title">@lang('web.bank_info')</h3>
                             <div class="card-table">
-                                <p><strong> @lang('web.bank_name') :</strong> Commercial Bank</p>
-                                <p><strong> @lang('web.acc') :</strong> THE Q S WEEK PVT LTD</p>
-                                <p><strong> @lang('web.acc_num')  :</strong> 1000114100</p>
+                                <p><strong> @lang('web.bank_name') :</strong> Your bank Name</p>
+                                <p><strong> @lang('web.acc') :</strong> Your Account Name</p>
+                                <p><strong> @lang('web.acc_num')  :</strong> Your account number</p>
                                 <p><strong> @lang('web.acc_type') :</strong> Current Account</p>
-                                <p><strong> @lang('web.branch') :</strong> Mawanella</p>
-                                <p><strong> @lang('web.currency') :</strong> Srilankan Rupees (SLRS)</p>
-                                <p><strong> @lang('web.s_c') :</strong> CCEYLKLX</p>
+                                <p><strong> @lang('web.branch') :</strong> Branch Name</p>
+                                <p><strong> @lang('web.currency') :</strong> Nigeria Nira (₦)</p>
+                                <p><strong> @lang('web.s_c') :</strong> Security Code</p>
                             </div>
                         </div>
                     </div>

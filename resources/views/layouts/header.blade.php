@@ -5,6 +5,10 @@
         $payments = App\Payments::where('f_customer_pk_no',Auth::user()->id)->where(['payment_type'=>'package'])->orderBy('pk_no','desc')->first();
     ?>
 @endif
+@php
+    $languages = App\Models\Language::get();
+    $currencies = App\Models\Currency::get();
+@endphp
 <header id="header" class="clearfix">
     @php
         $setting = App\SiteSetting::first();
@@ -21,19 +25,34 @@
             @endif
             <div class="collapse navbar-collapse" id="tr-mainmenu">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{route('ads.list')}}">@lang('web.all_ads')</a></li>
+                    <li><a href="{{route('ads.list')}}">{{ __('all_ads') }}</a></li>
+                    <li><a href="{{route('packages')}}">{{ __('membership') }}</a></li>
                 </ul>
+                <form action="{{ route('changelang') }}" method="get">
+                    <select name="lang_code" class="mr-2" onchange="this.form.submit()">
+                        @foreach ($languages as $lang)
+                            <option value="{{ $lang->code }}" @if(session()->has('set_lang')) {{ session()->get('set_lang') == $lang->code ? 'selected': '' }} @else  {{ $lang->default_lang == 1 ? 'selected': ''}}   @endif>{{ $lang->name }}</option>
+                        @endforeach
+                    </select>
+                </form>
+                <form action="{{ route('changecurrency') }}" method="get">
+                    <select name="currency_symbol" class="" onchange="this.form.submit()">
+                        @foreach ($currencies as $currency)
+                            <option value="{{ $currency->code }}" @if(session()->get('set_currency')) {{  session()->get('set_currency') == $currency->code ? 'selected' : '' }} @else {{ $currency->default_currencies == 1 ? 'selected' : '' }}  @endif >{{ $currency->name }}</option>
+                        @endforeach
+                    </select>
+                </form>
             </div>
             <div class="nav-right">
                 <!-- sign-in -->
                 <ul class="chat">
-                    <li class="mr-2">
+                    {{-- <li class="mr-2">
                         @if(app()->getLocale() == 'sl')
                             <a class="language_menu" href="{{ route('changelang','en') }}">English</a>
                         @else
                             <a class="language_menu" href="{{ route('changelang','sl') }}">@lang('web.sin')</a>
                         @endif
-                    </li>
+                    </li> --}}
                    <!-- <li class="language_dropdown">
                         <div class="">
                             <div class="dropdown">

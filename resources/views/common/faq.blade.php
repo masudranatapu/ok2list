@@ -11,13 +11,13 @@
 				</ol><!-- breadcrumb -->
 			</div>
 
-            @if(isset($data['faq_page1']) && ($data['faq_page1']) != null )
+           <!--  @if(isset($data['faq_page1']) && ($data['faq_page1']) != null )
             <div class="">
                  <div class="ads_banner text-center mb-4">
                      <a href="{{ $data['faq_page1']->link }}" target="_blank" title="{{ $data['faq_page1']->name }}"><img src="{{ fileExit($data['faq_page1']->photo) }}" class="w-100" alt="{{ $data['faq_page1']->name }}" style="height: 96px;"></a>
                  </div>
              </div>
-             @endif
+             @endif -->
 
 
 			<div class="tr-accordion"  id="accordion">
@@ -41,13 +41,13 @@
                 @endif
 			</div><!-- /.accordion -->
 
-            @if(isset($data['faq_page1']) && ($data['faq_page1']) != null )
+            <!-- @if(isset($data['faq_page1']) && ($data['faq_page1']) != null )
             <div class="">
                  <div class="ads_banner text-center mb-4">
                      <a href="{{ $data['faq_page1']->link }}" target="_blank" title="{{ $data['faq_page1']->name }}"><img src="{{ fileExit($data['faq_page1']->photo) }}" class="w-100" alt="{{ $data['faq_page1']->name }}" style="height: 96px;"></a>
                  </div>
              </div>
-             @endif
+             @endif -->
 
 		</div><!-- faq-page -->
 	</div><!-- container -->

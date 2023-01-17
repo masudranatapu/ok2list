@@ -8,13 +8,13 @@
 				<li>@lang('web.promote_ad')</li>
 			</ol>
 		</div>
-		@if(isset($data['promote_your_ad_page1']) && ($data['promote_your_ad_page1']) != null )
+	<!-- 	@if(isset($data['promote_your_ad_page1']) && ($data['promote_your_ad_page1']) != null )
 			<div class="container">
 				<div class="ads_banner text-center mb-4">
 					<a href="{{ $data['promote_your_ad_page1']->link }}" target="_blank" title="{{ $data['promote_your_ad_page1']->name }}"><img src="{{ fileExit($data['promote_your_ad_page1']->photo) }}" class="w-100" alt="{{ $data['promote_your_ad_page1']->name }}" style="height: 96px;"></a>
 				</div>
 			</div>
-		@endif
+		@endif -->
 			<div class="adpost-details privacy-policy">
 				<div class="row">
 					<div class="col-lg-8">
@@ -46,13 +46,13 @@
 					</div>
 				</div>
 			</div>
-			@if(isset($data['promote_your_ad_page2']) && ($data['promote_your_ad_page2']) != null )
+			<!-- @if(isset($data['promote_your_ad_page2']) && ($data['promote_your_ad_page2']) != null )
 				
 					<div class="ads_banner text-center mb-4">
 						<a href="{{ $data['promote_your_ad_page2']->link }}" target="_blank" title="{{ $data['promote_your_ad_page2']->name }}"><img src="{{ fileExit($data['promote_your_ad_page2']->photo) }}" class="w-100" alt="{{ $data['promote_your_ad_page2']->name }}" style="height: 96px;"></a>
 					</div>
 				
-			@endif
+			@endif -->
 		</div>
 	</section>
 @endsection

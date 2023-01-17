@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Gogoads'),
+    'name' => env('APP_NAME', 'ok2list'),
 
     /*
     |--------------------------------------------------------------------------
@@ -68,9 +68,8 @@ return [
     */
 
     //'timezone' => 'UTC',
-    'timezone' => 'Asia/Colombo',
-    
-    // date_default_timezone_set('Asia/Colombo');
+    'timezone' => 'Africa/Lagos',
+    // date_default_timezone_set('Africa/Lagos');
 
     /*
     |--------------------------------------------------------------------------
@@ -237,8 +236,8 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
         //        Custom Facade
-        'Helper' => App\Helpers\Helper::class
-
+        'Helper' => App\Helpers\Helper::class,
+        'GoogleTranslate' => Stichoza\GoogleTranslate\GoogleTranslate::class,
     ],
 
 ];

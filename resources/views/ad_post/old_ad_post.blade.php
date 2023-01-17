@@ -53,7 +53,7 @@ $subcat_info = $data['subcat_info'] ?? null ;
 									</div>
 								</div>
 								<div class="row form-group select-price">
-									<label class="col-sm-3 label-title">Price(Rs)</label>
+									<label class="col-sm-3 label-title">Price(₦)</label>
 									<div class="col-sm-9">
 										<input type="text" class="form-control" placeholder="Pick a good price - what would you pay?" id="text1">
 										<input type="radio" name="price" value="negotiable1" id="negotiable1">
@@ -2794,7 +2794,7 @@ span.select2-selection.select2-selection--single{
 										</div>
 									</div>
 									<div class="row form-group select-price">
-										<label class="col-sm-3 label-title">Price(Rs)<span class="required">*</span></label>
+										<label class="col-sm-3 label-title">Price(₦)<span class="required">*</span></label>
 										<div class="col-sm-9">
 											<input type="text" class="form-control" id="text1">
 											<input type="radio" name="price" value="negotiable" id="negotiable">

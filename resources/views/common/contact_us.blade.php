@@ -17,13 +17,13 @@ $link = DB::table('site_settings')->first();
 				<li>@lang('web.contact_us')</li>
 			</ol><!-- breadcrumb -->
 			<!-- gmap -->
-            @if(isset($data['contact_us_page1']) && ($data['contact_us_page1']) != null )
+            <!-- @if(isset($data['contact_us_page1']) && ($data['contact_us_page1']) != null )
             <div class="">
                  <div class="ads_banner text-center mb-4">
                      <a href="{{ $data['contact_us_page1']->link }}" target="_blank" title="{{ $data['contact_us_page1']->name }}"><img src="{{ fileExit($data['contact_us_page1']->photo) }}" class="w-100" alt="{{ $data['contact_us_page1']->name }}" style="height: 96px;"></a>
                  </div>
              </div>
-             @endif
+             @endif -->
 
             <div>
 
@@ -36,10 +36,15 @@ $link = DB::table('site_settings')->first();
 
 							<h2>@lang('web.corporate_info')</h2>
 							<address>
-								<!-- <p><strong>adress: </strong>1234 Street Name, City Name, Country</p>
-								<p><strong>Phone:</strong> <a href="#">(123) 456-7890</a></p> -->
+								@if($link->website_email)
 								<p><strong>Email: </strong><a href="mailto:{{$link->website_email}}">{{$link->website_email}}</a></p>
-								<p><strong>Address: </strong> {!! $link->map_address !!}</p>
+								@endif
+								@if($link->address)
+								<p><strong>Address: </strong> {!! $link->address !!}</p>
+								@endif
+								@if($link->map_address)
+									<p>{!! $link->map_address !!}</p>
+								@endif
 							</address>
 							<ul class="social">
                             	@if($link->facebook_link)
@@ -125,13 +130,13 @@ $link = DB::table('site_settings')->first();
 				</div><!-- row -->
 			</div>
 
-            @if(isset($data['contact_us_page2']) && ($data['contact_us_page2']) != null )
+            <!-- @if(isset($data['contact_us_page2']) && ($data['contact_us_page2']) != null )
             <div class="">
                  <div class="ads_banner text-center mb-4 mt-4">
                      <a href="{{ $data['contact_us_page2']->link }}" target="_blank" title="{{ $data['contact_us_page2']->name }}"><img src="{{ fileExit($data['contact_us_page2']->photo) }}" class="w-100" alt="{{ $data['contact_us_page2']->name }}" style="height: 96px;"></a>
                  </div>
              </div>
-             @endif
+             @endif -->
 		</div><!-- container -->
 	</section>
 

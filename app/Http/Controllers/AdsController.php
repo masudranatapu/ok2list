@@ -21,6 +21,7 @@ use App\Http\Requests\ReportRequest;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CommonController as Common;
+use App\Review;
 
 class AdsController extends Controller
 {
@@ -36,14 +37,13 @@ class AdsController extends Controller
 
     public function __construct(Category $category, Product $product, Division $division, City $city,  Area $area, Common $common, Getproduct $getproduct, Report $report)
     {
-       $this->category  = $category;
-       $this->product   = $product;
-       $this->division  = $division;
-       $this->city      = $city;
-       $this->area      = $area;
-       $this->common    = $common;
-       $this->report    = $report;
-
+        $this->category  = $category;
+        $this->product   = $product;
+        $this->division  = $division;
+        $this->city      = $city;
+        $this->area      = $area;
+        $this->common    = $common;
+        $this->report    = $report;
     }
 
     /**
@@ -51,11 +51,11 @@ class AdsController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getAdsList(Request $request, string $area_query = 'Sri Lanka', string $category_query = null )
+    public function getAdsList(Request $request, string $area_query = 'Nigeria', string $category_query = null)
     {
         // return $area_query;
-        $page_count             = 0 ;
-        $current_page           = request()->get('page') ? request()->get('page')-1 : 0;
+        $page_count             = 0;
+        $current_page           = request()->get('page') ? request()->get('page') - 1 : 0;
         $paging                 = DB::table('ss_paging')->first();
         $data                   = array();
         $common                 = $this->common->getCommon();
@@ -67,46 +67,43 @@ class AdsController extends Controller
         // $data['breadcrumb']     = $this->common->getBreadcrumb();
         $data['category_query'] = $category_query;
 
-        $check  = Product::where('is_active',1)
-        ->whereIn('promotion',['Top','Urgent','Feature'])
-        ->where('promotion_to','<',Carbon::today())
-        ->update(['promotion' => 'Basic']);
+        $check  = Product::where('is_active', 1)
+            ->whereIn('promotion', ['Top', 'Urgent', 'Feature'])
+            ->where('promotion_to', '<', Carbon::today())
+            ->update(['promotion' => 'Basic']);
 
 
-        $query = Product::where('is_active',1)->select('prd_master.pk_no','prd_master.promotion','prd_master.promotion_to','prd_master.price','prd_master.is_negotiable','prd_master.ad_title','prd_master.url_slug','prd_master.created_at','prd_master.city_division','prd_master.area_id','prd_master.f_cat_pk_no','prd_master.f_scat_pk_no','prd_master.is_active','prd_master.thumb','prd_master.total_view','prd_master.created_at','prd_master.using_condition','prd_master.area_id','prd_master.customer_pk_no');
+        $query = Product::where('is_active', 1)->select('prd_master.pk_no', 'prd_master.promotion', 'prd_master.promotion_to', 'prd_master.price', 'prd_master.is_negotiable', 'prd_master.ad_title', 'prd_master.url_slug', 'prd_master.created_at', 'prd_master.city_division', 'prd_master.area_id', 'prd_master.f_cat_pk_no', 'prd_master.f_scat_pk_no', 'prd_master.is_active', 'prd_master.thumb', 'prd_master.total_view', 'prd_master.created_at', 'prd_master.using_condition', 'prd_master.area_id', 'prd_master.customer_pk_no', 'prd_master.doorstep_delivery');
 
-        if($category_query){
-            $category = Category::where('url_slug',$category_query)->first();
-            if($category->parent_id == 0 ){
+        if ($category_query) {
+            $category = Category::where('url_slug', $category_query)->first();
+            if ($category->parent_id == 0) {
                 $category_name      = $category->name;
                 $query->where('cat_url_slug', $category_query);
-
-            } else{
+            } else {
                 $data['get_category_query']   = $category_query;
                 $category_name                = $category->name;
                 $data['category_query']       = $category->parentCategory->url_slug ?? '';
                 $query->where('scat_url_slug', $category_query);
             }
-            $data['category_query_display']   = ucfirst(str_replace("-"," ",$category_query));
-
+            $data['category_query_display']   = ucfirst(str_replace("-", " ", $category_query));
         }
 
 
         $data['category_name']            = $category_name ?? null;
         $data['get_area_query']           = $area_query;
-        $data['area_query_display']       = ucfirst(str_replace("-"," ",$area_query));
+        $data['area_query_display']       = ucfirst(str_replace("-", " ", $area_query));
 
         if ($area_query) {
-            if($area_query != 'Sri Lanka'){
+            if ($area_query != 'Sri Lanka') {
                 $city = $this->city->where('url_slug', $area_query)->first();
                 if ($city) {
                     $query->where('city_division_url_slug', $area_query);
-                }else{
+                } else {
                     $area = $this->area->where('url_slug', $area_query)->first();
-                    if($area){
+                    if ($area) {
                         $query->where('area_url_slug', $area_query);
                     }
-
                 }
             }
         }
@@ -115,48 +112,51 @@ class AdsController extends Controller
 
         $data['get_category_query']         = $category_query;
 
-        if($request->keywords != ''){
+        if ($request->keywords != '') {
             $keywords = $request->keywords;
-            $query->where('search_key','like','%'.$keywords.'%');
+            $query->where('search_key', 'like', '%' . $keywords . '%');
         }
 
 
-        if(($request->new == 1) && $request->used == 0){
+        if (($request->new == 1) && $request->used == 0) {
             $query->where('using_condition', 'new');
         }
-        if(($request->used == 1) && ($request->new == 0)){
+        if (($request->doorstep == 1)) {
+            $query->where('doorstep_delivery', 1);
+        }
+        if (($request->used == 1) && ($request->new == 0)) {
             $query->where('using_condition', 'used');
         }
 
-        if(($request->sort == 'date') && ($request->order == 'asc')){
+        if (($request->sort == 'date') && ($request->order == 'asc')) {
             $query->orderBy('created_at', 'ASC');
         }
 
-        if(($request->sort == 'price') && ($request->order == 'asc')){
+        if (($request->sort == 'price') && ($request->order == 'asc')) {
             $query->orderBy('price', 'ASC');
         }
-        if(($request->sort == 'price') && ($request->order == 'desc')){
+        if (($request->sort == 'price') && ($request->order == 'desc')) {
             $query->orderBy('price', 'DESC');
         }
 
         $promotion_arr = [];
 
-        if($request->top == 1){
+        if ($request->top == 1) {
             array_push($promotion_arr, 'Top');
         }
 
-        if($request->urgent == 1 ){
+        if ($request->urgent == 1) {
             array_push($promotion_arr, 'Urgent');
         }
 
-        if($request->featured == 1){
+        if ($request->featured == 1) {
             array_push($promotion_arr, 'Feature');
         }
-        if(empty($promotion_arr)){
-            $promotion_arr = ['Basic','Top','Urgent','Feature'];
+        if (empty($promotion_arr)) {
+            $promotion_arr = ['Basic', 'Top', 'Urgent', 'Feature'];
         }
 
-        $query->whereIn('promotion',$promotion_arr);
+        $query->whereIn('promotion', $promotion_arr);
 
 
         // dd($query->get());
@@ -174,10 +174,10 @@ class AdsController extends Controller
         // $top        = $query_top->where('promotion','Top')->where('promotion_to','>=',Carbon::today())->inRandomOrder()->get()->all();
         // $urgent     = $query_urgent->where('promotion','Urgent')->where('promotion_to','>=',Carbon::today())->get()->all();
         // $feature    = $query_feature->where('promotion','Feature')->where('promotion_to','>=',Carbon::today())->get()->all();
-        $top        = $query_top->where('promotion','Top')->inRandomOrder()->get()->all();
-        $urgent     = $query_urgent->where('promotion','Urgent')->get()->all();
-        $feature    = $query_feature->where('promotion','Feature')->get()->all();
-        $basic      = $query_basic->where('promotion','Basic')->get()->all();
+        $top        = $query_top->where('promotion', 'Top')->inRandomOrder()->get()->all();
+        $urgent     = $query_urgent->where('promotion', 'Urgent')->get()->all();
+        $feature    = $query_feature->where('promotion', 'Feature')->get()->all();
+        $basic      = $query_basic->where('promotion', 'Basic')->get()->all();
 
 
 
@@ -197,7 +197,7 @@ class AdsController extends Controller
         $basic_index    = 0;
 
         $page_size      = $paging->total_record ?? 20;
-        $page_count     = intval(ceil($total_pro/$page_size));
+        $page_count     = intval(ceil($total_pro / $page_size));
 
         $top_chunk      = $paging->Top ?? 2;
         $urgent_chunk   = $paging->Urgent ?? 5;
@@ -206,17 +206,15 @@ class AdsController extends Controller
 
         $basic_chunk    = $page_size - ($top_chunk + $urgent_chunk + $feature_chunk);
 
-        if ($basic_count == 0 ) {
-           $feature_chunk = $feature_chunk + $basic_chunk;
-
+        if ($basic_count == 0) {
+            $feature_chunk = $feature_chunk + $basic_chunk;
         }
-        if($feature_count == 0){
+        if ($feature_count == 0) {
             $urgent_chunk = $urgent_chunk + $feature_chunk;
         }
 
-        if($urgent_count == 0){
+        if ($urgent_count == 0) {
             $top_chunk  = $top_chunk +  $urgent_chunk;
-
         }
 
         // dd($urgent_chunk);
@@ -224,117 +222,111 @@ class AdsController extends Controller
         $pro_page_list_arr = array();
         $pro_page_list_arr['page'][0] = array();
 
-        for ($i=0; $i < $page_count; $i++) {
+        for ($i = 0; $i < $page_count; $i++) {
 
             $page_index = 0;
 
-            for ($j=0; $j < $page_size; $j++) {
+            for ($j = 0; $j < $page_size; $j++) {
 
-                if ( ($page_index < $top_chunk) && ($top_index < $top_count ) ) {
+                if (($page_index < $top_chunk) && ($top_index < $top_count)) {
 
                     $pro_page_list_arr['page'][$i][$j] = $top[$top_index];
                     $top_index++;
                     $page_index++;
-
-                }elseif ( ($page_index < ($top_chunk+$urgent_chunk)) && ($urgent_index < $urgent_count ) ) {
+                } elseif (($page_index < ($top_chunk + $urgent_chunk)) && ($urgent_index < $urgent_count)) {
 
                     $pro_page_list_arr['page'][$i][$j] = $urgent[$urgent_index];
                     $urgent_index++;
                     $page_index++;
-
-                }elseif ( ($page_index < ($top_chunk+$urgent_chunk+$feature_chunk)) && ($feature_index < $feature_count ) ) {
+                } elseif (($page_index < ($top_chunk + $urgent_chunk + $feature_chunk)) && ($feature_index < $feature_count)) {
 
                     $pro_page_list_arr['page'][$i][$j] = $feature[$feature_index];
                     $feature_index++;
                     $page_index++;
-
-                }elseif ( ($page_index < ($top_chunk+$urgent_chunk+$feature_chunk+$basic_chunk)) && ($basic_index < $basic_count ) ) {
+                } elseif (($page_index < ($top_chunk + $urgent_chunk + $feature_chunk + $basic_chunk)) && ($basic_index < $basic_count)) {
 
                     $pro_page_list_arr['page'][$i][$j] = $basic[$basic_index];
                     $basic_index++;
                     $page_index++;
-
                 }
-
             }
         }
 
 
-        $result = $pro_page_list_arr['page'][$current_page] ?? array() ;
+        $result = $pro_page_list_arr['page'][$current_page] ?? array();
 
-        if($result && count($result) > 0 ){
+        if ($result && count($result) > 0) {
             foreach ($result as $key => $value) {
                 $value->is_like  = 0;
                 if ($value->thumb) {
-                    if(file_exists( public_path().'/uploads/product/'.$value->pk_no.'/thumb/'.$value->thumb )){
-                        $value->img_path_thumb = asset('/uploads/product/'.$value->pk_no.'/thumb/'.$value->thumb);
-                    }else{
-                       $value->img_path_thumb = asset('/assets/img/default_thumb.png');
+                    if (file_exists(public_path() . '/uploads/product/' . $value->pk_no . '/thumb/' . $value->thumb)) {
+                        $value->img_path_thumb = asset('/uploads/product/' . $value->pk_no . '/thumb/' . $value->thumb);
+                    } else {
+                        $value->img_path_thumb = asset('/assets/img/default_thumb.png');
                     }
-                }else{
+                } else {
                     $value->img_path_thumb = asset('/assets/img/default_thumb.png');
                 }
-                if(Auth::user()){
+                if (Auth::user()) {
                     $uid = Auth::user()->id;
-                    $check_like = DB::table('prd_like_count')->where([ 'prd_id' => $value->pk_no, 'customer_id' => $uid, 'counter' => 1])->first();
+                    $check_like = DB::table('prd_like_count')->where(['prd_id' => $value->pk_no, 'customer_id' => $uid, 'counter' => 1])->first();
                     if ($check_like) {
                         $value->is_like  = 1;
                     }
                 }
-                $value->like_count = DB::table('prd_like_count')->where('prd_id',$value->pk_no)->sum('counter');
-
+                $value->like_count = DB::table('prd_like_count')->where('prd_id', $value->pk_no)->sum('counter');
             }
         }
 
         $data['rows'] = $result;
         // return $data['rows'];
         $data['page_count'] = $page_count;
-        $data['current_page'] = $current_page+1;
+        $data['current_page'] = $current_page + 1;
 
 
-        $page1 = DB::table('prd_ads')->where('prd_ads.is_active',1)->where('prd_ads.name','list_page1')->first();
+        $page1 = DB::table('prd_ads')->where('prd_ads.is_active', 1)->where('prd_ads.name', 'list_page1')->first();
 
-        if($page1){
-            $data['list_page1'] = DB::table('prd_ad_details')->where('prd_ad_id',$page1->pk_no)->inRandomOrder()->first();
+        if ($page1) {
+            $data['list_page1'] = DB::table('prd_ad_details')->where('prd_ad_id', $page1->pk_no)->inRandomOrder()->first();
         }
 
-        $page2 = DB::table('prd_ads')->where('prd_ads.is_active',1)->where('prd_ads.name','list_page2')->first();
+        $page2 = DB::table('prd_ads')->where('prd_ads.is_active', 1)->where('prd_ads.name', 'list_page2')->first();
 
-        if($page2){
-            $data['list_page2'] = DB::table('prd_ad_details')->where('prd_ad_id',$page2->pk_no)->inRandomOrder()->first();
+        if ($page2) {
+            $data['list_page2'] = DB::table('prd_ad_details')->where('prd_ad_id', $page2->pk_no)->inRandomOrder()->first();
         }
 
-        $page3 = DB::table('prd_ads')->where('prd_ads.is_active',1)->where('prd_ads.name','list_page3')->first();
+        $page3 = DB::table('prd_ads')->where('prd_ads.is_active', 1)->where('prd_ads.name', 'list_page3')->first();
 
-        if($page3){
-            $data['list_page3'] = DB::table('prd_ad_details')->where('prd_ad_id',$page3->pk_no)->inRandomOrder()->first();
+        if ($page3) {
+            $data['list_page3'] = DB::table('prd_ad_details')->where('prd_ad_id', $page3->pk_no)->inRandomOrder()->first();
         }
 
         return view('ads.list', compact('data'));
     }
 
-    public function getAdDetails(Request $request, int $pk_no, string $url_slug = null )
+    public function getAdDetails(Request $request, int $pk_no, string $url_slug = null)
     {
 
         $data       = array();
         $all_text   = array();
         try {
-            $row = Product::where(['pk_no' => $pk_no , 'is_active' => 1])->first();
-            if(empty($row)){
-                return view('error.404',compact('data'));
+            $row = Product::where(['pk_no' => $pk_no, 'is_active' => 1])->first();
+            if (empty($row)) {
+                return view('error.404', compact('data'));
             }
             $row->is_favorite = 0;
             $row->is_like = 1;
 
-            if(Auth::user()){
+            if (Auth::user()) {
                 $uid = Auth::user()->id;
-                $check_fav  = FavouriteProduct::where([ 'f_customer_pk_no' => $uid, 'f_prd_pk_no' => $pk_no])->first();
+                $check_fav  = FavouriteProduct::where(['f_customer_pk_no' => $uid, 'f_prd_pk_no' => $pk_no])->first();
                 if (!empty($check_fav)) {
                     $row->is_favorite  = 1;
                 }
 
 
-                $check_like  = DB::table('prd_like_count')->where([ 'prd_id' => $pk_no, 'customer_id' => $uid, 'counter' => 1])->first();
+                $check_like  = DB::table('prd_like_count')->where(['prd_id' => $pk_no, 'customer_id' => $uid, 'counter' => 1])->first();
 
                 if ($check_like == null) {
                     $row->is_like  = 0;
@@ -344,7 +336,7 @@ class AdsController extends Controller
 
             Product::find($pk_no)->increment('total_view');
             $data['row']            = $row;
-            $data['photos']         = ProductImg::where('f_prd_master_no',$pk_no)->orderBy('serial_no','asc')->get();
+            $data['photos']         = ProductImg::where('f_prd_master_no', $pk_no)->orderBy('serial_no', 'asc')->get();
             $data['area_query_display'] = null;
             $data['area_query'] = null;
             $common                 = $this->common->getCommon();
@@ -357,24 +349,24 @@ class AdsController extends Controller
 
             // dd($data['category']->count());
 
-            $data['like_count'] = DB::table('prd_like_count')->where('prd_id',$pk_no)->sum('counter');
+            $data['like_count'] = DB::table('prd_like_count')->where('prd_id', $pk_no)->sum('counter');
 
-            $page1 = DB::table('prd_ads')->where('prd_ads.is_active',1)->where('prd_ads.name','detail_page1')->first();
+            $page1 = DB::table('prd_ads')->where('prd_ads.is_active', 1)->where('prd_ads.name', 'detail_page1')->first();
 
-            if($page1){
-                $data['detail_page1'] = DB::table('prd_ad_details')->where('prd_ad_id',$page1->pk_no)->inRandomOrder()->first();
+            if ($page1) {
+                $data['detail_page1'] = DB::table('prd_ad_details')->where('prd_ad_id', $page1->pk_no)->inRandomOrder()->first();
             }
 
-            $page2 = DB::table('prd_ads')->where('prd_ads.is_active',1)->where('prd_ads.name','detail_page2')->first();
+            $page2 = DB::table('prd_ads')->where('prd_ads.is_active', 1)->where('prd_ads.name', 'detail_page2')->first();
 
-            if($page2){
-                $data['detail_page2'] = DB::table('prd_ad_details')->where('prd_ad_id',$page2->pk_no)->inRandomOrder()->first();
+            if ($page2) {
+                $data['detail_page2'] = DB::table('prd_ad_details')->where('prd_ad_id', $page2->pk_no)->inRandomOrder()->first();
             }
 
-            $page3 = DB::table('prd_ads')->where('prd_ads.is_active',1)->where('prd_ads.name','detail_page3')->first();
+            $page3 = DB::table('prd_ads')->where('prd_ads.is_active', 1)->where('prd_ads.name', 'detail_page3')->first();
 
-            if($page3){
-                $data['detail_page3'] = DB::table('prd_ad_details')->where('prd_ad_id',$page3->pk_no)->inRandomOrder()->first();
+            if ($page3) {
+                $data['detail_page3'] = DB::table('prd_ad_details')->where('prd_ad_id', $page3->pk_no)->inRandomOrder()->first();
             }
 
             /*if (Auth::user()) {
@@ -399,14 +391,14 @@ class AdsController extends Controller
 
 
 
-            } catch (\Exception $e) {
-               // dd($e);
+        } catch (\Exception $e) {
+            // dd($e);
 
-                return view('error.404',compact('data'));
-            }
+            return view('error.404', compact('data'));
+        }
 
-            //  dd($data);
-        return view('ads.details',compact('data'));
+        //  dd($data);
+        return view('ads.details', compact('data'));
     }
 
 
@@ -421,8 +413,6 @@ class AdsController extends Controller
         $msg_title      = $this->resp->msg_title;
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
         return redirect()->back()->with($this->resp->redirect_class, $this->resp->msg);
-
-
     }
 
 
@@ -430,19 +420,19 @@ class AdsController extends Controller
     {
 
         $data = array();
-        $shop = Shop::where('pk_no',$id)->first();
+        $shop = Shop::where('pk_no', $id)->first();
 
-        if(empty($shop)){
+
+        if (empty($shop)) {
             return redirect()->route('my-shop');
         }
 
         $data['shop_data'] = $shop;
         $data['my_ads'] = $this->product->getMyAds($shop->customer_pk_no);
-       // dd($data['shop_data']);
+        $data['reviews'] = Review::with(['reviewBy'])->where('seller_id', $shop->customer_pk_no)->get();
 
-        return view('shop.my_shop',compact('data'));
+
+
+        return view('shop.my_shop', compact('data'));
     }
-
-
-
 }

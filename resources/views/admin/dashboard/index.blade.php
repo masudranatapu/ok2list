@@ -100,7 +100,7 @@ Dashboard
                         <div class="card-body">
                             <div class="media d-flex">
                                 <div class="media-body text-left">
-                                    <h3 class="red">Rs {{ $total_package_sell ?? 0 }}</h3>
+                                    <h3 class="red">₦ {{ $total_package_sell ?? 0 }}</h3>
                                     <h6>Total Package Sell </h6>
                                 </div>
                                 <div>
@@ -120,7 +120,7 @@ Dashboard
                         <div class="card-body">
                             <div class="media d-flex">
                                 <div class="media-body text-left">
-                                    <h3 class="primary">Rs {{ $total_promotion_sell ?? 0 }}</h3>
+                                    <h3 class="primary">₦ {{ $total_promotion_sell ?? 0 }}</h3>
                                     <h6>Total Promoted Ads</h6>
                                 </div>
                                 <div>
@@ -140,7 +140,7 @@ Dashboard
                         <div class="card-body">
                             <div class="media d-flex">
                                 <div class="media-body text-left">
-                                    <h3 class="secondary">Rs {{ $total_sell ?? 0 }}</h3>
+                                    <h3 class="secondary">₦ {{ $total_sell ?? 0 }}</h3>
                                     <h6>Total Earnings</h6>
                                 </div>
                                 <div>

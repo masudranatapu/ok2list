@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,8 @@ Route::get('/', function () {
 
 Route::get('cc', 'HomeController@cc');
 
-Route::get('changelang/{lang}', 'CommonController@changelang')->name('changelang');
+Route::get('changelang', 'CommonController@setLanguage')->name('changelang');
+Route::get('changecurrency', 'CommonController@setCurrency')->name('changecurrency');
 
 Route::get('paypal/payment', 'PayPalController@paypal_view');
 Route::get('get/payment', 'PayPalController@payment')->name('payment');
@@ -48,6 +50,15 @@ Route::get('/package/free', 'PackageController@getFreePackage')->name('package.f
 Route::get('/site-map', 'CommonController@getSiteMap')->name('site-map');
 Route::get('/doorstep-delivery', 'CommonController@getDoorstepDelivery')->name('doorstep-delivery');
 
+
+// doorstep checkout
+Route::get('/addToCart', 'CheckoutController@addToCart')->name('addToCart');
+Route::get('/checkout/shipping/address', 'CheckoutController@checkoutShipping')->name('checkout.shipping');
+Route::post('/checkout/shipping/store', 'CheckoutController@storeShipping')->name('checkout.shipping.store');
+Route::get('/checkout/billing/address', 'CheckoutController@checkoutBilling')->name('checkout.billing');
+Route::post('/checkout/billing/store', 'CheckoutController@storeBilling')->name('checkout.billing.store');
+Route::get('/checkout/review/payment', 'CheckoutController@checkoutPayment')->name('checkout.payment');
+Route::get('/checkout/paystack/payment', 'CheckoutController@paystackPayment')->name('checkout.paystack.payment');
 
 //Ad post
 Route::get('/ad-post/{subcategory?}', 'AdPostController@getAdPost')->name('ad-post');
@@ -104,6 +115,15 @@ Route::get('/verify-otp/{otp}/{serial}', 'OTPController@verifyOTP')->name('verif
 // Purchase history
 Route::get('/purchase-history', 'UserController@getMyPurchaseHistory')->name('purchase-history');
 Route::get('/invoice/{id}', 'UserController@getMyPurchaseInvoice')->name('purchase.invoice');
+// Order history
+Route::get('/my-orders', 'UserController@myOrders')->name('user.orders');
+Route::get('/order-details/{id}', 'UserController@orderDetails')->name('user.order.details');
+
+
+// Review
+
+Route::post('/seller/rate', 'UserController@rateReview')->name('seller.review');
+
 
 //contact
 Route::post('/contact-us', 'ContactController@contactUs')->name('contact');
@@ -161,6 +181,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::post('admin-user/{id}/update', ['middleware' => 'acl:edit_admin_user', 'as' => 'admin.admin-user.update', 'uses' => 'AdminUserController@putUpdate']);
     Route::get('admin-user/{id}/delete', ['middleware' => 'acl:delete_admin_user', 'as' => 'admin.admin-user.delete', 'uses' => 'AdminUserController@getDelete']);
 
+    // languages
+    Route::resource('languages', LanguagesController::class);
+    Route::put('setdefaultlanguage', [App\Http\Controllers\Admin\LanguagesController::class, 'setDefaultLanguage'])->name('setDefault.Language');
+    Route::get('languages/setting/{code}', [App\Http\Controllers\Admin\LanguagesController::class, 'languageSetting'])->name('Language.setting');
+    // translation
+    Route::post('translation/update', [App\Http\Controllers\Admin\LanguagesController::class, 'transUpdate'])->name('translation.update');
+    Route::post('auto/translation/single', [App\Http\Controllers\Admin\LanguagesController::class, 'autoTransSingle'])->name('translation.update.auto');
+    Route::post('auto/translation/update/all', [App\Http\Controllers\Admin\LanguagesController::class, 'transUpdateAutoAll'])->name('translation.update.auto.all');
+    // currency
+    Route::resource('currency', CurrencyController::class);
+    Route::get('setdefaultcurrency', [App\Http\Controllers\Admin\CurrencyController::class, 'setDefaultcurrency'])->name('setDefault.currency');
+    // payment
+    Route::resource('payment-gateway', PaymentController::class);
     // User-Group
     Route::get('user-group', ['middleware' => 'acl:view_user_group', 'as' => 'admin.user-group', 'uses' => 'UserGroupController@getIndex']);
     Route::get('user-group/new', ['middleware' => 'acl:new_user_group', 'as' => 'admin.user-group.new', 'uses' => 'UserGroupController@getCreate']);
@@ -389,6 +422,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
     Route::get('website', [App\Http\Controllers\Admin\SettingController::class, 'site_website'])->name('site.website');
     Route::post('website/{id}', [App\Http\Controllers\Admin\SettingController::class, 'websiteUpdate'])->name('website.update');
+    Route::post('website-payment/{id}', [App\Http\Controllers\Admin\SettingController::class, 'websitepaymentUpdate'])->name('website.update.payment');
     Route::post('website-socile/{id}', [App\Http\Controllers\Admin\SettingController::class, 'websiteUpdateSocile'])->name('website.update.socile');
     Route::get('system', [App\Http\Controllers\Admin\SettingController::class, 'site_system'])->name('site.system');
     Route::get('mail', [App\Http\Controllers\Admin\SettingController::class, 'site_mail'])->name('site.mail');
@@ -409,6 +443,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::get('delete-transaction-history/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'delete_transaction_history'])->name('admin.delete-transaction-history');
     Route::get('edit/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'edit_transaction'])->name('admin.transaction.edit');
     Route::post('update/transaction', [App\Http\Controllers\Admin\DashboardController::class, 'update_transaction'])->name('admin.transaction.update');
+    // Order history
+    Route::get('orders', [App\Http\Controllers\Admin\DashboardController::class, 'orders'])->name('admin.order.index');
+    Route::get('order/details/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'orderDetails'])->name('admin.order.details');
+    Route::get('delete/order/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'orderDelete'])->name('admin.order.delete');
+    Route::get('edit/order/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'orderEdit'])->name('admin.order.edit');
+    Route::post('update/order/{id}', [App\Http\Controllers\Admin\DashboardController::class, 'orderUpdate'])->name('admin.order.update');
 });
 
 Auth::routes();

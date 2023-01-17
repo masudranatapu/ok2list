@@ -44,6 +44,7 @@ $subcat_id                   = request()->get('category') ?? 0;
   .verify_div_otp2{display: none;}
   #number_otp_div1{display: none;}
   #number_otp_div2{display: none;}
+  .seller-info {margin-bottom: 0px;padding: 15px 15px 0px 15px;}
 </style>
 @endpush
 @section('content')
@@ -177,7 +178,7 @@ $subcat_id                   = request()->get('category') ?? 0;
 </div>
 
 <div class="row form-group select-price {!! $errors->has('price') ? 'error' : '' !!}">
-    <label class="col-sm-3 label-title">Salary (per month) (Rs)<span class="required">*</span></label>
+    <label class="col-sm-3 label-title">Salary (per month) (₦)<span class="required">*</span></label>
     <div class="col-sm-9">
      <div class="row">
        <div class="col-sm-6">
@@ -243,7 +244,7 @@ $subcat_id                   = request()->get('category') ?? 0;
 <!-- section -->
 <div class="row form-group">
     <div class="col-md-3"></div>
-    <div class="col-md-9">
+    <div class="col-md-9 pl-4">
        <label for="is_active">
            <input type="checkbox" name="is_active" id="is_active" value="2" {{ $row->is_active == '2' ? 'checked' : '' }} > Is Expired
        </label>
@@ -267,7 +268,7 @@ Send me Trade Email/SMS Alerts for people looking to buy mobile handsets in www 
 </div>
 <!-- quick-rules -->
 <div class="col-lg-4">
-    
+
 <div class="section quick-rules">
                   @php
                      $uickrules = DB::table('quick_rules')->latest()->first();

@@ -100,6 +100,7 @@
                               <select class="form-control js-example-basic-single select2-hidden-accessible" name="location" id="location" data-url="{{URL::to('get-area')}}">
                               @if($city_combo)
                               <optgroup label="City">
+                                <option value="">Select city</option>
                               @foreach($city_combo as $kc => $city )
                               <option value="{{ $city->pk_no }}" data-type="city">{{$city->name}} City</option>
                               @endforeach
@@ -156,7 +157,7 @@
                            </div>
                         </div>
                      @endif
-                     
+
                      @if(request()->get('type') == 'services')
 
                      @else
@@ -169,7 +170,7 @@
                         </div>
                      @endif
                      <div class="row form-group select-price {!! $errors->has('price') ? 'error' : '' !!}">
-                        <label class="col-sm-3 label-title">Price(Rs)<span class="required">*</span></label>
+                        <label class="col-sm-3 label-title">Price(₦)<span class="required">*</span></label>
                         <div class="col-sm-9">
 
                            <div class="controls">
@@ -538,7 +539,7 @@
       $(function () {
 
          // $('.input-images-1').imajgeUploader();
-         
+
          $('.input-images-2').imageUploader({
             // preloaded: preloaded,
             imagesInputName: 'image',

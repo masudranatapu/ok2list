@@ -1,7 +1,7 @@
 <?php
 
-$selected_area  = $data['area_query_display'] ?? 'srilanka' ;
-$area_query     = $data['area_query'] ?? 'srilanka' ;
+$selected_area  = $data['area_query_display'] ?? 'Nigeria' ;
+$area_query     = $data['area_query'] ?? 'Nigeria' ;
 $get_area_query = $data['get_area_query'] ?? null ;
 $get_category_query = $data['get_category_query'] ?? null ;
 $category_query = $data['category_query'] ?? null ;

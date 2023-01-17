@@ -9,13 +9,13 @@
 					<li>@lang('web.how_to_sell_fast')</li>
 				</ol>
 			</div>
-			@if(isset($data['how_to_sell_fast_page1']) && ($data['how_to_sell_fast_page1']) != null )
+			<!-- @if(isset($data['how_to_sell_fast_page1']) && ($data['how_to_sell_fast_page1']) != null )
 			
 					<div class="ads_banner text-center mb-4">
 						<a href="{{ $data['how_to_sell_fast_page1']->link }}" target="_blank" title="{{ $data['how_to_sell_fast_page1']->name }}"><img src="{{ fileExit($data['how_to_sell_fast_page1']->photo) }}" class="w-100" alt="{{ $data['how_to_sell_fast_page1']->name }}" style="height: 96px;"></a>
 					</div>
 				
-			@endif
+			@endif -->
 			<div class="ads-info">
 				<div class="row">
 					<div class="col-md-8">
@@ -98,13 +98,13 @@
 
 				</div>
 			</div>
-			@if(isset($data['how_to_sell_fast_page2']) && ($data['how_to_sell_fast_page2']) != null )
+			<!-- @if(isset($data['how_to_sell_fast_page2']) && ($data['how_to_sell_fast_page2']) != null )
 				
 					<div class="ads_banner text-center mb-4">
 						<a href="{{ $data['how_to_sell_fast_page2']->link }}" target="_blank" title="{{ $data['how_to_sell_fast_page2']->name }}"><img src="{{ fileExit($data['how_to_sell_fast_page2']->photo) }}" class="w-100" alt="{{ $data['how_to_sell_fast_page2']->name }}" style="height: 96px;"></a>
 					</div>
 				
-			@endif
+			@endif -->
 		</div>
 	</section>
 @endsection
