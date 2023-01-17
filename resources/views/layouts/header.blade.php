@@ -24,8 +24,8 @@
             @endif
             <div class="collapse navbar-collapse" id="tr-mainmenu">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{route('ads.list')}}">@lang('web.all_ads')</a></li>
-                    <li><a href="{{route('packages')}}">@lang('web.membership')</a></li>
+                    <li><a href="{{route('ads.list')}}">{{ __('all_ads') }}</a></li>
+                    <li><a href="{{route('packages')}}">{{ __('membership') }}</a></li>
                 </ul>
                 <form action="{{ route('changelang') }}" method="get">
                     <select name="lang_code" id="" onchange="this.form.submit()">

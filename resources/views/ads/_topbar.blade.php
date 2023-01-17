@@ -4,7 +4,7 @@
 <div class="breadcrumb-section">
 	<ol class="breadcrumb">
 		<li><a href="{{ route('home') }}">@lang('web.home')</a></li>
-		<li><a href="{{ route('ads.list') }}">@lang('web.all_ads')</a></li>
+		<li><a href="{{ route('ads.list') }}">{{ __('all_ads') }}</a></li>
 		@if(isset($data['category_name']) && ($data['category_name'] != null))
 			<li>{{ $data['category_name'] }}</li>
 		@endif
