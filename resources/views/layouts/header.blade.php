@@ -49,7 +49,7 @@
                 <form action="{{ route('changecurrency') }}" method="get">
                     <select name="currency_symbol" class="" onchange="this.form.submit()">
                         @foreach ($currencies as $currency)
-                            <option value="{{ $currency->code }}" @if(session()->get('set_currency')) {{  session()->get('set_currency') == $currency->code ? 'selected' : '' }} @else {{ $currency->default_currencies == 1 ? 'selected' : '' }}  @endif >{{ $currency->name }}</option>
+                            <option value="{{ $currency->code }}" @if(session()->get('set_currency')) {{  session()->get('set_currency') == $currency->code ? 'selected' : '' }} @else {{ $currency->default_currencies == 1 ? 'selected' : '' }}  @endif >{{ $currency->code }} ( {{ $currency->symbol }} )</option>
                         @endforeach
                     </select>
                 </form>

@@ -42,7 +42,7 @@
                                                         <option disabled selected>{{ __('Currency') }}</option>
                                                         @foreach ($currencies as $currency)
                                                             <option {{ ($currency->default_currencies == 1) ? 'selected' : '' }} value="{{ $currency->id }}">
-                                                                {{ $currency->name }}
+                                                                {{ $currency->code }} ( {{ $currency->symbol }} )
                                                             </option>
                                                         @endforeach
                                                     </select>
