@@ -38,8 +38,8 @@
             <div class="breadcrumb-section">
                 <!-- breadcrumb -->
                 <ol class="breadcrumb">
-                    <li><a href="{{ url('/') }}">@lang('web.home')</a></li>
-                    <li>@lang('web.ad_post')</li>
+                    <li><a href="{{ url('/') }}">{{ __('home') }}</a></li>
+                    <li>{{ __('ad_post') }}</li>
                 </ol><!-- breadcrumb -->
             </div><!-- banner -->
             <div class="ads-info profile">
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-xl-9">
                         <div class="my-ads section">
-                            <h2> @lang('web.promotedads')</h2>
+                            <h2> {{ __('promotedads') }}</h2>
                             @if (isset($data['promoted_ads']) && count($data['promoted_ads']) > 0)
                                 @foreach ($data['promoted_ads'] as $key => $row)
                                     <div class="ad-item row">
@@ -114,7 +114,7 @@
                             @else
                                 <div class="ad-item row">
                                     <div class="col-md-12">
-                                        @lang('web.no_post')
+                                        {{ __('no_post') }}
                                     </div>
                                 </div>
                             @endif

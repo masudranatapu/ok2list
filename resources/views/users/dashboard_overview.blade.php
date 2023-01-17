@@ -32,8 +32,8 @@
         <div class="container">
             <div class="breadcrumb-section">
                 <ol class="breadcrumb">
-                    <li><a href="{{ url('/') }}">@lang('web.home')</a></li>
-                    <li>@lang('web.ad_post')</li>
+                    <li><a href="{{ url('/') }}">{{ __('home') }}</a></li>
+                    <li>{{ __('ad_post') }}</li>
                 </ol>
             </div>
             <div class="ads-info profile">
@@ -43,14 +43,14 @@
                     </div>
                     <div class="col-xl-9">
                         <div class="my-ads section">
-                            <h2>@lang('web.overview')</h2>
+                            <h2>{{ __('overview') }}</h2>
                             <div class="row">
                                 <div class="col-md-6 col-lg-4">
                                     <div class="dashboard_wrap mb-4">
                                         <div class="media position-relative">
                                             <div class="content">
                                                 <h2>{{ $postedads->count() }}</h2>
-                                                <h6>@lang('web.posted_ads')</h6>
+                                                <h6>{{ __('posted_ads') }}</h6>
                                             </div>
                                             <div class="media-body">
                                                 <span class="icon">
@@ -79,7 +79,7 @@
                                         <div class="media position-relative">
                                             <div class="content">
                                                 <h2>{{ count($data['rows']) }}</h2>
-                                                <h6>@lang('web.favorites')</h6>
+                                                <h6>{{ __('favorites') }}</h6>
                                             </div>
                                             <div class="media-body">
                                                 <span class="icon">
@@ -103,7 +103,7 @@
                                         <div class="media position-relative">
                                             <div class="content">
                                                 <h2>{{ $expireads->count() }}</h2>
-                                                <h6>@lang('web.Expire_Ads')</h6>
+                                                <h6>{{ __('Expire_Ads') }}</h6>
                                             </div>
                                             <div class="media-body">
                                                 <span class="icon">
@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-3 plan_title">
-                                        <p>@lang('web.panl_benifits')</p>
+                                        <p>{{ __('panl_benifits') }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-4">
@@ -140,7 +140,7 @@
                                                 <h2>
                                                     {{ $package->add_limit }}
                                                 </h2>
-                                                <h6>@lang('web.total_ads')</h6>
+                                                <h6>{{ __('total_ads') }}</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -152,7 +152,7 @@
                                                 <h2>
                                                     {{ $package->add_limit - $totalads->count() }}
                                                 </h2>
-                                                <h6>@lang('web.rem_ads')</h6>
+                                                <h6>{{ __('rem_ads') }}</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -168,7 +168,7 @@
                                             @endphp
                                             <div class="content">
                                                 <h3> {{ date('d F, Y', strtotime($package->expired_on)) }}</h3>
-                                                <h6>@lang('web.Package_End_Date')</h6>
+                                                <h6>{{ __('Package_End_Date') }}</h6>
                                             </div>
                                         </div>
                                     </div>

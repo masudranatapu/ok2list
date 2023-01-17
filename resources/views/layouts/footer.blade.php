@@ -45,10 +45,10 @@
                                 </a></li>
                             <!-- <li><a href="{{ route('site-map') }}">
                                     @if (app()->getLocale() == 'sl')
-                                        {{ $setting->sitemap_sl }}
-                                    @else
-                                        {{ $setting->sitemap_en }}
-                                    @endif
+{{ $setting->sitemap_sl }}
+@else
+{{ $setting->sitemap_en }}
+@endif
                                 </a></li> -->
                         </ul>
                     </div>
@@ -65,10 +65,10 @@
                         <ul>
                             <!-- <li><a href="{{ route('how-to-sell-fast') }}">
                                     @if (app()->getLocale() == 'sl')
-                                        {{ $setting->how_to_sell_fast_sl }}
-                                    @else
-                                        {{ $setting->how_to_sell_fast_en }}
-                                    @endif
+{{ $setting->how_to_sell_fast_sl }}
+@else
+{{ $setting->how_to_sell_fast_en }}
+@endif
                                 </a></li> -->
                             <li><a href="{{ route('packages') }}">
                                     @if (app()->getLocale() == 'sl')
@@ -84,7 +84,7 @@
                                         {{ $setting->promote_your_ad_en }}
                                     @endif
                                 </a></li>
-                                <li><a href="{{ route('doorstep-delivery') }}">
+                            <li><a href="{{ route('doorstep-delivery') }}">
                                     Doorstep Delivery
                                 </a></li>
                             <li><a href="{{ route('faq') }}">
@@ -218,7 +218,7 @@
                                 {!! $errors->first('email', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">@lang('web.subscriptbe')</button>
+                        <button type="submit" class="btn btn-primary">{{ __('subscriptbe') }}</button>
                         {!! Form::close() !!}
                     </div>
                 </div>

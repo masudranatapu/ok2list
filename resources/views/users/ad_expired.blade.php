@@ -15,8 +15,8 @@ $seller_type_combo = Config::get('static_arrays.seller_type') ?? [];
             <div class="breadcrumb-section">
                 <!-- breadcrumb -->
                 <ol class="breadcrumb">
-                    <li><a href="{{ url('/') }}">@lang('web.home')</a></li>
-                    <li>@lang('web.dashboard')</li>
+                    <li><a href="{{ url('/') }}">{{ __('home') }}</a></li>
+                    <li>{{ __('dashboard') }}</li>
                 </ol><!-- breadcrumb -->
             </div><!-- banner -->
             <div class="ads-info profile">

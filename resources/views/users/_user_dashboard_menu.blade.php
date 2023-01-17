@@ -22,11 +22,11 @@ $curent_route = request()
                 <div class="favorites-user">
                     <div class="my-ads">
                         <a
-                            href="{{ route('my-ads') }}">{{ Auth::user()->total_post ?? 0 }}<small>@lang('web.my_ads')</small></a>
+                            href="{{ route('my-ads') }}">{{ Auth::user()->total_post ?? 0 }}<small>{{ __('my_ads') }}</small></a>
                     </div>
                     <div class="favorites">
                         <a
-                            href="{{ route('favorite-ads') }}">{{ Auth::user()->total_favorite ?? 0 }}<small>@lang('web.favorites')</small></a>
+                            href="{{ route('favorite-ads') }}">{{ Auth::user()->total_favorite ?? 0 }}<small>{{ __('favorites') }}</small></a>
                     </div>
                 </div>
             </div><!-- user-profile -->
@@ -38,35 +38,38 @@ $curent_route = request()
             @endphp
             <ul class="user-menu">
                 <li class="{{ $curent_route == 'dashboard-overview' ? 'active' : '' }} "><a
-                        href="{{ route('dashboard-overview') }}"> @lang('web.dashboard_overview')</a></li>
+                        href="{{ route('dashboard-overview') }}"> {{ __('dashboard_overview') }}</a>
+                </li>
 
                 <li class="{{ $curent_route == 'my-dashboard' ? 'active' : '' }} "><a
-                        href="{{ route('my-dashboard') }}"> @lang('web.my_account')</a></li>
+                        href="{{ route('my-dashboard') }}"> {{ __('my_account') }}</a></li>
 
                 @if (Auth::user()->is_verified == 1)
                     <li class="{{ $curent_route == 'my-ads' ? 'active' : '' }}"><a href="{{ route('my-ads') }}">
-                            @lang('web.my_ads')</a></li>
+                            {{ __('my_ads') }}</a></li>
 
                     @if (Auth::user()->package_id > 1)
                         <li class="{{ $curent_route == 'my-shop' ? 'active' : '' }}"><a href="{{ route('my-shop') }}">
-                                @lang('web.my_shop')</a></li>
+                                {{ __('my_shop') }}</a></li>
                     @endif
 
                     <li class="{{ $curent_route == 'favorite-ads' ? 'active' : '' }}"><a
-                            href="{{ route('favorite-ads') }}"> @lang('web.favorites')</a></li>
+                            href="{{ route('favorite-ads') }} ">{{ __('favorites') }}</a>
+                    </li>
 
                     <li class="{{ $curent_route == 'promoted-ads' ? 'active' : '' }}"><a
-                            href="{{ route('promoted-ads') }}"> @lang('web.promotedads')</a></li>
+                            href="{{ route('promotedads') }}"> {{ __('promote-ads') }}</a></li>
                     <li class="{{ $curent_route == 'purchase-history' ? 'active' : '' }}">
-                        <a href="{{ route('purchase-history') }}"> @lang('web.purchasehistory')</a>
+                        <a href="{{ route('purchase-history') }}">{{ __('purchasehistory') }}</a>
                     </li>
-                    <li class="{{ $curent_route == 'user.orders' || $curent_route == 'user.order.details'  ? 'active' : '' }}">
-                        <a href="{{ route('user.orders') }}"> @lang('web.orders')</a>
+                    <li
+                        class="{{ $curent_route == 'user.orders' || $curent_route == 'user.order.details' ? 'active' : '' }}">
+                        <a href="{{ route('user.orders') }}">{{ __('orders') }}</a>
                     </li>
                     <li class="{{ $curent_route == 'my-membership' ? 'active' : '' }}"><a
-                            href="{{ route('my-membership') }}"> @lang('web.billing_&_plan')</a></li>
+                            href="{{ route('my-membership') }}">{{ __('billing_&_plan') }}</a></li>
                     <li class="{{ $curent_route == 'chat' ? 'active' : '' }}"><a href="{{ route('chat') }}">
-                            @lang('web.chat_messaging')</a></li>
+                            {{ __('chat_messaging') }}</a></li>
                     <li><a href="{{ route('logout') }}"
                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                     </li>
@@ -74,7 +77,7 @@ $curent_route = request()
                         @csrf
                     </form>
                 @else
-                    <h3 class="alert alert-danger pendinguser">@lang('web.pending_massage')</h3>
+                    <h3 class="alert alert-danger pendinguser">{{ __('pending_massage') }}</h3>
                 @endif
                 </li>
             </ul>

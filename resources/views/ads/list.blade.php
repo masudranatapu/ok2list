@@ -56,7 +56,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                             <div class="card">
                                 <div class="card-header">
                                     <button data-toggle="collapse" data-target="#short_by" aria-expanded="true"
-                                        aria-controls="short_by">@lang('web.sort')</button>
+                                        aria-controls="short_by">{{ __('sort') }}</button>
                                 </div>
                                 <div id="short_by" class="collapse show" aria-labelledby="short_by"
                                     data-parent="#accordion">
@@ -80,7 +80,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                             <div class="card">
                                 <div class="card-header" id="heading-4">
                                     <button data-toggle="collapse" data-target="#collapse-4" aria-expanded="true"
-                                        aria-controls="collapse-4">@lang('web.filter')</button>
+                                        aria-controls="collapse-4">{{ __('filter') }}</button>
                                 </div>
                                 <div id="collapse-4" class="collapse show" aria-labelledby="heading-4"
                                     data-parent="#accordion">
@@ -113,7 +113,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                             <div class="card">
                                 <div class="card-header" id="heading-1">
                                     <button data-toggle="collapse" data-target="#collapse-1" aria-expanded="true"
-                                        aria-controls="collapse-1">@lang('web.all_cate')</button>
+                                        aria-controls="collapse-1">{{ __('all_cate') }}</button>
                                 </div>
                                 <div id="collapse-1" class="collapse show" aria-labelledby="heading-1"
                                     data-parent="#accordion">
@@ -159,7 +159,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                             <div class="card">
                                 <div class="card-header" id="heading-1">
                                     <button class="collapsed" data-toggle="collapse" data-target="#location"
-                                        aria-expanded="true" aria-controls="collapse-1">@lang('web.loce')</button>
+                                        aria-expanded="true" aria-controls="collapse-1">{{ __('loce') }}</button>
                                 </div>
                                 <div id="location" class="collapse" aria-labelledby="heading-1"
                                     data-parent="#accordion">
@@ -202,22 +202,22 @@ $full_sort_by = $sort_by . '_' . $order_by;
                             </div>
                             <!-- @if (isset($data['list_page2']) && $data['list_page2'] != null)
     <div class="card">
-                                            <div class="card-body">
-                                                <div class="ads_banner text-center">
-                                                    <a href="{{ $data['list_page2']->link }}" target="_blank"
-                                                        title="{{ $data['list_page2']->name }}"><img
-                                                            src="{{ fileExit($data['list_page2']->photo) }}" class="w-100"
-                                                            alt="{{ $data['list_page2']->name }}" style="height: 600px;"></a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                                                                                                                                    <div class="card-body">
+                                                                                                                                                                        <div class="ads_banner text-center">
+                                                                                                                                                                            <a href="{{ $data['list_page2']->link }}" target="_blank"
+                                                                                                                                                                                title="{{ $data['list_page2']->name }}"><img
+                                                                                                                                                                                    src="{{ fileExit($data['list_page2']->photo) }}" class="w-100"
+                                                                                                                                                                                    alt="{{ $data['list_page2']->name }}" style="height: 600px;"></a>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
     @endif -->
                         </div>
                     </div>
                     <div class="col-md-8 col-lg-8">
                         <div class="section recommended-ads">
                             <div class="featured-top">
-                                <h4>@lang('web.recom')</h4>
+                                <h4>{{ __('recom') }}</h4>
                             </div>
                             @if (isset($data['rows']) && count($data['rows']) > 0)
                                 @foreach ($data['rows'] as $pk => $row)
@@ -330,7 +330,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                     </div>
                                 @endforeach
                             @else
-                                <p class="text-center mt-2">@lang('web.no_pro')</p>
+                                <p class="text-center mt-2">{{ __('no_pro') }}</p>
                             @endif
 
                             @if (isset($data['rows']) && count($data['rows']) > 0)
@@ -340,13 +340,13 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                             <li class="page-item">
                                                 <a class="page-link" href="{{ request()->fullUrl() }}"
                                                     style="background-color: #ccc;" id="pagePrev">
-                                                    « @lang('web.previous')
+                                                    « {{ __('previous') }}
                                                 </a>
                                             </li>
                                         @else
                                             <li class="page-item">
                                                 <a class="page-link" href="{{ request()->fullUrl() }}" id="pagePrev">
-                                                    « @lang('web.previous')
+                                                    « {{ __('previous') }}
                                                 </a>
                                             </li>
                                         @endif
@@ -355,13 +355,13 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                             <li class="page-item">
                                                 <a class="page-link" href="{{ request()->fullUrl() }}"
                                                     style="background-color: #ccc;" id="pageNext">
-                                                    @lang('web.next') »
+                                                    {{ __('next') }}»
                                                 </a>
                                             </li>
                                         @else
                                             <li class="page-item">
                                                 <a class="page-link" href="{{ request()->fullUrl() }}" id="pageNext">
-                                                    @lang('web.next') »
+                                                    {{ __('next') }} »
                                                 </a>
                                             </li>
                                         @endif
@@ -374,13 +374,13 @@ $full_sort_by = $sort_by . '_' . $order_by;
             </div>
             <!-- @if (isset($data['list_page3']) && $data['list_page3'] != null)
     <div class="">
-                            <div class="ads_banner text-center mb-5">
-                                <a href="{{ $data['list_page3']->link }}" target="_blank"
-                                    title="{{ $data['list_page3']->name }}"><img
-                                        src="{{ fileExit($data['list_page3']->photo) }}" class="w-100"
-                                        alt="{{ $data['list_page3']->name }}" style="height: 96px;"></a>
-                            </div>
-                        </div>
+                                                                                                                                                    <div class="ads_banner text-center mb-5">
+                                                                                                                                                        <a href="{{ $data['list_page3']->link }}" target="_blank"
+                                                                                                                                                            title="{{ $data['list_page3']->name }}"><img
+                                                                                                                                                                src="{{ fileExit($data['list_page3']->photo) }}" class="w-100"
+                                                                                                                                                                alt="{{ $data['list_page3']->name }}" style="height: 96px;"></a>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
     @endif -->
         </div>
     </section>
@@ -390,26 +390,26 @@ $full_sort_by = $sort_by . '_' . $order_by;
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm-8">
-                    <h2 class="title">@lang('web.something_to_sel')</h2>
-                    <h4>@lang('web.free_on_ok2list')</h4>
+                    <h2 class="title">{{ __('something_to_sel') }}</h2>
+                    <h4>{{ __('free_on_ok2list') }}</h4>
                 </div>
                 <div class="col-sm-4">
                     <div class="free_post_btn float-sm-right">
                         @if (!empty($payments))
                             @if ($payments->status != 'Due')
                                 <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop"
-                                    class="btn btn-primary">@lang('web.post_free_ad')</a>
+                                    class="btn btn-primary">{{ __('post_free_ad') }}</a>
                             @else
-                                <a href="javascript:;" class="btn btn-primary">@lang('web.pending')</a>
+                                <a href="javascript:;" class="btn btn-primary">{{ __('pending') }}</a>
                             @endif
                         @else
                             @if (Auth::user())
                                 @if (Auth::user()->is_verified == 1)
                                     <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop"
-                                        class="btn btn-primary">@lang('web.post_free_ad')</a>
+                                        class="btn btn-primary">{{ __('post_free_ad') }}</a>
                                 @endif
                             @else
-                                <a href="{{ route('login') }}" class="btn btn-primary">@lang('web.post_free_ad')</a>
+                                <a href="{{ route('login') }}" class="btn btn-primary">{{ __('post_free_ad') }}</a>
                             @endif
                         @endif
                     </div>

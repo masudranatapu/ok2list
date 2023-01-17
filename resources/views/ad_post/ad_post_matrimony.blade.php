@@ -261,9 +261,9 @@ $subcat_id = request()->get('category') ?? 0;
                                                 <div class="controls">
                                                     <!-- <label for="is_terms_condition">
 
-                            <input type="checkbox" name="is_terms_condition" id="is_terms_condition" value="1"  data-validation-required-message="Must be checked terms of use" required>
-                            Send me Trade Email/SMS Alerts for people looking to buy mobile handsets in www By clicking "Post", you agree to our <a target="_blank" href="{{ route('terms-conditions') }}">Terms of Use</a> and <a target="_blank" href="{{ route('privacy-policy') }}">Privacy Policy</a> and acknowledge that you are the rightful owner of this item and using Trade to find a genuine buyer.
-                            </label> -->
+                                                                <input type="checkbox" name="is_terms_condition" id="is_terms_condition" value="1"  data-validation-required-message="Must be checked terms of use" required>
+                                                                Send me Trade Email/SMS Alerts for people looking to buy mobile handsets in www By clicking "Post", you agree to our <a target="_blank" href="{{ route('terms-conditions') }}">Terms of Use</a> and <a target="_blank" href="{{ route('privacy-policy') }}">Privacy Policy</a> and acknowledge that you are the rightful owner of this item and using Trade to find a genuine buyer.
+                                                                </label> -->
                                                 </div>
                                                 <button type="submit" class="btn btn-success mt-3 " name="submit"
                                                     value="save">Post Your Ad </button>
@@ -275,11 +275,12 @@ $subcat_id = request()->get('category') ?? 0;
                                     <!-- form -->
                                 @else
                                     <div class="alert alert-warning">
-                                        <strong>@lang('web.w') </strong> @lang('web.up');
+                                        <strong>{{ __('w') }} </strong> {{ __('up') }};
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 text-center">
-                                            <a href="{{ route('packages') }}" class="btn btn-warning">@lang('web.w_n')<i
+                                            <a href="{{ route('packages') }}"
+                                                class="btn btn-warning">{{ __('w_n') }}<i
                                                     class="fa fa-arrow-right"></i></a>
                                         </div>
                                     </div>
