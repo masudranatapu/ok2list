@@ -15,6 +15,7 @@ class Currency extends Model
         'code',
         'symbol',
         'symbol_position',
+        'conversion_rate',
         'created_at',
         'updated_at',
     ];

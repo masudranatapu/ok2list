@@ -7,6 +7,7 @@
 @endif
 @php
     $languages = App\Models\Language::get();
+    $currencies = App\Models\Currency::get();
 @endphp
 <header id="header" class="clearfix">
     @php
@@ -28,9 +29,16 @@
                     <li><a href="{{route('packages')}}">@lang('web.membership')</a></li>
                 </ul>
                 <form action="{{ route('changelang') }}" method="get">
-                    <select name="lang_code" id="" onchange="this.form.submit()">
+                    <select name="lang_code" class="mr-2" onchange="this.form.submit()">
                         @foreach ($languages as $lang)
                             <option value="{{ $lang->code }}" @if(session()->has('set_lang')) {{ session()->get('set_lang') == $lang->code ? 'selected': '' }} @else  {{ $lang->default_lang == 1 ? 'selected': ''}}   @endif>{{ $lang->name }}</option>
+                        @endforeach
+                    </select>
+                </form>
+                <form action="{{ route('changecurrency') }}" method="get">
+                    <select name="currency_symbol" class="" onchange="this.form.submit()">
+                        @foreach ($currencies as $currency)
+                            <option value="{{ $currency->code }}" {{  session()->get('set_currency') == $currency->code ? 'selected' : '' }} >{{ $currency->name }}</option>
                         @endforeach
                     </select>
                 </form>

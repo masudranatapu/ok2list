@@ -318,6 +318,15 @@ class CommonController extends Controller
 
     }
 
+    public function setCurrency(Request $request)
+    {
+        if (session()->get('set_currency') != $request->currency_symbol) {
+            session()->put('set_currency', $request->currency_symbol);
+        }
+        return redirect()->back();
+
+    }
+
     public function getDoorstepDelivery(){
         return view('common.doorstep_delivery');
     }

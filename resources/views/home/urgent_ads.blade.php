@@ -71,7 +71,7 @@
                                     @endif
                                 </div>
                               <div class="card-body">
-                                    <h3 class="item-price">₦ {{number_format($ad->price,2)}}</h3>
+                                    <h3 class="item-price"> {{ changeCurrency($ad->price) }} </h3>
                                     <h4 class="item-title"><a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{ $ad->ad_title }}</a></h4>
                                     <div class="item-cat">
                                         <span><a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{ $ad->subcategory->name ?? '' }}</a></span>
@@ -116,8 +116,8 @@
                                     <span><a href="{{route('ad.details',['pk_no' => $ad->pk_no, 'url_slug' => $ad->url_slug])}}">{{ $ad->subcategory->name ?? '' }}</a></span>
                                 </div>
                                 @php
-                                $payment = App\Payments::where('f_customer_pk_no',$ad->customer_pk_no)->where('status','VALID')->orderBy('pk_no','desc')->first();
-                            @endphp
+                                    $payment = App\Payments::where('f_customer_pk_no',$ad->customer_pk_no)->where('status','VALID')->orderBy('pk_no','desc')->first();
+                                @endphp
                             @if($payment)
                                 <div class="premier_ads">
                                     <span class="member">

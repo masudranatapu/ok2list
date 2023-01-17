@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Currency;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Artisan;
 
 class CurrencyController extends Controller
 {
@@ -46,12 +47,14 @@ class CurrencyController extends Controller
             'code' => 'required',
             'symbol' => 'required',
             'symbol_position' => 'required',
+            'conversion_rate' => 'required',
         ]);
         
         Currency::create([
             'name' => $request->name,
             'code' => $request->code,
             'symbol' => $request->symbol,
+            'conversion_rate' => $request->conversion_rate,
             'default_currencies' => 0,
             'symbol_position' => $request->symbol_position,
         ]);
@@ -101,6 +104,7 @@ class CurrencyController extends Controller
             'code' => 'required',
             'symbol' => 'required',
             'symbol_position' => 'required',
+            'conversion_rate' => 'required',
         ]);
 
         $currency = Currency::findOrFail($id);
@@ -109,6 +113,7 @@ class CurrencyController extends Controller
             'name' => $request->name,
             'code' => $request->code,
             'symbol' => $request->symbol,
+            'conversion_rate' => $request->conversion_rate,
             'symbol_position' => $request->symbol_position,
         ]);
         
@@ -137,20 +142,48 @@ class CurrencyController extends Controller
 
         Toastr::info('Currency successfully delete :-)','Success');
         return redirect()->back();
+
     }
 
     public function setDefaultcurrency(Request $request)
     {
+        $getDefualtCurrency = Currency::where('default_currencies', 1)->first();
+        
+        $getRequestCurrency = Currency::where('id', $request->id)->first();
+        
+
+        $getConversionRate = $getDefualtCurrency->default_currencies / $getRequestCurrency->conversion_rate;
+        
+        $all_currency = Currency::where('id', '!=', $request->id)->get();
+        
+        foreach ($all_currency as $value) {
+
+            $single_currency = Currency::where('id', $value->id)->first();
+            $single_currency_conversion_rate = $single_currency->conversion_rate * $getConversionRate;
+
+            Currency::where('id', $value->id)->update([
+                'conversion_rate' => $single_currency_conversion_rate,
+            ]);
+
+        }
+
+        Currency::where('id', $getDefualtCurrency->id)->update([
+            'conversion_rate' => $getConversionRate,
+        ]);
+        
+        
         Currency::where('default_currencies', 1)->update([
             'default_currencies' => 0,
         ]);
 
         Currency::where('id', $request->id)->update([
             'default_currencies' => 1,
+            'conversion_rate' => 1,
         ]);
         
         Toastr::success('Defualt Currency set successfully done :-)','Success');
         return redirect()->back();
+        
 
     }
 }

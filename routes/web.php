@@ -25,6 +25,7 @@ Route::get('/', function () {
 Route::get('cc', 'HomeController@cc');
 
 Route::get('changelang', 'CommonController@setLanguage')->name('changelang');
+Route::get('changecurrency', 'CommonController@setCurrency')->name('changecurrency');
 
 Route::get('paypal/payment', 'PayPalController@paypal_view');
 Route::get('get/payment', 'PayPalController@payment')->name('payment');

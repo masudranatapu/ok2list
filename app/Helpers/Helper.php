@@ -1,4 +1,6 @@
 <?php
+
+
 use App\Models\AdminUser;
 use App\Models\Auth as CustomAuth;
 use Illuminate\Support\Facades\Artisan;
@@ -249,4 +251,44 @@ if (!function_exists('autoTransLation')) {
         return $afterTrans;
     }
     
+}
+
+if(!function_exists('changeCurrency')) {
+    
+    function changeCurrency($amount) {
+
+        $currency_code = session()->get('set_currency');
+
+        if($currency_code) {
+
+            $currency = DB::table('currencies')->where('code', $currency_code)->first();
+            
+            $symbol = $currency->symbol;
+            $position = $currency->symbol_position;
+
+            $rate = $currency->conversion_rate;
+            
+            if ($position == 'left') {
+                return $symbol . ' ' . $rate*$amount;
+            } else {
+                return $rate*$amount . ' ' . $symbol;
+            }
+
+        }else {
+            
+            $defualt_currency = DB::table('currencies')->where('default_currencies', 1)->first();
+
+            $defualt_symbol = $defualt_currency->symbol;
+            $defualt_position = $defualt_currency->symbol_position;
+            
+            if ($defualt_position == 'left') {
+                return $defualt_symbol . ' ' . $amount;
+            } else {
+                return $amount . ' ' . $defualt_symbol;
+            }
+            
+
+        }
+        
+    }
 }

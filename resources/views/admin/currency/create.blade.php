@@ -69,6 +69,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-sm-3" >Conversion Rate</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" name="conversion_rate" step="0.0001" min="0" id="conversion_rate" class="form-control @error('conversion_rate') is-invalid @enderror" value="{{ old('conversion_rate') }}" placeholder="Conversion rate">
+                                        @error('conversion_rate')
+                                            <span class="invalid-feedback" role="alert">{{ __($message) }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-sm-3" >Position </label>
                                     <div class="col-sm-9">
                                         <select name="symbol_position" class="form-control @error('symbol_position') is-invalid @enderror">

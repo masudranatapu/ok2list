@@ -33,7 +33,6 @@
                                     </div>
                                     <div class="col-md-9">
                                         <form action="{{ route('setDefault.currency') }}" method="get">
-                                            @csrf
                                             <div class="row g-0">
                                                 <div class="col-md-7 text-right">
                                                     <label style="margin-top: 0.7rem;">Select Your default Currency : </label>
@@ -71,6 +70,7 @@
                                         <th>Code</th>
                                         <th>Symbol</th>
                                         <th>Position</th>
+                                        <th>Conversion Rate</th>
                                         <th width="15%">Actions</th>
                                     </tr>
                                 </thead>
@@ -89,6 +89,7 @@
                                             <td>{{ $currency->code }}</td>
                                             <td>{{ $currency->symbol }}</td>
                                             <td>{{ Str::ucfirst($currency->symbol_position) }}</td>
+                                            <td>{{ $currency->conversion_rate }}</td>
                                             <td class="d-flex justify-content-center align-items-center">
                                                 @if ($currency->code == 'USD')
                                                     <a href="javascript:void(0)" class="btn btn-warning btn-sm mt-0 mr-2" data-toggle="tooltip" title="{{ __('you_can_not_delete_or_edit_this_currency') }}">
