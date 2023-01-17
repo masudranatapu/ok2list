@@ -70,7 +70,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3" >Conversion Rate</label>
+                                    <label class="col-sm-3" >
+                                        Conversion Rate
+                                        <br>
+                                        @if($getDefualtCurrency)
+                                            <small>( Based on  {{ $getDefualtCurrency->code }} )</small>
+                                        @else
+                                            <small>( First set your based currency )</small>
+                                        @endif
+                                    </label>
                                     <div class="col-sm-9">
                                         <input type="number" name="conversion_rate" step="0.0001" min="0" value="{{ $currencies->conversion_rate }}" id="conversion_rate" class="form-control @error('conversion_rate') is-invalid @enderror" value="{{ $currencies->conversion_rate }}" placeholder="Conversion rate">
                                         @error('conversion_rate')

@@ -30,7 +30,8 @@ class CurrencyController extends Controller
     public function create()
     {
         //
-        return view('admin.currency.create');
+        $getDefualtCurrency = Currency::where('default_currencies', 1)->first();
+        return view('admin.currency.create', compact('getDefualtCurrency'));
     }
 
     /**
@@ -86,7 +87,8 @@ class CurrencyController extends Controller
     {
         //
         $currencies = Currency::findOrFail($id);
-        return view('admin.currency.edit', compact('currencies'));
+        $getDefualtCurrency = Currency::where('default_currencies', 1)->first();
+        return view('admin.currency.edit', compact('currencies', 'getDefualtCurrency'));
     }
 
     /**
