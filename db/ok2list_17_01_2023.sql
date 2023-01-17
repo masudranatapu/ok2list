@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jan 10, 2023 at 04:22 AM
--- Server version: 10.3.37-MariaDB-log-cll-lve
--- PHP Version: 7.4.30
+-- Host: 127.0.0.1
+-- Generation Time: Jan 17, 2023 at 05:48 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `viclghik_adsdb`
+-- Database: `ok2list`
 --
 
 -- --------------------------------------------------------
@@ -30,15 +29,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `auths` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `username` varchar(50) DEFAULT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `email` varchar(150) DEFAULT NULL,
-  `address` text DEFAULT NULL,
-  `mobile_no` varchar(14) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `salt` varchar(20) DEFAULT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile_no` varchar(14) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `salt` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `model_id` bigint(20) UNSIGNED NOT NULL COMMENT '1 = Admin',
-  `mobile1` varchar(100) DEFAULT NULL,
+  `mobile1` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `mobile1_is_verified` tinyint(4) DEFAULT 0,
   `gender` tinyint(4) NOT NULL DEFAULT 1,
   `dob` date DEFAULT NULL,
@@ -46,8 +45,8 @@ CREATE TABLE `auths` (
   `google_id` bigint(20) DEFAULT NULL,
   `package_id` int(10) DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT 0,
-  `seller_type` varchar(255) NOT NULL DEFAULT 'Individual Seller',
-  `activation_code` varchar(255) DEFAULT NULL,
+  `seller_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Individual Seller',
+  `activation_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `activation_code_expire` datetime DEFAULT NULL,
   `is_first_login` tinyint(4) NOT NULL DEFAULT 1,
   `user_type` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0 = Admin',
@@ -55,18 +54,18 @@ CREATE TABLE `auths` (
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1 = Active, 0 = Inactive',
   `created_by` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `updated_by` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `city` varchar(100) DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `total_post` int(10) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `web_setting_access` int(1) NOT NULL DEFAULT 0,
-  `profile_pic` varchar(100) DEFAULT NULL,
-  `profile_pic_url` varchar(100) DEFAULT NULL,
-  `pic_mime_type` varchar(20) DEFAULT NULL,
-  `first_name` varchar(100) DEFAULT NULL,
-  `last_name` varchar(100) DEFAULT NULL,
-  `designation` varchar(100) DEFAULT NULL
+  `profile_pic` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_pic_url` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pic_mime_type` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `first_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -88,7 +87,7 @@ CREATE TABLE `auth_role` (
   `auth_id` bigint(20) UNSIGNED NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL,
   `user_group_id` int(11) DEFAULT NULL,
-  `custom_permission` text DEFAULT NULL,
+  `custom_permission` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -109,13 +108,13 @@ INSERT INTO `auth_role` (`id`, `auth_id`, `role_id`, `user_group_id`, `custom_pe
 
 CREATE TABLE `backup_admin_users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `designation` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `auth_id` bigint(20) UNSIGNED NOT NULL,
-  `profile_pic` varchar(255) DEFAULT NULL,
-  `profile_pic_url` varchar(255) DEFAULT NULL,
-  `pic_mime_type` varchar(50) DEFAULT NULL,
+  `profile_pic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_pic_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pic_mime_type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -135,15 +134,40 @@ INSERT INTO `backup_admin_users` (`id`, `first_name`, `last_name`, `designation`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `currencies`
+--
+
+CREATE TABLE `currencies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `symbol` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `default_currencies` int(2) DEFAULT 0 COMMENT '1=Default currencies; 0=Absence currencies, ',
+  `symbol_position` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'left',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `currencies`
+--
+
+INSERT INTO `currencies` (`id`, `name`, `code`, `symbol`, `default_currencies`, `symbol_position`, `created_at`, `updated_at`) VALUES
+(1, 'United State Dollar', 'USD', '$', 0, 'left', '2022-08-19 23:31:12', '2022-08-19 23:31:12'),
+(2, 'Vanuatu Vatu', 'VUV', 'VT', 0, 'right', '2022-12-15 09:02:33', '2022-12-15 09:02:33');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -155,15 +179,15 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `gyms` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(50) DEFAULT NULL,
-  `moto` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `established` varchar(255) NOT NULL DEFAULT '',
-  `logo` varchar(255) NOT NULL,
-  `logo_url` varchar(255) NOT NULL,
-  `banner` varchar(255) NOT NULL,
-  `banner_url` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `moto` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `established` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logo_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `banner` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `banner_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_by` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
   `updated_by` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
@@ -183,12 +207,39 @@ INSERT INTO `gyms` (`id`, `name`, `code`, `moto`, `address`, `established`, `log
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `languages`
+--
+
+CREATE TABLE `languages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `direction` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'ltr',
+  `default_lang` int(2) DEFAULT 0 COMMENT '1=Default Lang; 0=Absence Lang,',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `languages`
+--
+
+INSERT INTO `languages` (`id`, `name`, `code`, `icon`, `direction`, `default_lang`, `created_at`, `updated_at`) VALUES
+(1, 'English', 'en', 'flag-icon-gb', 'ltr', 1, '2022-08-19 23:31:12', '2023-01-15 07:47:43'),
+(2, 'Chinese', 'zh', 'flag-icon-cn', 'ltr', 0, '2022-12-20 09:15:21', '2023-01-15 07:34:46'),
+(3, 'Hindi', 'hi', 'flag-icon-in', 'ltr', 0, '2023-01-15 06:22:28', '2023-01-15 07:34:49'),
+(6, 'Arabic', 'ar', 'flag-icon-sa', 'ltr', 0, '2023-01-15 07:29:44', '2023-01-15 07:47:43');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -223,9 +274,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `models` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `display_name` varchar(255) NOT NULL,
-  `model_key` varchar(10) NOT NULL,
-  `model_class_name` varchar(255) NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_key` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model_class_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -238,11 +289,11 @@ CREATE TABLE `models` (
 --
 
 CREATE TABLE `notifications` (
-  `id` char(36) NOT NULL,
-  `type` varchar(191) NOT NULL,
-  `notifiable_type` varchar(191) NOT NULL,
+  `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `notifiable_id` bigint(20) UNSIGNED NOT NULL,
-  `data` text NOT NULL,
+  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `read_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -331,53 +382,6 @@ INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
---
-
-CREATE TABLE `orders` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `seller_id` int(11) DEFAULT NULL,
-  `amount` varchar(100) NOT NULL,
-  `cart` text DEFAULT NULL,
-  `currency` varchar(255) DEFAULT NULL,
-  `currency_value` varchar(255) DEFAULT NULL,
-  `discount` text DEFAULT NULL,
-  `shipping` text DEFAULT NULL,
-  `payment_method` varchar(255) DEFAULT NULL,
-  `txnid` varchar(255) DEFAULT NULL,
-  `tax` double NOT NULL DEFAULT 0,
-  `referance` varchar(255) DEFAULT NULL,
-  `transaction_number` varchar(255) DEFAULT NULL,
-  `order_status` varchar(255) DEFAULT NULL,
-  `shipping_info` text DEFAULT NULL,
-  `billing_info` text DEFAULT NULL,
-  `payment_status` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp(),
-  `state_price` double DEFAULT 0,
-  `state` text DEFAULT NULL,
-  `donate` varchar(255) DEFAULT NULL,
-  `is_shipped` int(2) NOT NULL DEFAULT 0,
-  `tracking_id` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `product_id`, `seller_id`, `amount`, `cart`, `currency`, `currency_value`, `discount`, `shipping`, `payment_method`, `txnid`, `tax`, `referance`, `transaction_number`, `order_status`, `shipping_info`, `billing_info`, `payment_status`, `created_at`, `updated_at`, `state_price`, `state`, `donate`, `is_shipped`, `tracking_id`) VALUES
-(1, 53, 29, 4, '286532', '{\"pk_no\":29,\"ad_type\":\"sell\",\"area_id\":2,\"city_division\":\"city\",\"city_division_pk_no\":1,\"area_url_slug\":\"nugegoda\",\"city_division_url_slug\":\"colombo\",\"customer_pk_no\":46,\"main_category\":\"general\",\"f_cat_pk_no\":1,\"cat_url_slug\":\"cars-vehicles\",\"f_scat_pk_no\":13,\"scat_url_slug\":\"cars--buses\",\"code\":104,\"ad_title\":\"BMW Blue Coupe\",\"url_slug\":\"bmw-blue-coupe\",\"f_brand\":20,\"brand_name\":\"BMW\",\"f_model\":2,\"model_name\":\"Other model\",\"prod_feature\":null,\"price\":286532,\"price_unit\":null,\"is_negotiable\":null,\"price_to\":null,\"vacanci\":null,\"business_function\":null,\"deadline\":null,\"company_name\":null,\"logo\":null,\"description\":\"BMW 2 Series Gran Coupe is available in Misano Blue Metallic. BMW 2 Series Gran Coupe is also available in 5 colours, namely, Apine White Non Metallic, Black Sapphire Metallic, Melbourne Red Metallic, Snapper Rocks Blue Metallic, Storm Bay.\",\"edition\":\"BMW 2 SERIES COUPE 2018\",\"authenticity\":\"original\",\"using_condition\":\"new\",\"prod_type\":null,\"mobile1\":\"94743488449\",\"mobile2\":null,\"is_hide_mobile1\":0,\"is_hide_mobile2\":0,\"model_year\":2018,\"registration_year\":2018,\"transmission\":\"Manual\",\"address\":\"Colombo\",\"body_type\":\"Estate\",\"fuel_type\":\"Diseel, Petrol\",\"engine_capacity\":3200,\"kilometers_run\":48000,\"bed_no\":null,\"bath_no\":null,\"land_size\":null,\"land_unit\":null,\"house_size\":null,\"house_unit\":null,\"property_address\":null,\"flat_size\":null,\"gender\":null,\"user_name\":\"Mubarak Hossain\",\"is_terms_condition\":0,\"comments\":null,\"is_active\":1,\"approved_by\":1,\"approved_at\":\"2022-12-19 16:32:08\",\"created_by\":null,\"created_at\":\"2022-12-13 17:38:37\",\"updated_by\":null,\"updated_at\":\"2023-01-03 15:20:41\",\"total_view\":17,\"is_delete\":0,\"deleted_by\":null,\"deleted_at\":null,\"promotion\":\"Basic\",\"promotion_to\":null,\"thumb\":\"7051671447399.jpg\",\"search_key\":\"nugegoda colombo general cars--buses BMW Blue Coupe BMW Other model286532 new94743488449ColomboBMW 2 Series Gran Coupe is available in Misano Blue Metallic. BMW 2 Series Gran Coupe is also available in 5 colours, namely, Apine White Non Metallic, Black Sapphire Metallic, Melbourne Red Metallic, Snapper Rocks Blue Metallic, Storm Bay.\"}', NULL, NULL, NULL, NULL, NULL, '292258319', 0, '292258319', '2419263626', 'processing', '{\"firstname\":\"Mokaddes\",\"lastname\":\"Hosain\",\"email\":\"mkds@gmail.com\",\"phone_number\":\"01750899448\",\"address\":\"Banani\",\"apartment\":\"17\",\"city\":\"Dhaka\",\"state\":\"Dhaka\",\"zip_code\":\"1206\",\"country\":\"Srilanka\",\"trams_condition\":\"1\",\"order_note\":\"Note\"}', '{\"bill_first_name\":\"Mokaddes\",\"bill_last_name\":\"Hosain\",\"bill_email\":\"mkds@gmail.com\",\"bill_phone_number\":\"01750899448\",\"bill_address\":\"Banani\",\"bill_apartment\":\"17\",\"bill_city\":\"Dhaka\",\"bill_state\":\"Dhaka\",\"bill_zip_code\":\"1206\",\"bill_country\":\"Srilanka\"}', 'paid', '2023-01-03 09:57:09', '2023-01-04 09:12:58', 0, NULL, NULL, 0, NULL),
-(2, 53, 38, 4, '250', '{\"pk_no\":38,\"ad_type\":\"sell\",\"area_id\":80,\"city_division\":\"city\",\"city_division_pk_no\":2,\"area_url_slug\":\"kandy-city\",\"city_division_url_slug\":\"kandy\",\"customer_pk_no\":51,\"main_category\":\"general\",\"f_cat_pk_no\":2,\"cat_url_slug\":\"electronics-gedgets\",\"f_scat_pk_no\":168,\"scat_url_slug\":\"mobile-phone-accessories\",\"code\":112,\"ad_title\":\"Dell core-i5 6th Gen 8GB DDR4 Ram\",\"url_slug\":\"dell-core-i5-6th-gen-8gb-ddr4-ram\",\"f_brand\":null,\"brand_name\":null,\"f_model\":null,\"model_name\":null,\"prod_feature\":null,\"price\":250,\"price_unit\":null,\"is_negotiable\":null,\"price_to\":null,\"vacanci\":null,\"business_function\":null,\"deadline\":null,\"company_name\":null,\"logo\":null,\"description\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\"edition\":null,\"authenticity\":\"original\",\"using_condition\":\"new\",\"prod_type\":null,\"mobile1\":\"94776628446\",\"mobile2\":null,\"is_hide_mobile1\":0,\"is_hide_mobile2\":0,\"model_year\":null,\"registration_year\":null,\"transmission\":null,\"address\":\"colombo\",\"body_type\":null,\"fuel_type\":null,\"engine_capacity\":null,\"kilometers_run\":null,\"bed_no\":null,\"bath_no\":null,\"land_size\":null,\"land_unit\":null,\"house_size\":null,\"house_unit\":null,\"property_address\":null,\"flat_size\":null,\"gender\":null,\"user_name\":\"Raihan\",\"is_terms_condition\":0,\"comments\":null,\"is_active\":1,\"approved_by\":1,\"approved_at\":\"2022-12-19 18:33:58\",\"created_by\":null,\"created_at\":\"2022-12-15 19:31:49\",\"updated_by\":null,\"updated_at\":\"2023-01-03 16:48:00\",\"total_view\":21,\"is_delete\":0,\"deleted_by\":null,\"deleted_at\":null,\"promotion\":\"Basic\",\"promotion_to\":null,\"thumb\":\"632441671455017.jpg\",\"search_key\":\"kandy-city kandy general mobile-phone-accessories Dell core-i5 6th Gen 8GB DDR4 Ram  250 new94776628446colomboLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"}', NULL, NULL, NULL, NULL, NULL, '781661678', 0, '781661678', '2419368753', 'pending', '{\"firstname\":\"Mokaddes\",\"lastname\":\"Hosain\",\"email\":\"mkds@gmail.com\",\"phone_number\":\"01750899448\",\"address\":\"Banani\",\"apartment\":\"17\",\"city\":\"Dhaka\",\"state\":\"Dhaka\",\"zip_code\":\"1206\",\"country\":\"Srilanka\",\"trams_condition\":\"1\",\"order_note\":\"Note\"}', '{\"bill_first_name\":\"Mokaddes\",\"bill_last_name\":\"Hosain\",\"bill_email\":\"mkds@gmail.com\",\"bill_phone_number\":\"01750899448\",\"bill_address\":\"Banani\",\"bill_apartment\":\"17\",\"bill_city\":\"Dhaka\",\"bill_state\":\"Dhaka\",\"bill_zip_code\":\"1206\",\"bill_country\":\"Srilanka\"}', 'paid', '2023-01-03 10:48:26', '2023-01-03 10:48:26', 0, NULL, NULL, 0, NULL),
-(3, 53, 38, 4, '250', '{\"pk_no\":38,\"ad_type\":\"sell\",\"area_id\":80,\"city_division\":\"city\",\"city_division_pk_no\":2,\"area_url_slug\":\"kandy-city\",\"city_division_url_slug\":\"kandy\",\"customer_pk_no\":51,\"main_category\":\"general\",\"f_cat_pk_no\":2,\"cat_url_slug\":\"electronics-gedgets\",\"f_scat_pk_no\":168,\"scat_url_slug\":\"mobile-phone-accessories\",\"code\":112,\"ad_title\":\"Dell core-i5 6th Gen 8GB DDR4 Ram\",\"url_slug\":\"dell-core-i5-6th-gen-8gb-ddr4-ram\",\"f_brand\":null,\"brand_name\":null,\"f_model\":null,\"model_name\":null,\"prod_feature\":null,\"price\":250,\"price_unit\":null,\"is_negotiable\":null,\"price_to\":null,\"vacanci\":null,\"business_function\":null,\"deadline\":null,\"company_name\":null,\"logo\":null,\"description\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\"edition\":null,\"authenticity\":\"original\",\"using_condition\":\"new\",\"prod_type\":null,\"mobile1\":\"94776628446\",\"mobile2\":null,\"is_hide_mobile1\":0,\"is_hide_mobile2\":0,\"model_year\":null,\"registration_year\":null,\"transmission\":null,\"address\":\"colombo\",\"body_type\":null,\"fuel_type\":null,\"engine_capacity\":null,\"kilometers_run\":null,\"bed_no\":null,\"bath_no\":null,\"land_size\":null,\"land_unit\":null,\"house_size\":null,\"house_unit\":null,\"property_address\":null,\"flat_size\":null,\"gender\":null,\"user_name\":\"Raihan\",\"is_terms_condition\":0,\"comments\":null,\"is_active\":1,\"approved_by\":1,\"approved_at\":\"2022-12-19 18:33:58\",\"created_by\":null,\"created_at\":\"2022-12-15 19:31:49\",\"updated_by\":null,\"updated_at\":\"2023-01-03 16:48:00\",\"total_view\":21,\"is_delete\":0,\"deleted_by\":null,\"deleted_at\":null,\"promotion\":\"Basic\",\"promotion_to\":null,\"thumb\":\"632441671455017.jpg\",\"search_key\":\"kandy-city kandy general mobile-phone-accessories Dell core-i5 6th Gen 8GB DDR4 Ram  250 new94776628446colomboLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"}', NULL, NULL, NULL, NULL, NULL, '541337787', 0, '541337787', '2419371355', 'pending', '{\"firstname\":\"Mokaddes\",\"lastname\":\"Hosain\",\"email\":\"mkds@gmail.com\",\"phone_number\":\"01750899448\",\"address\":\"Banani\",\"apartment\":\"17\",\"city\":\"Dhaka\",\"state\":\"Dhaka\",\"zip_code\":\"1206\",\"country\":\"Srilanka\",\"trams_condition\":\"1\",\"order_note\":\"Note\"}', '{\"bill_first_name\":\"Mokaddes\",\"bill_last_name\":\"Hosain\",\"bill_email\":\"mkds@gmail.com\",\"bill_phone_number\":\"01750899448\",\"bill_address\":\"Banani\",\"bill_apartment\":\"17\",\"bill_city\":\"Dhaka\",\"bill_state\":\"Dhaka\",\"bill_zip_code\":\"1206\",\"bill_country\":\"Srilanka\"}', 'paid', '2023-01-03 10:49:43', '2023-01-03 10:49:43', 0, NULL, NULL, 0, NULL),
-(4, 53, 38, 4, '250', '{\"pk_no\":38,\"ad_type\":\"sell\",\"area_id\":80,\"city_division\":\"city\",\"city_division_pk_no\":2,\"area_url_slug\":\"kandy-city\",\"city_division_url_slug\":\"kandy\",\"customer_pk_no\":51,\"main_category\":\"general\",\"f_cat_pk_no\":2,\"cat_url_slug\":\"electronics-gedgets\",\"f_scat_pk_no\":168,\"scat_url_slug\":\"mobile-phone-accessories\",\"code\":112,\"ad_title\":\"Dell core-i5 6th Gen 8GB DDR4 Ram\",\"url_slug\":\"dell-core-i5-6th-gen-8gb-ddr4-ram\",\"f_brand\":null,\"brand_name\":null,\"f_model\":null,\"model_name\":null,\"prod_feature\":null,\"price\":250,\"price_unit\":null,\"is_negotiable\":null,\"price_to\":null,\"vacanci\":null,\"business_function\":null,\"deadline\":null,\"company_name\":null,\"logo\":null,\"description\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\"edition\":null,\"authenticity\":\"original\",\"using_condition\":\"new\",\"prod_type\":null,\"mobile1\":\"94776628446\",\"mobile2\":null,\"is_hide_mobile1\":0,\"is_hide_mobile2\":0,\"model_year\":null,\"registration_year\":null,\"transmission\":null,\"address\":\"colombo\",\"body_type\":null,\"fuel_type\":null,\"engine_capacity\":null,\"kilometers_run\":null,\"bed_no\":null,\"bath_no\":null,\"land_size\":null,\"land_unit\":null,\"house_size\":null,\"house_unit\":null,\"property_address\":null,\"flat_size\":null,\"gender\":null,\"user_name\":\"Raihan\",\"is_terms_condition\":0,\"comments\":null,\"is_active\":1,\"approved_by\":1,\"approved_at\":\"2022-12-19 18:33:58\",\"created_by\":null,\"created_at\":\"2022-12-15 19:31:49\",\"updated_by\":null,\"updated_at\":\"2023-01-03 16:48:00\",\"total_view\":21,\"is_delete\":0,\"deleted_by\":null,\"deleted_at\":null,\"promotion\":\"Basic\",\"promotion_to\":null,\"thumb\":\"632441671455017.jpg\",\"search_key\":\"kandy-city kandy general mobile-phone-accessories Dell core-i5 6th Gen 8GB DDR4 Ram  250 new94776628446colomboLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"}', NULL, NULL, NULL, NULL, NULL, '311129063', 0, '311129063', '2419373558', 'pending', '{\"firstname\":\"Mokaddes\",\"lastname\":\"Hosain\",\"email\":\"mkds@gmail.com\",\"phone_number\":\"01750899448\",\"address\":\"Banani\",\"apartment\":\"17\",\"city\":\"Dhaka\",\"state\":\"Dhaka\",\"zip_code\":\"1206\",\"country\":\"Srilanka\",\"trams_condition\":\"1\",\"order_note\":\"Note\"}', '{\"bill_first_name\":\"Mokaddes\",\"bill_last_name\":\"Hosain\",\"bill_email\":\"mkds@gmail.com\",\"bill_phone_number\":\"01750899448\",\"bill_address\":\"Banani\",\"bill_apartment\":\"17\",\"bill_city\":\"Dhaka\",\"bill_state\":\"Dhaka\",\"bill_zip_code\":\"1206\",\"bill_country\":\"Srilanka\"}', 'paid', '2023-01-03 10:50:51', '2023-01-03 10:50:51', 0, NULL, NULL, 0, NULL),
-(5, 53, 38, 4, '250', '{\"pk_no\":38,\"ad_type\":\"sell\",\"area_id\":80,\"city_division\":\"city\",\"city_division_pk_no\":2,\"area_url_slug\":\"kandy-city\",\"city_division_url_slug\":\"kandy\",\"customer_pk_no\":51,\"main_category\":\"general\",\"f_cat_pk_no\":2,\"cat_url_slug\":\"electronics-gedgets\",\"f_scat_pk_no\":168,\"scat_url_slug\":\"mobile-phone-accessories\",\"code\":112,\"ad_title\":\"Dell core-i5 6th Gen 8GB DDR4 Ram\",\"url_slug\":\"dell-core-i5-6th-gen-8gb-ddr4-ram\",\"f_brand\":null,\"brand_name\":null,\"f_model\":null,\"model_name\":null,\"prod_feature\":null,\"price\":250,\"price_unit\":null,\"is_negotiable\":null,\"price_to\":null,\"vacanci\":null,\"business_function\":null,\"deadline\":null,\"company_name\":null,\"logo\":null,\"description\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\"edition\":null,\"authenticity\":\"original\",\"using_condition\":\"new\",\"prod_type\":null,\"mobile1\":\"94776628446\",\"mobile2\":null,\"is_hide_mobile1\":0,\"is_hide_mobile2\":0,\"model_year\":null,\"registration_year\":null,\"transmission\":null,\"address\":\"colombo\",\"body_type\":null,\"fuel_type\":null,\"engine_capacity\":null,\"kilometers_run\":null,\"bed_no\":null,\"bath_no\":null,\"land_size\":null,\"land_unit\":null,\"house_size\":null,\"house_unit\":null,\"property_address\":null,\"flat_size\":null,\"gender\":null,\"user_name\":\"Raihan\",\"is_terms_condition\":0,\"comments\":null,\"is_active\":1,\"approved_by\":1,\"approved_at\":\"2022-12-19 18:33:58\",\"created_by\":null,\"created_at\":\"2022-12-15 19:31:49\",\"updated_by\":null,\"updated_at\":\"2023-01-03 16:48:00\",\"total_view\":21,\"is_delete\":0,\"deleted_by\":null,\"deleted_at\":null,\"promotion\":\"Basic\",\"promotion_to\":null,\"thumb\":\"632441671455017.jpg\",\"search_key\":\"kandy-city kandy general mobile-phone-accessories Dell core-i5 6th Gen 8GB DDR4 Ram  250 new94776628446colomboLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"}', NULL, NULL, NULL, NULL, NULL, '878868960', 0, '878868960', '2419374485', 'pending', '{\"firstname\":\"Mokaddes\",\"lastname\":\"Hosain\",\"email\":\"mkds@gmail.com\",\"phone_number\":\"01750899448\",\"address\":\"Banani\",\"apartment\":\"17\",\"city\":\"Dhaka\",\"state\":\"Dhaka\",\"zip_code\":\"1206\",\"country\":\"Srilanka\",\"trams_condition\":\"1\",\"order_note\":\"Note\"}', '{\"bill_first_name\":\"Mokaddes\",\"bill_last_name\":\"Hosain\",\"bill_email\":\"mkds@gmail.com\",\"bill_phone_number\":\"01750899448\",\"bill_address\":\"Banani\",\"bill_apartment\":\"17\",\"bill_city\":\"Dhaka\",\"bill_state\":\"Dhaka\",\"bill_zip_code\":\"1206\",\"bill_country\":\"Srilanka\"}', 'paid', '2023-01-03 10:51:16', '2023-01-03 10:51:16', 0, NULL, NULL, 0, NULL),
-(6, 53, 38, 4, '250', '{\"pk_no\":38,\"ad_type\":\"sell\",\"area_id\":80,\"city_division\":\"city\",\"city_division_pk_no\":2,\"area_url_slug\":\"kandy-city\",\"city_division_url_slug\":\"kandy\",\"customer_pk_no\":51,\"main_category\":\"general\",\"f_cat_pk_no\":2,\"cat_url_slug\":\"electronics-gedgets\",\"f_scat_pk_no\":168,\"scat_url_slug\":\"mobile-phone-accessories\",\"code\":112,\"ad_title\":\"Dell core-i5 6th Gen 8GB DDR4 Ram\",\"url_slug\":\"dell-core-i5-6th-gen-8gb-ddr4-ram\",\"f_brand\":null,\"brand_name\":null,\"f_model\":null,\"model_name\":null,\"prod_feature\":null,\"price\":250,\"price_unit\":null,\"is_negotiable\":null,\"price_to\":null,\"vacanci\":null,\"business_function\":null,\"deadline\":null,\"company_name\":null,\"logo\":null,\"description\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\"edition\":null,\"authenticity\":\"original\",\"using_condition\":\"new\",\"prod_type\":null,\"mobile1\":\"94776628446\",\"mobile2\":null,\"is_hide_mobile1\":0,\"is_hide_mobile2\":0,\"model_year\":null,\"registration_year\":null,\"transmission\":null,\"address\":\"colombo\",\"body_type\":null,\"fuel_type\":null,\"engine_capacity\":null,\"kilometers_run\":null,\"bed_no\":null,\"bath_no\":null,\"land_size\":null,\"land_unit\":null,\"house_size\":null,\"house_unit\":null,\"property_address\":null,\"flat_size\":null,\"gender\":null,\"user_name\":\"Raihan\",\"is_terms_condition\":0,\"comments\":null,\"is_active\":1,\"approved_by\":1,\"approved_at\":\"2022-12-19 18:33:58\",\"created_by\":null,\"created_at\":\"2022-12-15 19:31:49\",\"updated_by\":null,\"updated_at\":\"2023-01-03 16:48:00\",\"total_view\":21,\"is_delete\":0,\"deleted_by\":null,\"deleted_at\":null,\"promotion\":\"Basic\",\"promotion_to\":null,\"thumb\":\"632441671455017.jpg\",\"search_key\":\"kandy-city kandy general mobile-phone-accessories Dell core-i5 6th Gen 8GB DDR4 Ram  250 new94776628446colomboLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"}', NULL, NULL, NULL, NULL, NULL, '876140270', 0, '876140270', '2419382084', 'pending', '{\"firstname\":\"Mokaddes\",\"lastname\":\"Hosain\",\"email\":\"mkds@gmail.com\",\"phone_number\":\"01750899448\",\"address\":\"Banani\",\"apartment\":\"17\",\"city\":\"Dhaka\",\"state\":\"Dhaka\",\"zip_code\":\"1206\",\"country\":\"Srilanka\",\"trams_condition\":\"1\",\"order_note\":\"Note\"}', '{\"bill_first_name\":\"Mokaddes\",\"bill_last_name\":\"Hosain\",\"bill_email\":\"mkds@gmail.com\",\"bill_phone_number\":\"01750899448\",\"bill_address\":\"Banani\",\"bill_apartment\":\"17\",\"bill_city\":\"Dhaka\",\"bill_state\":\"Dhaka\",\"bill_zip_code\":\"1206\",\"bill_country\":\"Srilanka\"}', 'paid', '2023-01-03 10:55:04', '2023-01-03 10:55:04', 0, NULL, NULL, 0, NULL);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `page_about_us`
 --
 
@@ -394,14 +398,14 @@ CREATE TABLE `page_about_us` (
   `our_values_sl` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_about_us`
 --
 
 INSERT INTO `page_about_us` (`id`, `image`, `details_en`, `details_sl`, `mission_en`, `mission_sl`, `vision_en`, `vision_sl`, `our_values_en`, `our_values_sl`, `created_at`, `updated_at`) VALUES
-(1, 'media/about/about-63bd2465945d5.webp', '<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '<p>ok2list.com 2018 දෙසැම්බර් මාසයේදී දියත් කරන ලද්දේ වෙබ් අඩවි වත්මන් වෙළඳපොල සමඟ අමුත්තන් වර්ගීකරණය කරන ලද වෙබ් අඩවි සඳහා විකල්පයක් සොයන අයගේ අවශ්&zwj;යතා සම්පූර්ණ කිරීම සඳහා ය. අපගේ දැක්ම වන්නේ හොඳම මාර්ගගත වර්ගීකරණය කරන ලද වෙබ් අඩවියක් තැනීමයි. මෙය සාක්ෂාත් කර ගැනීම සඳහා, අපි වඩාත් ජනප්&zwj;රිය වෙබ් අඩවි වල හොඳම විශේෂාංග ගෙන ඒවා වෙනත් තරඟකරුවන් විසින් සොයා නොගත් සහ ඉදිරිපත් නොකළ බොහෝ නව අභිරුචි විශේෂාංග සමඟ ඒකාබද්ධ කර ඒවා එක තැනකට තැබුවෙමු. ඒ ok2list.com ය.</p>\r\n\r\n<p>Ok2list.com ඔබේ දැන්වීම් කෙරෙහි වැඩි පරිශීලක පාලනයකට ඉඩ දෙන අතරම වඩා හොඳ පරිශීලක අත්දැකීමක් ලබා දෙයි. අපි කුඩා ගාස්තුවකට අපගේ වාරික විශේෂාංග (ගෙවුම් සේවා) වෙත උත්ශ්&zwj;රේණි කිරීමේ හැකියාව සමඟින් නොමිලේ වර්ගීකරණය කළ දැන්වීම් පිරිනමන්නෙමු. අපගේ සාමාජිකත්වය භාවිතා කිරීමට සහ ඔබේ දැන්වීම් දායක සේවා ප්&zwj;රවර්ධනය කිරීමට අපි අපගේ ව්&zwj;යාපාරික පරිශීලකයින් දිරිමත් කරමු. Ok2list.com ඔබගේ ව්&zwj;යාපාරයට අපගේ වෙබ් අඩවියේ අභිරුචි පැවතීමට ඉඩ සලසයි.</p>\r\n\r\n<p>ok2list.com මඟින් පරිශීලකයින්ට වේගයෙන් පෙනෙන දේ හරියටම සොයා ගැනීමට හැකි වූ අතර පරිශීලකයින්ට මිනිත්තු 2 ක් තුළ දැන්වීමක් පළ කිරීමට හැකි විය. පරිශීලකයින්ට නොමිලේ ගිණුමක් සඳහා ලියාපදිංචි විය හැකි අතර සෑම විටම පහසුවෙන් දැන්වීම් පළ කළ හැකිය.</p>\r\n\r\n<p>දැනට, පවතින නවීන තාක්&zwj;ෂණය අනුව තව දුරටත් වැඩිදියුණු කිරීමට සහ ජංගම යෙදුම් සැපයීමට අපි තවමත් කටයුතු කරමින් සිටිමු.</p>\r\n\r\n<p>අපි ඔබේ හඬට, අදහසට සහ නිර්දේශයට ගරු කරන අතර contacts@theqsweek.com හි ඔබේ අදහස අපට දන්වන්නෙමු.</p>\r\n\r\n<p>ok2list.com භාවිතා කිරීම ගැන ඔබට ස්තුතියි</p>', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'පුද්ගල පද්ධති සහ තාක්‍ෂණය සඳහා ඇති කැපවීම තුළින්, ok2list.com ශ්‍රී ලංකාවේ සහ කලාපයේ ප්‍රමුඛ පෙළේ මාර්ගගත වර්ගීකරණයක් ලෙස අපගේ තත්ත්වය ගොඩනඟා ගනිමින්, අපගේ ගනුදෙනුකරුවන්ට වටිනාකමක් ලබා දීමට අපි පෙරමුණ ගනිමු.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'පුද්ගල පද්ධති සහ තාක්‍ෂණය සඳහා ඇති කැපවීම තුළින්, ok2list.com ශ්‍රී ලංකාවේ සහ කලාපයේ ප්‍රමුඛ පෙළේ මාර්ගගත වර්ගීකරණයක් ලෙස අපගේ තත්ත්වය ගොඩනඟා ගනිමින්, අපගේ ගනුදෙනුකරුවන්ට වටිනාකමක් ලබා දීමට අපි පෙරමුණ ගනිමු.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 'පුද්ගල පද්ධති සහ තාක්‍ෂණය සඳහා ඇති කැපවීම තුළින්, ok2list.com ශ්‍රී ලංකාවේ සහ කලාපයේ ප්‍රමුඛ පෙළේ මාර්ගගත වර්ගීකරණයක් ලෙස අපගේ තත්ත්වය ගොඩනඟා ගනිමින්, අපගේ ගනුදෙනුකරුවන්ට වටිනාකමක් ලබා දීමට අපි පෙරමුණ ගනිමු.', NULL, NULL);
+(1, 'media/about/about-63b69c23c5527.jfif', '<p>The ok2list.com was launched in December 2018 to full fill the need of those looking for an alternative to site current market online classified websites. Our vision is to build the best online classified site. To accomplish this, we took the best features of the most popular sites and combined them with many new custom features, not invented and offered by other competitors, and put them into one place. That&rsquo;s ok2list.com.</p>\r\n\r\n<p>Ok2list.com delivers a better user experience while allowing more user control over your ads. We offer FREE Classified Ads, along with the ability to upgrade to our premium features (paid services) for a small fee. We encourage our business users to use our membership and promote your ad subscription services. Ok2list.com allows your business to have custom presence on our site.</p>\r\n\r\n<p>ok2list.com made users to find exactly what users looking in a fast way and users be able to post an ad within 2 minutes. Users can sign up for a free account and post ads easily every time.</p>\r\n\r\n<p>Currently, we are still working on improving further as per latest technology available and to provide the Mobile applications.</p>\r\n\r\n<p>We respect your voice, opinion and recommendation and let us know your thought at&nbsp;<strong>contacts@theqsweek.com.</strong></p>\r\n\r\n<p>Thank you for using ok2list.com</p>', '<p>ok2list.com 2018 දෙසැම්බර් මාසයේදී දියත් කරන ලද්දේ වෙබ් අඩවි වත්මන් වෙළඳපොල සමඟ අමුත්තන් වර්ගීකරණය කරන ලද වෙබ් අඩවි සඳහා විකල්පයක් සොයන අයගේ අවශ්&zwj;යතා සම්පූර්ණ කිරීම සඳහා ය. අපගේ දැක්ම වන්නේ හොඳම මාර්ගගත වර්ගීකරණය කරන ලද වෙබ් අඩවියක් තැනීමයි. මෙය සාක්ෂාත් කර ගැනීම සඳහා, අපි වඩාත් ජනප්&zwj;රිය වෙබ් අඩවි වල හොඳම විශේෂාංග ගෙන ඒවා වෙනත් තරඟකරුවන් විසින් සොයා නොගත් සහ ඉදිරිපත් නොකළ බොහෝ නව අභිරුචි විශේෂාංග සමඟ ඒකාබද්ධ කර ඒවා එක තැනකට තැබුවෙමු. ඒ ok2list.com ය.</p>\r\n\r\n<p>Ok2list.com ඔබේ දැන්වීම් කෙරෙහි වැඩි පරිශීලක පාලනයකට ඉඩ දෙන අතරම වඩා හොඳ පරිශීලක අත්දැකීමක් ලබා දෙයි. අපි කුඩා ගාස්තුවකට අපගේ වාරික විශේෂාංග (ගෙවුම් සේවා) වෙත උත්ශ්&zwj;රේණි කිරීමේ හැකියාව සමඟින් නොමිලේ වර්ගීකරණය කළ දැන්වීම් පිරිනමන්නෙමු. අපගේ සාමාජිකත්වය භාවිතා කිරීමට සහ ඔබේ දැන්වීම් දායක සේවා ප්&zwj;රවර්ධනය කිරීමට අපි අපගේ ව්&zwj;යාපාරික පරිශීලකයින් දිරිමත් කරමු. Ok2list.com ඔබගේ ව්&zwj;යාපාරයට අපගේ වෙබ් අඩවියේ අභිරුචි පැවතීමට ඉඩ සලසයි.</p>\r\n\r\n<p>ok2list.com මඟින් පරිශීලකයින්ට වේගයෙන් පෙනෙන දේ හරියටම සොයා ගැනීමට හැකි වූ අතර පරිශීලකයින්ට මිනිත්තු 2 ක් තුළ දැන්වීමක් පළ කිරීමට හැකි විය. පරිශීලකයින්ට නොමිලේ ගිණුමක් සඳහා ලියාපදිංචි විය හැකි අතර සෑම විටම පහසුවෙන් දැන්වීම් පළ කළ හැකිය.</p>\r\n\r\n<p>දැනට, පවතින නවීන තාක්&zwj;ෂණය අනුව තව දුරටත් වැඩිදියුණු කිරීමට සහ ජංගම යෙදුම් සැපයීමට අපි තවමත් කටයුතු කරමින් සිටිමු.</p>\r\n\r\n<p>අපි ඔබේ හඬට, අදහසට සහ නිර්දේශයට ගරු කරන අතර contacts@theqsweek.com හි ඔබේ අදහස අපට දන්වන්නෙමු.</p>\r\n\r\n<p>ok2list.com භාවිතා කිරීම ගැන ඔබට ස්තුතියි</p>', 'We lead the way in providing value to our customers, by building our position as the reference ok2list.com is the leading online classified in srilanka and in the region.', 'පුද්ගල පද්ධති සහ තාක්‍ෂණය සඳහා ඇති කැපවීම තුළින්, ok2list.com ශ්‍රී ලංකාවේ සහ කලාපයේ ප්‍රමුඛ පෙළේ මාර්ගගත වර්ගීකරණයක් ලෙස අපගේ තත්ත්වය ගොඩනඟා ගනිමින්, අපගේ ගනුදෙනුකරුවන්ට වටිනාකමක් ලබා දීමට අපි පෙරමුණ ගනිමු.', 'Through commitment to people systems and technologylding our position as the reference ok2list.com is the leading online classified in srilanka and in the region.', 'පුද්ගල පද්ධති සහ තාක්‍ෂණය සඳහා ඇති කැපවීම තුළින්, ok2list.com ශ්‍රී ලංකාවේ සහ කලාපයේ ප්‍රමුඛ පෙළේ මාර්ගගත වර්ගීකරණයක් ලෙස අපගේ තත්ත්වය ගොඩනඟා ගනිමින්, අපගේ ගනුදෙනුකරුවන්ට වටිනාකමක් ලබා දීමට අපි පෙරමුණ ගනිමු.', 'Building our position as the reference ok2list.com is the leading online classified in srilanka and in the region.', 'පුද්ගල පද්ධති සහ තාක්‍ෂණය සඳහා ඇති කැපවීම තුළින්, ok2list.com ශ්‍රී ලංකාවේ සහ කලාපයේ ප්‍රමුඛ පෙළේ මාර්ගගත වර්ගීකරණයක් ලෙස අපගේ තත්ත්වය ගොඩනඟා ගනිමින්, අපගේ ගනුදෙනුකරුවන්ට වටිනාකමක් ලබා දීමට අපි පෙරමුණ ගනිමු.', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -413,7 +417,7 @@ CREATE TABLE `page_how_sell_fast` (
   `id` int(10) NOT NULL,
   `description` text DEFAULT NULL,
   `description_sl` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_how_sell_fast`
@@ -432,7 +436,7 @@ CREATE TABLE `page_membership` (
   `id` int(10) NOT NULL,
   `description` text DEFAULT NULL,
   `description_sl` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_membership`
@@ -455,7 +459,7 @@ CREATE TABLE `page_privacy_policy` (
   `rules_sl` longtext DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_privacy_policy`
@@ -474,7 +478,7 @@ CREATE TABLE `page_promote` (
   `id` int(10) NOT NULL,
   `description` text DEFAULT NULL,
   `description_sl` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_promote`
@@ -493,7 +497,7 @@ CREATE TABLE `page_promotions` (
   `id` int(10) NOT NULL,
   `description` text DEFAULT NULL,
   `description_sl` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_promotions`
@@ -516,7 +520,7 @@ CREATE TABLE `page_sidebar` (
   `support_sl` text DEFAULT NULL,
   `easy_trading_en` text DEFAULT NULL,
   `easy_trading_sl` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_sidebar`
@@ -539,7 +543,7 @@ CREATE TABLE `page_sidebar_info` (
   `support_sl` text DEFAULT NULL,
   `easy_trading_en` text DEFAULT NULL,
   `easy_trading_sl` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_sidebar_info`
@@ -562,14 +566,14 @@ CREATE TABLE `page_terms_conditions` (
   `rules_sl` longtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `page_terms_conditions`
 --
 
 INSERT INTO `page_terms_conditions` (`id`, `details_en`, `details_sl`, `rules_en`, `rules_sl`, `created_at`, `updated_at`) VALUES
-(1, '<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '<p>නියම සහ කොන්දේසි<br />\r\nහැදින්වීම</p>\r\n\r\n<p>QS Week (Pvt.) Ltd යනු සීමිත වගකීම් සහිත සමාගමකි, එහි ලියාපදිංචි අංකය PV89070 (මෙතැන් සිට &quot;සමාගම&quot;) වන අතර www.ok2list.com වෙබ් අඩවිය හරහා ලුහුඬු දැන්වීම් සහ කතාබස් සේවා ඇතුළත් මාර්ගගත ලුහුබැඳීම් සේවාවක් සපයයි (මින් ඉදිරියට යොමු කෙරේ. &quot;වෙබ් අඩවිය&quot;).</p>\r\n\r\n<p>වෙබ් අඩවිය හරහා සපයනු ලබන සේවාවන් පහත දක්වා ඇති සැකසුම් නියමයන් සහ කොන්දේසි (මෙතැන් සිට &quot;කොන්දේසි&quot;) සමඟ පරිශීලක සහ දැන්වීම්කරුගේ අනුකූලතාවයට යටත් වේ.</p>\r\n\r\n<p>නියමයන් භාවිතා කරන්නේ කෙසේද</p>\r\n\r\n<p>පියවර 1: මෙම වෙබ් අඩවිය භාවිතා කිරීමට පෙර කොන්දේසි කියවා අවබෝධ කර ගැනීම පරිශීලකයාගේ වගකීමකි.<br />\r\nපියවර 2: මෙම වෙබ් අඩවිය භාවිතා කිරීමෙන්, පරිශීලකයා මෙම වෙබ් අඩවියේ කොන්දේසි වලට එකඟ වන අතර ඒවාට බැඳී සිටී.<br />\r\nපියවර 3: පරිශීලකයා කොන්දේසි වලට එකඟ නොවන්නේ නම්, එවැනි පරිශීලකයෙකු මෙම වෙබ් අඩවිය භාවිතා නොකරයි.<br />\r\nනියම සහ කොන්දේසි (&quot;නියම&quot;)</p>\r\n\r\n<p>මෙම නියමයන් ලියා යාවත්කාලීන කරන ලද්දේ 2019 ජනවාරි මාසයේදීය. අපගේ වෙබ් අඩවියේ නව නියමයන් ප්&zwj;රකාශයට පත් කිරීමෙන් ඕනෑම වේලාවක වෙබ් අඩවිය භාවිතා කිරීම සඳහා අපගේ ඕනෑම හෝ සියලුම භාවිත නියමයන් හෝ වෙනත් කොන්දේසි වෙනස් කිරීමට සමාගමට අයිතිය ඇත.</p>\r\n\r\n<p>අර්ථ දැක්වීම්:</p>\r\n\r\n<p>මෙම නියමයන් තුළ පහත සඳහන් වචන සහ ප්&zwj;රකාශනවලට පිළිවෙළින් පවරා ඇති අර්ථයන් තිබිය යුතුය;</p>\r\n\r\n<p>&ldquo;දැන්වීම්කරු&rdquo; යන්නෙන් අදහස් වන්නේ වෙබ් අඩවියේ අන්තර්ගතය උඩුගත කරන පුද්ගලයා හෝ පුද්ගලයන්ය.</p>\r\n\r\n<p>&quot;සමාගම&quot; යන්නෙන් අදහස් වන්නේ QS Week (Pvt) Ltd</p>\r\n\r\n<p>&ldquo;අන්තර්ගතය&rdquo; යන්නෙන් අදහස් වන්නේ රටේ සියලුම අදාළ නීතිවලට සම්පූර්ණයෙන්ම අනුකූල වන පරිදි වෙබ් අඩවියට ඇතුළත් කිරීම සඳහා උඩුගත කරන ලද (දැන්වීම්කරු විසින්) සියලුම පළ කිරීම්, පණිවිඩ, පෙළ, ගොනු, පින්තූර, ඡායාරූප, වීඩියෝ, ශබ්ද හෝ වෙනත් ද්&zwj;රව්&zwj;ය ය. සමාගම සහ වෙබ් අඩවිය කිසියම් නීතිවිරෝධී හෝ අන්තර්ගතයේ සාවද්&zwj;ය භාවයක් සඳහා කිසිදු වගකීමක් භාර නොගනී.</p>\r\n\r\n<p>&quot;පරිශීලක&quot; යන්නෙන් අදහස් වන්නේ වෙබ් අඩවියේ ඕනෑම අන්තර්ගතයක්, දත්තයක් හෝ තොරතුරක් භාවිතා කරන, බ්&zwj;රවුස් කරන හෝ ප්&zwj;රවේශ කරන පුද්ගලයා හෝ පුද්ගලයන්ය.</p>\r\n\r\n<p>&quot;වෙබ් අඩවිය&quot; යන්නෙන් අදහස් වන්නේ www.ok2list.com යන්නයි</p>\r\n\r\n<p>&ldquo;Watermark&rdquo; යන්නෙන් අදහස් වන්නේ, වෙළඳ ප්&zwj;රචාරකයාගේ අනුමැතියකින් තොරව රූප වෙනත් අරමුණු සඳහා භාවිත කිරීම වළක්වන (www.ok2list.com) සලකුණ රූපවල දිස් වීමයි.</p>\r\n\r\n<p>අන්තර්ගතය</p>\r\n\r\n<p>සියලුම පළ කිරීම්, පණිවිඩ, පෙළ, ලිපිගොනු, පින්තූර, ඡායාරූප, වීඩියෝ, ශබ්ද, හෝ වෙනත් ද්&zwj;රව්&zwj;ය (&quot;අන්තර්ගතය&quot;) වෙබ් අඩවිය හරහා සම්ප්&zwj;රේෂණය කරන ලද හෝ සබැඳි කර ඇති අතර, ඒවා දැන්වීම්කරුගේ සම්පූර්ණ වගකීම බව දැන්වීම්කරු එකඟ වේ. එවැනි අන්තර්ගතයක් ආරම්භ විය. වඩාත් නිශ්චිතව, ඔහු හෝ ඇය පළ කරන, විද්&zwj;යුත් තැපෑල හෝ වෙනත් ආකාරයකින් වෙබ් අඩවිය හරහා ලබා ගත හැකි සියලුම අන්තර්ගතයන් සඳහා දැන්වීම්කරු සම්පූර්ණයෙන්ම වගකිව යුතුය. වෙබ් අඩවිය හරහා ලබා ගත හැකි අන්තර්ගතයන් සමාගම විසින් පාලනය නොකරන බවත් ඒවාට වගකිව යුතු නොවන බවත්, වෙබ් අඩවිය භාවිතා කිරීමෙන්, අහිතකර, අශෝභන, සාවද්&zwj;ය, නොමඟ යවන හෝ වෙනත් ආකාරයකින් විරුද්ධ විය හැකි අන්තර්ගතයන්ට දැන්වීම්කරු නිරාවරණය විය හැකි බවට දැන්වීම්කරු එකඟ වේ. ප්&zwj;රචාරකයා ඔහු හෝ ඇය යම්කිසි අන්තර්ගතයක භාවිතය ඇගයීමට ලක් කළ යුතු බවටත්, ඒ හා සම්බන්ධ සියලු අවදානම් දරාගත යුතු බවටත් එකඟ වන අතර, ඔහු හෝ ඇය එම අන්තර්ගතය මත විශ්වාසය නොතැබිය යුතු අතර, කිසිම අවස්ථාවක වෙබ් අඩවිය අන්තර්ගතය පූර්ව-තිරීක්ෂණ හෝ අනුමත නොකරන නමුත්, වෙබ් අඩවිය හරහා ලබා ගත හැකි ඕනෑම අන්තර්ගතයක් ප්&zwj;රතික්ෂේප කිරීමට, මකා දැමීමට හෝ ගෙන යාමට, නියමවල ලිපිය හෝ ආත්මය උල්ලංඝනය කිරීම හෝ වෙනත් හේතුවක් නිසා වෙබ් අඩවියට එහි තනි අභිමතය පරිදි අයිතියක් ඇත (නමුත් වගකීමක් නොවේ).</p>\r\n\r\n<p>නීතියෙන් හෝ සද්භාවයෙන් එසේ කිරීමට අවශ්&zwj;ය නම්, වෙබ් අඩවියට එහි තනි අභිමතය පරිදි, අන්තර්ගතය සංරක්ෂණය හෝ හෙළිදරව් කිරීම මෙන්ම විද්&zwj;යුත් තැපැල් ලිපින, IP ලිපින, වේලා මුද්&zwj;රා, සහ වෙනත් පරිශීලක තොරතුරු ද කළ හැකි බව දැන්වීම්කරු පිළිගෙන එකඟ වේ. හෝ හෙළිදරව් කිරීම සාධාරණ ලෙස අවශ්&zwj;ය වේ: නීතිමය ක්&zwj;රියාවලියට අනුකූල වීම; නියමයන් ක්රියාත්මක කිරීම; ඕනෑම අන්තර්ගතයක් තෙවන පාර්ශ්වයන්ගේ අයිතිවාසිකම් උල්ලංඝනය කරන බවට ප්&zwj;රතිචාර දක්වන්න; හෝ වෙබ් අඩවියේ, එහි පරිශීලකයන්ගේ හෝ සාමාන්&zwj;ය ජනතාවගේ අයිතිවාසිකම්, දේපළ හෝ පුද්ගලික ආරක්ෂාව ආරක්ෂා කිරීම.</p>\r\n\r\n<p>ප්&zwj;රකාශන හිමිකම් නීති සහ ජාත්&zwj;යන්තර සම්මුතීන්ට අනුකූලව සාමූහික කාර්යයක් සහ/හෝ සම්පාදනයක් ලෙස ප්&zwj;රකාශන හිමිකම මගින් වෙබ් අඩවිය හරහා හෝ ප්&zwj;රදර්ශනය කෙරෙන අන්තර්ගතය ආරක්ෂා කෙරේ. ප්&zwj;රචාරකයා සහ පරිශීලකයා වෙබ් අඩවියෙන් අන්තර්ගතය ප්&zwj;රතිනිෂ්පාදනය කිරීම, අනුපිටපත් කිරීම හෝ පිටපත් නොකිරීමට එකඟ වන අතර, වෙබ් අඩවියේ ප්&zwj;රදර්ශනය කර ඇති ඕනෑම සහ සියලුම ප්&zwj;රකාශන හිමිකම් දැන්වීම්වලට අවනත වීමට එකඟ වේ.</p>\r\n\r\n<p>පරිශීලක, දැන්වීම්කරු හැසිරීම</p>\r\n\r\n<p>ප්&zwj;රචාරකයා සහ පරිශීලකයා වෙනත් ආකාරයකින් පළ නොකිරීමට එකඟ වන පරිදි අන්තර්ගතය ලබා ගත හැකිය:</p>\r\n\r\n<p>එනම් කාමුක දර්ශන, වැඩිහිටි, පරිණත හෝ ලිංගික දිශානතිය;<br />\r\nසූදුවට යොමු වන හෝ කැසිනෝ ආශ්&zwj;රිත;<br />\r\nනීතිවිරෝධී ඖෂධ, ඖෂධ උපකරණ හෝ බෙහෙත් වට්ටෝරු අලෙවි කිරීම ඇතුළත් වේ<br />\r\nඑයට අනවසරයෙන් ඇතුළුවීමේ/ක්&zwj;රැක් කිරීමේ තොරතුරු ඇතුළත් වේ.<br />\r\nප්&zwj;රචණ්ඩ අන්තර්ගතය;<br />\r\nදැන්වීම් හෝ දීමනා ක්ලික් කිරීම, සෙවීම් සිදු කිරීම, වෙබ් අඩවිවල සැරිසැරීම හෝ ඊමේල් කියවීම සඳහා පරිශීලකයින්ට වන්දි ලබා දෙන වැඩසටහන් සම්බන්ධ අන්තර්ගතය;<br />\r\nනීතිවිරෝධී, නීතිවිරෝධී ක්&zwj;රියාකාරකම් ප්&zwj;රවර්ධනය කරන හෝ අන් අයගේ නීත්&zwj;යානුකූල අයිතිවාසිකම් උල්ලංඝනය කරන වෙනත් ඕනෑම අන්තර්ගතයක්;<br />\r\nනිර්මාණකරුගේ හෝ වෙනත් භාණ්ඩවල අනුරූ හෝ අනුකරණය කරන නිෂ්පාදන විකිණීම;<br />\r\nආයුධ හෝ පතොරම් විකිණීම (උදා: ගිනි අවි, ගිනි අවි සංරචක, සටන් පිහි, ස්ටන් තුවක්කු);<br />\r\nඑය නීති විරෝධී, හානිකර, තර්ජනාත්මක, අපවාදාත්මක, හිරිහැර කරන, අපහාසාත්මක, අසභ්&zwj;ය,<br />\r\nනින්දා සහගත, වෙනත් කෙනෙකුගේ පෞද්ගලිකත්වය ආක්&zwj;රමණය කිරීම හෝ බාල වයස්කරුවන්ට ඕනෑම ආකාරයකින් හානි කිරීම;<br />\r\nආගම, ස්ත්&zwj;රී පුරුෂ භාවය, ජාතිය, වාර්ගිකත්වය, වයස හෝ ආබාධිත පදනම මත පුද්ගලයෙකුට හෝ පුද්ගලයන්ට හිරිහැර කිරීම, පහත් කිරීම, බිය ගැන්වීම හෝ වෛර කිරීම;<br />\r\nබව අපගමනය</p>', 'Posting an ad on ok2list.com is free! However, all ads must follow our rules:\r\n\r\nMake sure you post in the correct category.\r\nDo not post the same ad more than once or repost an ad within 48 hours.\r\nDo not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.', 'ok2list.com හි දැන්වීමක් පළ කිරීම නොමිලේ! කෙසේ වෙතත්, සියලුම දැන්වීම් අපගේ නීති අනුගමනය කළ යුතුය:\r\n\r\nඔබ නිවැරදි ප්‍රවර්ගයේ පළ කිරීමට වග බලා ගන්න.\r\nඑකම දැන්වීම එක වරකට වඩා පළ නොකරන්න හෝ පැය 48ක් ඇතුළත දැන්වීමක් නැවත පළ නොකරන්න.\r\nජල සලකුණු සහිත පින්තූර උඩුගත නොකරන්න.\r\nපැකේජ ගනුදෙනුවක් නම් මිස අයිතම කිහිපයක් අඩංගු දැන්වීම් පළ නොකරන්න.\r\nමාතෘකාවේ හෝ විස්තරයේ ඔබේ විද්‍යුත් තැපෑල හෝ දුරකථන අංක දමන්න එපා.', NULL, NULL);
+(1, '<p><strong>Introduction</strong></p>\r\n\r\n<p>The QS Week (Pvt.) Ltd is a limited liability company, it&rsquo;s registration number is PV89070 (hereafter the &ldquo;Company&rdquo;) and provides an online classified service which include classified advertisements and chat services through the website www.ok2list.com (hereafter referred &ldquo;Website&rdquo;).</p>\r\n\r\n<p>The services provided through the Website are subject to User and Advertiser compliance with the set-up Terms and Conditions (hereafter &ldquo;Terms&rdquo;) set forth below.</p>\r\n\r\n<p>How to use the Terms</p>\r\n\r\n<ul>\r\n	<li>Step 1: It is User&rsquo;s responsibility to read and understand the Terms prior to use this Website.</li>\r\n	<li>Step 2: By using this Website, the User agrees and bound to the Terms of this Website.</li>\r\n	<li>Step 3: If the User do not agree the Terms, such User do not use this Website.</li>\r\n</ul>\r\n\r\n<p>Terms &amp; Conditions (&ldquo;Terms&rdquo;)</p>\r\n\r\n<p>These Terms were written and updated on January 2019. The Company reserve the right to change any or all of our Terms of use or other conditions for using the Website at any time by publishing the new Terms on our Website.</p>\r\n\r\n<p>Definitions:</p>\r\n\r\n<p>In this Terms included following words and expressions shall have the meanings as are respectively assigned to them;</p>\r\n\r\n<p>&ldquo;Advertiser&rdquo; means the person or persons who uploading Contents on the Website.</p>\r\n\r\n<p>&ldquo;Company&rdquo; means the QS Week (Pvt) Ltd</p>\r\n\r\n<p>&ldquo;Contents&rdquo; means all postings, messages, text, files, images, photos, video, sounds, or other materials uploaded (by Advertiser) for inclusion on Website with fully compliance to all applicable laws of the country. The Company and Website assumes no responsibility for any illegality or any inaccuracy of the Content.</p>\r\n\r\n<p>&ldquo;User&rdquo; means the person or persons who uses, browsing or access any content, data or information on the Website.</p>\r\n\r\n<p>&ldquo;Website&rdquo; means the www.ok2list.com</p>\r\n\r\n<p>&ldquo;Watermark&rdquo; means the mark appears in the images (www.ok2list.com), which prevents the images to be used for the other purposes, without consent of the Advertiser.</p>\r\n\r\n<p>Content</p>\r\n\r\n<p>Advertiser agree that all postings, messages, text, files, images, photos, video, sounds, or other materials (&ldquo;Content&rdquo;) posted on, transmitted through, or linked from the Webs Site, are the sole responsibility of the Advertiser from whom such Content originated. More specifically, Advertiser is entirely responsible for all Content that he or she posts, email or otherwise make available via the Website. Advertiser agree that Company does not control and is not responsible for Content made available through the Website, and that by using the Website, Advertiser may be exposed to Content that is offensive, indecent, inaccurate, misleading, or otherwise objectionable. Advertiser agree that he or she must evaluate, and bear all risks associated with, the use of any Content, that he or she may not rely on said Content, and that under no circumstances will Website not pre-screen or approve Content, but that Website shall have the right (but not the obligation) in its sole discretion to refuse, delete or move any Content that is available via the Website, for violating the letter or spirit of the Terms or for any other reason.</p>\r\n\r\n<p>Advertiser acknowledge and agree that Website may, in its sole discretion, preserve or disclose Content, as well as email addresses, IP addresses, timestamps, and other user information, if required to do so by law or in the good faith belief that such preservation or disclosure is reasonably necessary to: comply with legal process; enforce the Terms; respond to claims that any Content violates the rights of third-parties; or protect the rights, property, or personal safety of Website, its Users or the general public.</p>\r\n\r\n<p>Content displayed on or through the Website is protected by copyright as a collective work and/or compilation, pursuant to copyrights laws, and international conventions. Advertiser and the User agree not to reproduce, duplicate or copy Content from the Website, and agree to abide by any and all copyright notices displayed on the Website.</p>\r\n\r\n<p>User, Advertiser Conduct</p>\r\n\r\n<p>Advertiser and User agree not to post otherwise make available Content:</p>\r\n\r\n<ul>\r\n	<li>that is pornographic, adult, mature or sexual orientation;</li>\r\n	<li>that refers to gambling or is casino-related;</li>\r\n	<li>that includes illicit drugs, drug paraphernalia or sales of prescription drugs</li>\r\n	<li>that includes hacking/cracking information.</li>\r\n	<li>Violent content;</li>\r\n	<li>Content regarding programs which compensate users for clicking ads or offers, performing searches, surfing websites or reading emails;</li>\r\n	<li>Any other content that is illegal, promotes illegal activity or infringes on the legal rights of others;</li>\r\n	<li>Sales of products that are replicas or imitations of designer or other goods;</li>\r\n	<li>Sales of weapons or ammunition (e.g. firearms, firearm components, fighting knives, stun guns);</li>\r\n	<li>that is unlawful, harmful, threatening, abusive, harassing, defamatory, pornographic,</li>\r\n	<li>libelous, invasive of another&rsquo;s privacy, or harms minors in any way;</li>\r\n	<li>that harasses, degrades, intimidates or is hateful toward an individual or individuals on the basis of religion, gender, race, ethnicity, age, or disability;</li>\r\n	<li>that impersonates any person or entity, including, but not limited to, a Website employee, or falsely states or otherwise misrepresents your affiliation with a person or entity;</li>\r\n	<li>that includes personal or identifying information about another person without that person&rsquo;s explicit consent.</li>\r\n	<li>that employs misleading email addresses, or forged headers or otherwise manipulated identifiers in order to disguise the origin of Content transmitted through the Website;</li>\r\n	<li>that infringes any patent, trademark, trade secret, copyright or other proprietary rights of any party, or Content that you do not have a right to make available under any law or under contractual or fiduciary relationships.</li>\r\n	<li>that constitutes or contains unauthorized advertising, promotional materials, &ldquo;junk mail,&rdquo; &ldquo;spam,&rdquo; &ldquo;chain letters, &ldquo;pyramid schemes,&rdquo; or any other form of solicitation.</li>\r\n	<li>that advertises for sale weapons or explosives; controlled substances (including but not limited to) tobacco products, alcoholic beverages, pharmaceuticals, illegal drugs; stolen or counterfeit items; goods or services that do not in fact exist; items that violate or infringe the rights of others; any items you do not have the right to sell; any dangerous items.</li>\r\n	<li>that contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer software or hardware or telecommunications equipment;</li>\r\n	<li>that disrupts the normal flow of dialogue with an excessive number of messages (flooding attack) to the Service, or that otherwise negatively affects other users&rsquo; ability to use the Service;</li>\r\n	<li>intentionally collect personal data about other Users for commercial or unlawful purposes</li>\r\n</ul>\r\n\r\n<p>Appropriateness of images</p>\r\n\r\n<p>Website reserves the right to change the title of the Content, for editorial purposes. Website reserves the right not to publish images that are irrelevant or images that violate Website Terms.</p>\r\n\r\n<p>Information to Authorities:</p>\r\n\r\n<p>Website has the right to cooperate with authorities in the case any Content violates the law. The identity of Advertisers, Users or buyers may be determined, for example by an ISP. IP addresses may also be registered in order to ensure compliance with the Terms.</p>\r\n\r\n<p>Valid email address:</p>\r\n\r\n<p>Advertiser and Users are required to provide a valid email address, before they are grand access to post advertisements. The email address of the User shall not be publicly displayed, and other Users are permitted to send email to the User through Website.</p>\r\n\r\n<p>Website accessibility:</p>\r\n\r\n<p>The Company and Website does not guarantee the availability of Website continuous or secure access. The Website is only available as on available.</p>\r\n\r\n<p>Links to third party websites:</p>\r\n\r\n<p>Website may contain links or references to other websites (&lsquo;Third Party Websites&rsquo;). Website shall not be responsible for the contents in Third Party Websites. Third Party Websites are not investigated or monitored. In the event the user decides to leave Website and access Third Party Sites, the User does so at his/her own risk.</p>\r\n\r\n<p>Paid services:</p>\r\n\r\n<p>Website is set out to use free in some categories and certain facilities that only available for paid basis. The paid services are membership packages, posting of ads and promoting an add that already posted. Users and Advertiser may purchase above paid facilities by making a payment or can make inquiry with Website customer care to get to know the exact requirements.</p>\r\n\r\n<p>Paid service by memberships:</p>\r\n\r\n<p>As part of a membership package, the Website will publish the Advertiser&rsquo;s Contents on behalf of the User. A dedicated team always available support and handle the Advertiser&rsquo;s clarification and queries. The Content provided by the Advertiser, Website has the right to any Content added to the Website by the User and has the right to remove or not publish the Content if it violates any aspect of the Terms.</p>\r\n\r\n<p>The Company or Website reserves the right to modify or change membership packages, including the price and the contents of the membership package. The Company or Website is not obligated to refund money or services if a membership package is cancelled early, for any reason.</p>\r\n\r\n<p>Privacy:</p>\r\n\r\n<p>The Company or Website will collect information from Users and Advertisers. It is a condition of use of the Website that each User and Advertiser consents and authorises The Company or Website to collect and use this information. The Company or Website also reserves the right to disclose it to Company affiliates and any other person for the purposes of administering, supporting and maintaining Website, as well as for improving Website, for example by using the information for research, marketing, product development and planning.</p>\r\n\r\n<p>Cookies:</p>\r\n\r\n<p>This site uses cookies, which means that you must have cookies enabled on your computer in order for all functionality on this Website to work properly. A cookie is a small data file that is written to your hard drive when you visit certain Websites. Cookie files contain certain information, such as a random number user ID that the site assigns to a visitor to track the pages visited. A cookie cannot read data off your hard disk or read cookie files created by other sites. Cookies, by themselves, cannot be used to find out the identity of any user.</p>\r\n\r\n<p>Disclaimer:</p>\r\n\r\n<p>www.ok2list.com and the Company assume no responsibility what so ever for the use of www.ok2list.com and disclaims all responsibility for any injury, claim, liability, or damage of any kind resulting from or arising out of or any way related to (i) any errors on www.ok2list.com or the Content, including but not limited to technical errors and typographical errors, (ii) any third party Websites or content directly or indirectly accessed through links in www.ok2list.com, (iii) the unavailability of www.ok2list.com, (iv) your use of www.ok2list.com or the Content, or (v) your use of any equipment (or software) in connection with www.ok2list.com</p>\r\n\r\n<p>Indemnification:</p>\r\n\r\n<p>Advertisers and Users agree to indemnify www.ok2list.com &amp; the Company as well as its officers, directors, employees, agents, from and against all losses, expenses, damages and costs, including attorney&rsquo;s fees, resulting from any violation of this Terms (including negligent or wrongful conduct).</p>\r\n\r\n<p>Modifications:</p>\r\n\r\n<p>www.ok2list.com &amp; the Company reserves the right to amend the part or full contents of the Terms. Such amendments shall be effective immediately upon posting on www.ok2list.com. User and Advertiser are responsible for the reviewing of such amendment. Advertiser and User continued access or use of www.ok2list.com shall be deemed your acceptance of the amended Terms.</p>\r\n\r\n<p>Governing law:</p>\r\n\r\n<p>Website is operated under the laws and regulations of srilanka. Advertisers and Users agree that it is User and Advertisers responsibility to understand the provisions.</p>', '<p>නියම සහ කොන්දේසි<br />\r\nහැදින්වීම</p>\r\n\r\n<p>QS Week (Pvt.) Ltd යනු සීමිත වගකීම් සහිත සමාගමකි, එහි ලියාපදිංචි අංකය PV89070 (මෙතැන් සිට &quot;සමාගම&quot;) වන අතර www.ok2list.com වෙබ් අඩවිය හරහා ලුහුඬු දැන්වීම් සහ කතාබස් සේවා ඇතුළත් මාර්ගගත ලුහුබැඳීම් සේවාවක් සපයයි (මින් ඉදිරියට යොමු කෙරේ. &quot;වෙබ් අඩවිය&quot;).</p>\r\n\r\n<p>වෙබ් අඩවිය හරහා සපයනු ලබන සේවාවන් පහත දක්වා ඇති සැකසුම් නියමයන් සහ කොන්දේසි (මෙතැන් සිට &quot;කොන්දේසි&quot;) සමඟ පරිශීලක සහ දැන්වීම්කරුගේ අනුකූලතාවයට යටත් වේ.</p>\r\n\r\n<p>නියමයන් භාවිතා කරන්නේ කෙසේද</p>\r\n\r\n<p>පියවර 1: මෙම වෙබ් අඩවිය භාවිතා කිරීමට පෙර කොන්දේසි කියවා අවබෝධ කර ගැනීම පරිශීලකයාගේ වගකීමකි.<br />\r\nපියවර 2: මෙම වෙබ් අඩවිය භාවිතා කිරීමෙන්, පරිශීලකයා මෙම වෙබ් අඩවියේ කොන්දේසි වලට එකඟ වන අතර ඒවාට බැඳී සිටී.<br />\r\nපියවර 3: පරිශීලකයා කොන්දේසි වලට එකඟ නොවන්නේ නම්, එවැනි පරිශීලකයෙකු මෙම වෙබ් අඩවිය භාවිතා නොකරයි.<br />\r\nනියම සහ කොන්දේසි (&quot;නියම&quot;)</p>\r\n\r\n<p>මෙම නියමයන් ලියා යාවත්කාලීන කරන ලද්දේ 2019 ජනවාරි මාසයේදීය. අපගේ වෙබ් අඩවියේ නව නියමයන් ප්&zwj;රකාශයට පත් කිරීමෙන් ඕනෑම වේලාවක වෙබ් අඩවිය භාවිතා කිරීම සඳහා අපගේ ඕනෑම හෝ සියලුම භාවිත නියමයන් හෝ වෙනත් කොන්දේසි වෙනස් කිරීමට සමාගමට අයිතිය ඇත.</p>\r\n\r\n<p>අර්ථ දැක්වීම්:</p>\r\n\r\n<p>මෙම නියමයන් තුළ පහත සඳහන් වචන සහ ප්&zwj;රකාශනවලට පිළිවෙළින් පවරා ඇති අර්ථයන් තිබිය යුතුය;</p>\r\n\r\n<p>&ldquo;දැන්වීම්කරු&rdquo; යන්නෙන් අදහස් වන්නේ වෙබ් අඩවියේ අන්තර්ගතය උඩුගත කරන පුද්ගලයා හෝ පුද්ගලයන්ය.</p>\r\n\r\n<p>&quot;සමාගම&quot; යන්නෙන් අදහස් වන්නේ QS Week (Pvt) Ltd</p>\r\n\r\n<p>&ldquo;අන්තර්ගතය&rdquo; යන්නෙන් අදහස් වන්නේ රටේ සියලුම අදාළ නීතිවලට සම්පූර්ණයෙන්ම අනුකූල වන පරිදි වෙබ් අඩවියට ඇතුළත් කිරීම සඳහා උඩුගත කරන ලද (දැන්වීම්කරු විසින්) සියලුම පළ කිරීම්, පණිවිඩ, පෙළ, ගොනු, පින්තූර, ඡායාරූප, වීඩියෝ, ශබ්ද හෝ වෙනත් ද්&zwj;රව්&zwj;ය ය. සමාගම සහ වෙබ් අඩවිය කිසියම් නීතිවිරෝධී හෝ අන්තර්ගතයේ සාවද්&zwj;ය භාවයක් සඳහා කිසිදු වගකීමක් භාර නොගනී.</p>\r\n\r\n<p>&quot;පරිශීලක&quot; යන්නෙන් අදහස් වන්නේ වෙබ් අඩවියේ ඕනෑම අන්තර්ගතයක්, දත්තයක් හෝ තොරතුරක් භාවිතා කරන, බ්&zwj;රවුස් කරන හෝ ප්&zwj;රවේශ කරන පුද්ගලයා හෝ පුද්ගලයන්ය.</p>\r\n\r\n<p>&quot;වෙබ් අඩවිය&quot; යන්නෙන් අදහස් වන්නේ www.ok2list.com යන්නයි</p>\r\n\r\n<p>&ldquo;Watermark&rdquo; යන්නෙන් අදහස් වන්නේ, වෙළඳ ප්&zwj;රචාරකයාගේ අනුමැතියකින් තොරව රූප වෙනත් අරමුණු සඳහා භාවිත කිරීම වළක්වන (www.ok2list.com) සලකුණ රූපවල දිස් වීමයි.</p>\r\n\r\n<p>අන්තර්ගතය</p>\r\n\r\n<p>සියලුම පළ කිරීම්, පණිවිඩ, පෙළ, ලිපිගොනු, පින්තූර, ඡායාරූප, වීඩියෝ, ශබ්ද, හෝ වෙනත් ද්&zwj;රව්&zwj;ය (&quot;අන්තර්ගතය&quot;) වෙබ් අඩවිය හරහා සම්ප්&zwj;රේෂණය කරන ලද හෝ සබැඳි කර ඇති අතර, ඒවා දැන්වීම්කරුගේ සම්පූර්ණ වගකීම බව දැන්වීම්කරු එකඟ වේ. එවැනි අන්තර්ගතයක් ආරම්භ විය. වඩාත් නිශ්චිතව, ඔහු හෝ ඇය පළ කරන, විද්&zwj;යුත් තැපෑල හෝ වෙනත් ආකාරයකින් වෙබ් අඩවිය හරහා ලබා ගත හැකි සියලුම අන්තර්ගතයන් සඳහා දැන්වීම්කරු සම්පූර්ණයෙන්ම වගකිව යුතුය. වෙබ් අඩවිය හරහා ලබා ගත හැකි අන්තර්ගතයන් සමාගම විසින් පාලනය නොකරන බවත් ඒවාට වගකිව යුතු නොවන බවත්, වෙබ් අඩවිය භාවිතා කිරීමෙන්, අහිතකර, අශෝභන, සාවද්&zwj;ය, නොමඟ යවන හෝ වෙනත් ආකාරයකින් විරුද්ධ විය හැකි අන්තර්ගතයන්ට දැන්වීම්කරු නිරාවරණය විය හැකි බවට දැන්වීම්කරු එකඟ වේ. ප්&zwj;රචාරකයා ඔහු හෝ ඇය යම්කිසි අන්තර්ගතයක භාවිතය ඇගයීමට ලක් කළ යුතු බවටත්, ඒ හා සම්බන්ධ සියලු අවදානම් දරාගත යුතු බවටත් එකඟ වන අතර, ඔහු හෝ ඇය එම අන්තර්ගතය මත විශ්වාසය නොතැබිය යුතු අතර, කිසිම අවස්ථාවක වෙබ් අඩවිය අන්තර්ගතය පූර්ව-තිරීක්ෂණ හෝ අනුමත නොකරන නමුත්, වෙබ් අඩවිය හරහා ලබා ගත හැකි ඕනෑම අන්තර්ගතයක් ප්&zwj;රතික්ෂේප කිරීමට, මකා දැමීමට හෝ ගෙන යාමට, නියමවල ලිපිය හෝ ආත්මය උල්ලංඝනය කිරීම හෝ වෙනත් හේතුවක් නිසා වෙබ් අඩවියට එහි තනි අභිමතය පරිදි අයිතියක් ඇත (නමුත් වගකීමක් නොවේ).</p>\r\n\r\n<p>නීතියෙන් හෝ සද්භාවයෙන් එසේ කිරීමට අවශ්&zwj;ය නම්, වෙබ් අඩවියට එහි තනි අභිමතය පරිදි, අන්තර්ගතය සංරක්ෂණය හෝ හෙළිදරව් කිරීම මෙන්ම විද්&zwj;යුත් තැපැල් ලිපින, IP ලිපින, වේලා මුද්&zwj;රා, සහ වෙනත් පරිශීලක තොරතුරු ද කළ හැකි බව දැන්වීම්කරු පිළිගෙන එකඟ වේ. හෝ හෙළිදරව් කිරීම සාධාරණ ලෙස අවශ්&zwj;ය වේ: නීතිමය ක්&zwj;රියාවලියට අනුකූල වීම; නියමයන් ක්රියාත්මක කිරීම; ඕනෑම අන්තර්ගතයක් තෙවන පාර්ශ්වයන්ගේ අයිතිවාසිකම් උල්ලංඝනය කරන බවට ප්&zwj;රතිචාර දක්වන්න; හෝ වෙබ් අඩවියේ, එහි පරිශීලකයන්ගේ හෝ සාමාන්&zwj;ය ජනතාවගේ අයිතිවාසිකම්, දේපළ හෝ පුද්ගලික ආරක්ෂාව ආරක්ෂා කිරීම.</p>\r\n\r\n<p>ප්&zwj;රකාශන හිමිකම් නීති සහ ජාත්&zwj;යන්තර සම්මුතීන්ට අනුකූලව සාමූහික කාර්යයක් සහ/හෝ සම්පාදනයක් ලෙස ප්&zwj;රකාශන හිමිකම මගින් වෙබ් අඩවිය හරහා හෝ ප්&zwj;රදර්ශනය කෙරෙන අන්තර්ගතය ආරක්ෂා කෙරේ. ප්&zwj;රචාරකයා සහ පරිශීලකයා වෙබ් අඩවියෙන් අන්තර්ගතය ප්&zwj;රතිනිෂ්පාදනය කිරීම, අනුපිටපත් කිරීම හෝ පිටපත් නොකිරීමට එකඟ වන අතර, වෙබ් අඩවියේ ප්&zwj;රදර්ශනය කර ඇති ඕනෑම සහ සියලුම ප්&zwj;රකාශන හිමිකම් දැන්වීම්වලට අවනත වීමට එකඟ වේ.</p>\r\n\r\n<p>පරිශීලක, දැන්වීම්කරු හැසිරීම</p>\r\n\r\n<p>ප්&zwj;රචාරකයා සහ පරිශීලකයා වෙනත් ආකාරයකින් පළ නොකිරීමට එකඟ වන පරිදි අන්තර්ගතය ලබා ගත හැකිය:</p>\r\n\r\n<p>එනම් කාමුක දර්ශන, වැඩිහිටි, පරිණත හෝ ලිංගික දිශානතිය;<br />\r\nසූදුවට යොමු වන හෝ කැසිනෝ ආශ්&zwj;රිත;<br />\r\nනීතිවිරෝධී ඖෂධ, ඖෂධ උපකරණ හෝ බෙහෙත් වට්ටෝරු අලෙවි කිරීම ඇතුළත් වේ<br />\r\nඑයට අනවසරයෙන් ඇතුළුවීමේ/ක්&zwj;රැක් කිරීමේ තොරතුරු ඇතුළත් වේ.<br />\r\nප්&zwj;රචණ්ඩ අන්තර්ගතය;<br />\r\nදැන්වීම් හෝ දීමනා ක්ලික් කිරීම, සෙවීම් සිදු කිරීම, වෙබ් අඩවිවල සැරිසැරීම හෝ ඊමේල් කියවීම සඳහා පරිශීලකයින්ට වන්දි ලබා දෙන වැඩසටහන් සම්බන්ධ අන්තර්ගතය;<br />\r\nනීතිවිරෝධී, නීතිවිරෝධී ක්&zwj;රියාකාරකම් ප්&zwj;රවර්ධනය කරන හෝ අන් අයගේ නීත්&zwj;යානුකූල අයිතිවාසිකම් උල්ලංඝනය කරන වෙනත් ඕනෑම අන්තර්ගතයක්;<br />\r\nනිර්මාණකරුගේ හෝ වෙනත් භාණ්ඩවල අනුරූ හෝ අනුකරණය කරන නිෂ්පාදන විකිණීම;<br />\r\nආයුධ හෝ පතොරම් විකිණීම (උදා: ගිනි අවි, ගිනි අවි සංරචක, සටන් පිහි, ස්ටන් තුවක්කු);<br />\r\nඑය නීති විරෝධී, හානිකර, තර්ජනාත්මක, අපවාදාත්මක, හිරිහැර කරන, අපහාසාත්මක, අසභ්&zwj;ය,<br />\r\nනින්දා සහගත, වෙනත් කෙනෙකුගේ පෞද්ගලිකත්වය ආක්&zwj;රමණය කිරීම හෝ බාල වයස්කරුවන්ට ඕනෑම ආකාරයකින් හානි කිරීම;<br />\r\nආගම, ස්ත්&zwj;රී පුරුෂ භාවය, ජාතිය, වාර්ගිකත්වය, වයස හෝ ආබාධිත පදනම මත පුද්ගලයෙකුට හෝ පුද්ගලයන්ට හිරිහැර කිරීම, පහත් කිරීම, බිය ගැන්වීම හෝ වෛර කිරීම;<br />\r\nබව අපගමනය</p>', 'Posting an ad on ok2list.com is free! However, all ads must follow our rules:\r\n\r\nMake sure you post in the correct category.\r\nDo not post the same ad more than once or repost an ad within 48 hours.\r\nDo not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.', 'ok2list.com හි දැන්වීමක් පළ කිරීම නොමිලේ! කෙසේ වෙතත්, සියලුම දැන්වීම් අපගේ නීති අනුගමනය කළ යුතුය:\r\n\r\nඔබ නිවැරදි ප්‍රවර්ගයේ පළ කිරීමට වග බලා ගන්න.\r\nඑකම දැන්වීම එක වරකට වඩා පළ නොකරන්න හෝ පැය 48ක් ඇතුළත දැන්වීමක් නැවත පළ නොකරන්න.\r\nජල සලකුණු සහිත පින්තූර උඩුගත නොකරන්න.\r\nපැකේජ ගනුදෙනුවක් නම් මිස අයිතම කිහිපයක් අඩංගු දැන්වීම් පළ නොකරන්න.\r\nමාතෘකාවේ හෝ විස්තරයේ ඔබේ විද්‍යුත් තැපෑල හෝ දුරකථන අංක දමන්න එපා.', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -578,10 +582,37 @@ INSERT INTO `page_terms_conditions` (`id`, `details_en`, `details_sl`, `rules_en
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `public_key` varchar(255) DEFAULT NULL,
+  `secret_key` varchar(255) DEFAULT NULL,
+  `live_mood` int(2) NOT NULL DEFAULT 0 COMMENT '0=Sandbox; 1=Live;',
+  `status` int(2) NOT NULL DEFAULT 0 COMMENT '0=Active; 1=Inactve;',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `name`, `slug`, `image`, `public_key`, `secret_key`, `live_mood`, `status`, `created_at`, `updated_at`) VALUES
+(4, 'SSL', 'ssl', NULL, 'ksjdf', 'sjfjsladjf', 0, 1, '2023-01-16 06:37:52', '2023-01-16 06:47:43'),
+(5, 'Stripe', 'stripe', 'media/payment/payment-63c539831e218.png', 'dsfsdaf', 'sjfjsladjf', 1, 1, '2023-01-16 06:48:19', '2023-01-16 06:48:33');
 
 -- --------------------------------------------------------
 
@@ -591,8 +622,8 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `permissions` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `display_name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `permission_group_id` bigint(20) UNSIGNED NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -675,7 +706,7 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `permission_group_id`, 
 
 CREATE TABLE `permission_groups` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `group_name` varchar(255) NOT NULL,
+  `group_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -721,7 +752,7 @@ CREATE TABLE `prd_ads` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_ads`
@@ -757,7 +788,7 @@ CREATE TABLE `prd_ad_details` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_ad_details`
@@ -799,7 +830,7 @@ CREATE TABLE `prd_brand` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Brand Master Setup Table' ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Brand Master Setup Table' ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_brand`
@@ -942,7 +973,7 @@ CREATE TABLE `prd_category` (
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `is_highlight` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='category master setup table' ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='category master setup table' ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_category`
@@ -955,7 +986,7 @@ INSERT INTO `prd_category` (`pk_no`, `parent_id`, `code`, `name`, `url_slug`, `n
 (4, 0, '14', 'Sports & responsive', 'sports-responsive', NULL, 'Buy and sell used musical instruments, sports gear and accessories, art and collectibles and items for kids here.', 'Buy and sell used musical instruments, sports gear and accessories, art and collectibles and items for kids here.', NULL, 'category_log_5fb2b656e349a.png', NULL, 0, 1, 1, NULL, NULL, 1, 0, 1, 0, 4, 1, '2020-11-16 17:26:46', 1, '2020-11-16 17:26:46', 0),
 (5, 0, '15', 'Fashion & Beauty', 'fashion-beauty', NULL, 'Buy and sell clothing, garments, shoes and other personal items including handbags, perfumes etc.', 'Buy and sell clothing, garments, shoes and other personal items including handbags, perfumes etc.', NULL, 'category_log_5fb2b67d5307e.png', NULL, 1, 1, 1, NULL, NULL, 1, 0, 2, 0, 4, 1, '2020-11-16 17:27:25', 1, '2022-12-13 15:32:59', 0),
 (6, 0, '16', 'Pets & Animals', 'pets-animals', NULL, 'Search from the widest variety of pets in Srilanka. Select from dogs, puppies, cats, kittens, birds and other domesticated animals.', 'Search from the widest variety of pets in Srilanka. Select from dogs, puppies, cats, kittens, birds and other domesticated animals.', NULL, 'category_log_5fb2b70570133.png', NULL, 1, 1, 1, NULL, NULL, 1, 0, 0, 0, 4, 1, '2020-11-16 17:29:41', 1, '2022-12-13 15:33:01', 0),
-(7, 0, '17', 'Jobs & Work Overseas', 'jobs', NULL, 'Post and apply for jobs and career opportunities in Srilanka. Search for job vacancies in your city.', 'Post and apply for jobs and career opportunities in Srilanka. Search for job vacancies in your city.', NULL, 'category_log_5fe783bc456e6.png', NULL, 1, 1, 1, NULL, NULL, 1, 0, 0, 0, 2, 1, '2020-11-16 17:30:12', 1, '2022-12-13 15:32:34', 1),
+(7, 0, '17', 'Jobs & Work Overseas', 'jobs', NULL, 'Post and apply for jobs and career opportunities in Srilanka. Search for job vacancies in your city.', 'Post and apply for jobs and career opportunities in Srilanka. Search for job vacancies in your city.', NULL, 'category_log_5fe783bc456e6.png', NULL, 1, 1, 1, NULL, NULL, 1, 0, 1, 0, 2, 1, '2020-11-16 17:30:12', 1, '2022-12-13 15:32:34', 1),
 (8, 0, '18', 'Home Appliances', 'home-appliances', NULL, 'Buy and sell new and used home appliances including furniture, kitchen items, gardening products and other items for your garden.', 'Buy and sell new and used home appliances including furniture, kitchen items, gardening products and other items for your garden.', NULL, 'category_log_5fe820fd53eb2.png', NULL, 1, 1, 1, NULL, NULL, 1, 0, 0, 0, 3, 1, '2020-11-16 17:30:59', 1, '2022-12-13 15:31:22', 0),
 (9, 0, '19', 'Matrimony Services', 'matrimony-services', NULL, NULL, NULL, NULL, 'category_log_5fb2b77f7bad7.png', NULL, 1, 1, 1, NULL, NULL, 1, 0, 0, 0, 4, 1, '2020-11-16 17:31:43', 1, '2020-12-26 19:03:47', 0),
 (11, 0, '21', 'Miscellaneous', 'miscellaneous', NULL, NULL, NULL, NULL, 'category_log_5fb2b83daaa73.png', NULL, 1, 1, 1, NULL, NULL, 1, 0, 0, 0, 6, 1, '2020-11-16 17:34:53', 1, '2020-12-21 19:37:52', 0),
@@ -1001,7 +1032,7 @@ INSERT INTO `prd_category` (`pk_no`, `parent_id`, `code`, `name`, `url_slug`, `n
 (54, 6, '64', 'Farm Animals', 'farm-animals', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 1, 0, 0, 0, 4, 1, '2020-11-16 18:13:13', NULL, '2020-11-16 18:13:13', 0),
 (55, 6, '65', 'Pet & Animal Accessories', 'pet-animal-accessories', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 1, 0, 0, 0, 4, 1, '2020-11-16 18:13:24', NULL, '2020-11-16 18:13:24', 0),
 (56, 6, '66', 'Other Pets & Animals', 'other-pets--animals', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 1, 0, 0, 0, 4, 1, '2020-11-16 18:13:39', NULL, '2020-11-16 18:13:39', 0),
-(57, 7, '67', 'IT & Telecom', 'it-telecom', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 1, 0, 0, 0, 4, 1, '2020-11-16 18:17:11', NULL, '2020-11-16 18:17:11', 0),
+(57, 7, '67', 'IT & Telecom', 'it-telecom', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 1, 0, 1, 0, 4, 1, '2020-11-16 18:17:11', NULL, '2020-11-16 18:17:11', 0),
 (58, 7, '68', 'Security Services', 'security-services', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 1, 0, 0, 0, 4, 1, '2020-11-16 18:17:35', NULL, '2020-11-16 18:17:35', 0),
 (59, 7, '69', 'Consumer Goods & Durables', 'consumer-goods-durables', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 1, 0, 0, 0, 4, 1, '2020-11-16 18:17:47', NULL, '2020-11-16 18:17:47', 0),
 (60, 7, '70', 'Ecommerce & Internet', 'ecommerce-internet', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 1, 0, 0, 0, 4, 1, '2020-11-16 18:17:59', NULL, '2020-11-16 18:17:59', 0),
@@ -1212,7 +1243,7 @@ CREATE TABLE `prd_features` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Brand Master Setup Table' ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Brand Master Setup Table' ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -1229,7 +1260,7 @@ CREATE TABLE `prd_img_library` (
   `updated_by` int(10) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_img_library`
@@ -1372,7 +1403,7 @@ CREATE TABLE `prd_like_count` (
   `prd_id` int(50) NOT NULL,
   `customer_id` int(50) NOT NULL,
   `counter` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `prd_like_count`
@@ -1471,31 +1502,31 @@ CREATE TABLE `prd_master` (
   `promotion_to` date DEFAULT NULL,
   `thumb` varchar(55) DEFAULT NULL,
   `search_key` longtext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_master`
 --
 
 INSERT INTO `prd_master` (`pk_no`, `ad_type`, `area_id`, `city_division`, `city_division_pk_no`, `area_url_slug`, `city_division_url_slug`, `customer_pk_no`, `main_category`, `f_cat_pk_no`, `cat_url_slug`, `f_scat_pk_no`, `scat_url_slug`, `code`, `ad_title`, `url_slug`, `f_brand`, `brand_name`, `f_model`, `model_name`, `prod_feature`, `price`, `price_unit`, `is_negotiable`, `price_to`, `vacanci`, `business_function`, `deadline`, `company_name`, `logo`, `description`, `edition`, `authenticity`, `using_condition`, `prod_type`, `mobile1`, `mobile2`, `is_hide_mobile1`, `is_hide_mobile2`, `model_year`, `registration_year`, `transmission`, `address`, `body_type`, `fuel_type`, `engine_capacity`, `kilometers_run`, `bed_no`, `bath_no`, `land_size`, `land_unit`, `house_size`, `house_unit`, `property_address`, `flat_size`, `gender`, `user_name`, `is_terms_condition`, `comments`, `is_active`, `approved_by`, `approved_at`, `created_by`, `created_at`, `updated_by`, `updated_at`, `total_view`, `is_delete`, `deleted_by`, `deleted_at`, `promotion`, `promotion_to`, `thumb`, `search_key`) VALUES
-(29, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 46, 'general', 1, 'cars-vehicles', 13, 'cars--buses', 104, 'BMW Blue Coupe', 'bmw-blue-coupe', 20, 'BMW', 2, 'Other model', NULL, 286532, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BMW 2 Series Gran Coupe is available in Misano Blue Metallic. BMW 2 Series Gran Coupe is also available in 5 colours, namely, Apine White Non Metallic, Black Sapphire Metallic, Melbourne Red Metallic, Snapper Rocks Blue Metallic, Storm Bay.', 'BMW 2 SERIES COUPE 2018', 'original', 'new', NULL, '94743488449', NULL, 0, 0, 2018, 2018, 'Manual', 'Colombo', 'Estate', 'Diseel, Petrol', 3200, 48000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:08', NULL, '2022-12-13 17:38:37', NULL, '2023-01-10 13:31:51', 18, 0, NULL, NULL, 'Basic', NULL, '7051671447399.jpg', 'nugegoda colombo general cars--buses BMW Blue Coupe BMW Other model286532 new94743488449ColomboBMW 2 Series Gran Coupe is available in Misano Blue Metallic. BMW 2 Series Gran Coupe is also available in 5 colours, namely, Apine White Non Metallic, Black Sapphire Metallic, Melbourne Red Metallic, Snapper Rocks Blue Metallic, Storm Bay.'),
-(30, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 46, 'general', 2, 'electronics-gedgets', 113, 'tablets-accessories', 105, 'Acer Laptop', 'acer-laptop', NULL, NULL, NULL, NULL, NULL, 23645, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Acer Aspire is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\n\r\nGraphics are powered by Intel HD Graphics 620. Connectivity options include Wi-Fi 802.11 ac and it comes with 3 USB ports (2 x USB 2.0, 1 x USB 3.0), HDMI Port, Multi Card Slot, Headphone and Mic Combo Jack, RJ45 (LAN) ports.\r\n\r\nAs of 13th December 2022, Acer Aspire price in India starts at Rs. 79,979', NULL, 'original', 'new', NULL, '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:18', NULL, '2022-12-13 17:45:43', NULL, '2023-01-03 11:37:19', 13, 0, NULL, NULL, 'Basic', NULL, '69421671447426.jpg', 'nugegoda colombo general tablets-accessories Acer Laptop  23645 new94743488449ColomboAcer Aspire is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\n\r\nGraphics are powered by Intel HD Graphics 620. Connectivity options include Wi-Fi 802.11 ac and it comes with 3 USB ports (2 x USB 2.0, 1 x USB 3.0), HDMI Port, Multi Card Slot, Headphone and Mic Combo Jack, RJ45 (LAN) ports.\r\n\r\nAs of 13th December 2022, Acer Aspire price in India starts at Rs. 79,979'),
-(31, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 46, 'general', 5, 'fashion-beauty', 183, 'clothing', 106, 'Polo T-Shirt', 'polo-t-shirt', NULL, NULL, NULL, NULL, NULL, 1250, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Material : 100% Cotton Single Jersey( Weight : 220-240 gsm ), Pique( Weight : 180-220 gsm )\r\nSize : S-2XL\r\nQuantity : 1000-2000 Pcs / style\r\nDelivery Destination : Marseille Port & Le Havre port, France, Barcelona Port Spain, Montreal port, Canada\r\nPayment Mode : D/P, D/A, L/C\r\nImport Market : India( Tirupur )', NULL, 'original', 'new', NULL, '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:23', NULL, '2022-12-13 17:48:11', NULL, '2023-01-10 13:58:43', 12, 1, NULL, NULL, 'Basic', NULL, '684401671447456.jpg', 'nugegoda colombo general clothing Polo T-Shirt  1250 new94743488449ColomboMaterial : 100% Cotton Single Jersey( Weight : 220-240 gsm ), Pique( Weight : 180-220 gsm )\r\nSize : S-2XL\r\nQuantity : 1000-2000 Pcs / style\r\nDelivery Destination : Marseille Port & Le Havre port, France, Barcelona Port Spain, Montreal port, Canada\r\nPayment Mode : D/P, D/A, L/C\r\nImport Market : India( Tirupur )'),
+(29, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 46, 'general', 1, 'cars-vehicles', 13, 'cars--buses', 104, 'BMW Blue Coupe', 'bmw-blue-coupe', 20, 'BMW', 2, 'Other model', NULL, 286532, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'BMW 2 Series Gran Coupe is available in Misano Blue Metallic. BMW 2 Series Gran Coupe is also available in 5 colours, namely, Apine White Non Metallic, Black Sapphire Metallic, Melbourne Red Metallic, Snapper Rocks Blue Metallic, Storm Bay.', 'BMW 2 SERIES COUPE 2018', 'original', 'new', NULL, '94743488449', NULL, 0, 0, 2018, 2018, 'Manual', 'Colombo', 'Estate', 'Diseel, Petrol', 3200, 48000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:08', NULL, '2022-12-13 17:38:37', NULL, '2022-12-24 16:12:08', 12, 0, NULL, NULL, 'Basic', NULL, '7051671447399.jpg', 'nugegoda colombo general cars--buses BMW Blue Coupe BMW Other model286532 new94743488449ColomboBMW 2 Series Gran Coupe is available in Misano Blue Metallic. BMW 2 Series Gran Coupe is also available in 5 colours, namely, Apine White Non Metallic, Black Sapphire Metallic, Melbourne Red Metallic, Snapper Rocks Blue Metallic, Storm Bay.'),
+(30, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 46, 'general', 2, 'electronics-gedgets', 113, 'tablets-accessories', 105, 'Acer Laptop', 'acer-laptop', NULL, NULL, NULL, NULL, NULL, 23645, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Acer Aspire is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\n\r\nGraphics are powered by Intel HD Graphics 620. Connectivity options include Wi-Fi 802.11 ac and it comes with 3 USB ports (2 x USB 2.0, 1 x USB 3.0), HDMI Port, Multi Card Slot, Headphone and Mic Combo Jack, RJ45 (LAN) ports.\r\n\r\nAs of 13th December 2022, Acer Aspire price in India starts at Rs. 79,979', NULL, 'original', 'new', NULL, '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:18', NULL, '2022-12-13 17:45:43', NULL, '2022-12-28 19:05:59', 12, 0, NULL, NULL, 'Basic', NULL, '69421671447426.jpg', 'nugegoda colombo general tablets-accessories Acer Laptop  23645 new94743488449ColomboAcer Aspire is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i7 processor and it comes with 8GB of RAM. The Acer Aspire packs 1TB of HDD storage.\r\n\r\nGraphics are powered by Intel HD Graphics 620. Connectivity options include Wi-Fi 802.11 ac and it comes with 3 USB ports (2 x USB 2.0, 1 x USB 3.0), HDMI Port, Multi Card Slot, Headphone and Mic Combo Jack, RJ45 (LAN) ports.\r\n\r\nAs of 13th December 2022, Acer Aspire price in India starts at Rs. 79,979'),
+(31, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 46, 'general', 5, 'fashion-beauty', 183, 'clothing', 106, 'Polo T-Shirt', 'polo-t-shirt', NULL, NULL, NULL, NULL, NULL, 1250, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Material : 100% Cotton Single Jersey( Weight : 220-240 gsm ), Pique( Weight : 180-220 gsm )\r\nSize : S-2XL\r\nQuantity : 1000-2000 Pcs / style\r\nDelivery Destination : Marseille Port & Le Havre port, France, Barcelona Port Spain, Montreal port, Canada\r\nPayment Mode : D/P, D/A, L/C\r\nImport Market : India( Tirupur )', NULL, 'original', 'new', NULL, '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:23', NULL, '2022-12-13 17:48:11', NULL, '2022-12-29 13:42:24', 12, 1, NULL, NULL, 'Basic', NULL, '684401671447456.jpg', 'nugegoda colombo general clothing Polo T-Shirt  1250 new94743488449ColomboMaterial : 100% Cotton Single Jersey( Weight : 220-240 gsm ), Pique( Weight : 180-220 gsm )\r\nSize : S-2XL\r\nQuantity : 1000-2000 Pcs / style\r\nDelivery Destination : Marseille Port & Le Havre port, France, Barcelona Port Spain, Montreal port, Canada\r\nPayment Mode : D/P, D/A, L/C\r\nImport Market : India( Tirupur )'),
 (32, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 46, 'general', 4, 'sports-responsive', 36, 'sports', 107, 'Premium Football 2022', 'premium-football-2022', NULL, NULL, NULL, NULL, NULL, 1850, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, '1. Qualities and Measurements\r\n\r\nAll balls must be:\r\n\r\nspherical\r\nmade of suitable material\r\nof a circumference of between 68 cm (27 ins) and 70 cm (28 ins)\r\nbetween 410 g (14 oz) and 450 g (16 oz) in weight at the start of the match\r\nof a pressure equal to 0.6 – 1.1 atmosphere (600 – 1,100g/cm2) at sea level (8.5 lbs/sq in – 15.6 lbs/sq in)\r\nAll balls used in matches played in an official competition organised under the auspices of FIFA or confederations must meet the requirements and bear one\r\nof the marks of the FIFA Quality Programme for Footballs.\r\n\r\nEach mark indicates that it has been officially tested and meets the specific technical requirements for that mark which are additional to the minimum specifications stipulated in Law 2 and must be approved by The IFAB.\r\n\r\nNational FA competitions may require the use of balls bearing one of these marks.\r\n\r\nIn matches played in an official competition organised under the auspices of FIFA, confederations or national football associations, no form of commercial advertising is permitted on the ball, except for the logo/emblem of the competition, the competition organiser and the authorised manufacturer’s trademark. The competition regulations may restrict the size and number of such markings.\r\n\r\n2. Replacement of a defective ball\r\n\r\nIf the ball becomes defective:\r\n\r\nplay is stopped and\r\nrestarted with a dropped ball\r\nIf the ball becomes defective at a kick-off, goal kick, corner kick, free kick, penalty kick or throw-in, the restart is re-taken.\r\n\r\nIf the ball becomes defective during a penalty kick or kicks from the penalty mark as it moves forward and before it touches a player, crossbar or goalposts the penalty kick is retaken.\r\n\r\nThe ball may not be changed during the match without the referee’s permission.\r\n\r\n3. Additional Balls\r\n\r\nAdditional balls which meet the requirements of Law 2 may be placed around the field of play and their use is under the referee’s control.', NULL, 'original', 'new', '214', '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:28', NULL, '2022-12-13 17:53:33', NULL, '2022-12-20 14:24:41', 21, 0, NULL, NULL, 'Basic', NULL, '434261671447484.jpg', 'nugegoda colombo general sports Premium Football 2022  1850 new94743488449Colombo1. Qualities and Measurements\r\n\r\nAll balls must be:\r\n\r\nspherical\r\nmade of suitable material\r\nof a circumference of between 68 cm (27 ins) and 70 cm (28 ins)\r\nbetween 410 g (14 oz) and 450 g (16 oz) in weight at the start of the match\r\nof a pressure equal to 0.6 – 1.1 atmosphere (600 – 1,100g/cm2) at sea level (8.5 lbs/sq in – 15.6 lbs/sq in)\r\nAll balls used in matches played in an official competition organised under the auspices of FIFA or confederations must meet the requirements and bear one\r\nof the marks of the FIFA Quality Programme for Footballs.\r\n\r\nEach mark indicates that it has been officially tested and meets the specific technical requirements for that mark which are additional to the minimum specifications stipulated in Law 2 and must be approved by The IFAB.\r\n\r\nNational FA competitions may require the use of balls bearing one of these marks.\r\n\r\nIn matches played in an official competition organised under the auspices of FIFA, confederations or national football associations, no form of commercial advertising is permitted on the ball, except for the logo/emblem of the competition, the competition organiser and the authorised manufacturer’s trademark. The competition regulations may restrict the size and number of such markings.\r\n\r\n2. Replacement of a defective ball\r\n\r\nIf the ball becomes defective:\r\n\r\nplay is stopped and\r\nrestarted with a dropped ball\r\nIf the ball becomes defective at a kick-off, goal kick, corner kick, free kick, penalty kick or throw-in, the restart is re-taken.\r\n\r\nIf the ball becomes defective during a penalty kick or kicks from the penalty mark as it moves forward and before it touches a player, crossbar or goalposts the penalty kick is retaken.\r\n\r\nThe ball may not be changed during the match without the referee’s permission.\r\n\r\n3. Additional Balls\r\n\r\nAdditional balls which meet the requirements of Law 2 may be placed around the field of play and their use is under the referee’s control.'),
-(34, 'jobs', 82, 'city', 2, 'katugastota', 'kandy', 48, 'jobs', 7, 'jobs', 57, 'it-telecom', 108, 'Laravel Developer need for arjent', 'laravel-developer-need-for-arjent', NULL, NULL, NULL, NULL, NULL, 23423, NULL, NULL, 43242, NULL, NULL, NULL, 'Arobil', NULL, 'Do not post ads contpackage deal.\r\nDo not post the same ad more than once or repost an ad within 48 hours.\r\nDo not upload pictures with watermarks and title or description.\r\nDo not put your email or phone numbers in the', NULL, NULL, NULL, NULL, '94776628443', NULL, 0, 0, NULL, NULL, NULL, 'New Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Masud Rana Tapu', 0, NULL, 2, 1, '2022-12-19 16:52:41', NULL, '2022-12-15 13:54:15', NULL, '2022-12-19 16:50:47', 6, 0, NULL, NULL, 'Urgent', '2022-12-30', NULL, 'katugastota kandy jobs it-telecom Laravel Developer need for arjent  23423Arobil94776628443New ColomboDo not post ads contpackage deal.\r\nDo not post the same ad more than once or repost an ad within 48 hours.\r\nDo not upload pictures with watermarks and title or description.\r\nDo not put your email or phone numbers in the'),
-(35, 'rent', 81, 'city', 2, 'gampola', 'kandy', 48, 'property', 3, 'property', 152, 'house-for-rentals', 109, 'Couple House', 'couple-house', NULL, NULL, NULL, NULL, NULL, 2023, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Do not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.\r\nMake sure you post in the correct category.\r\nDo not post ads contpackage deal.', NULL, 'original', 'new', NULL, '94776628443', NULL, 0, 0, NULL, NULL, NULL, 'New Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Masud Rana Tapu', 0, NULL, 1, NULL, NULL, NULL, '2022-12-15 13:56:34', NULL, '2023-01-04 10:08:56', 15, 0, NULL, NULL, 'Basic', '2022-12-30', '54731671092794.jpg', 'gampola kandy property house-for-rentals Couple House  2023 new94776628443New ColomboDo not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.\r\nMake sure you post in the correct category.\r\nDo not post ads contpackage deal.'),
+(34, 'jobs', 82, 'city', 2, 'katugastota', 'kandy', 48, 'jobs', 7, 'jobs', 57, 'it-telecom', 108, 'Laravel Developer need for arjent', 'laravel-developer-need-for-arjent', NULL, NULL, NULL, NULL, NULL, 23423, NULL, NULL, 43242, NULL, NULL, NULL, 'Arobil', NULL, 'Do not post ads contpackage deal.\r\nDo not post the same ad more than once or repost an ad within 48 hours.\r\nDo not upload pictures with watermarks and title or description.\r\nDo not put your email or phone numbers in the', NULL, NULL, NULL, NULL, '94776628443', NULL, 0, 0, NULL, NULL, NULL, 'New Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Masud Rana Tapu', 0, NULL, 1, 1, '2023-01-11 09:05:36', NULL, '2022-12-15 13:54:15', NULL, '2022-12-19 16:50:47', 6, 0, NULL, NULL, 'Urgent', '2022-12-30', '600281671092655.jpg', 'katugastota kandy jobs it-telecom Laravel Developer need for arjent  23423Arobil94776628443New ColomboDo not post ads contpackage deal.\r\nDo not post the same ad more than once or repost an ad within 48 hours.\r\nDo not upload pictures with watermarks and title or description.\r\nDo not put your email or phone numbers in the'),
+(35, 'rent', 81, 'city', 2, 'gampola', 'kandy', 48, 'property', 3, 'property', 152, 'house-for-rentals', 109, 'Couple House', 'couple-house', NULL, NULL, NULL, NULL, NULL, 2023, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Do not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.\r\nMake sure you post in the correct category.\r\nDo not post ads contpackage deal.', NULL, 'original', 'new', NULL, '94776628443', NULL, 0, 0, NULL, NULL, NULL, 'New Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Masud Rana Tapu', 0, NULL, 1, NULL, NULL, NULL, '2022-12-15 13:56:34', NULL, '2023-01-04 19:40:20', 14, 0, NULL, NULL, 'Basic', '2022-12-30', '54731671092794.jpg', 'gampola kandy property house-for-rentals Couple House  2023 new94776628443New ColomboDo not upload pictures with watermarks.\r\nDo not post ads containing multiple items unless it\'s a package deal.\r\nDo not put your email or phone numbers in the title or description.\r\nMake sure you post in the correct category.\r\nDo not post ads contpackage deal.'),
 (36, 'sell', 218, 'city', 1, 'maharagama', 'colombo', 50, 'general', 8, 'home-appliances', 120, 'refrigerators-freezers', 110, 'Walton  Refrigerators', 'walton-refrigerators', NULL, NULL, NULL, NULL, NULL, 45554, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'MEASURING REFRIGERATOR DEPTH\r\nWhen measuring for a refrigerator, you’ll want to decide what depth style you’d prefer.\r\n\r\nStandard-Depth: Measure from your wall with a little room to extend past your cabinets.\r\n\r\nCounter-Depth: Measure from your wall to the edge of your counter. Learn about counter-depth refrigerators. \r\n\r\nDOES YOUR KITCHEN HAVE AN ISLAND?\r\nMeasure the space in front of the refrigerator so doors and drawers can open without getting dinged.\r\n\r\nMeasure: \r\nDepth with drawer open\r\nDepth with doors open\r\nNot including handles\r\nIncluding handles', NULL, 'original', 'new', NULL, '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Kandy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak', 0, NULL, 0, 1, '2022-12-15 16:27:47', NULL, '2022-12-15 16:21:58', NULL, '2022-12-19 16:33:49', 3, 0, NULL, NULL, 'Basic', NULL, NULL, 'maharagama colombo general refrigerators-freezers Walton  Refrigerators  45554 new94743488449KandyMEASURING REFRIGERATOR DEPTH\r\nWhen measuring for a refrigerator, you’ll want to decide what depth style you’d prefer.\r\n\r\nStandard-Depth: Measure from your wall with a little room to extend past your cabinets.\r\n\r\nCounter-Depth: Measure from your wall to the edge of your counter. Learn about counter-depth refrigerators. \r\n\r\nDOES YOUR KITCHEN HAVE AN ISLAND?\r\nMeasure the space in front of the refrigerator so doors and drawers can open without getting dinged.\r\n\r\nMeasure: \r\nDepth with drawer open\r\nDepth with doors open\r\nNot including handles\r\nIncluding handles'),
-(37, 'sell', 15, 'city', 1, 'dehiwala', 'colombo', 46, 'general', 5, 'fashion-beauty', 186, 'sunglasses-opticians', 111, 'Premium Sunglass', 'premium-sunglass', NULL, NULL, NULL, NULL, NULL, 4562, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'Semi-Rimless Frame\r\nRectangular Shape\r\nSingle Bridge\r\nGrey Plastic Lenses\r\nMatte Black Finish', NULL, 'original', 'new', NULL, '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:32', NULL, '2022-12-15 16:55:50', NULL, '2023-01-10 14:50:28', 6, 0, NULL, NULL, 'Basic', NULL, '992161671447673.jpg', 'dehiwala colombo general sunglasses-opticians Premium Sunglass  4562 new94743488449ColomboSemi-Rimless Frame\r\nRectangular Shape\r\nSingle Bridge\r\nGrey Plastic Lenses\r\nMatte Black Finish'),
-(38, 'sell', 80, 'city', 2, 'kandy-city', 'kandy', 51, 'general', 2, 'electronics-gedgets', 168, 'mobile-phone-accessories', 112, 'Dell core-i5 6th Gen 8GB DDR4 Ram', 'dell-core-i5-6th-gen-8gb-ddr4-ram', NULL, NULL, NULL, NULL, NULL, 250, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:33:58', NULL, '2022-12-15 19:31:49', NULL, '2023-01-03 16:48:00', 21, 0, NULL, NULL, 'Basic', NULL, '632441671455017.jpg', 'kandy-city kandy general mobile-phone-accessories Dell core-i5 6th Gen 8GB DDR4 Ram  250 new94776628446colomboLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
-(39, 'sell', 119, 'city', 3, 'galle-city', 'galle', 51, 'general', 2, 'electronics-gedgets', 110, 'desktop-computers', 113, 'Transcent 8gb DDR4 ram,Corei5 6th Gen,22', 'transcent-8gb-ddr4-ram-corei5-6th-gen-22', NULL, NULL, NULL, NULL, NULL, 500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Vai ami 100% Orginal Photo Upload Koresi Amr nijer Table Er uporer photo 100% Gaming Computer khub heavy kore build kora hoise.\r\n\r\n*gaming Casing Onk Sundor valo maner 4 Set RGB Light Soho.\r\n\r\n*Gaming Powersupply khub Valo 550 Watt 2500 taka dami.\r\n\r\n*Gaming Motherboard onk valo maner HDMi & USB3 Soho.\r\n\r\n*Corei5 6th Generation proscessor Orginal  intel.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Galle', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 15:39:45', NULL, '2022-12-19 13:19:47', NULL, '2023-01-10 13:32:34', 4, 0, NULL, NULL, 'Basic', NULL, '770841671444426.jpg', 'galle-city galle general desktop-computers Transcent 8gb DDR4 ram,Corei5 6th Gen,22  500 new94776628446GalleVai ami 100% Orginal Photo Upload Koresi Amr nijer Table Er uporer photo 100% Gaming Computer khub heavy kore build kora hoise.\r\n\r\n*gaming Casing Onk Sundor valo maner 4 Set RGB Light Soho.\r\n\r\n*Gaming Powersupply khub Valo 550 Watt 2500 taka dami.\r\n\r\n*Gaming Motherboard onk valo maner HDMi & USB3 Soho.\r\n\r\n*Corei5 6th Generation proscessor Orginal  intel.'),
-(40, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 51, 'general', 2, 'electronics-gedgets', 29, 'tv-video-accessories', 114, 'Samsung AU8100 55\'\' 4K Crystal UHD Smart TV', 'samsung-au8100-55-4k-crystal-uhd-smart-tv', NULL, 'Samsung', NULL, NULL, NULL, 68000, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'Screen Size	55 Inch\r\n\r\nPanel	Flat\r\n\r\nResolution	4K, 3840 x 2160p\r\n\r\nTechnology	LED Smart\r\n\r\n3D Technology	2D\r\n\r\nResponse Time	5MS\r\n\r\nRefresh Rate	Auto Motion Plus\r\n\r\nContrast	HDR10, HDR10+, Hybrid Log Gamma, Mega Contrast\r\n\r\nBrightness	High Dynamic Range\r\n\r\nTV Tuner	Digital / Analog\r\n\r\nSound	20 Watt Sound Output, Dolby Digital Plus Dolby Atmos\r\n\r\nConnectivity	2 x USB / 3 x HDMI / Wi-Fi 5.0 / Bluetooth 5.2V / LAN / Anynet+\r\n\r\nRemote	Voice Remote Control\r\n\r\nOperating System	Android\r\n\r\nDimension	1612 x 950 x 164 mm Package Size\r\n\r\nOther Features	Web Browse, Smart TV Screen Mirroring, Wi-Fi Direct ARC Support\r\n\r\nSamsung UA55AU8100UXTW Description\r\n\r\nThe Samsung AU8100 4K UHD TV has 4X more pixels quality than a standard Full HD screen. It provides bright and sharp images. You will see more genuine color emotions because of its superior color imaging algorithms. Now you have the opportunity to enjoy the realistic vision and fluid performance because of its intelligence functionality that analyses and adjusts frames from the video\'s beginning.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Nugegoda', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 17:52:09', NULL, '2022-12-19 17:50:23', NULL, '2023-01-04 15:40:11', 3, 0, NULL, NULL, 'Basic', NULL, '267941671452423.jpg', 'nugegoda colombo general tv-video-accessories Samsung AU8100 55\'\' 4K Crystal UHD Smart TV Samsung 68000 new94776628446NugegodaScreen Size	55 Inch\r\n\r\nPanel	Flat\r\n\r\nResolution	4K, 3840 x 2160p\r\n\r\nTechnology	LED Smart\r\n\r\n3D Technology	2D\r\n\r\nResponse Time	5MS\r\n\r\nRefresh Rate	Auto Motion Plus\r\n\r\nContrast	HDR10, HDR10+, Hybrid Log Gamma, Mega Contrast\r\n\r\nBrightness	High Dynamic Range\r\n\r\nTV Tuner	Digital / Analog\r\n\r\nSound	20 Watt Sound Output, Dolby Digital Plus Dolby Atmos\r\n\r\nConnectivity	2 x USB / 3 x HDMI / Wi-Fi 5.0 / Bluetooth 5.2V / LAN / Anynet+\r\n\r\nRemote	Voice Remote Control\r\n\r\nOperating System	Android\r\n\r\nDimension	1612 x 950 x 164 mm Package Size\r\n\r\nOther Features	Web Browse, Smart TV Screen Mirroring, Wi-Fi Direct ARC Support\r\n\r\nSamsung UA55AU8100UXTW Description\r\n\r\nThe Samsung AU8100 4K UHD TV has 4X more pixels quality than a standard Full HD screen. It provides bright and sharp images. You will see more genuine color emotions because of its superior color imaging algorithms. Now you have the opportunity to enjoy the realistic vision and fluid performance because of its intelligence functionality that analyses and adjusts frames from the video\'s beginning.'),
-(41, 'sell', 80, 'city', 2, 'kandy-city', 'kandy', 51, 'general', 2, 'electronics-gedgets', 169, 'electronic-home-appliances', 115, '30KVA china Ricardo Electric Soundproof Power Generator', '30kva-china-ricardo-electric-soundproof-power-generator', NULL, 'Other', NULL, NULL, NULL, 240000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Corporate Office: House-06, Road-3/B, Sector-09, Uttara, Dhaka-1230, Bangladesh\r\n\r\nBranch Office: Khulna, Bogra, Rajshahi, Pabna, Sirajganj, Maymonshing, Foridpur, Shatkhira. Jamalpur.\r\n\r\nAvailable stock: Perkins, Cummins,Ricardo, Duetz (5KVA to 500KVA)\r\n\r\nEngine: Ricardo\r\n\r\nTECHNICAL SPECIFICATION FOR 30KVA/24 KW DG SET\r\n\r\n1). Generator Set Details:\r\n\r\n-------------------------------------\r\n\r\nEngine Brand : Ricardo, China\r\n\r\nAlternator Brand : Copy Stamford, China\r\n\r\nPrime Capacity : 30kVA / 24kW\r\n\r\nCooling System : Water Cooled\r\n\r\n2) Engine Details:\r\n\r\n-----------------------------\r\n\r\nEngine Brand : Ricardo, China\r\n\r\nType : Turbo Charged & Charge Cooled\r\n\r\nCycle : 4- Stroke, compression ignition\r\n\r\nCompression ratio : 16:1 nominal\r\n\r\nEngine Speed : 1500RPM\r\n\r\nGovernor : Mechanical\r\n\r\n3) Alternator Details:\r\n\r\n-------------------------------\r\n\r\nAlternator Brand :Copy Stamford, China\r\n\r\nType : Brushless, Self Exited, AVR controlled\r\n\r\nRated Voltage : 400V / 230V\r\n\r\nRated Frequency : 50Hz\r\n\r\nPhase : 3 (Three)\r\n\r\nInsulation Class : H\r\n\r\nCircuit Breaker : 3 (Three Pole)\r\n\r\nControl Panel : Smart Zen Electronics, China.\r\n\r\nGENERATORS ARE READY STOCK IN OUR WAREHOUSE.\r\n\r\nContact Person:\r\n\r\nEngr. Md. Zahid Hossain\r\n\r\nPS Engineering Ltd\r\n\r\nWebsite: www.psengltd.com\r\n\r\nHouse-06, Road-3/B, Sector-09, Uttara, Dhaka-1230, Bangladesh', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Kandy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:26:13', NULL, '2022-12-19 17:55:12', NULL, '2023-01-03 16:58:39', 4, 0, NULL, NULL, 'Basic', NULL, '455081671452712.jpg', 'kandy-city kandy general electronic-home-appliances 30KVA china Ricardo Electric Soundproof Power Generator Other 240000 used94776628446KandyCorporate Office: House-06, Road-3/B, Sector-09, Uttara, Dhaka-1230, Bangladesh\r\n\r\nBranch Office: Khulna, Bogra, Rajshahi, Pabna, Sirajganj, Maymonshing, Foridpur, Shatkhira. Jamalpur.\r\n\r\nAvailable stock: Perkins, Cummins,Ricardo, Duetz (5KVA to 500KVA)\r\n\r\nEngine: Ricardo\r\n\r\nTECHNICAL SPECIFICATION FOR 30KVA/24 KW DG SET\r\n\r\n1). Generator Set Details:\r\n\r\n-------------------------------------\r\n\r\nEngine Brand : Ricardo, China\r\n\r\nAlternator Brand : Copy Stamford, China\r\n\r\nPrime Capacity : 30kVA / 24kW\r\n\r\nCooling System : Water Cooled\r\n\r\n2) Engine Details:\r\n\r\n-----------------------------\r\n\r\nEngine Brand : Ricardo, China\r\n\r\nType : Turbo Charged & Charge Cooled\r\n\r\nCycle : 4- Stroke, compression ignition\r\n\r\nCompression ratio : 16:1 nominal\r\n\r\nEngine Speed : 1500RPM\r\n\r\nGovernor : Mechanical\r\n\r\n3) Alternator Details:\r\n\r\n-------------------------------\r\n\r\nAlternator Brand :Copy Stamford, China\r\n\r\nType : Brushless, Self Exited, AVR controlled\r\n\r\nRated Voltage : 400V / 230V\r\n\r\nRated Frequency : 50Hz\r\n\r\nPhase : 3 (Three)\r\n\r\nInsulation Class : H\r\n\r\nCircuit Breaker : 3 (Three Pole)\r\n\r\nControl Panel : Smart Zen Electronics, China.\r\n\r\nGENERATORS ARE READY STOCK IN OUR WAREHOUSE.\r\n\r\nContact Person:\r\n\r\nEngr. Md. Zahid Hossain\r\n\r\nPS Engineering Ltd\r\n\r\nWebsite: www.psengltd.com\r\n\r\nHouse-06, Road-3/B, Sector-09, Uttara, Dhaka-1230, Bangladesh'),
-(42, 'sell', 218, 'city', 1, 'maharagama', 'colombo', 51, 'general', 2, 'electronics-gedgets', 171, 'cameras-camcorders', 116, 'Nikon D7000 with Lens ( Full box)', 'nikon-d7000-with-lens-full-box', NULL, 'Nikon', NULL, NULL, NULL, 18000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Nikon D7000 professional dslr camera with 18-55mm lens, battery, charger, Lens hood, lens uv filter, strap, bag, Box. \r\n\r\nWith 18-55mm lens only 18k\r\n\r\nWith 50mm 1.8D prime lens 20k. Fixed price.', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'maharagam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:26:31', NULL, '2022-12-19 17:59:46', NULL, '2023-01-03 18:51:27', 8, 0, NULL, NULL, 'Basic', NULL, '499741671452986.jpg', 'maharagama colombo general cameras-camcorders Nikon D7000 with Lens ( Full box) Nikon 18000 used94776628446maharagamNikon D7000 professional dslr camera with 18-55mm lens, battery, charger, Lens hood, lens uv filter, strap, bag, Box. \r\n\r\nWith 18-55mm lens only 18k\r\n\r\nWith 50mm 1.8D prime lens 20k. Fixed price.'),
-(43, 'sell', 172, 'city', 4, 'ampara-city', 'ampara', 51, 'general', 2, 'electronics-gedgets', 166, 'computer-accessories', 117, 'GIGABYTE GTX 1650 OC 4GB LP GRAPHICS CARD NVIDIA GEFORCE', 'gigabyte-gtx-1650-oc-4gb-lp-graphics-card-nvidia-geforce', NULL, 'GigaByte', NULL, NULL, NULL, 21000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Brand : Gigabyte\r\n\r\nChipset : NVIDIA GeForce\r\n\r\nChipset Model : GeForce GTX 1650\r\n\r\nModel : Gigabyte GeForce GTX 1650 OC Low Profile 4G\r\n\r\nTechnical Information\r\n\r\nCUDA Core / Stream Processors : 896 (CUDA)\r\n\r\nBase Engine Clock Speed : 1695 MHz\r\n\r\nMemory Clock : 8002 MHz\r\n\r\nCapacity (GB/TB) : 4GB\r\n\r\nMemory Bus : 128 bit\r\n\r\nMemory Bandwidth : 128 GB/s\r\n\r\nMemory Type : GDDR5\r\n\r\nInterface(s) : PCI-E 3.0 x 16\r\n\r\nDirectX Support : 12\r\n\r\nOpenGL Support : 4.6\r\n\r\nDisplay & Resolution\r\n\r\nGraphics Resolution Max. : 7680 x 432\r\n\r\nMulti Display Capability : Triple Display\r\n\r\nPorts\r\n\r\nDVI Port\r\n\r\n1\r\n\r\nHDMI Port\r\n\r\n1\r\n\r\nDisplay Port\r\n\r\n1\r\n\r\nPower\r\n\r\nPower Consumption : 85W\r\n\r\nRecommended PSU : 300W\r\n\r\nCountry Of Origin : Taiwan\r\n\r\n______________________________________\r\n\r\nNeed Urgent money so I\'m selling my PC\r\n\r\nI bought it August 2022\r\n\r\nYou can see the date in cash memo\r\n\r\nIt has official warranty \r\n\r\nI bought it from Ryans Computer Uttara.\r\n\r\nI\'m also selling my Motherboard\r\n\r\nMotherboard model : MSI x470 Gaming Max RGB\r\n\r\nIf you\'re interested in motherboard or Graphics card \r\n\r\nyou can call or text me anytime.\r\n\r\nThank you.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Ampara City', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:26:50', NULL, '2022-12-19 18:02:25', NULL, '2023-01-02 17:45:29', 1, 0, NULL, NULL, 'Basic', NULL, '498301671453145.jpeg', 'ampara-city ampara general computer-accessories GIGABYTE GTX 1650 OC 4GB LP GRAPHICS CARD NVIDIA GEFORCE GigaByte 21000 new94776628446Ampara CityBrand : Gigabyte\r\n\r\nChipset : NVIDIA GeForce\r\n\r\nChipset Model : GeForce GTX 1650\r\n\r\nModel : Gigabyte GeForce GTX 1650 OC Low Profile 4G\r\n\r\nTechnical Information\r\n\r\nCUDA Core / Stream Processors : 896 (CUDA)\r\n\r\nBase Engine Clock Speed : 1695 MHz\r\n\r\nMemory Clock : 8002 MHz\r\n\r\nCapacity (GB/TB) : 4GB\r\n\r\nMemory Bus : 128 bit\r\n\r\nMemory Bandwidth : 128 GB/s\r\n\r\nMemory Type : GDDR5\r\n\r\nInterface(s) : PCI-E 3.0 x 16\r\n\r\nDirectX Support : 12\r\n\r\nOpenGL Support : 4.6\r\n\r\nDisplay & Resolution\r\n\r\nGraphics Resolution Max. : 7680 x 432\r\n\r\nMulti Display Capability : Triple Display\r\n\r\nPorts\r\n\r\nDVI Port\r\n\r\n1\r\n\r\nHDMI Port\r\n\r\n1\r\n\r\nDisplay Port\r\n\r\n1\r\n\r\nPower\r\n\r\nPower Consumption : 85W\r\n\r\nRecommended PSU : 300W\r\n\r\nCountry Of Origin : Taiwan\r\n\r\n______________________________________\r\n\r\nNeed Urgent money so I\'m selling my PC\r\n\r\nI bought it August 2022\r\n\r\nYou can see the date in cash memo\r\n\r\nIt has official warranty \r\n\r\nI bought it from Ryans Computer Uttara.\r\n\r\nI\'m also selling my Motherboard\r\n\r\nMotherboard model : MSI x470 Gaming Max RGB\r\n\r\nIf you\'re interested in motherboard or Graphics card \r\n\r\nyou can call or text me anytime.\r\n\r\nThank you.'),
+(37, 'sell', 15, 'city', 1, 'dehiwala', 'colombo', 46, 'general', 5, 'fashion-beauty', 186, 'sunglasses-opticians', 111, 'Premium Sunglass', 'premium-sunglass', NULL, NULL, NULL, NULL, NULL, 4562, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'Semi-Rimless Frame\r\nRectangular Shape\r\nSingle Bridge\r\nGrey Plastic Lenses\r\nMatte Black Finish', NULL, 'original', 'new', NULL, '94743488449', NULL, 0, 0, NULL, NULL, NULL, 'Colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mubarak Hossain', 0, NULL, 1, 1, '2022-12-19 16:32:32', NULL, '2022-12-15 16:55:50', NULL, '2022-12-29 13:42:21', 5, 0, NULL, NULL, 'Basic', NULL, '992161671447673.jpg', 'dehiwala colombo general sunglasses-opticians Premium Sunglass  4562 new94743488449ColomboSemi-Rimless Frame\r\nRectangular Shape\r\nSingle Bridge\r\nGrey Plastic Lenses\r\nMatte Black Finish'),
+(38, 'sell', 80, 'city', 2, 'kandy-city', 'kandy', 51, 'general', 2, 'electronics-gedgets', 168, 'mobile-phone-accessories', 112, 'Dell core-i5 6th Gen 8GB DDR4 Ram', 'dell-core-i5-6th-gen-8gb-ddr4-ram', NULL, NULL, NULL, NULL, NULL, 250, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'colombo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:33:58', NULL, '2022-12-15 19:31:49', NULL, '2023-01-04 19:40:27', 21, 0, NULL, NULL, 'Basic', NULL, '632441671455017.jpg', 'kandy-city kandy general mobile-phone-accessories Dell core-i5 6th Gen 8GB DDR4 Ram  250 new94776628446colomboLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+(39, 'sell', 119, 'city', 3, 'galle-city', 'galle', 51, 'general', 2, 'electronics-gedgets', 110, 'desktop-computers', 113, 'Transcent 8gb DDR4 ram,Corei5 6th Gen,22', 'transcent-8gb-ddr4-ram-corei5-6th-gen-22', NULL, NULL, NULL, NULL, NULL, 500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Vai ami 100% Orginal Photo Upload Koresi Amr nijer Table Er uporer photo 100% Gaming Computer khub heavy kore build kora hoise.\r\n\r\n*gaming Casing Onk Sundor valo maner 4 Set RGB Light Soho.\r\n\r\n*Gaming Powersupply khub Valo 550 Watt 2500 taka dami.\r\n\r\n*Gaming Motherboard onk valo maner HDMi & USB3 Soho.\r\n\r\n*Corei5 6th Generation proscessor Orginal  intel.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Galle', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 15:39:45', NULL, '2022-12-19 13:19:47', NULL, '2022-12-24 13:51:41', 3, 0, NULL, NULL, 'Basic', NULL, '770841671444426.jpg', 'galle-city galle general desktop-computers Transcent 8gb DDR4 ram,Corei5 6th Gen,22  500 new94776628446GalleVai ami 100% Orginal Photo Upload Koresi Amr nijer Table Er uporer photo 100% Gaming Computer khub heavy kore build kora hoise.\r\n\r\n*gaming Casing Onk Sundor valo maner 4 Set RGB Light Soho.\r\n\r\n*Gaming Powersupply khub Valo 550 Watt 2500 taka dami.\r\n\r\n*Gaming Motherboard onk valo maner HDMi & USB3 Soho.\r\n\r\n*Corei5 6th Generation proscessor Orginal  intel.'),
+(40, 'sell', 2, 'city', 1, 'nugegoda', 'colombo', 51, 'general', 2, 'electronics-gedgets', 29, 'tv-video-accessories', 114, 'Samsung AU8100 55\'\' 4K Crystal UHD Smart TV', 'samsung-au8100-55-4k-crystal-uhd-smart-tv', NULL, 'Samsung', NULL, NULL, NULL, 68000, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 'Screen Size	55 Inch\r\n\r\nPanel	Flat\r\n\r\nResolution	4K, 3840 x 2160p\r\n\r\nTechnology	LED Smart\r\n\r\n3D Technology	2D\r\n\r\nResponse Time	5MS\r\n\r\nRefresh Rate	Auto Motion Plus\r\n\r\nContrast	HDR10, HDR10+, Hybrid Log Gamma, Mega Contrast\r\n\r\nBrightness	High Dynamic Range\r\n\r\nTV Tuner	Digital / Analog\r\n\r\nSound	20 Watt Sound Output, Dolby Digital Plus Dolby Atmos\r\n\r\nConnectivity	2 x USB / 3 x HDMI / Wi-Fi 5.0 / Bluetooth 5.2V / LAN / Anynet+\r\n\r\nRemote	Voice Remote Control\r\n\r\nOperating System	Android\r\n\r\nDimension	1612 x 950 x 164 mm Package Size\r\n\r\nOther Features	Web Browse, Smart TV Screen Mirroring, Wi-Fi Direct ARC Support\r\n\r\nSamsung UA55AU8100UXTW Description\r\n\r\nThe Samsung AU8100 4K UHD TV has 4X more pixels quality than a standard Full HD screen. It provides bright and sharp images. You will see more genuine color emotions because of its superior color imaging algorithms. Now you have the opportunity to enjoy the realistic vision and fluid performance because of its intelligence functionality that analyses and adjusts frames from the video\'s beginning.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Nugegoda', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 17:52:09', NULL, '2022-12-19 17:50:23', NULL, '2022-12-19 17:52:45', 1, 0, NULL, NULL, 'Basic', NULL, '267941671452423.jpg', 'nugegoda colombo general tv-video-accessories Samsung AU8100 55\'\' 4K Crystal UHD Smart TV Samsung 68000 new94776628446NugegodaScreen Size	55 Inch\r\n\r\nPanel	Flat\r\n\r\nResolution	4K, 3840 x 2160p\r\n\r\nTechnology	LED Smart\r\n\r\n3D Technology	2D\r\n\r\nResponse Time	5MS\r\n\r\nRefresh Rate	Auto Motion Plus\r\n\r\nContrast	HDR10, HDR10+, Hybrid Log Gamma, Mega Contrast\r\n\r\nBrightness	High Dynamic Range\r\n\r\nTV Tuner	Digital / Analog\r\n\r\nSound	20 Watt Sound Output, Dolby Digital Plus Dolby Atmos\r\n\r\nConnectivity	2 x USB / 3 x HDMI / Wi-Fi 5.0 / Bluetooth 5.2V / LAN / Anynet+\r\n\r\nRemote	Voice Remote Control\r\n\r\nOperating System	Android\r\n\r\nDimension	1612 x 950 x 164 mm Package Size\r\n\r\nOther Features	Web Browse, Smart TV Screen Mirroring, Wi-Fi Direct ARC Support\r\n\r\nSamsung UA55AU8100UXTW Description\r\n\r\nThe Samsung AU8100 4K UHD TV has 4X more pixels quality than a standard Full HD screen. It provides bright and sharp images. You will see more genuine color emotions because of its superior color imaging algorithms. Now you have the opportunity to enjoy the realistic vision and fluid performance because of its intelligence functionality that analyses and adjusts frames from the video\'s beginning.'),
+(41, 'sell', 80, 'city', 2, 'kandy-city', 'kandy', 51, 'general', 2, 'electronics-gedgets', 169, 'electronic-home-appliances', 115, '30KVA china Ricardo Electric Soundproof Power Generator', '30kva-china-ricardo-electric-soundproof-power-generator', NULL, 'Other', NULL, NULL, NULL, 240000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Corporate Office: House-06, Road-3/B, Sector-09, Uttara, Dhaka-1230, Bangladesh\r\n\r\nBranch Office: Khulna, Bogra, Rajshahi, Pabna, Sirajganj, Maymonshing, Foridpur, Shatkhira. Jamalpur.\r\n\r\nAvailable stock: Perkins, Cummins,Ricardo, Duetz (5KVA to 500KVA)\r\n\r\nEngine: Ricardo\r\n\r\nTECHNICAL SPECIFICATION FOR 30KVA/24 KW DG SET\r\n\r\n1). Generator Set Details:\r\n\r\n-------------------------------------\r\n\r\nEngine Brand : Ricardo, China\r\n\r\nAlternator Brand : Copy Stamford, China\r\n\r\nPrime Capacity : 30kVA / 24kW\r\n\r\nCooling System : Water Cooled\r\n\r\n2) Engine Details:\r\n\r\n-----------------------------\r\n\r\nEngine Brand : Ricardo, China\r\n\r\nType : Turbo Charged & Charge Cooled\r\n\r\nCycle : 4- Stroke, compression ignition\r\n\r\nCompression ratio : 16:1 nominal\r\n\r\nEngine Speed : 1500RPM\r\n\r\nGovernor : Mechanical\r\n\r\n3) Alternator Details:\r\n\r\n-------------------------------\r\n\r\nAlternator Brand :Copy Stamford, China\r\n\r\nType : Brushless, Self Exited, AVR controlled\r\n\r\nRated Voltage : 400V / 230V\r\n\r\nRated Frequency : 50Hz\r\n\r\nPhase : 3 (Three)\r\n\r\nInsulation Class : H\r\n\r\nCircuit Breaker : 3 (Three Pole)\r\n\r\nControl Panel : Smart Zen Electronics, China.\r\n\r\nGENERATORS ARE READY STOCK IN OUR WAREHOUSE.\r\n\r\nContact Person:\r\n\r\nEngr. Md. Zahid Hossain\r\n\r\nPS Engineering Ltd\r\n\r\nWebsite: www.psengltd.com\r\n\r\nHouse-06, Road-3/B, Sector-09, Uttara, Dhaka-1230, Bangladesh', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Kandy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:26:13', NULL, '2022-12-19 17:55:12', NULL, '2022-12-19 20:22:18', 3, 0, NULL, NULL, 'Basic', NULL, '455081671452712.jpg', 'kandy-city kandy general electronic-home-appliances 30KVA china Ricardo Electric Soundproof Power Generator Other 240000 used94776628446KandyCorporate Office: House-06, Road-3/B, Sector-09, Uttara, Dhaka-1230, Bangladesh\r\n\r\nBranch Office: Khulna, Bogra, Rajshahi, Pabna, Sirajganj, Maymonshing, Foridpur, Shatkhira. Jamalpur.\r\n\r\nAvailable stock: Perkins, Cummins,Ricardo, Duetz (5KVA to 500KVA)\r\n\r\nEngine: Ricardo\r\n\r\nTECHNICAL SPECIFICATION FOR 30KVA/24 KW DG SET\r\n\r\n1). Generator Set Details:\r\n\r\n-------------------------------------\r\n\r\nEngine Brand : Ricardo, China\r\n\r\nAlternator Brand : Copy Stamford, China\r\n\r\nPrime Capacity : 30kVA / 24kW\r\n\r\nCooling System : Water Cooled\r\n\r\n2) Engine Details:\r\n\r\n-----------------------------\r\n\r\nEngine Brand : Ricardo, China\r\n\r\nType : Turbo Charged & Charge Cooled\r\n\r\nCycle : 4- Stroke, compression ignition\r\n\r\nCompression ratio : 16:1 nominal\r\n\r\nEngine Speed : 1500RPM\r\n\r\nGovernor : Mechanical\r\n\r\n3) Alternator Details:\r\n\r\n-------------------------------\r\n\r\nAlternator Brand :Copy Stamford, China\r\n\r\nType : Brushless, Self Exited, AVR controlled\r\n\r\nRated Voltage : 400V / 230V\r\n\r\nRated Frequency : 50Hz\r\n\r\nPhase : 3 (Three)\r\n\r\nInsulation Class : H\r\n\r\nCircuit Breaker : 3 (Three Pole)\r\n\r\nControl Panel : Smart Zen Electronics, China.\r\n\r\nGENERATORS ARE READY STOCK IN OUR WAREHOUSE.\r\n\r\nContact Person:\r\n\r\nEngr. Md. Zahid Hossain\r\n\r\nPS Engineering Ltd\r\n\r\nWebsite: www.psengltd.com\r\n\r\nHouse-06, Road-3/B, Sector-09, Uttara, Dhaka-1230, Bangladesh'),
+(42, 'sell', 218, 'city', 1, 'maharagama', 'colombo', 51, 'general', 2, 'electronics-gedgets', 171, 'cameras-camcorders', 116, 'Nikon D7000 with Lens ( Full box)', 'nikon-d7000-with-lens-full-box', NULL, 'Nikon', NULL, NULL, NULL, 18000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Nikon D7000 professional dslr camera with 18-55mm lens, battery, charger, Lens hood, lens uv filter, strap, bag, Box. \r\n\r\nWith 18-55mm lens only 18k\r\n\r\nWith 50mm 1.8D prime lens 20k. Fixed price.', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'maharagam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:26:31', NULL, '2022-12-19 17:59:46', NULL, '2022-12-24 16:13:00', 2, 0, NULL, NULL, 'Basic', NULL, '499741671452986.jpg', 'maharagama colombo general cameras-camcorders Nikon D7000 with Lens ( Full box) Nikon 18000 used94776628446maharagamNikon D7000 professional dslr camera with 18-55mm lens, battery, charger, Lens hood, lens uv filter, strap, bag, Box. \r\n\r\nWith 18-55mm lens only 18k\r\n\r\nWith 50mm 1.8D prime lens 20k. Fixed price.'),
+(43, 'sell', 172, 'city', 4, 'ampara-city', 'ampara', 51, 'general', 2, 'electronics-gedgets', 166, 'computer-accessories', 117, 'GIGABYTE GTX 1650 OC 4GB LP GRAPHICS CARD NVIDIA GEFORCE', 'gigabyte-gtx-1650-oc-4gb-lp-graphics-card-nvidia-geforce', NULL, 'GigaByte', NULL, NULL, NULL, 21000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Brand : Gigabyte\r\n\r\nChipset : NVIDIA GeForce\r\n\r\nChipset Model : GeForce GTX 1650\r\n\r\nModel : Gigabyte GeForce GTX 1650 OC Low Profile 4G\r\n\r\nTechnical Information\r\n\r\nCUDA Core / Stream Processors : 896 (CUDA)\r\n\r\nBase Engine Clock Speed : 1695 MHz\r\n\r\nMemory Clock : 8002 MHz\r\n\r\nCapacity (GB/TB) : 4GB\r\n\r\nMemory Bus : 128 bit\r\n\r\nMemory Bandwidth : 128 GB/s\r\n\r\nMemory Type : GDDR5\r\n\r\nInterface(s) : PCI-E 3.0 x 16\r\n\r\nDirectX Support : 12\r\n\r\nOpenGL Support : 4.6\r\n\r\nDisplay & Resolution\r\n\r\nGraphics Resolution Max. : 7680 x 432\r\n\r\nMulti Display Capability : Triple Display\r\n\r\nPorts\r\n\r\nDVI Port\r\n\r\n1\r\n\r\nHDMI Port\r\n\r\n1\r\n\r\nDisplay Port\r\n\r\n1\r\n\r\nPower\r\n\r\nPower Consumption : 85W\r\n\r\nRecommended PSU : 300W\r\n\r\nCountry Of Origin : Taiwan\r\n\r\n______________________________________\r\n\r\nNeed Urgent money so I\'m selling my PC\r\n\r\nI bought it August 2022\r\n\r\nYou can see the date in cash memo\r\n\r\nIt has official warranty \r\n\r\nI bought it from Ryans Computer Uttara.\r\n\r\nI\'m also selling my Motherboard\r\n\r\nMotherboard model : MSI x470 Gaming Max RGB\r\n\r\nIf you\'re interested in motherboard or Graphics card \r\n\r\nyou can call or text me anytime.\r\n\r\nThank you.', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Ampara City', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:26:50', NULL, '2022-12-19 18:02:25', NULL, '2022-12-19 18:02:25', 0, 0, NULL, NULL, 'Basic', NULL, '498301671453145.jpeg', 'ampara-city ampara general computer-accessories GIGABYTE GTX 1650 OC 4GB LP GRAPHICS CARD NVIDIA GEFORCE GigaByte 21000 new94776628446Ampara CityBrand : Gigabyte\r\n\r\nChipset : NVIDIA GeForce\r\n\r\nChipset Model : GeForce GTX 1650\r\n\r\nModel : Gigabyte GeForce GTX 1650 OC Low Profile 4G\r\n\r\nTechnical Information\r\n\r\nCUDA Core / Stream Processors : 896 (CUDA)\r\n\r\nBase Engine Clock Speed : 1695 MHz\r\n\r\nMemory Clock : 8002 MHz\r\n\r\nCapacity (GB/TB) : 4GB\r\n\r\nMemory Bus : 128 bit\r\n\r\nMemory Bandwidth : 128 GB/s\r\n\r\nMemory Type : GDDR5\r\n\r\nInterface(s) : PCI-E 3.0 x 16\r\n\r\nDirectX Support : 12\r\n\r\nOpenGL Support : 4.6\r\n\r\nDisplay & Resolution\r\n\r\nGraphics Resolution Max. : 7680 x 432\r\n\r\nMulti Display Capability : Triple Display\r\n\r\nPorts\r\n\r\nDVI Port\r\n\r\n1\r\n\r\nHDMI Port\r\n\r\n1\r\n\r\nDisplay Port\r\n\r\n1\r\n\r\nPower\r\n\r\nPower Consumption : 85W\r\n\r\nRecommended PSU : 300W\r\n\r\nCountry Of Origin : Taiwan\r\n\r\n______________________________________\r\n\r\nNeed Urgent money so I\'m selling my PC\r\n\r\nI bought it August 2022\r\n\r\nYou can see the date in cash memo\r\n\r\nIt has official warranty \r\n\r\nI bought it from Ryans Computer Uttara.\r\n\r\nI\'m also selling my Motherboard\r\n\r\nMotherboard model : MSI x470 Gaming Max RGB\r\n\r\nIf you\'re interested in motherboard or Graphics card \r\n\r\nyou can call or text me anytime.\r\n\r\nThank you.'),
 (44, 'sell', 175, 'city', 7, 'badulla-city', 'badulla', 51, 'general', 2, 'electronics-gedgets', 168, 'mobile-phone-accessories', 118, 'Lenovo Wireless Magnetic Hanging Bluetooth He05', 'lenovo-wireless-magnetic-hanging-bluetooth-he05', NULL, 'Lenevo', NULL, NULL, NULL, 649, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Brand: Lenovo\r\n\r\nModel: HE05\r\n\r\nBT Version: 5.0\r\n\r\nPlay time: Max.8h\r\n\r\nStandby time: Max. 120h\r\n\r\nThe loudspeaker diameter: 10mm\r\n\r\nFrequency range: 20-20kHz\r\n\r\nThe connection distance: 10M(barrier free)\r\n\r\nSensitivity: 108db±3db\r\n\r\nPackage weight: 135g/4.76ounces\r\n\r\nPackage size: 220*165*31mm/8.66*6.49*1.18inches', NULL, 'original', 'new', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Badulla City', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:27:10', NULL, '2022-12-19 18:04:24', NULL, '2022-12-19 18:46:44', 2, 0, NULL, NULL, 'Basic', NULL, '20461671453264.jpg', 'badulla-city badulla general mobile-phone-accessories Lenovo Wireless Magnetic Hanging Bluetooth He05 Lenevo 649 new94776628446Badulla CityBrand: Lenovo\r\n\r\nModel: HE05\r\n\r\nBT Version: 5.0\r\n\r\nPlay time: Max.8h\r\n\r\nStandby time: Max. 120h\r\n\r\nThe loudspeaker diameter: 10mm\r\n\r\nFrequency range: 20-20kHz\r\n\r\nThe connection distance: 10M(barrier free)\r\n\r\nSensitivity: 108db±3db\r\n\r\nPackage weight: 135g/4.76ounces\r\n\r\nPackage size: 220*165*31mm/8.66*6.49*1.18inches'),
 (45, 'sell', 218, 'city', 1, 'maharagama', 'colombo', 51, 'general', 2, 'electronics-gedgets', 110, 'desktop-computers', 119, 'Processor Intel Core i5-6400 with Monitor 19 Inch LED', 'processor-intel-core-i5-6400-with-monitor-19-inch-led', NULL, NULL, NULL, NULL, NULL, 17500, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Price: 17,500\r\n\r\nProcessor Intel® Core i5-6400 2.70 GHz 	\r\n\r\nMotherboard Gigabyte H110M\r\n\r\nRAM DDR-4 8GB 2666 MHz\r\n\r\nSSD WD Green 120GB SATA\r\n\r\nCasing View One ATX Thermal\r\n\r\nPower Supply View One VB700W\r\n\r\nKeyboard & Mouse View One RGB\r\n\r\nMonitor 19 Inch LED China\r\n\r\n03 Year Limited Warranty', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Galle', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:27:30', NULL, '2022-12-19 18:10:21', NULL, '2022-12-19 18:30:52', 2, 0, NULL, NULL, 'Basic', NULL, '302571671453621.jpg', 'maharagama colombo general desktop-computers Processor Intel Core i5-6400 with Monitor 19 Inch LED  17500 used94776628446GallePrice: 17,500\r\n\r\nProcessor Intel® Core i5-6400 2.70 GHz 	\r\n\r\nMotherboard Gigabyte H110M\r\n\r\nRAM DDR-4 8GB 2666 MHz\r\n\r\nSSD WD Green 120GB SATA\r\n\r\nCasing View One ATX Thermal\r\n\r\nPower Supply View One VB700W\r\n\r\nKeyboard & Mouse View One RGB\r\n\r\nMonitor 19 Inch LED China\r\n\r\n03 Year Limited Warranty'),
-(46, 'sell', 80, 'city', 2, 'kandy-city', 'kandy', 51, 'general', 2, 'electronics-gedgets', 170, 'air-conditions-electrical-fittings', 120, 'Midea Energy Saving Wall Mounted Inverter 1.5 Ton AC', 'midea-energy-saving-wall-mounted-inverter-1-5-ton-ac', NULL, 'Midea', NULL, NULL, NULL, 31499, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MSI18CRN-AF5 Midea 60% Energy Saving Wall Mounted Inverter 1.5 Ton AC with 5 yrs compessor warranty price.\r\n\r\nCorporation (China)\r\n\r\nInverter 1.5 Ton Midea AC Energy savings\r\n\r\nMidea AC Energy Saving\r\n\r\nR410 eco friendly refrigerant\r\n\r\nProduct Feature:\r\n\r\nBrand: MIDEA\r\n\r\nAC Type: Split\r\n\r\nBTU: 18000 BTU Compressors\r\n\r\nCoverage: 150-180 sft\r\n\r\nFilter Type: Auto Clean\r\n\r\nBritish thermal unit Tested Product.\r\n\r\nCertified importer, Work Experience 37 years.\r\n\r\nHigh Power Saving Unit.\r\n\r\nEco-friendly product service.\r\n\r\nTurbo Mode Cooling.\r\n\r\nSome Features: Auto Restart,\r\n\r\nAnti bacterial filter, Washable filter,\r\n\r\nDouble Auto swing, White color indoor,\r\n\r\nfactory Gas, original compressor of Midea.\r\n\r\nMidea Air Conditioner Split AC / Air Conditioner Rated Capacity (BTUs) 1.5 Ton / 18000 BTU\r\n\r\nCorporate office:Capital Electronics\r\n\r\nCall us - (Whatsapp, Imo)\r\n\r\nAny Brand all size are Available', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Kandy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:27:49', NULL, '2022-12-19 18:16:10', NULL, '2022-12-24 13:32:34', 4, 0, NULL, NULL, 'Basic', NULL, '707101671453970.jpg', 'kandy-city kandy general air-conditions-electrical-fittings Midea Energy Saving Wall Mounted Inverter 1.5 Ton AC Midea 31499 used94776628446KandyMSI18CRN-AF5 Midea 60% Energy Saving Wall Mounted Inverter 1.5 Ton AC with 5 yrs compessor warranty price.\r\n\r\nCorporation (China)\r\n\r\nInverter 1.5 Ton Midea AC Energy savings\r\n\r\nMidea AC Energy Saving\r\n\r\nR410 eco friendly refrigerant\r\n\r\nProduct Feature:\r\n\r\nBrand: MIDEA\r\n\r\nAC Type: Split\r\n\r\nBTU: 18000 BTU Compressors\r\n\r\nCoverage: 150-180 sft\r\n\r\nFilter Type: Auto Clean\r\n\r\nBritish thermal unit Tested Product.\r\n\r\nCertified importer, Work Experience 37 years.\r\n\r\nHigh Power Saving Unit.\r\n\r\nEco-friendly product service.\r\n\r\nTurbo Mode Cooling.\r\n\r\nSome Features: Auto Restart,\r\n\r\nAnti bacterial filter, Washable filter,\r\n\r\nDouble Auto swing, White color indoor,\r\n\r\nfactory Gas, original compressor of Midea.\r\n\r\nMidea Air Conditioner Split AC / Air Conditioner Rated Capacity (BTUs) 1.5 Ton / 18000 BTU\r\n\r\nCorporate office:Capital Electronics\r\n\r\nCall us - (Whatsapp, Imo)\r\n\r\nAny Brand all size are Available'),
-(47, 'sell', 119, 'city', 3, 'galle-city', 'galle', 51, 'general', 2, 'electronics-gedgets', 129, 'mobiles', 121, 'Apple iPhone 12 Pro', 'apple-iphone-12-pro', NULL, NULL, NULL, NULL, NULL, 65000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Apple announced iPhone 12 Pro Max on October 13, 2020.\r\n\r\nThe phone which is powered by the new Apple A14 Bionic processor, comes with a 6.7 inche Super Retina XDR OLED capacitive touchscreen and 2778 x 1284 p resolution. It features an HDR display and True Tone, and Wide color (P3) gamut. The display screen is protected by a unique ceramic shield and features 1200 nits max brightness, Dolby Vision, HDR10+ and 120Hz refresh rate.\r\n\r\nIt comes with a 6GB RAM and three storage variants 128GB, 256GB and 512GB. The rear camera consists of a 12MP (wide) + 12MP (telephoto) 5x optical zoom + 12MP (ultrawide) sensors and a LiDAR scanner for night mode.\r\n\r\nThe front camera has a 12 MP (wide) + SL 3D (depth/biometrics) camera sensor. Other sensors include Lidar, Face ID, accelerometer, gyro, proximity, compass, barometer + Siri natural language commands, and dictation.\r\n\r\nThe smartphone is fueled by a 3687mAh Li-Ion battery and supports 20W fast charging, USB Power Delivery 2.0,  7W Qi wireless charging and 15W MagSafe Wireless Charging. The phone runs on iOS 14 operating system which can be updated to iOS 14.7.\r\n\r\niPhone 12 Pro Max comes in four different colors viz: Graphite, Silver, Gold and Pacific Blue. It features 2.0, proprietary reversible connector.', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Galle', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:28:08', NULL, '2022-12-19 18:25:07', NULL, '2023-01-03 11:15:13', 6, 0, NULL, NULL, 'Basic', NULL, '552221671454507.jpg', 'galle-city galle general mobiles Apple iPhone 12 Pro  65000 used94776628446GalleApple announced iPhone 12 Pro Max on October 13, 2020.\r\n\r\nThe phone which is powered by the new Apple A14 Bionic processor, comes with a 6.7 inche Super Retina XDR OLED capacitive touchscreen and 2778 x 1284 p resolution. It features an HDR display and True Tone, and Wide color (P3) gamut. The display screen is protected by a unique ceramic shield and features 1200 nits max brightness, Dolby Vision, HDR10+ and 120Hz refresh rate.\r\n\r\nIt comes with a 6GB RAM and three storage variants 128GB, 256GB and 512GB. The rear camera consists of a 12MP (wide) + 12MP (telephoto) 5x optical zoom + 12MP (ultrawide) sensors and a LiDAR scanner for night mode.\r\n\r\nThe front camera has a 12 MP (wide) + SL 3D (depth/biometrics) camera sensor. Other sensors include Lidar, Face ID, accelerometer, gyro, proximity, compass, barometer + Siri natural language commands, and dictation.\r\n\r\nThe smartphone is fueled by a 3687mAh Li-Ion battery and supports 20W fast charging, USB Power Delivery 2.0,  7W Qi wireless charging and 15W MagSafe Wireless Charging. The phone runs on iOS 14 operating system which can be updated to iOS 14.7.\r\n\r\niPhone 12 Pro Max comes in four different colors viz: Graphite, Silver, Gold and Pacific Blue. It features 2.0, proprietary reversible connector.'),
+(46, 'sell', 80, 'city', 2, 'kandy-city', 'kandy', 51, 'general', 2, 'electronics-gedgets', 170, 'air-conditions-electrical-fittings', 120, 'Midea Energy Saving Wall Mounted Inverter 1.5 Ton AC', 'midea-energy-saving-wall-mounted-inverter-1-5-ton-ac', NULL, 'Midea', NULL, NULL, NULL, 31499, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MSI18CRN-AF5 Midea 60% Energy Saving Wall Mounted Inverter 1.5 Ton AC with 5 yrs compessor warranty price.\r\n\r\nCorporation (China)\r\n\r\nInverter 1.5 Ton Midea AC Energy savings\r\n\r\nMidea AC Energy Saving\r\n\r\nR410 eco friendly refrigerant\r\n\r\nProduct Feature:\r\n\r\nBrand: MIDEA\r\n\r\nAC Type: Split\r\n\r\nBTU: 18000 BTU Compressors\r\n\r\nCoverage: 150-180 sft\r\n\r\nFilter Type: Auto Clean\r\n\r\nBritish thermal unit Tested Product.\r\n\r\nCertified importer, Work Experience 37 years.\r\n\r\nHigh Power Saving Unit.\r\n\r\nEco-friendly product service.\r\n\r\nTurbo Mode Cooling.\r\n\r\nSome Features: Auto Restart,\r\n\r\nAnti bacterial filter, Washable filter,\r\n\r\nDouble Auto swing, White color indoor,\r\n\r\nfactory Gas, original compressor of Midea.\r\n\r\nMidea Air Conditioner Split AC / Air Conditioner Rated Capacity (BTUs) 1.5 Ton / 18000 BTU\r\n\r\nCorporate office:Capital Electronics\r\n\r\nCall us - (Whatsapp, Imo)\r\n\r\nAny Brand all size are Available', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Kandy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:27:49', NULL, '2022-12-19 18:16:10', NULL, '2023-01-05 15:05:21', 5, 0, NULL, NULL, 'Basic', NULL, '707101671453970.jpg', 'kandy-city kandy general air-conditions-electrical-fittings Midea Energy Saving Wall Mounted Inverter 1.5 Ton AC Midea 31499 used94776628446KandyMSI18CRN-AF5 Midea 60% Energy Saving Wall Mounted Inverter 1.5 Ton AC with 5 yrs compessor warranty price.\r\n\r\nCorporation (China)\r\n\r\nInverter 1.5 Ton Midea AC Energy savings\r\n\r\nMidea AC Energy Saving\r\n\r\nR410 eco friendly refrigerant\r\n\r\nProduct Feature:\r\n\r\nBrand: MIDEA\r\n\r\nAC Type: Split\r\n\r\nBTU: 18000 BTU Compressors\r\n\r\nCoverage: 150-180 sft\r\n\r\nFilter Type: Auto Clean\r\n\r\nBritish thermal unit Tested Product.\r\n\r\nCertified importer, Work Experience 37 years.\r\n\r\nHigh Power Saving Unit.\r\n\r\nEco-friendly product service.\r\n\r\nTurbo Mode Cooling.\r\n\r\nSome Features: Auto Restart,\r\n\r\nAnti bacterial filter, Washable filter,\r\n\r\nDouble Auto swing, White color indoor,\r\n\r\nfactory Gas, original compressor of Midea.\r\n\r\nMidea Air Conditioner Split AC / Air Conditioner Rated Capacity (BTUs) 1.5 Ton / 18000 BTU\r\n\r\nCorporate office:Capital Electronics\r\n\r\nCall us - (Whatsapp, Imo)\r\n\r\nAny Brand all size are Available'),
+(47, 'sell', 119, 'city', 3, 'galle-city', 'galle', 51, 'general', 2, 'electronics-gedgets', 129, 'mobiles', 121, 'Apple iPhone 12 Pro', 'apple-iphone-12-pro', NULL, NULL, NULL, NULL, NULL, 65000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Apple announced iPhone 12 Pro Max on October 13, 2020.\r\n\r\nThe phone which is powered by the new Apple A14 Bionic processor, comes with a 6.7 inche Super Retina XDR OLED capacitive touchscreen and 2778 x 1284 p resolution. It features an HDR display and True Tone, and Wide color (P3) gamut. The display screen is protected by a unique ceramic shield and features 1200 nits max brightness, Dolby Vision, HDR10+ and 120Hz refresh rate.\r\n\r\nIt comes with a 6GB RAM and three storage variants 128GB, 256GB and 512GB. The rear camera consists of a 12MP (wide) + 12MP (telephoto) 5x optical zoom + 12MP (ultrawide) sensors and a LiDAR scanner for night mode.\r\n\r\nThe front camera has a 12 MP (wide) + SL 3D (depth/biometrics) camera sensor. Other sensors include Lidar, Face ID, accelerometer, gyro, proximity, compass, barometer + Siri natural language commands, and dictation.\r\n\r\nThe smartphone is fueled by a 3687mAh Li-Ion battery and supports 20W fast charging, USB Power Delivery 2.0,  7W Qi wireless charging and 15W MagSafe Wireless Charging. The phone runs on iOS 14 operating system which can be updated to iOS 14.7.\r\n\r\niPhone 12 Pro Max comes in four different colors viz: Graphite, Silver, Gold and Pacific Blue. It features 2.0, proprietary reversible connector.', NULL, 'original', 'used', NULL, '94776628446', NULL, 0, 0, NULL, NULL, NULL, 'Galle', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Raihan', 0, NULL, 1, 1, '2022-12-19 18:28:08', NULL, '2022-12-19 18:25:07', NULL, '2022-12-19 19:34:18', 3, 0, NULL, NULL, 'Basic', NULL, '552221671454507.jpg', 'galle-city galle general mobiles Apple iPhone 12 Pro  65000 used94776628446GalleApple announced iPhone 12 Pro Max on October 13, 2020.\r\n\r\nThe phone which is powered by the new Apple A14 Bionic processor, comes with a 6.7 inche Super Retina XDR OLED capacitive touchscreen and 2778 x 1284 p resolution. It features an HDR display and True Tone, and Wide color (P3) gamut. The display screen is protected by a unique ceramic shield and features 1200 nits max brightness, Dolby Vision, HDR10+ and 120Hz refresh rate.\r\n\r\nIt comes with a 6GB RAM and three storage variants 128GB, 256GB and 512GB. The rear camera consists of a 12MP (wide) + 12MP (telephoto) 5x optical zoom + 12MP (ultrawide) sensors and a LiDAR scanner for night mode.\r\n\r\nThe front camera has a 12 MP (wide) + SL 3D (depth/biometrics) camera sensor. Other sensors include Lidar, Face ID, accelerometer, gyro, proximity, compass, barometer + Siri natural language commands, and dictation.\r\n\r\nThe smartphone is fueled by a 3687mAh Li-Ion battery and supports 20W fast charging, USB Power Delivery 2.0,  7W Qi wireless charging and 15W MagSafe Wireless Charging. The phone runs on iOS 14 operating system which can be updated to iOS 14.7.\r\n\r\niPhone 12 Pro Max comes in four different colors viz: Graphite, Silver, Gold and Pacific Blue. It features 2.0, proprietary reversible connector.'),
 (48, 'sell', 82, 'city', 2, 'katugastota', 'kandy', 52, 'general', 2, 'electronics-gedgets', 110, 'desktop-computers', 122, 'test title', 'test-title', NULL, NULL, NULL, NULL, NULL, 119, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu egestas tellus. Maecenas consectetur libero non velit laoreet posuere. Nulla sit amet volutpat augue. Quisque malesuada vulputate ligula, non vehicula eros porttitor ut. Etiam mattis,', NULL, 'original', 'new', NULL, '12345678911', NULL, 0, 0, NULL, NULL, NULL, 'manwa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Md Mridul', 0, NULL, 0, NULL, NULL, NULL, '2022-12-28 18:59:20', NULL, '2022-12-28 19:00:45', 0, 0, NULL, NULL, 'Top', '2023-01-03', NULL, 'katugastota kandy general desktop-computers test title  119 new12345678911manwaLorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu egestas tellus. Maecenas consectetur libero non velit laoreet posuere. Nulla sit amet volutpat augue. Quisque malesuada vulputate ligula, non vehicula eros porttitor ut. Etiam mattis,');
 
 --
@@ -1743,7 +1774,7 @@ CREATE TABLE `prd_model` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Brand Master Setup Table' ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Brand Master Setup Table' ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `prd_model`
@@ -1803,7 +1834,7 @@ CREATE TABLE `prd_reports` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 0 COMMENT 'unseen =0, seen = 1, replied = 2'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `prd_reports`
@@ -1822,12 +1853,12 @@ CREATE TABLE `prd_type` (
   `pk_no` int(11) NOT NULL,
   `cat_pk_no` int(10) DEFAULT NULL,
   `scat_pk_no` int(10) DEFAULT NULL,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `is_delete` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
@@ -2091,7 +2122,7 @@ CREATE TABLE `prod_job_preference` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(10) DEFAULT NULL,
   `updated_by` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `prod_job_preference`
@@ -2136,7 +2167,7 @@ CREATE TABLE `quick_rules` (
   `sub_title_sl` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `quick_rules`
@@ -2160,7 +2191,7 @@ CREATE TABLE `reviews` (
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -2170,7 +2201,7 @@ CREATE TABLE `reviews` (
 
 CREATE TABLE `roles` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `role_name` varchar(255) NOT NULL,
+  `role_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0,
   `created_by` int(11) NOT NULL,
   `edited_by` int(11) NOT NULL,
@@ -2196,7 +2227,7 @@ INSERT INTO `roles` (`id`, `role_name`, `status`, `created_by`, `edited_by`, `de
 
 CREATE TABLE `role_permission` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `permissions` text NOT NULL,
+  `permissions` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `role_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2224,8 +2255,8 @@ CREATE TABLE `site_settings` (
   `logo` varchar(255) DEFAULT NULL,
   `favicon` varchar(255) DEFAULT NULL,
   `copyright` varchar(255) DEFAULT NULL,
-  `meta_keyword` text CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `meta_description` text CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `meta_keyword` text CHARACTER SET utf8 DEFAULT NULL,
+  `meta_description` text CHARACTER SET utf8 DEFAULT NULL,
   `website_email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
@@ -2279,19 +2310,16 @@ CREATE TABLE `site_settings` (
   `content_en` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `content_sl` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `app_mode` enum('local','live','','') NOT NULL DEFAULT 'local',
-  `paystack_public_key` varchar(255) DEFAULT NULL,
-  `paystack_secret_key` varchar(255) DEFAULT NULL,
-  `paystack_curency` varchar(50) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `site_settings`
 --
 
-INSERT INTO `site_settings` (`id`, `website_title`, `logo`, `favicon`, `copyright`, `meta_keyword`, `meta_description`, `website_email`, `phone`, `address`, `map_address`, `section_one_name_en`, `section_one_name_sl`, `about_en`, `contact_us_en`, `terms_conditions_en`, `privacy_policy_en`, `sitemap_en`, `about_sl`, `contact_us_sl`, `terms_conditions_sl`, `privacy_policy_sl`, `sitemap_sl`, `section_two_en`, `section_two_sl`, `how_to_sell_fast_en`, `membership_en`, `promote_your_ad_en`, `promotions_en`, `faq_en`, `how_to_sell_fast_sl`, `membership_sl`, `promote_your_ad_sl`, `promotions_sl`, `faq_sl`, `section_three_name_en`, `section_three_name_sl`, `facebook_en`, `instagram_en`, `twitter_en`, `linkedin_en`, `whatsapp_en`, `youtube_en`, `facebook_sl`, `instagram_sl`, `twitter_sl`, `linkedin_sl`, `whatsapp_sl`, `youtube_sl`, `facebook_link`, `twitter_link`, `instagram_link`, `linkedin_link`, `whatsapp_link`, `youtube_link`, `section_four_en`, `section_four_sl`, `content_en`, `content_sl`, `app_mode`, `paystack_public_key`, `paystack_secret_key`, `paystack_curency`, `created_at`, `updated_at`) VALUES
-(12, 'ok2list.com', 'uploads/2022/12/1671873605-logo2.png', 'uploads/2022/06/1655658561-logo-02.jpg', 'Copyright @ All Rights Reserved OK2list.ng', 'ok2list.com', 'ok2list.com', 'info@ok2list.com', '1123456789', 'Nigeria, Abuja', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8069790.435797271!2d8.677456999999999!3d9.0338725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0baf7da48d0d%3A0x99a8fe4168c50bc8!2sNigeria!5e0!3m2!1sen!2sbd!4v1673341934537!5m2!1sen!2sbd\" width=\"370\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'Quick Links', 'ඉක්මන් සබැඳි', 'About', 'Contact Us', 'Terms & Conditions', 'Privacy Policy', 'Sitemap', 'පිළිබඳ', 'අප අමතන්න', 'නියම සහ කොන්දේසි', 'රහස්යතා ප්රතිපත්තිය', 'අඩවි සිතියම', 'How to sell fast', 'ඉක්මනින් විකුණන්නේ කෙසේද', 'How to sell fast', 'Membership', 'Promote Your Ad', 'Promotions', 'FAQ', 'ඉක්මනින් විකුණන්නේ කෙසේද', 'සාමාජිකත්වය', 'ඔබේ සංස්කරණය ප්‍රවර්ධනය කරන්න', 'උසස්වීම්', 'පරතරය', 'Follow Us On', 'අපව අනුගමනය කරන්න සහ', 'Facebook', 'Instagram', 'Twitter', 'Linkedin', 'Whatsapp', 'Youtube', 'ෆේස්බුක්', 'ට්විටර්', 'ට්විටර්', 'Linkedin', 'Whatsapp', 'Youtube', NULL, NULL, NULL, NULL, NULL, NULL, 'Newsletter', 'පුවත් පත්‍රිකාව', 'Subscribe to our official Newsletter', 'අපගේ නිල පුවත් පත්‍රිකාවට දායක වන්න', '', 'pk_test_f36e0c1aa14497bc4fdf9081a7a02a4a8c5b5e06', 'sk_test_7b7133f89b8286fd9c08056641d2c42541faa5ea', 'ZAR', '2022-05-17 14:57:55', '2022-12-24 08:50:20');
+INSERT INTO `site_settings` (`id`, `website_title`, `logo`, `favicon`, `copyright`, `meta_keyword`, `meta_description`, `website_email`, `phone`, `address`, `map_address`, `section_one_name_en`, `section_one_name_sl`, `about_en`, `contact_us_en`, `terms_conditions_en`, `privacy_policy_en`, `sitemap_en`, `about_sl`, `contact_us_sl`, `terms_conditions_sl`, `privacy_policy_sl`, `sitemap_sl`, `section_two_en`, `section_two_sl`, `how_to_sell_fast_en`, `membership_en`, `promote_your_ad_en`, `promotions_en`, `faq_en`, `how_to_sell_fast_sl`, `membership_sl`, `promote_your_ad_sl`, `promotions_sl`, `faq_sl`, `section_three_name_en`, `section_three_name_sl`, `facebook_en`, `instagram_en`, `twitter_en`, `linkedin_en`, `whatsapp_en`, `youtube_en`, `facebook_sl`, `instagram_sl`, `twitter_sl`, `linkedin_sl`, `whatsapp_sl`, `youtube_sl`, `facebook_link`, `twitter_link`, `instagram_link`, `linkedin_link`, `whatsapp_link`, `youtube_link`, `section_four_en`, `section_four_sl`, `content_en`, `content_sl`, `app_mode`, `created_at`, `updated_at`) VALUES
+(12, 'ok2list.com', 'uploads/2022/12/1671873605-logo2.png', 'uploads/2022/06/1655658561-logo-02.jpg', 'Copyright @', 'ok2list.com', 'ok2list.com', 'info@ok2list.com', '01990572321', 'Bangladesh', NULL, 'Quick Links', 'ඉක්මන් සබැඳි', 'About', 'Contact Us', 'Terms & Conditions', 'Privacy Policy', 'Sitemap', 'පිළිබඳ', 'අප අමතන්න', 'නියම සහ කොන්දේසි', 'රහස්යතා ප්රතිපත්තිය', 'අඩවි සිතියම', 'How to sell fast', 'ඉක්මනින් විකුණන්නේ කෙසේද', 'How to sell fast', 'Membership', 'Promote Your Ad', 'Promotions', 'FAQ', 'ඉක්මනින් විකුණන්නේ කෙසේද', 'සාමාජිකත්වය', 'ඔබේ සංස්කරණය ප්‍රවර්ධනය කරන්න', 'උසස්වීම්', 'පරතරය', 'Follow Us On', 'අපව අනුගමනය කරන්න සහ', 'Facebook', 'Instagram', 'Twitter', 'Linkedin', 'Whatsapp', 'Youtube', 'ෆේස්බුක්', 'ට්විටර්', 'ට්විටර්', 'Linkedin', 'Whatsapp', 'Youtube', 'https://www.facebook.com/mdrony.tech', 'https://www.facebook.com/mdrony.tech', 'https://www.facebook.com/mdrony.tech', NULL, 'https://www.facebook.com/mdrony.tech', NULL, 'Newsletter', 'පුවත් පත්‍රිකාව', 'Subscribe to our official Newsletter', 'අපගේ නිල පුවත් පත්‍රිකාවට දායක වන්න', '', '2022-05-17 14:57:55', '2022-12-24 08:50:20');
 
 -- --------------------------------------------------------
 
@@ -2342,7 +2370,7 @@ CREATE TABLE `sls_payments` (
   `billing_state` varchar(150) DEFAULT NULL,
   `zip_code` varchar(100) DEFAULT NULL,
   `address` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sls_payments`
@@ -2350,6 +2378,7 @@ CREATE TABLE `sls_payments` (
 
 INSERT INTO `sls_payments` (`pk_no`, `f_customer_pk_no`, `transaction_id`, `status`, `tran_date`, `tran_id`, `val_id`, `amount`, `store_amount`, `bank_tran_id`, `card_type`, `emi_instalment`, `emi_amount`, `emi_description`, `emi_issuer`, `card_no`, `card_issuer`, `card_brand`, `card_issuer_country`, `card_issuer_country_code`, `APIConnect`, `validated_on`, `gw_version`, `payment_at`, `created_at`, `created_by`, `updated_at`, `updated_by`, `payment_type`, `f_prod_pk_no`, `f_promotion_details_no`, `f_package_pk_no`, `add_limit`, `expired_on`, `date`, `name`, `email`, `phone`, `billing_city`, `billing_state`, `zip_code`, `address`) VALUES
 (2, 18, NULL, 'Free', NULL, NULL, NULL, 0.000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-07 11:10:43', NULL, NULL, '2022-08-07 11:10:43', 18, '2022-08-07 11:10:43', NULL, NULL, NULL, NULL, 1, '0', '2022-09-07 11:10:43', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 7, 'he53wuKMJs2Shcp', 'Due', '2022-08-07', NULL, NULL, 5000.000, NULL, NULL, 'offline_payment', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-07 13:10:14', NULL, '2022-08-07 13:10:14', '2022-08-07 13:10:14', 7, '2022-08-07 13:10:14', 7, 'package', NULL, NULL, 3, '50', '2022-10-07 13:10:14', NULL, 'Rony', 'ronymia.tech@gmail.com', '01990572321', 'Banani', 'Dhaka', '1213', 'Bashati Horizon #20, Road #17, Banani-1213'),
 (9, 20, NULL, 'Free', NULL, NULL, NULL, 0.000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-07 13:14:12', NULL, NULL, '2022-08-07 13:14:12', 20, '2022-08-07 13:14:12', NULL, NULL, NULL, NULL, 1, '0', '2022-09-07 13:14:12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (10, 20, 'MByCEKSD0OYKmf6', 'VALID', '2022-08-07', NULL, NULL, 5000.000, NULL, NULL, 'offline_payment', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-07 13:15:38', NULL, '2022-08-07 13:15:38', '2022-08-07 13:15:38', 20, '2022-08-07 13:47:15', 1, 'package', NULL, NULL, 3, '50', '2022-10-07 13:15:38', NULL, 'Asia', 'asiaphtlbd@gmail.com', '01995842541', 'Banani', 'Dhaka', '1213', 'Bashati'),
 (12, 20, 'WWnoRCUiOzRHKqC', 'VALID', '2022-08-08', NULL, NULL, 5000.000, NULL, NULL, 'offline_payment', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-08 22:05:21', NULL, '2022-08-08 22:05:21', '2022-08-08 22:05:21', 20, '2022-08-09 14:55:16', 1, 'package', NULL, NULL, 3, '50', '2022-10-08 22:05:21', NULL, 'Asia', 'asiaphtlbd@gmail.com', '01990572321', 'dhaka', 'dhaka', '1213', 'dhaka'),
@@ -2387,8 +2416,7 @@ INSERT INTO `sls_payments` (`pk_no`, `f_customer_pk_no`, `transaction_id`, `stat
 (54, 51, 'V3Rf4vX4Mfbw8OU', 'VALID', '2022-12-19', NULL, NULL, 5000.000, NULL, NULL, 'offline_payment', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-19 15:41:34', NULL, '2022-12-19 15:41:34', '2022-12-19 15:41:34', 51, '2022-12-19 16:09:14', 1, 'package', NULL, NULL, 3, '50', '2023-02-19 15:41:34', NULL, 'Rony', 'ronymia.tech@gmail.com', '01990572321', 'colombo', 'colombo', '1234', 'demo'),
 (55, 52, NULL, 'Free', NULL, NULL, NULL, 0.000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-28 18:37:15', NULL, NULL, '2022-12-28 18:37:15', 52, '2022-12-28 18:37:15', NULL, NULL, NULL, NULL, 1, '8', '2023-01-28 18:37:15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (56, 52, 'htXiSPsFYFcXxio', 'VALID', '2022-12-28', NULL, NULL, 7000.000, NULL, NULL, 'offline_payment', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-28 18:44:41', NULL, '2022-12-28 18:44:41', '2022-12-28 18:44:41', 52, '2022-12-28 18:45:17', 1, 'package', NULL, NULL, 4, '200', '2023-02-28 18:44:41', NULL, 'Md Mridul', 'mdmridul608@gmail.com', '123456789', 'Gazipur', 'Asia', '1470', 'mawna'),
-(57, 52, 'Pi8AEYQPvTpnX3s', 'Due', '2022-12-28', NULL, NULL, 1800.000, NULL, NULL, 'offline_payment', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-28 19:00:45', NULL, '2022-12-28 19:00:45', '2022-12-28 19:00:45', 52, '2022-12-28 19:00:45', 52, 'promotion', 48, 1, NULL, '0', '2023-01-03 19:00:45', NULL, 'Md Mridul', 'mdmridul608@gmail.com', '123456789', 'Gazipur', 'gazipur', '1740', 'maw'),
-(58, 53, NULL, 'Free', NULL, NULL, NULL, 0.000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-02 17:38:34', NULL, NULL, '2023-01-02 17:38:34', 53, '2023-01-02 17:38:34', NULL, NULL, NULL, NULL, 1, '8', '2023-02-02 17:38:34', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(57, 52, 'Pi8AEYQPvTpnX3s', 'Due', '2022-12-28', NULL, NULL, 1800.000, NULL, NULL, 'offline_payment', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-12-28 19:00:45', NULL, '2022-12-28 19:00:45', '2022-12-28 19:00:45', 52, '2022-12-28 19:00:45', 52, 'promotion', 48, 1, NULL, '0', '2023-01-03 19:00:45', NULL, 'Md Mridul', 'mdmridul608@gmail.com', '123456789', 'Gazipur', 'gazipur', '1740', 'maw');
 
 --
 -- Triggers `sls_payments`
@@ -2439,7 +2467,7 @@ CREATE TABLE `sls_promotions` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(3) DEFAULT NULL,
   `updated_by` int(3) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sls_promotions`
@@ -2467,7 +2495,7 @@ CREATE TABLE `sls_promotion_details` (
   `created_by` int(3) DEFAULT NULL,
   `updated_by` int(3) DEFAULT NULL,
   `title` varchar(40) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sls_promotion_details`
@@ -2489,15 +2517,15 @@ INSERT INTO `sls_promotion_details` (`pk_no`, `f_promotion_pk_no`, `day_limit`, 
 
 CREATE TABLE `ss_areas` (
   `pk_no` int(11) NOT NULL,
-  `city_division` enum('city','division') NOT NULL,
+  `city_division` enum('city','division') COLLATE utf8mb4_unicode_ci NOT NULL,
   `city_pk_no` int(11) DEFAULT NULL,
   `division_pk_no` int(11) DEFAULT NULL,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `is_delete` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
@@ -2754,12 +2782,12 @@ DELIMITER ;
 
 CREATE TABLE `ss_business_function` (
   `pk_no` int(11) NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `is_delete` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
@@ -2802,7 +2830,7 @@ CREATE TABLE `ss_chat` (
   `updated_by` int(10) DEFAULT NULL,
   `data_set` bigint(20) NOT NULL DEFAULT 0,
   `is_seen` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ss_chat`
@@ -2812,8 +2840,7 @@ INSERT INTO `ss_chat` (`id`, `prd_pk_no`, `owner_pk_no`, `to_pk_no`, `from_pk_no
 (1, 4, 26, 26, 18, 'Rony', 'Rony', 'Hi, I am interested on your ads', 1, '2022-08-22 10:52:23', '2022-08-22 10:52:32', 18, NULL, 0, 1),
 (2, 4, 26, 18, 26, 'Rony', 'Rony', 'sounds good', 1, '2022-08-22 10:52:52', '2022-08-22 11:30:13', 26, NULL, 0, 1),
 (3, 26, 42, 42, 29, 'Masud', 'Rabin mia', 'fdsfdsf', 1, '2022-12-15 10:29:21', '2022-12-15 10:29:21', 29, NULL, 0, 0),
-(4, 26, 42, 42, 29, 'Masud', 'Rabin mia', 'fsdfdsf', 1, '2022-12-15 10:29:25', '2022-12-15 10:29:25', 29, NULL, 0, 0),
-(5, 35, 48, 48, 53, 'Masud Rana Tapu', 'user', 'hi', 1, '2023-01-04 10:09:29', '2023-01-04 10:09:29', 53, NULL, 0, 0);
+(4, 26, 42, 42, 29, 'Masud', 'Rabin mia', 'fsdfdsf', 1, '2022-12-15 10:29:25', '2022-12-15 10:29:25', 29, NULL, 0, 0);
 
 --
 -- Triggers `ss_chat`
@@ -2855,12 +2882,12 @@ DELIMITER ;
 CREATE TABLE `ss_cities` (
   `pk_no` int(11) NOT NULL,
   `country_pk_no` int(11) NOT NULL DEFAULT 0,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT 1,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `total_post` int(10) NOT NULL DEFAULT 0,
   `active_post` int(10) NOT NULL DEFAULT 0,
@@ -2868,7 +2895,7 @@ CREATE TABLE `ss_cities` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `image` varchar(50) DEFAULT NULL
+  `image` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -2877,7 +2904,7 @@ CREATE TABLE `ss_cities` (
 
 INSERT INTO `ss_cities` (`pk_no`, `country_pk_no`, `name`, `name_bn`, `url_slug`, `order_id`, `status`, `comments`, `is_active`, `total_post`, `active_post`, `created_by`, `created_at`, `updated_by`, `updated_at`, `image`) VALUES
 (1, 1, 'Colombo', NULL, 'colombo', 1, NULL, NULL, 1, 8, 0, 1, '2022-08-07 10:54:39', NULL, '2022-08-07 10:54:39', NULL),
-(2, 1, 'Kandy', NULL, 'kandy', 1, NULL, NULL, 1, 4, 0, 1, '2022-08-07 10:54:52', NULL, '2022-08-07 10:54:52', NULL),
+(2, 1, 'Kandy', NULL, 'kandy', 1, NULL, NULL, 1, 5, 0, 1, '2022-08-07 10:54:52', NULL, '2022-08-07 10:54:52', NULL),
 (3, 1, 'Galle', NULL, 'galle', 1, NULL, NULL, 1, 2, 0, 1, '2022-08-07 10:55:05', NULL, '2022-08-07 10:55:05', NULL),
 (4, 1, 'Ampara', NULL, 'ampara', 1, NULL, NULL, 1, 1, 0, 1, '2022-08-07 10:55:16', NULL, '2022-08-07 10:55:16', NULL),
 (6, 1, 'Anuradhapura', NULL, 'anuradhapura', 1, NULL, NULL, 1, 0, 0, 1, '2022-08-07 10:55:39', NULL, '2022-08-07 10:55:39', NULL),
@@ -2918,7 +2945,7 @@ CREATE TABLE `ss_contact` (
   `created_at` date NOT NULL,
   `updated_at` date NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0 COMMENT 'unseen =0, seen = 1, replied = 2'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -2937,7 +2964,7 @@ CREATE TABLE `ss_country` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ss_country`
@@ -2956,7 +2983,7 @@ CREATE TABLE `ss_currency` (
   `pk_no` int(11) NOT NULL,
   `code` varchar(4) DEFAULT NULL,
   `name` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -2966,50 +2993,50 @@ CREATE TABLE `ss_currency` (
 
 CREATE TABLE `ss_customers` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `seller_type` varchar(40) DEFAULT 'Individual',
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(124) DEFAULT NULL,
-  `mobile1` varchar(11) DEFAULT NULL,
-  `mobile2` varchar(11) DEFAULT NULL,
+  `seller_type` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT 'Individual',
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile1` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile2` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `mobile1_is_verified` tinyint(4) NOT NULL DEFAULT 0,
   `mobile2_is_verified` tinyint(4) NOT NULL DEFAULT 0,
-  `mobile1_otp_code` varchar(4) NOT NULL,
-  `mobile2_otp_code` varchar(4) NOT NULL,
+  `mobile1_otp_code` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile2_otp_code` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mobile1_otp_code_extime` datetime DEFAULT NULL,
   `mobile2_otp_code_extime` datetime DEFAULT NULL,
   `area_id` int(10) DEFAULT NULL,
   `is_active` tinyint(2) NOT NULL DEFAULT 1,
   `is_delete` tinyint(4) DEFAULT 0,
-  `gender` varchar(124) DEFAULT NULL,
-  `linkedin` varchar(124) DEFAULT NULL,
-  `highest_education` varchar(124) DEFAULT NULL,
-  `special_education` varchar(124) DEFAULT NULL,
-  `highest_education_ins` varchar(124) DEFAULT NULL COMMENT 'highest_education_institution',
+  `gender` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `highest_education` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `special_education` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `highest_education_ins` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'highest_education_institution',
   `experience_year` decimal(2,2) DEFAULT NULL,
-  `skill_summary` varchar(255) DEFAULT NULL,
-  `about_me` varchar(1024) DEFAULT NULL,
-  `current_industry` varchar(124) DEFAULT NULL,
-  `current_function` varchar(124) DEFAULT NULL COMMENT 'Current Business Function',
-  `current_designation` varchar(124) DEFAULT NULL,
+  `skill_summary` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about_me` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `current_industry` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `current_function` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Current Business Function',
+  `current_designation` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `job_started` datetime DEFAULT NULL,
-  `job_notice_period` varchar(124) DEFAULT NULL COMMENT 'Notice period (in days)',
-  `current_job_responsibility` varchar(1024) DEFAULT NULL,
+  `job_notice_period` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Notice period (in days)',
+  `current_job_responsibility` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `current_salary` decimal(6,2) DEFAULT NULL COMMENT 'Current salary (per month) (Tk)',
-  `cv` varchar(124) DEFAULT NULL COMMENT 'Supported file formats: DOC, DOCX, PDF, TIFF, JPG, PNG',
+  `cv` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Supported file formats: DOC, DOCX, PDF, TIFF, JPG, PNG',
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `first_name` varchar(255) DEFAULT NULL,
-  `middle_name` varchar(255) DEFAULT NULL,
-  `last_name` varchar(255) DEFAULT NULL,
-  `alt_mobile_no` varchar(14) DEFAULT NULL,
-  `designation` varchar(255) DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `middle_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alt_mobile_no` varchar(14) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `auth_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `google_id` varchar(255) DEFAULT NULL,
+  `google_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gym_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `profile_pic` varchar(255) DEFAULT NULL,
-  `profile_pic_url` varchar(255) DEFAULT NULL,
-  `pic_mime_type` varchar(50) DEFAULT NULL,
+  `profile_pic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_pic_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pic_mime_type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_type` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
   `total_favorite` int(5) NOT NULL DEFAULT 0,
@@ -3017,14 +3044,14 @@ CREATE TABLE `ss_customers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `city` varchar(40) DEFAULT NULL,
-  `address` varchar(200) DEFAULT NULL,
+  `city` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `package_id` int(3) DEFAULT 1,
   `package_start_date` date DEFAULT NULL,
   `package_end_date` date DEFAULT NULL,
   `promotion` int(1) NOT NULL DEFAULT 0 COMMENT 'I want to receive news and promotion updates',
   `tc` int(1) NOT NULL DEFAULT 0 COMMENT 'Terms & Condition',
-  `random_token` varchar(100) DEFAULT NULL,
+  `random_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_verified` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -3058,8 +3085,7 @@ INSERT INTO `ss_customers` (`id`, `seller_type`, `name`, `email`, `mobile1`, `mo
 (48, 'Individual', 'Masud Rana Tapu', 'masudrana.tapu1998@gmail.com', '94776628443', NULL, 1, 0, '3374', '', '2022-12-15 03:27:34', '2022-12-15 03:27:34', 2, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$WR9m5zzGWO7H/PltH/Msz.brCK7AhAje4qIZWdln0W2BW5ocXxjwy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 0, 1, '2022-12-15 18:44:12', '2022-12-15 18:54:03', NULL, NULL, NULL, 1, '2022-12-15', '2023-01-15', 0, 0, 'IX7FIhAYlIcFdLNFHGC35IIyDRIk2i', 1),
 (50, 'Individual', 'Mubarak', 'mubaraktech355@gmail.com', '94743488449', NULL, 1, 0, '3407', '', '2022-12-19 06:04:49', '2022-12-19 06:04:49', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$A3ebDPY376e2jbqGb6PNaOLl/cpYzdLgGEk8KOc07YUGNJ6Uip8y2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 0, 1, '2022-12-15 21:12:31', '2022-12-19 21:33:49', NULL, NULL, 'Kandy', 7, '2022-12-15', '2023-01-15', 0, 0, 'UGA6J8moauIyIc6UD9F5nyjxyzTGCg', 1),
 (51, 'Individual', 'Raihan', 'raihan@gmail.com', '94776628446', NULL, 1, 0, '9514', '', '2022-12-19 08:04:37', '2022-12-19 08:04:37', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$OXNOuQc.8gKW6w4.kRNW4..RyqvQWG9Mv2tg7J4IBmhQBW9pwq8p6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 10, 0, 1, '2022-12-16 00:20:53', '2022-12-19 23:33:37', NULL, NULL, 'colombo', 3, '2022-12-15', '2023-01-15', 0, 0, 'SEyFTsUhnv9p18N7OWGZyH39AmGDGq', 1),
-(52, 'Individual', 'Md Mridul', 'mdmridul608@gmail.com', NULL, NULL, 0, 0, '', '', '2022-12-28 19:30:20', '2022-12-28 19:30:20', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$REg6F67KxF7tPk8Lg6MD5OXGl5XTn9h04W3NX6d8n2gg/P1RJSG7a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 0, 1, '2022-12-28 12:37:15', '2022-12-28 12:37:15', NULL, NULL, NULL, 4, '2022-12-28', '2023-01-28', 0, 0, 'nwufLTWzLaKX2CPpNOVXrf2Mgmdktn', 1),
-(53, 'Individual', 'user', 'user@gmail.com', NULL, NULL, 0, 0, '', '', '2023-01-02 18:11:21', '2023-01-02 18:11:21', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$U84rPou1eAdAWg6Xfn5TaeMkkD33oUPE1ViW1mTB58xAqnWQHqgS.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 1, '2023-01-02 11:38:34', '2023-01-02 11:38:34', NULL, NULL, NULL, 1, '2023-01-02', '2023-02-02', 0, 0, 'DjINPg0A1Zqi2JeGyatGUnBDXVkLUN', 1);
+(52, 'Individual', 'Md Mridul', 'mdmridul608@gmail.com', NULL, NULL, 0, 0, '', '', '2022-12-28 19:30:20', '2022-12-28 19:30:20', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$REg6F67KxF7tPk8Lg6MD5OXGl5XTn9h04W3NX6d8n2gg/P1RJSG7a', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 0, 1, '2022-12-28 12:37:15', '2022-12-28 12:37:15', NULL, NULL, NULL, 4, '2022-12-28', '2023-01-28', 0, 0, 'nwufLTWzLaKX2CPpNOVXrf2Mgmdktn', 1);
 
 --
 -- Triggers `ss_customers`
@@ -3092,12 +3118,12 @@ DELIMITER ;
 CREATE TABLE `ss_divisions` (
   `pk_no` int(11) NOT NULL,
   `country_pk_no` int(11) NOT NULL DEFAULT 0,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT 1,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `total_post` int(10) NOT NULL DEFAULT 0,
   `active_post` int(10) NOT NULL DEFAULT 0,
@@ -3105,7 +3131,7 @@ CREATE TABLE `ss_divisions` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `image` varchar(124) DEFAULT NULL
+  `image` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -3117,18 +3143,18 @@ CREATE TABLE `ss_divisions` (
 CREATE TABLE `ss_employment_history` (
   `pk_no` int(11) NOT NULL,
   `customer_pk_no` int(10) DEFAULT NULL,
-  `institution_name` varchar(124) DEFAULT NULL,
-  `industry` varchar(124) DEFAULT NULL,
-  `business _function` varchar(124) DEFAULT NULL,
-  `designation` varchar(124) DEFAULT NULL,
+  `institution_name` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `industry` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `business _function` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `start_date` datetime DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `is_delete` tinyint(4) NOT NULL DEFAULT 0,
   `end_date` datetime NOT NULL DEFAULT current_timestamp(),
-  `job_responsibility` varchar(1024) DEFAULT NULL,
+  `job_responsibility` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_by` int(4) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(4) DEFAULT NULL,
@@ -3151,7 +3177,7 @@ CREATE TABLE `ss_faq` (
   `created_by` int(2) DEFAULT NULL,
   `updated_by` int(2) DEFAULT NULL,
   `is_active` int(11) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ss_faq`
@@ -3192,12 +3218,12 @@ INSERT INTO `ss_faq` (`pk_no`, `question`, `answer`, `created_at`, `updated_at`,
 
 CREATE TABLE `ss_industry` (
   `pk_no` int(11) NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `is_delete` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
@@ -3216,12 +3242,12 @@ CREATE TABLE `ss_industry` (
 
 CREATE TABLE `ss_job_title` (
   `pk_no` int(11) NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) DEFAULT NULL,
-  `url_slug` varchar(124) DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
-  `comments` varchar(200) DEFAULT NULL,
+  `comments` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_active` int(1) DEFAULT 1,
   `is_delete` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
@@ -3242,8 +3268,8 @@ CREATE TABLE `ss_location` (
   `pk_no` int(11) NOT NULL,
   `divisions_pk_no` int(11) NOT NULL DEFAULT 0,
   `city_pk_no` int(11) NOT NULL DEFAULT 0,
-  `name` varchar(191) NOT NULL,
-  `name_bn` varchar(191) NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_bn` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `order_id` int(10) NOT NULL,
   `status` int(1) NOT NULL,
   `is_popular` int(1) NOT NULL
@@ -3274,7 +3300,7 @@ CREATE TABLE `ss_packages` (
   `created_at` datetime DEFAULT NULL,
   `updated_by` int(3) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ss_packages`
@@ -3298,7 +3324,7 @@ CREATE TABLE `ss_paging` (
   `Feature` int(3) DEFAULT NULL,
   `Urgent` int(3) DEFAULT NULL,
   `Basic` int(3) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ss_paging`
@@ -3328,7 +3354,7 @@ CREATE TABLE `ss_shop` (
   `updated_at` datetime NOT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT 1,
   `customer_pk_no` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ss_shop`
@@ -3352,7 +3378,7 @@ CREATE TABLE `ss_subscribe` (
   `email` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `ss_subscribe`
@@ -3372,8 +3398,8 @@ CREATE TABLE `tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `auth_id` bigint(20) UNSIGNED NOT NULL,
   `user_type` tinyint(4) NOT NULL DEFAULT 0,
-  `token` varchar(255) NOT NULL,
-  `client` varchar(255) NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_expire` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0 = Alive, 0 = Expire',
   `started_at` datetime NOT NULL,
   `expire_at` datetime NOT NULL
@@ -3387,49 +3413,49 @@ CREATE TABLE `tokens` (
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `seller_type` varchar(40) DEFAULT 'Individual Seller',
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(124) DEFAULT NULL,
-  `mobile1` varchar(11) DEFAULT NULL,
-  `mobile2` varchar(11) DEFAULT NULL,
+  `seller_type` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT 'Individual Seller',
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile1` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile2` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `mobile1_is_verified` tinyint(4) NOT NULL DEFAULT 0,
   `mobile2_is_verified` tinyint(4) NOT NULL DEFAULT 0,
-  `mobile1_otp_code` varchar(4) NOT NULL,
-  `mobile2_otp_code` varchar(4) NOT NULL,
+  `mobile1_otp_code` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile2_otp_code` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mobile1_otp_code_extime` datetime DEFAULT NULL,
   `mobile2_otp_code_extime` datetime DEFAULT NULL,
   `area_id` int(10) DEFAULT NULL,
   `is_active` tinyint(2) NOT NULL DEFAULT 1,
   `is_delete` tinyint(4) DEFAULT 0,
-  `gender` varchar(124) DEFAULT NULL,
-  `linkedin` varchar(124) DEFAULT NULL,
-  `highest_education` varchar(124) DEFAULT NULL,
-  `special_education` varchar(124) DEFAULT NULL,
-  `highest_education_ins` varchar(124) DEFAULT NULL COMMENT 'highest_education_institution',
+  `gender` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `highest_education` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `special_education` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `highest_education_ins` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'highest_education_institution',
   `experience_year` decimal(2,2) DEFAULT NULL,
-  `skill_summary` varchar(255) DEFAULT NULL,
-  `about_me` varchar(1024) DEFAULT NULL,
-  `current_industry` varchar(124) DEFAULT NULL,
-  `current_function` varchar(124) DEFAULT NULL COMMENT 'Current Business Function',
-  `current_designation` varchar(124) DEFAULT NULL,
+  `skill_summary` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `about_me` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `current_industry` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `current_function` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Current Business Function',
+  `current_designation` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `job_started` datetime DEFAULT NULL,
-  `job_notice_period` varchar(124) DEFAULT NULL COMMENT 'Notice period (in days)',
-  `current_job_responsibility` varchar(1024) DEFAULT NULL,
+  `job_notice_period` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Notice period (in days)',
+  `current_job_responsibility` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `current_salary` decimal(6,2) DEFAULT NULL COMMENT 'Current salary (per month) (Tk)',
-  `cv` varchar(124) DEFAULT NULL COMMENT 'Supported file formats: DOC, DOCX, PDF, TIFF, JPG, PNG',
+  `cv` varchar(124) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Supported file formats: DOC, DOCX, PDF, TIFF, JPG, PNG',
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `first_name` varchar(255) DEFAULT NULL,
-  `middle_name` varchar(255) DEFAULT NULL,
-  `last_name` varchar(255) DEFAULT NULL,
-  `alt_mobile_no` varchar(14) DEFAULT NULL,
-  `designation` varchar(255) DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `middle_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alt_mobile_no` varchar(14) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `auth_id` bigint(20) UNSIGNED DEFAULT NULL,
   `gym_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `profile_pic` varchar(255) DEFAULT NULL,
-  `profile_pic_url` varchar(255) DEFAULT NULL,
-  `pic_mime_type` varchar(50) DEFAULT NULL,
+  `profile_pic` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_pic_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pic_mime_type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_type` tinyint(4) NOT NULL DEFAULT 0,
   `total_post` int(10) NOT NULL DEFAULT 0,
   `total_favorite` int(5) NOT NULL DEFAULT 0,
@@ -3437,8 +3463,8 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `city` varchar(40) DEFAULT NULL,
-  `address` varchar(200) DEFAULT NULL,
+  `city` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `package_id` int(3) DEFAULT NULL,
   `package_start_date` date DEFAULT NULL,
   `package_end_date` date DEFAULT NULL
@@ -3468,7 +3494,7 @@ CREATE TABLE `user_groups` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_groups`
@@ -3488,8 +3514,8 @@ INSERT INTO `user_groups` (`id`, `group_name`, `role_id`, `status`, `deleted_at`
 
 CREATE TABLE `verify_mobile_no` (
   `id` int(10) UNSIGNED NOT NULL,
-  `mobile_no` varchar(14) NOT NULL,
-  `code` varchar(255) NOT NULL,
+  `mobile_no` varchar(14) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_type` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0 = Admin, 1 = User',
   `purpose` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0 = Verify-mobile,  1 = Reset-password 2= Forgot-password',
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1 = Last-one, 0 = Used, 2 = Unused',
@@ -3506,7 +3532,7 @@ CREATE TABLE `verify_mobile_no` (
 
 CREATE TABLE `workout_body_parts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3530,9 +3556,9 @@ INSERT INTO `workout_body_parts` (`id`, `name`, `status`, `created_at`, `updated
 
 CREATE TABLE `workout_items` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `workout_name` varchar(255) NOT NULL,
-  `photo` varchar(255) NOT NULL,
-  `photo_url` varchar(255) NOT NULL,
+  `workout_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `body_parts_id` bigint(20) UNSIGNED NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -3571,6 +3597,12 @@ ALTER TABLE `backup_admin_users`
   ADD KEY `admin_users_auth_id_foreign` (`auth_id`);
 
 --
+-- Indexes for table `currencies`
+--
+ALTER TABLE `currencies`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -3581,6 +3613,15 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `gyms`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `languages`
+--
+ALTER TABLE `languages`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `languages_name_unique` (`name`),
+  ADD UNIQUE KEY `languages_code_unique` (`code`),
+  ADD UNIQUE KEY `languages_icon_unique` (`icon`);
 
 --
 -- Indexes for table `migrations`
@@ -3600,12 +3641,6 @@ ALTER TABLE `models`
 ALTER TABLE `notifications`
   ADD PRIMARY KEY (`id`),
   ADD KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`);
-
---
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_about_us`
@@ -3659,6 +3694,12 @@ ALTER TABLE `page_sidebar_info`
 -- Indexes for table `page_terms_conditions`
 --
 ALTER TABLE `page_terms_conditions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3956,9 +3997,15 @@ ALTER TABLE `auth_role`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT for table `currencies`
 --
-ALTER TABLE `orders`
+ALTER TABLE `currencies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `languages`
+--
+ALTER TABLE `languages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
@@ -4014,6 +4061,12 @@ ALTER TABLE `page_sidebar_info`
 --
 ALTER TABLE `page_terms_conditions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -4139,7 +4192,7 @@ ALTER TABLE `site_settings`
 -- AUTO_INCREMENT for table `sls_payments`
 --
 ALTER TABLE `sls_payments`
-  MODIFY `pk_no` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `pk_no` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `sls_promotions`
@@ -4169,7 +4222,7 @@ ALTER TABLE `ss_business_function`
 -- AUTO_INCREMENT for table `ss_chat`
 --
 ALTER TABLE `ss_chat`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ss_cities`
@@ -4199,7 +4252,7 @@ ALTER TABLE `ss_currency`
 -- AUTO_INCREMENT for table `ss_customers`
 --
 ALTER TABLE `ss_customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `ss_divisions`
