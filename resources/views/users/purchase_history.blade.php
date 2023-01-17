@@ -5,8 +5,8 @@
         <div class="container">
             <div class="breadcrumb-section">
                 <ol class="breadcrumb">
-                    <li><a href="{{ url('/') }}">@lang('web.home')</a></li>
-                    <li>@lang('web.p_history')</li>
+                    <li><a href="{{ url('/') }}">{{ __('home') }}</a></li>
+                    <li>{{ __('p_history') }}</li>
                 </ol>
             </div>
             <div class="ads-info profile">

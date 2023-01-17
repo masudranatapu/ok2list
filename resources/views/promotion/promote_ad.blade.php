@@ -10,8 +10,8 @@ $row = $data['row'];
         <div class="container">
             <div class="breadcrumb-section">
                 <ol class="breadcrumb">
-                    <li><a href="{{ url('/') }}">@lang('web.home')</a></li>
-                    <li>@lang('web.ad_post')</li>
+                    <li><a href="{{ url('/') }}">{{ __('home') }}</a></li>
+                    <li>{{ __('ad_post') }}</li>
                 </ol>
             </div>
 

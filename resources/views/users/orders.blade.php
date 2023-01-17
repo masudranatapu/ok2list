@@ -5,8 +5,8 @@
         <div class="container">
             <div class="breadcrumb-section">
                 <ol class="breadcrumb">
-                    <li><a href="{{ url('/') }}">@lang('web.home')</a></li>
-                    <li>@lang('web.p_history')</li>
+                    <li><a href="{{ url('/') }}">{{ __('home') }}</a></li>
+                    <li>{{ __('p_history') }}</li>
                 </ol>
             </div>
             <div class="ads-info profile">
@@ -34,14 +34,14 @@
                                         @foreach ($orders as $item)
                                             <tr>
                                                 <td>{{ $item->product->ad_title }}</td>
-                                                <td>{{ ($item->amount) }}</td>
-                                                <td>{{ ucfirst($item->payment_method ?? 'paystack' ) }}</td>
+                                                <td>{{ $item->amount }}</td>
+                                                <td>{{ ucfirst($item->payment_method ?? 'paystack') }}</td>
                                                 <td>{{ $item->transaction_number }}</td>
                                                 <td>
                                                     @if ($item->payment_status == 'paid')
                                                         <span class="badge bg-success">Paid</span>
                                                     @else
-                                                    <span class="badge bg-danger">Unpaid</span>
+                                                        <span class="badge bg-danger">Unpaid</span>
                                                     @endif
                                                 </td>
                                                 <td>{{ $item->created_at->toFormattedDateString() }}</td>
