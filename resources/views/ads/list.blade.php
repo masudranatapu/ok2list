@@ -255,7 +255,7 @@ $full_sort_by = $sort_by . '_' . $order_by;
 													@if ($row->promotion == 'Top') <span class="topadtag">{{ $row->promotion}}</span> @endif
 												</h3>
 												@endif --}}
-                                                <h3 class="item-price">₦ {{ number_format($row->price) }}
+                                                <h3 class="item-price">{{ changeCurrency($row->price) }}
                                                     @if ($row->promotion == 'Top')
                                                         <span class="topadtag">{{ $row->promotion }}</span>
                                                     @endif

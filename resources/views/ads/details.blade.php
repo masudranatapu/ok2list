@@ -96,7 +96,7 @@ $cate = DB::table('prd_category')
                         @endif
                         <div class="single_content slider-text pt-3">
                             <h2>
-                                ₦ {{ number_format($row->price, 2) }}
+                                {{ changeCurrency($row->price) }}
                                 <div class="float-right">
                                     @if ($row->is_like == '1')
                                         <a href="{{ route('ad-post-dislike', $row->pk_no) }}" class="like_ads btn-sm"
@@ -261,7 +261,7 @@ $cate = DB::table('prd_category')
                                                 <div class="item-info col-lg-8">
                                                     <div class="ad-info">
                                                         <h3 class="item-price">
-                                                            ₦{{ number_format($srow->price, 2) }}
+                                                            {{ changeCurrency($srow->price) }}
                                                             <div class="float-right">
 
                                                                 @if ($row->is_like == '1')
@@ -755,7 +755,7 @@ $cate = DB::table('prd_category')
                                                     <p class="mb-0">{{ $row->area->name ?? '' }},
                                                         {{ $row->area->city->name ?? '' }}{{ $row->division->name ?? '' }}
                                                     </p>
-                                                    <p class="mb-0 text-success">₦ {{ number_format($row->price, 2) }}
+                                                    <p class="mb-0 text-success">{{ changeCurrency($row->price) }}
                                                     </p>
                                                 </div>
                                             </div>
