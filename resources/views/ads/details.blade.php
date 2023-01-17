@@ -25,7 +25,7 @@ $cate = DB::table('prd_category')
             {{-- @include('ads._topbar',$data) --}}
             <div class="breadcrumb-section">
                 <ol class="breadcrumb">
-                    <li><a href="{{ route('home') }}">@lang('web.home')</a></li>
+                    <li><a href="{{ route('home') }}">{{ __('home') }}</a></li>
                     <li><a href="javascript:;">{{ $cate->name ?? '' }}</a></li>
                     <li><a href="javascript:;">{{ $row->ad_title }}</a></li>
                 </ol>
@@ -33,10 +33,10 @@ $cate = DB::table('prd_category')
 
             <!--  @if (isset($data['detail_page1']) && $data['detail_page1'] != null)
     <div class="ads_banner text-center mb-4">
-                                <a href="{{ $data['detail_page1']->link }}" target="_blank"
-                                    title="{{ $data['detail_page1']->name }}"><img src="{{ fileExit($data['detail_page1']->photo) }}"
-                                        class="w-100" alt="{{ $data['detail_page1']->name }}" style="height: 96px;"></a>
-                            </div>
+                                                                                                                                                                                                                                                                                                                                                        <a href="{{ $data['detail_page1']->link }}" target="_blank"
+                                                                                                                                                                                                                                                                                                                                                            title="{{ $data['detail_page1']->name }}"><img src="{{ fileExit($data['detail_page1']->photo) }}"
+                                                                                                                                                                                                                                                                                                                                                                class="w-100" alt="{{ $data['detail_page1']->name }}" style="height: 96px;"></a>
+                                                                                                                                                                                                                                                                                                                                                    </div>
     @endif -->
 
             <div class="mb-5">
@@ -114,20 +114,21 @@ $cate = DB::table('prd_category')
 
                             <!-- short-info -->
                             <div class="short-info">
-                                <h4>@lang('web.sort_info')</h4>
+                                <h4>{{ __('sort_info') }}</h4>
                                 @if ($row->using_condition)
-                                    <p><strong> @lang('web.con') : </strong><a
+                                    <p><strong> {{ __('con') }}: </strong><a
                                             href="#">{{ $row->using_condition }}</a> </p>
                                 @endif
                                 @if ($row->brand_name)
-                                    <p><strong> @lang('web.bra') : </strong><a href="#">{{ $row->brand_name }}</a>
+                                    <p><strong> {{ __('bra') }}: </strong><a href="#">{{ $row->brand_name }}</a>
                                     </p>
                                 @endif
                                 @if ($row->prod_feature)
-                                    <p><strong> @lang('web.fea') : </strong> {{ $row->prod_feature }} </p>
+                                    <p><strong>{{ __('fea') }} : </strong> {{ $row->prod_feature }}
+                                    </p>
                                 @endif
                                 @if ($row->model_name)
-                                    <p><strong> @lang('web.mod') : </strong><a href="#">{{ $row->model_name }}</a>
+                                    <p><strong> {{ __('mod') }}: </strong><a href="#">{{ $row->model_name }}</a>
                                     </p>
                                 @endif
                             </div><!-- short-info -->
@@ -145,10 +146,10 @@ $cate = DB::table('prd_category')
 
                             <!-- contact-with -->
                             <div class="contact-with">
-                                <h4>@lang('web.contact') </h4>
+                                <h4>{{ __('contact') }} </h4>
                                 <span class="btn btn-red show-number">
                                     <i class="fa fa-phone-square"></i>
-                                    <span class="hide-text">@lang('web.click')</span>
+                                    <span class="hide-text">{{ __('click') }}</span>
                                     @if ($row->mobile1)
                                         <span class="hide-number"><a
                                                 href="tel:{{ $row->mobile1 }}">{{ $row->mobile1 }}</a></span>
@@ -164,20 +165,20 @@ $cate = DB::table('prd_category')
                                         <a href="javascript:void(0)" id="chat_dalal" class="btn" data-toggle="modal"
                                             data-target="#chatModal" data-pid="{{ $row->pk_no }}"
                                             data-toid="{{ Auth::user()->id }}"><i
-                                                class="fa fa-comments"></i>@lang('web.chat')</a>
+                                                class="fa fa-comments"></i>{{ __('chat') }}</a>
                                     @endif
                                 @else
                                     <a href="{{ route('login') }}?referer={{ request()->fullUrl() }}" class="btn"><i
-                                            class="fa fa-comments"></i>@lang('web.chat')</a>
+                                            class="fa fa-comments"></i>{{ __('chat') }}</a>
                                 @endif
 
                             </div>
                             <div class="my-3">
-                                <h4 style="margin-bottom: 2px;">@lang('web.offer_by')</h4>
-                                <p><span>@lang('web.name') : <a
+                                <h4 style="margin-bottom: 2px;">{{ __('offer_by') }}</h4>
+                                <p><span>{{ __('name') }} : <a
                                             href="javascript:void(0)">{{ $row->user->name ?? '' }}</a></span>
                                     <span>
-                                        @lang('web.ad_id') :<a href="javascript:void(0)" class="time">
+                                        {{ __('ad_id') }} :<a href="javascript:void(0)" class="time">
                                             {{ $row->code }}</a></span>
                                 </p>
                                 @if ($row->user->package != null && !empty($row->user->shop))
@@ -192,16 +193,16 @@ $cate = DB::table('prd_category')
                                             <div class="premier_ads">
                                                 <span class="member">
                                                     <i class="fa fa-star"></i>
-                                                    @lang('web.mem')
+                                                    {{ __('mem') }}
                                                 </span>
                                                 <span class="verified">
                                                     <i class="fa fa-check"></i>
-                                                    @lang('web.veri')
+                                                    {{ __('veri') }}
                                                 </span>
                                                 <strong>
                                                     <a
                                                         href="{{ route('shop_page_details', ['id' => $row->user->shop->pk_no, 'url_slug' => $row->user->shop->url_slug]) }}">(
-                                                        @lang('web.visi') )</a>
+                                                        {{ __('visi') }}</a>
                                                 </strong>
                                             </div>
                                         </div>
@@ -220,7 +221,7 @@ $cate = DB::table('prd_category')
 
                             <!-- social-links -->
                             <div class="social-links">
-                                <h4 style="margin-bottom: 0px;">@lang('web.share')</h4>
+                                <h4 style="margin-bottom: 0px;">{{ __('share') }}</h4>
                                 <div id="shareBlock"></div>
                             </div><!-- social-links -->
                         </div>
@@ -236,7 +237,7 @@ $cate = DB::table('prd_category')
                         <div class="row">
                             <div class="col-12">
                                 <div class="description">
-                                    <h4>@lang('web.des')</h4>
+                                    <h4>{{ __('des') }}</h4>
                                     <div class="aaa">
                                         <p><?php echo $row->description; ?></p>
                                     </div>
@@ -245,7 +246,7 @@ $cate = DB::table('prd_category')
                             <div class="col-12">
                                 <div class="section recommended-ads">
                                     <div class="featured-top">
-                                        <h4>@lang('web.recom')</h4>
+                                        <h4>{{ __('recom') }}</h4>
                                     </div>
                                     @if (isset($data['similar_ads']) && count($data['similar_ads']) > 0)
                                         @foreach ($data['similar_ads'] as $i => $srow)
@@ -324,247 +325,247 @@ $cate = DB::table('prd_category')
                     <div class="col-md-4">
                         <div class="row">
                             <div class="col-12">
-                                @if($data['row']->ad_type == 'jobs')
+                                @if ($data['row']->ad_type == 'jobs')
                                     @php
                                         $jobInfo = App\JobPreference::where('prod_pk_no', $data['row']->pk_no)->first();
                                     @endphp
-                                        @if($jobInfo)
+                                    @if ($jobInfo)
                                         <div class="short-info" style="margin-top: 0px;">
                                             <h4>Jobs Info</h4>
                                             <ul>
                                                 @php
-                                                    $mini_qualification_combo    = Config::get('static_arrays.edu_qulafication') ?? array();
+                                                    $mini_qualification_combo = Config::get('static_arrays.edu_qulafication') ?? [];
                                                 @endphp
-                                                @if($jobInfo->mini_qualification)
+                                                @if ($jobInfo->mini_qualification)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Min. Qualification : 
+                                                        Min. Qualification :
                                                         <span>
-                                                            @if($jobInfo->mini_qualification == 'primary_school')
+                                                            @if ($jobInfo->mini_qualification == 'primary_school')
                                                                 Primary School
                                                             @endif
-                                                            @if($jobInfo->mini_qualification == 'high_school')
+                                                            @if ($jobInfo->mini_qualification == 'high_school')
                                                                 High School
                                                             @endif
-                                                            @if($jobInfo->mini_qualification == 'ssc')
+                                                            @if ($jobInfo->mini_qualification == 'ssc')
                                                                 SSC / O Level
                                                             @endif
-                                                            @if($jobInfo->mini_qualification == 'hsc')
+                                                            @if ($jobInfo->mini_qualification == 'hsc')
                                                                 HSC / A Level
                                                             @endif
-                                                            @if($jobInfo->mini_qualification == 'diploma')
+                                                            @if ($jobInfo->mini_qualification == 'diploma')
                                                                 Diploma
                                                             @endif
-                                                            @if($jobInfo->mini_qualification == 'graduate')
+                                                            @if ($jobInfo->mini_qualification == 'graduate')
                                                                 Bachelor / Honors
                                                             @endif
-                                                            @if($jobInfo->mini_qualification == 'post_graduate')
+                                                            @if ($jobInfo->mini_qualification == 'post_graduate')
                                                                 Masters
                                                             @endif
-                                                            @if($jobInfo->mini_qualification == 'doctorate')
+                                                            @if ($jobInfo->mini_qualification == 'doctorate')
                                                                 PhD / Doctorate
                                                             @endif
                                                         </span>
                                                     </li>
                                                 @endif
-                                                @if($jobInfo->req_expriance)
+                                                @if ($jobInfo->req_expriance)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Req. Expriance : 
+                                                        Req. Expriance :
                                                         <span>{{ $jobInfo->req_expriance }} Years</span>
                                                     </li>
                                                 @endif
-                                                @if($jobInfo->edu_specialization)
+                                                @if ($jobInfo->edu_specialization)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Edu. Specialization : 
+                                                        Edu. Specialization :
                                                         <span>
-                                                            
-                                                            @if($jobInfo->edu_specialization == 'art_humanities')
-                                                            Art and Humanities
+
+                                                            @if ($jobInfo->edu_specialization == 'art_humanities')
+                                                                Art and Humanities
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'business_management')
-                                                            Business and Management
+                                                            @if ($jobInfo->edu_specialization == 'business_management')
+                                                                Business and Management
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'accounting')
-                                                            Accounting
+                                                            @if ($jobInfo->edu_specialization == 'accounting')
+                                                                Accounting
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'design_fashion')
-                                                            Design and Fashion
+                                                            @if ($jobInfo->edu_specialization == 'design_fashion')
+                                                                Design and Fashion
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'engineering')
-                                                            Engineering
+                                                            @if ($jobInfo->edu_specialization == 'engineering')
+                                                                Engineering
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'events_hospitality')
-                                                            Events and Hospitality
+                                                            @if ($jobInfo->edu_specialization == 'events_hospitality')
+                                                                Events and Hospitality
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'finance_commerce')
-                                                            Finance and Commerce
+                                                            @if ($jobInfo->edu_specialization == 'finance_commerce')
+                                                                Finance and Commerce
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'human_resources')
-                                                            Resources
+                                                            @if ($jobInfo->edu_specialization == 'human_resources')
+                                                                Resources
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'info_technology')
-                                                            Information Technology
+                                                            @if ($jobInfo->edu_specialization == 'info_technology')
+                                                                Information Technology
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'law')
-                                                            Law
+                                                            @if ($jobInfo->edu_specialization == 'law')
+                                                                Law
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'marketing_sales')
-                                                            Marketing and Sales
+                                                            @if ($jobInfo->edu_specialization == 'marketing_sales')
+                                                                Marketing and Sales
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'mass_comm')
-                                                            Mass Communication
+                                                            @if ($jobInfo->edu_specialization == 'mass_comm')
+                                                                Mass Communication
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'medicine')
-                                                            Medicine
+                                                            @if ($jobInfo->edu_specialization == 'medicine')
+                                                                Medicine
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'sciences')
-                                                            Sciences
+                                                            @if ($jobInfo->edu_specialization == 'sciences')
+                                                                Sciences
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'vocational')
-                                                            Vocational and Technical
+                                                            @if ($jobInfo->edu_specialization == 'vocational')
+                                                                Vocational and Technical
                                                             @endif
-                                                            @if($jobInfo->edu_specialization == 'others')
-                                                             Others
+                                                            @if ($jobInfo->edu_specialization == 'others')
+                                                                Others
                                                             @endif
                                                         </span>
                                                     </li>
                                                 @endif
-                                                @if($data['row']->company_name)
+                                                @if ($data['row']->company_name)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Company Name : 
+                                                        Company Name :
                                                         <span>{{ $data['row']->company_name }}</span>
                                                     </li>
                                                 @endif
-                                                @if($jobInfo->receive_applications_via)
+                                                @if ($jobInfo->receive_applications_via)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Receive Applications Via : 
+                                                        Receive Applications Via :
                                                         <span>
-                                                            @if($jobInfo->receive_applications_via == 'dashboard')
-                                                                Company Employee 
-                                                            @else 
+                                                            @if ($jobInfo->receive_applications_via == 'dashboard')
+                                                                Company Employee
+                                                            @else
                                                                 Phone
                                                             @endif
                                                         </span>
                                                     </li>
                                                 @endif
-                                                @if($jobInfo->skill)
+                                                @if ($jobInfo->skill)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Skill : 
+                                                        Skill :
                                                         <span>{{ $jobInfo->skill }}</span>
                                                     </li>
                                                 @endif
-                                                @if($jobInfo->max_age)
+                                                @if ($jobInfo->max_age)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Max Age : 
+                                                        Max Age :
                                                         <span>{{ $jobInfo->max_age }} Years</span>
                                                     </li>
                                                 @endif
-                                                @if($jobInfo->pref_gender)
+                                                @if ($jobInfo->pref_gender)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Gender : 
+                                                        Gender :
                                                         <span>
-                                                            @if($jobInfo->pref_gender == 'any')
+                                                            @if ($jobInfo->pref_gender == 'any')
                                                                 Any
                                                             @endif
-                                                            @if($jobInfo->pref_gender == 'female')
+                                                            @if ($jobInfo->pref_gender == 'female')
                                                                 Female
                                                             @endif
-                                                            @if($jobInfo->pref_gender == 'others')
+                                                            @if ($jobInfo->pref_gender == 'others')
                                                                 Other
                                                             @endif
-                                                            @if($jobInfo->pref_gender == 'male')
+                                                            @if ($jobInfo->pref_gender == 'male')
                                                                 Male
                                                             @endif
                                                         </span>
                                                     </li>
                                                 @endif
-                                                @if($jobInfo->application_requirements)
+                                                @if ($jobInfo->application_requirements)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Application Requirements : 
+                                                        Application Requirements :
                                                         <span>
                                                             {{ $jobInfo->application_requirements }}
                                                         </span>
                                                     </li>
                                                 @endif
-                                                @if($jobInfo->role_designation)
+                                                @if ($jobInfo->role_designation)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Role Designation : 
+                                                        Role Designation :
                                                         <span>{{ $jobInfo->role_designation }}</span>
                                                     </li>
                                                 @endif
-                                                @if($jobInfo->total_vacancies)
+                                                @if ($jobInfo->total_vacancies)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Total Vacancies : 
+                                                        Total Vacancies :
                                                         <span>{{ $jobInfo->total_vacancies }}</span>
                                                     </li>
                                                 @endif
-                                                @if($jobInfo->deadline)
+                                                @if ($jobInfo->deadline)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Deadline : 
+                                                        Deadline :
                                                         <span>{{ date('d M Y', strtotime($jobInfo->deadline)) }}</span>
                                                     </li>
                                                 @endif
-                                                @if($jobInfo->business_function)
+                                                @if ($jobInfo->business_function)
                                                     <li class="d-flex justify-content-between align-items-center">
-                                                        Business Function : 
+                                                        Business Function :
                                                         <span>
-                                                            @if($jobInfo->business_function == 'administration')
+                                                            @if ($jobInfo->business_function == 'administration')
                                                                 Administration
                                                             @endif
-                                                            @if($jobInfo->business_function == 'accounting_finance')
+                                                            @if ($jobInfo->business_function == 'accounting_finance')
                                                                 Accounting and Finance
                                                             @endif
-                                                            @if($jobInfo->business_function == 'contractual')
+                                                            @if ($jobInfo->business_function == 'contractual')
                                                                 Contractual
                                                             @endif
-                                                            @if($jobInfo->business_function == 'customer_support')
+                                                            @if ($jobInfo->business_function == 'customer_support')
                                                                 Customer Support
                                                             @endif
-                                                            @if($jobInfo->business_function == 'data_entry_analysis')
+                                                            @if ($jobInfo->business_function == 'data_entry_analysis')
                                                                 Data Entry and Analysis
                                                             @endif
-                                                            @if($jobInfo->business_function == 'creative_design_architecture')
+                                                            @if ($jobInfo->business_function == 'creative_design_architecture')
                                                                 Creative, Design and Architecture
                                                             @endif
-                                                            @if($jobInfo->business_function == 'education_training')
+                                                            @if ($jobInfo->business_function == 'education_training')
                                                                 Education and Training
                                                             @endif
-                                                            @if($jobInfo->business_function == 'hospitality')
+                                                            @if ($jobInfo->business_function == 'hospitality')
                                                                 Hospitality
                                                             @endif
-                                                            @if($jobInfo->business_function == 'human_resources')
+                                                            @if ($jobInfo->business_function == 'human_resources')
                                                                 Human Resources
                                                             @endif
-                                                            @if($jobInfo->business_function == 'it_telecom')
+                                                            @if ($jobInfo->business_function == 'it_telecom')
                                                                 IT and Telecom
                                                             @endif
-                                                            @if($jobInfo->business_function == 'legel')
+                                                            @if ($jobInfo->business_function == 'legel')
                                                                 Legal
                                                             @endif
-                                                            @if($jobInfo->business_function == 'logistics')
+                                                            @if ($jobInfo->business_function == 'logistics')
                                                                 Logistics
                                                             @endif
-                                                            @if($jobInfo->business_function == 'management')
+                                                            @if ($jobInfo->business_function == 'management')
                                                                 Management
                                                             @endif
-                                                            @if($jobInfo->business_function == 'manufacturing')
+                                                            @if ($jobInfo->business_function == 'manufacturing')
                                                                 Manufacturing
                                                             @endif
-                                                            @if($jobInfo->business_function == 'marketing_salse')
+                                                            @if ($jobInfo->business_function == 'marketing_salse')
                                                                 Marketing and Sales
                                                             @endif
-                                                            @if($jobInfo->business_function == 'operations')
+                                                            @if ($jobInfo->business_function == 'operations')
                                                                 Operations
                                                             @endif
-                                                            @if($jobInfo->business_function == 'quality_assurance')
+                                                            @if ($jobInfo->business_function == 'quality_assurance')
                                                                 Quality Assurance
                                                             @endif
-                                                            @if($jobInfo->business_function == 'research_technical')
+                                                            @if ($jobInfo->business_function == 'research_technical')
                                                                 Research and Technical
                                                             @endif
-                                                            @if($jobInfo->business_function == 'security')
+                                                            @if ($jobInfo->business_function == 'security')
                                                                 Security
                                                             @endif
-                                                            @if($jobInfo->business_function == 'others')
+                                                            @if ($jobInfo->business_function == 'others')
                                                                 Others
                                                             @endif
                                                         </span>
@@ -583,18 +584,23 @@ $cate = DB::table('prd_category')
                                         <ul>
                                             @if (Auth::user())
                                                 @if ($row->is_favorite == 1)
-                                                    <li><i class="fa fa-heart"></i><a href="javascript:void(0)">@lang('web.added')</a></li>
+                                                    <li><i class="fa fa-heart"></i><a
+                                                            href="javascript:void(0)">{{ __('added') }}</a>
+                                                    </li>
                                                 @else
                                                     <li><i class="fa fa-heart"></i><a href="javascript:void(0)"
                                                             id="save_as_fav" data-adid="{{ $row->pk_no }}"
-                                                            data-uid="{{ Auth::user()->id ?? '' }}">@lang('web.save')</a></li>
+                                                            data-uid="{{ Auth::user()->id ?? '' }}">{{ __('save') }}</a>
+                                                    </li>
                                                 @endif
                                             @else
                                                 <li><i class="fa fa-heart"></i><a href="javascript:void(0)"
-                                                        onclick="return confirm('Please login first!');">@lang('web.save')</a></li>
+                                                        onclick="return confirm('Please login first!');">{{ __('save') }}</a>
+                                                </li>
                                             @endif
                                             <li><i class="fa fa-exclamation-triangle"></i><a data-toggle="modal"
-                                                    data-target="#reportad" href="javascript:void(0)">@lang('web.report')</a>
+                                                    data-target="#reportad"
+                                                    href="javascript:void(0)">{{ __('report') }}</a>
                                             </li>
                                         </ul><!-- social-icon -->
                                     </div>
@@ -621,32 +627,32 @@ $cate = DB::table('prd_category')
             </div>
         </div>
     </section>
-    
+
     <section id="something-sell" class="clearfix parallax-section"
         style="background-image: url('{{ asset('post-bg.jpg') }}');">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm-8">
-                    <h2 class="title">@lang('web.something_to_sel')</h2>
-                    <h4>@lang('web.free_on_ok2list')</h4>
+                    <h2 class="title">{{ __('something_to_sel') }}</h2>
+                    <h4>{{ __('free_on_ok2list') }}</h4>
                 </div>
                 <div class="col-sm-4">
                     <div class="free_post_btn float-sm-right">
                         @if (!empty($payments))
                             @if ($payments->status != 'Due')
                                 <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop"
-                                    class="btn btn-primary">@lang('web.post_free_ad')</a>
+                                    class="btn btn-primary">'{{ __('post_free_ad') }})</a>
                             @else
-                                <a href="javascript:;" class="btn btn-primary">@lang('web.pending')</a>
+                                <a href="javascript:;" class="btn btn-primary">{{ __('pending') }}</a>
                             @endif
                         @else
                             @if (Auth::user())
                                 @if (Auth::user()->is_verified == 1)
                                     <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop"
-                                        class="btn btn-primary">@lang('web.post_free_ad')</a>
+                                        class="btn btn-primary">{{ __('post_free_ad') }}</a>
                                 @endif
                             @else
-                                <a href="{{ route('login') }}" class="btn btn-primary">@lang('web.post_free_ad')</a>
+                                <a href="{{ route('login') }}" class="btn btn-primary">{{ __('post_free_ad') }}</a>
                             @endif
                         @endif
                     </div>
@@ -660,14 +666,16 @@ $cate = DB::table('prd_category')
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <p class="modal-title" id="staticBackdropLabel"><strong>@lang('web.report_title')</strong></p>
+                    <p class="modal-title" id="staticBackdropLabel">
+                        <strong>{{ __('report_title') }}</strong>
+                    </p>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <p>
-                        @lang('web.r_details')
+                        {{ __('r_details') }}
                     </p>
                     <hr>
                     <div class="user-account" style="padding: 20px;">
@@ -680,7 +688,7 @@ $cate = DB::table('prd_category')
                             'autocomplete' => 'off',
                         ]) !!}
                         <div class="form-group {!! $errors->has('reject_reason') ? 'error' : '' !!}">
-                            <label for="reason">@lang('web.reason')</label>
+                            <label for="reason">{{ __('reason') }}</label>
                             <div class="controls">
                                 {!! Form::select('reject_reason', $reject_reason, old('reject_reason'), [
                                     'class' => 'form-control select2',
@@ -693,7 +701,7 @@ $cate = DB::table('prd_category')
                             </div>
                         </div>
                         <div class="form-group {!! $errors->has('email') ? 'error' : '' !!}">
-                            <label for="exampleFormControlSelect1">@lang('web.email')</label>
+                            <label for="exampleFormControlSelect1">{{ __('email') }}</label>
                             <div class="controls">
                                 {!! Form::email('email', null, [
                                     'class' => 'form-control',
@@ -719,7 +727,7 @@ $cate = DB::table('prd_category')
                                 {!! $errors->first('message', '<label class="help-block text-danger">:message</label>') !!}
                             </div>
                         </div>
-                        <button type="submit" class="btn" style="width: 100%;">@lang('web.submit')</button>
+                        <button type="submit" class="btn" style="width: 100%;">{{ __('submit') }}</button>
                         {!! Form::close() !!}
                     </div>
                 </div>
@@ -733,7 +741,8 @@ $cate = DB::table('prd_category')
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <p class="modal-title" id="staticchatLabel">@lang('web.c_w') {{ $row->user->name ?? '' }} </p>
+                        <p class="modal-title" id="staticchatLabel"> {{ __('c_w') }}{{ $row->user->name ?? '' }}
+                        </p>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -879,7 +888,7 @@ $cate = DB::table('prd_category')
                         ''); // replace the last </p>
                     var html = a + "<span class='truncated'>" + ellipses +
                         "</span><span class='truncated' style='display:none'>" + b +
-                        "</span><a class='read-more' href='#'>@lang('web.read_more')</a>";
+                        "</span><a class='read-more' href='#'>{{ __('read_more') }}</a>";
                     // wrap the a into `<p></p>` then append the read more to it
                     $(this).html('<p>' + html + '</p>');
                 }
@@ -887,8 +896,9 @@ $cate = DB::table('prd_category')
 
             $(".read-more").click(function(e) {
                 e.preventDefault();
-                $(this).text((i, v) => v == "@lang('web.read_more')" ? ".. @lang('web.read_less')" :
-                    "@lang('web.read_more')"); //change here..
+                $(this).text((i, v) => v == "{{ __('read_more') }}" ?
+                    ".. {{ __('read_less') }}" :
+                    "{{ __('read_more') }}"); //change here..
                 $(this).closest(".aaa").find(".truncated").toggle();
             });
         });

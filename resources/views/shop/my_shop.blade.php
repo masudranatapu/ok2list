@@ -96,7 +96,7 @@
 
             <div class="shop-gallery mb-3">
                 <div class="seller_profile product-show text-center">
-                    <h5 class="mb-3">@lang('web.ads_list') <span class="text-primary">{{ $shop_info->name }}</span></h5>
+                    <h5 class="mb-3"> {{ __('ads_list') }}<span class="text-primary">{{ $shop_info->name }}</span></h5>
                     <ul class="nav nav-pills" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home"
@@ -230,26 +230,26 @@
                     </div>
                 </div>
                 <!--   <div class="product-show pb-1 col-12">
-                                                                                                                                                                                                                                                            <h5>@lang('web.shop_general')</h5>
-                                                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                            <h5>{{ __('shop_general') }}</h5>
+                                                                                                                                                                                                                                                                        </div> -->
                 <!-- featured -->
             </div>
             <!-- pagination  -->
             <!-- <div class="text-center pb-5">
-                                                                                                                                                                                                                                                <ul class="pagination ">
-                                                                                                                                                                                                                                                 <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-                                                                                                                                                                                                                                                 <li><a href="#">1</a></li>
-                                                                                                                                                                                                                                                 <li class="active"><a href="#">2</a></li>
-                                                                                                                                                                                                                                                 <li><a href="#">3</a></li>
-                                                                                                                                                                                                                                                 <li><a href="#">4</a></li>
-                                                                                                                                                                                                                                                 <li><a href="#">5</a></li>
-                                                                                                                                                                                                                                                 <li><a>...</a></li>
-                                                                                                                                                                                                                                                 <li><a href="#">10</a></li>
-                                                                                                                                                                                                                                                 <li><a href="#">20</a></li>
-                                                                                                                                                                                                                                                 <li><a href="#">30</a></li>
-                                                                                                                                                                                                                                                 <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-                                                                                                                                                                                                                                                </ul>
-                                                                                                                                                                                                                                               </div> -->
+                                                                                                                                                                                                                                                                <ul class="pagination ">
+                                                                                                                                                                                                                                                                 <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                                                                                                                                                                                                                                                                 <li><a href="#">1</a></li>
+                                                                                                                                                                                                                                                                 <li class="active"><a href="#">2</a></li>
+                                                                                                                                                                                                                                                                 <li><a href="#">3</a></li>
+                                                                                                                                                                                                                                                                 <li><a href="#">4</a></li>
+                                                                                                                                                                                                                                                                 <li><a href="#">5</a></li>
+                                                                                                                                                                                                                                                                 <li><a>...</a></li>
+                                                                                                                                                                                                                                                                 <li><a href="#">10</a></li>
+                                                                                                                                                                                                                                                                 <li><a href="#">20</a></li>
+                                                                                                                                                                                                                                                                 <li><a href="#">30</a></li>
+                                                                                                                                                                                                                                                                 <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                                                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                               </div> -->
             <!-- pagination  -->
         </div><!-- featureds -->
     </div>

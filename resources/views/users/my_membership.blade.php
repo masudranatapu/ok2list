@@ -12,8 +12,8 @@
             <div class="breadcrumb-section">
                 <!-- breadcrumb -->
                 <ol class="breadcrumb">
-                    <li><a href="{{ url('/') }}">@lang('web.home')</a></li>
-                    <li>@lang('web.ad_post')</li>
+                    <li><a href="{{ url('/') }}">{{ __('home') }}</a></li>
+                    <li>{{ __('ad_post') }}</li>
                 </ol><!-- breadcrumb -->
             </div><!-- banner -->
             <div class="ads-info profile">
@@ -28,7 +28,8 @@
                         <div class="my-ads section">
                             <h3>
                                 Plan Benefits
-                                <a href="{{ route('packages') }}" class="btn-sm btn-site float-right" style="">Upgrade Plan</a>
+                                <a href="{{ route('packages') }}" class="btn-sm btn-site float-right" style="">Upgrade
+                                    Plan</a>
                             </h3>
                             <hr>
                             <div class="col-md-12">
@@ -40,7 +41,7 @@
                                                     <h2>
                                                         {{ $package->add_limit }}
                                                     </h2>
-                                                    <h6>@lang('web.total_ads')</h6>
+                                                    <h6>{{ __('total_ads') }}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -52,7 +53,7 @@
                                                     <h2>
                                                         {{ $package->add_limit - $totalads->count() }}
                                                     </h2>
-                                                    <h6>@lang('web.rem_ads')</h6>
+                                                    <h6> {{ __('rem_ads') }}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -64,7 +65,7 @@
 
                                                 <div class="content">
                                                     <h3> {{ date('d F, Y', strtotime($package->expired_on)) }}</h3>
-                                                    <h6>@lang('web.Package_End_Date')</h6>
+                                                    <h6> {{ __('Package_End_Date') }}</h6>
                                                 </div>
                                             </div>
                                         </div>
