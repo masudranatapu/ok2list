@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get('cc', 'HomeController@cc');
 
-Route::get('changelang/{lang}', 'CommonController@changelang')->name('changelang');
+Route::get('changelang', 'CommonController@setLanguage')->name('changelang');
 
 Route::get('paypal/payment', 'PayPalController@paypal_view');
 Route::get('get/payment', 'PayPalController@payment')->name('payment');
@@ -180,6 +180,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::post('admin-user/{id}/update', ['middleware' => 'acl:edit_admin_user', 'as' => 'admin.admin-user.update', 'uses' => 'AdminUserController@putUpdate']);
     Route::get('admin-user/{id}/delete', ['middleware' => 'acl:delete_admin_user', 'as' => 'admin.admin-user.delete', 'uses' => 'AdminUserController@getDelete']);
 
+    // languages
+    Route::resource('languages', LanguagesController::class);
+    Route::put('setdefaultlanguage', [App\Http\Controllers\Admin\LanguagesController::class, 'setDefaultLanguage'])->name('setDefault.Language');
+    Route::get('languages/setting/{code}', [App\Http\Controllers\Admin\LanguagesController::class, 'languageSetting'])->name('Language.setting');
+    // translation
+    Route::post('translation/update', [App\Http\Controllers\Admin\LanguagesController::class, 'transUpdate'])->name('translation.update');
+    Route::post('auto/translation/single', [App\Http\Controllers\Admin\LanguagesController::class, 'autoTransSingle'])->name('translation.update.auto');
+    Route::post('auto/translation/update/all', [App\Http\Controllers\Admin\LanguagesController::class, 'transUpdateAutoAll'])->name('translation.update.auto.all');
+    // currency
+    Route::resource('currency', CurrencyController::class);
+    Route::get('setdefaultcurrency', [App\Http\Controllers\Admin\CurrencyController::class, 'setDefaultcurrency'])->name('setDefault.currency');
+    // payment
+    Route::resource('payment-gateway', PaymentController::class);
     // User-Group
     Route::get('user-group', ['middleware' => 'acl:view_user_group', 'as' => 'admin.user-group', 'uses' => 'UserGroupController@getIndex']);
     Route::get('user-group/new', ['middleware' => 'acl:new_user_group', 'as' => 'admin.user-group.new', 'uses' => 'UserGroupController@getCreate']);

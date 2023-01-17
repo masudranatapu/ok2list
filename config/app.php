@@ -236,8 +236,8 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
         //        Custom Facade
-        'Helper' => App\Helpers\Helper::class
-
+        'Helper' => App\Helpers\Helper::class,
+        'GoogleTranslate' => Stichoza\GoogleTranslate\GoogleTranslate::class,
     ],
 
 ];

@@ -48,6 +48,7 @@
   .verify_div_otp2{display: none;}
   #number_otp_div1{display: none;}
   #number_otp_div2{display: none;}
+  .seller-info {margin-bottom: 0px;padding: 15px 15px 0px 15px;}
 </style>
 @endpush
 @section('content')
@@ -179,7 +180,7 @@
 
                      <div class="row form-group">
                         <div class="col-md-3"></div>
-                        <div class="col-md-9">
+                        <div class="col-md-9 pl-4">
                            <label for="is_active">
                                <input type="checkbox" name="is_active" id="is_active" value="2" {{ $row->is_active == '2' ? 'checked' : '' }} > Is Expired
                            </label>
@@ -205,7 +206,7 @@
             </div>
             <!-- quick-rules -->
             <div class="col-lg-4">
-               
+
             <div class="section quick-rules">
                   @php
                      $uickrules = DB::table('quick_rules')->latest()->first();

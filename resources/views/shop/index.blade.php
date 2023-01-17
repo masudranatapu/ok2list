@@ -24,18 +24,18 @@
             </div>
             <div class="ads-info profile">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-xl-3">
                         <!-- header -->
                         @include('users._user_dashboard_menu')
                         <!-- end header -->
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-xl-9">
                         <div class="my-ads section">
                             <h3 class="align-items-center">
                                 Update Shop
                                 @if (!empty($data['shop_data']))
                                     <a href="{{ route('shop_page_details', ['id' => $data['shop_data']->pk_no, 'url_slug' => $data['shop_data']->url_slug]) }}"
-                                        class="btn-sm btn-primary float-right">Let's go to your Shop</a>
+                                        class="btn-sm btn-site float-right">Let's go to your Shop</a>
                                 @endif
                             </h3>
                             <hr>
@@ -164,7 +164,8 @@
                                             <p>Kindy hit the Create Your Shop button and create now. It's won't take more
                                                 than 2 minutes !</p>
                                         </div>
-                                        <a href="{{ route('create-shop') }}" class="btn-primary btn">Create Your Shop</a>
+                                        <a href="{{ route('create-shop') }}" class="btn-lg btn-site"
+                                            style="margin-left: 25px">Create Your Shop</a>
                                     @endif
                                 </div>
                             </div>

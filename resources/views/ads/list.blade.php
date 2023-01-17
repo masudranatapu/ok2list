@@ -102,9 +102,11 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                             <input type="checkbox" class="filter_by" name="used" id="used"
                                                 value="used" {{ $used_ad == 1 ? 'checked' : '' }}> Used</label>
 
-                                        <label for="doorstep_delivery" class="">
+                                        <label for="doorstep_delivery"
+                                            class="{{ request('doorstep') == 1 ? 'checked' : '' }}">
                                             <input type="checkbox" class="filter_by" name="doorstep_delivery"
-                                                id="doorstep_delivery" value="doorstep">Doorstep Delivery</label>
+                                                id="doorstep_delivery" value="doorstep"
+                                                {{ request('doorstep') == 1 ? 'checked' : '' }}>Doorstep Delivery</label>
                                     </div>
                                 </div>
                             </div>
@@ -199,17 +201,17 @@ $full_sort_by = $sort_by . '_' . $order_by;
                                 </div>
                             </div>
                             <!-- @if (isset($data['list_page2']) && $data['list_page2'] != null)
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="ads_banner text-center">
-                                            <a href="{{ $data['list_page2']->link }}" target="_blank"
-                                                title="{{ $data['list_page2']->name }}"><img
-                                                    src="{{ fileExit($data['list_page2']->photo) }}" class="w-100"
-                                                    alt="{{ $data['list_page2']->name }}" style="height: 600px;"></a>
+    <div class="card">
+                                            <div class="card-body">
+                                                <div class="ads_banner text-center">
+                                                    <a href="{{ $data['list_page2']->link }}" target="_blank"
+                                                        title="{{ $data['list_page2']->name }}"><img
+                                                            src="{{ fileExit($data['list_page2']->photo) }}" class="w-100"
+                                                            alt="{{ $data['list_page2']->name }}" style="height: 600px;"></a>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            @endif -->
+    @endif -->
                         </div>
                     </div>
                     <div class="col-md-8 col-lg-8">
@@ -220,13 +222,16 @@ $full_sort_by = $sort_by . '_' . $order_by;
                             @if (isset($data['rows']) && count($data['rows']) > 0)
                                 @foreach ($data['rows'] as $pk => $row)
                                     <?php $row = (object) $row; ?>
+                                    {{-- <h1>{{ $row->doorstep_delivery ?? 0 }}</h1> --}}
                                     <div
                                         class="ad-item verified_ads row {{ $row->promotion == 'Top' ? 'topad' : 'notop' }} ">
                                         <div class="item-image-box col-lg-4">
                                             <div class="item-image">
-                                                <div class="featured-image">
-                                                      <span class="featured-ad doorstep_tag">Doorstep</span>
-                                                  </div>
+                                                @if (isset($row->doorstep_delivery) && $row->doorstep_delivery == 1)
+                                                    <div class="featured-image">
+                                                        <span class="featured-ad doorstep_tag">Doorstep</span>
+                                                    </div>
+                                                @endif
                                                 <a href="{{ route('ad.details', ['pk_no' => $row->pk_no, 'url_slug' => $row->url_slug]) }}"
                                                     title="{{ $row->ad_title }}">
                                                     <img src="{{ asset('assets/images/default-load.png') }}"
@@ -368,40 +373,43 @@ $full_sort_by = $sort_by . '_' . $order_by;
                 </div>
             </div>
             <!-- @if (isset($data['list_page3']) && $data['list_page3'] != null)
-                <div class="">
-                    <div class="ads_banner text-center mb-5">
-                        <a href="{{ $data['list_page3']->link }}" target="_blank"
-                            title="{{ $data['list_page3']->name }}"><img
-                                src="{{ fileExit($data['list_page3']->photo) }}" class="w-100"
-                                alt="{{ $data['list_page3']->name }}" style="height: 96px;"></a>
-                    </div>
-                </div>
-            @endif -->
+    <div class="">
+                            <div class="ads_banner text-center mb-5">
+                                <a href="{{ $data['list_page3']->link }}" target="_blank"
+                                    title="{{ $data['list_page3']->name }}"><img
+                                        src="{{ fileExit($data['list_page3']->photo) }}" class="w-100"
+                                        alt="{{ $data['list_page3']->name }}" style="height: 96px;"></a>
+                            </div>
+                        </div>
+    @endif -->
         </div>
     </section>
 
-   <section id="something-sell" class="clearfix parallax-section" style="background-image: url('{{ asset('post-bg.jpg') }}');">
+    <section id="something-sell" class="clearfix parallax-section"
+        style="background-image: url('{{ asset('post-bg.jpg') }}');">
         <div class="container">
-             <div class="row align-items-center">
+            <div class="row align-items-center">
                 <div class="col-sm-8">
                     <h2 class="title">@lang('web.something_to_sel')</h2>
                     <h4>@lang('web.free_on_ok2list')</h4>
                 </div>
                 <div class="col-sm-4">
                     <div class="free_post_btn float-sm-right">
-                        @if(!empty($payments))
-                        @if($payments->status!="Due")
-                            <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-primary">@lang('web.post_free_ad')</a>
+                        @if (!empty($payments))
+                            @if ($payments->status != 'Due')
+                                <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop"
+                                    class="btn btn-primary">@lang('web.post_free_ad')</a>
+                            @else
+                                <a href="javascript:;" class="btn btn-primary">@lang('web.pending')</a>
+                            @endif
                         @else
-                            <a href="javascript:;" class="btn btn-primary">@lang('web.pending')</a>
-                        @endif
-                        @else
-                            @if(Auth::user())
-                                @if( Auth::user()->is_verified == 1 )
-                                    <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-primary">@lang('web.post_free_ad')</a>
+                            @if (Auth::user())
+                                @if (Auth::user()->is_verified == 1)
+                                    <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop"
+                                        class="btn btn-primary">@lang('web.post_free_ad')</a>
                                 @endif
-                            @else 
-                                <a href="{{route('login')}}" class="btn btn-primary">@lang('web.post_free_ad')</a>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-primary">@lang('web.post_free_ad')</a>
                             @endif
                         @endif
                     </div>

@@ -2891,7 +2891,7 @@ span.typewrite {
     margin-top: 20px;
 }
 
- 
+
 
 .description-info .short-info {
     padding: 15px 15px 15px;
@@ -3404,10 +3404,13 @@ span.typewrite {
 
 .adpost-details input[type="radio"]+label:before {
     border: 2px solid #000;
+    padding: 6px;
 }
 
 .adpost-details input[type="radio"]:checked+label:after {
-    border: 5px solid #000;
+    border: 2px solid transparent;
+    background: #28A745;
+    padding: 6px;
 }
 
 .required {
@@ -4053,6 +4056,7 @@ p.mt-2.loginor {
 .user-profile {
     overflow: hidden;
     padding: 0 25px;
+    text-align: center;
 }
 
 .user-images {
@@ -6636,7 +6640,7 @@ text-align: left;
     border-radius: 4px;
     padding: 16px;
 
-    
+
 }
 @media(max-width: 576px) {
     .buyer-protection {
@@ -6660,7 +6664,7 @@ text-align: left;
             font-weight: 400;
             padding-left: 3px;
             font-size: 8px;
-    
+
         }
 }
 
@@ -6674,7 +6678,7 @@ text-align: left;
     font-weight: 700;
     padding-left: 6px;
     font-size: 20px;
-    
+
 }
 .buyer-protection-details{
     padding-left: 38px;
@@ -6722,7 +6726,7 @@ text-align: left;
         line-height: 28px;
         text-align: unset;
         padding: 0;
-           
+
 }
 .spacer-right--2sb_X {
     margin-right: 4px;
@@ -6737,7 +6741,7 @@ text-align: left;
     margin-left: 4px;
 }
 .explore-btn {
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7071,13 +7075,13 @@ text-align: left;
     .title--2CEq5 {
             font-size: 22px;
         }
-} 
+}
 
 @media only screen and (min-width: 800px){
     .sub-main--gAGCF {
             padding: 0 32px;
         }
-} 
+}
 
 .card {
     position: relative;
@@ -7094,6 +7098,17 @@ text-align: left;
 }
 .text-primary {
     color: #fd0202!important;
+}
+
+.btn-site{
+    background-color: #ee1d23;
+    color: #ffffff;
+    font-weight: bold;
+}
+.btn-site:hover{
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 

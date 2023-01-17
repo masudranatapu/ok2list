@@ -73,7 +73,7 @@ class AdsController extends Controller
             ->update(['promotion' => 'Basic']);
 
 
-        $query = Product::where('is_active', 1)->select('prd_master.pk_no', 'prd_master.promotion', 'prd_master.promotion_to', 'prd_master.price', 'prd_master.is_negotiable', 'prd_master.ad_title', 'prd_master.url_slug', 'prd_master.created_at', 'prd_master.city_division', 'prd_master.area_id', 'prd_master.f_cat_pk_no', 'prd_master.f_scat_pk_no', 'prd_master.is_active', 'prd_master.thumb', 'prd_master.total_view', 'prd_master.created_at', 'prd_master.using_condition', 'prd_master.area_id', 'prd_master.customer_pk_no');
+        $query = Product::where('is_active', 1)->select('prd_master.pk_no', 'prd_master.promotion', 'prd_master.promotion_to', 'prd_master.price', 'prd_master.is_negotiable', 'prd_master.ad_title', 'prd_master.url_slug', 'prd_master.created_at', 'prd_master.city_division', 'prd_master.area_id', 'prd_master.f_cat_pk_no', 'prd_master.f_scat_pk_no', 'prd_master.is_active', 'prd_master.thumb', 'prd_master.total_view', 'prd_master.created_at', 'prd_master.using_condition', 'prd_master.area_id', 'prd_master.customer_pk_no', 'prd_master.doorstep_delivery');
 
         if ($category_query) {
             $category = Category::where('url_slug', $category_query)->first();
@@ -120,6 +120,9 @@ class AdsController extends Controller
 
         if (($request->new == 1) && $request->used == 0) {
             $query->where('using_condition', 'new');
+        }
+        if (($request->doorstep == 1)) {
+            $query->where('doorstep_delivery', 1);
         }
         if (($request->used == 1) && ($request->new == 0)) {
             $query->where('using_condition', 'used');

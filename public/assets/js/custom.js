@@ -12,12 +12,12 @@ jQuery(function ($) {
         $.scrollUp();
 
     }());
- 
+
     //select-2 home page
    $('.js-example-basic-single').select2();
    $('.js-example-basic-single2').select2({tags: true});
    $('.js-example-basic-single3').select2();
-    
+
 
     // -------------------------------------------------------------
     //  Placeholder
@@ -33,10 +33,10 @@ jQuery(function ($) {
 
     }());
 
-    
+
 
     // -------------------------------------------------------------
-    //  Show 
+    //  Show
     // -------------------------------------------------------------
 
     (function() {
@@ -71,8 +71,8 @@ jQuery(function ($) {
                     });
             });
 
-    }());    
-    
+    }());
+
 
     // -------------------------------------------------------------
     //  Slider
@@ -82,11 +82,11 @@ jQuery(function ($) {
 
         $('#price').slider();
 
-    }());   
-	
-	
-   
-    
+    }());
+
+
+
+
     // -------------------------------------------------------------
     //  language Select
     // -------------------------------------------------------------
@@ -187,7 +187,7 @@ jQuery(function ($) {
     // Accordion
     // -------------------------------------------------------------
 
-        (function () {  
+        (function () {
             $('.collapse').on('show.bs.collapse', function() {
                 var id = $(this).attr('id');
                 $('a[href="#' + id + '"]').closest('.panel-heading').addClass('active-faq');
@@ -216,9 +216,9 @@ jQuery(function ($) {
             }
         });
 
-    }()); 
-	
-	
+    }());
+
+
 	 // -------------------------------------------------------------
     //  select-category Change
     // -------------------------------------------------------------
@@ -231,26 +231,28 @@ jQuery(function ($) {
 		$('.subcategory.post-option ul li.link-active').removeClass('link-active');
 		$(this).closest('li').addClass('link-active');
 	});
-	
+
     // -------------------------------------------------------------
     //   Show Mobile Number
-    // -------------------------------------------------------------  
+    // -------------------------------------------------------------
 
     (function () {
 
         $('.show-number').on('click', function() {
-            $('.hide-text').fadeIn(500, function() {
-              $(this).addClass('hide');
-            });  
-			$('.hide-number').fadeIn(500, function() {
-              $(this).addClass('show');
-            }); 			
+            // $('.hide-text').fadeIn(500, function() {
+            //   $(this).addClass('hide');
+            // });
+			// $('.hide-number').fadeIn(500, function() {
+            //   $(this).addClass('show');
+            // });
+            $('.hide-text').hide();
+            $('.hide-number').show();
         });
 
 
     }());
-	
-   
+
+
 // script end
 });
 
@@ -290,7 +292,7 @@ jQuery(function ($) {
                     items: 3,
                     slideBy:1
                 },
-            }            
+            }
 
         });
 
@@ -331,11 +333,11 @@ jQuery(function ($) {
                     items: 4,
                     slideBy:1
                 },
-            }            
+            }
 
         });
-        
-    
+
+
     }());
 
        (function() {
@@ -368,7 +370,7 @@ jQuery(function ($) {
                     items: 4,
                     slideBy:1
                 },
-            }            
+            }
 
         });
 
