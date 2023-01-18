@@ -60,8 +60,8 @@
                                         </div>
                                         <div class="item-info col-lg-8">
                                             <div class="ad-info">
-                                                <h3 class="item-price">₦ {{ number_format($row->price, 2) }} <a
-                                                        href="{{ route('promoted-ads.create', $row->pk_no) }}">(Promote this
+                                                <h3 class="item-price">{{ changeCurrency($row->price) }} <a
+                                                        href="{{ route('promoted-ads.create', $row->pk_no) }}"> (Promote this
                                                         ad)</a></h3>
 
                                                 @if ($row->is_delete == 1)

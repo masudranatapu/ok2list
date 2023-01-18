@@ -8,7 +8,7 @@
 			<ol class="breadcrumb">
 				<li><a href="{{url('/')}}">Home</a></li>
 				<li>Our Packages</li>
-			</ol>						
+			</ol>
 			<div class="pricing-section">
 				<div class="row">
 					@if($data['rows'] && count($data['rows']) > 0 )
@@ -82,7 +82,7 @@
 					</div>
 					@endforeach
 					@endif
-					
+
 
 				</div><!-- row -->
 			</div><!-- pricing section -->
@@ -91,5 +91,5 @@
 @endsection
 
 @push('custom_footer_script')
-   
+
 @endpush
