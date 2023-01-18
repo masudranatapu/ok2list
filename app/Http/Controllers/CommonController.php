@@ -183,7 +183,7 @@ class CommonController extends Controller
         if($page2){
             $data['how_to_sell_fast_page2'] = DB::table('prd_ad_details')->where('prd_ad_id',$page2->pk_no)->inRandomOrder()->first();
         }
-        
+
         $data['how_to_sell'] = DB::table('page_how_sell_fast')->first();
         $data['sidebar'] = DB::table('page_sidebar_info')->first();
         return view('common.how_to_sell_fast',compact('data'));
@@ -302,7 +302,7 @@ class CommonController extends Controller
 
     //     session()->put('set_lang', $request->lang_code);
     //     app()->setLocale($request->lang_code);
-        
+
     //     return redirect()->back();
 
     // }
@@ -313,7 +313,7 @@ class CommonController extends Controller
             session()->put('set_lang', $request->lang_code);
             app()->setLocale($request->lang_code);
         }
-        
+
         return redirect()->back();
 
     }

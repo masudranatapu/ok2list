@@ -105,7 +105,7 @@ Route::post('/my-password-update', 'UserController@postMyPasswordUpdate')->name(
 Route::get('/my-membership', 'UserController@getMyMembership')->name('my-membership');
 Route::get('/favorite-ads', 'UserController@getFavoriteAds')->name('favorite-ads');
 Route::post('/favorite-ad', 'UserController@postFavoriteAd')->name('favorite-ad');
-Route::get('/promoted-ads', 'AdPromotionController@getpromotedAds')->name('promoted-ads');
+Route::get('/promoted-ads', 'AdPromotionController@getpromotedAds')->name('promotedads');
 Route::get('/promoted-ads/{id}/new', 'AdPromotionController@getPromoteAd')->name('promoted-ads.create');
 Route::get('/ads-promotion', 'AdPromotionController@getAdsPromotion')->name('ads-promotion');
 Route::get('/get-product-model/{brand_id}', 'AdPostController@getProductModel')->name('prod_model');
