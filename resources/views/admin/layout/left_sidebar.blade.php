@@ -1,10 +1,10 @@
 <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
     <li class=" nav-item @yield('dashboard')">
-        <a href="{{ route('admin.dashboard')}}"><i class="la la-home"></i><span class="menu-title" data-i18n="@lang('left_menu.dashboard')">@lang('left_menu.dashboard')</span></a>
+        <a href="{{ route('admin.dashboard')}}"><i class="la la-home"></i><span class="menu-title" data-i18n="{{__('dashboard')}}">{{__('dashboard')}}</span></a>
     </li>
     @if(hasAccessAbility('view_product', $roles))
     <li class=" nav-item @yield('Product Management')">
-        <a href="#"><i class="la la-list"></i><span class="menu-title" data-i18n="@lang('left_menu.product')">@lang('left_menu.product')</span></a>
+        <a href="#"><i class="la la-list"></i><span class="menu-title" data-i18n="{{__('product')}}">{{__('product')}}</span></a>
         <ul class="menu-content">
             @if(hasAccessAbility('view_product', $roles))
             <li class="nav-item @yield('product_list')"><a class="menu-item" href="{{ route('admin.product.list') }}"><i></i><span data-i18n="@yield('product_list')">@lang('left_menu.product_list')</span></a></li>
