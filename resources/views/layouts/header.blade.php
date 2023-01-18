@@ -106,7 +106,7 @@ $currencies = App\Models\Currency::get();
     <nav class="navbar navbar-default navbar-expand-lg">
         <div class="container">
             @if (!empty($setting))
-            <a class="navbar-brand" href="{{ route('home') }}">
+            <a class="navbar-brand pt-1 pb-1" href="{{ route('home') }}">
                 <img class="img-fluid" src="{{ asset($setting->logo) }}" alt="Logo" width="200"></a>
             @else
             <a class="navbar-brand" href="{{ route('home') }}"><img class="img-fluid"

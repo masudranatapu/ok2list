@@ -5947,11 +5947,23 @@ a,
 
 .navbar-toggler {
     position: absolute;
-    padding: 5px 8px;
+    padding: 6px 9px;
     border: 1px solid #ee1d23;
     color: #ee1d23;
     top: 10px;
     right: 0;
+    width: 40px;
+    height: 35px;
+    text-align: left;
+    line-height: 24px;
+}
+
+.navbar-toggler .fa-close {
+    padding: 0;
+    text-align: center;
+    display: flex;
+    line-height: 19px;
+    padding-left: 2px;
 }
 
 .err-input {
