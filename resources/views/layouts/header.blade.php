@@ -38,7 +38,7 @@ $currencies = App\Models\Currency::get();
                     <li><a href="{{ route('packages') }}">{{ __('membership') }}</a></li>
                 </ul>
                 <form action="{{ route('changelang') }}" method="get">
-                    <select name="lang_code" class="language_dropdown mr-2" onchange="this.form.submit()">
+                    <select name="lang_code" class="mr-2 language_dropdown" onchange="this.form.submit()">
                         @foreach ($languages as $lang)
                         <option value="{{ $lang->code }}" @if (session()->has('set_lang')) {{ session()->get('set_lang')
                             == $lang->code ? 'selected' : '' }} @else {{ $lang->default_lang == 1 ? 'selected' : '' }}
