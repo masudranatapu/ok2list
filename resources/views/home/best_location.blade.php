@@ -2,7 +2,7 @@
         <div class="container">
             <div class="cities">
                 <div class="section-title">
-                    <h1>{{ __('onlinbest_rated_locationse_mega') }}</h1>
+                    <h1>{{ __('onlinebest_rated_locationse_mega') }}</h1>
                 </div>
                 <!-- row -->
                 <div class="row">
