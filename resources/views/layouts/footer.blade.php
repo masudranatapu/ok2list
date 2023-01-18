@@ -7,13 +7,7 @@
             <div class="row">
                 <div class="col-md-3 col-6">
                     <div class="footer-widget">
-                        <h3>
-                            @if (app()->getLocale() == 'sl')
-                                {{ $setting->section_one_name_sl }}
-                            @else
-                                {{ $setting->section_one_name_en }}
-                            @endif
-                        </h3>
+                        <h3>{{ __('quik_links') }}</h3>
                         <ul>
                             <li><a href="{{ route('about-us') }}">
                                     @if (app()->getLocale() == 'sl')
@@ -55,13 +49,7 @@
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="footer-widget">
-                        <h3>
-                            @if (app()->getLocale() == 'sl')
-                                {{ $setting->section_two_sl }}
-                            @else
-                                {{ $setting->section_two_en }}
-                            @endif
-                        </h3>
+                        <h3>{{ __('how_to_sell_fast') }}</h3>
                         <ul>
                             <!-- <li><a href="{{ route('how-to-sell-fast') }}">
                                     @if (app()->getLocale() == 'sl')
@@ -85,7 +73,7 @@
                                     @endif
                                 </a></li>
                             <li><a href="{{ route('doorstep-delivery') }}">
-                                    Doorstep Delivery
+                                    {{ _('Doorstep Delivery') }}
                                 </a></li>
                             <li><a href="{{ route('faq') }}">
                                     @if (app()->getLocale() == 'sl')
@@ -99,13 +87,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-widget social-widget">
-                        <h3>
-                            @if (app()->getLocale() == 'sl')
-                                {{ $setting->section_three_name_sl }}
-                            @else
-                                {{ $setting->section_three_name_en }}
-                            @endif
-                        </h3>
+                        <h3>{{ __('follow_us_on') }}</h3>
                         <ul>
                             @if ($setting->facebook_link)
                                 <li>
@@ -185,18 +167,10 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-widget news-letter">
                         <h3>
-                            @if (app()->getLocale() == 'sl')
-                                {{ $setting->section_four_sl }}
-                            @else
-                                {{ $setting->section_four_en }}
-                            @endif
+                            {{ __('newsletter') }}
                         </h3>
                         <p>
-                            @if (app()->getLocale() == 'sl')
-                                {{ $setting->content_sl }}
-                            @else
-                                {{ $setting->content_en }}
-                            @endif
+                            {{ __('newsletter_info') }}
                         </p>
                         {!! Form::open([
                             'route' => 'subscribe',

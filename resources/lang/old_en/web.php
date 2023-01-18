@@ -190,5 +190,7 @@ return [
     'chat' => 'Chat',
     'read_more' => 'Read more',
     'read_less' => 'Read Less',
-    'billing_&_plan' => "Billing & plan"
+    'billing_&_plan' => "Billing & plan",
+    'all_ Rights_Reserved_ok2list.ng 2023'=>"All Rights Reserved OK2list.ng 2023"
+    
 ];
