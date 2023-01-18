@@ -426,7 +426,7 @@ textarea {
     font-weight: bold;
     font-size: 16px;
     color: #fff;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     font-family: "Rubik";
 }
 
@@ -7170,7 +7170,17 @@ p#staticBackdropLabel {
 
 @media screen and (max-width:991px) {
     .language_dropdown, .currency_dropdown {
-        width: 34%;
         margin: 8px 0px;
     }
+    .mobile_post_btn {
+        display: inline-block !important;
+        float: right;
+        margin-right: 49px;
+        vertical-align: middle;
+        align-items: center;
+        margin-top: 6px;
+    }
+
 }
+
+
