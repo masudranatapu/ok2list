@@ -202,7 +202,7 @@ $cate = DB::table('prd_category')
                                                 <strong>
                                                     <a
                                                         href="{{ route('shop_page_details', ['id' => $row->user->shop->pk_no, 'url_slug' => $row->user->shop->url_slug]) }}">(
-                                                        {{ __('visi') }}</a>
+                                                        {{ __('visi') }} )</a>
                                                 </strong>
                                             </div>
                                         </div>
