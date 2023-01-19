@@ -30,15 +30,15 @@ Transaction History
                                 <thead>
                                     <tr>
                                         <th>Sl.</th>
-                                        <th>Transation Id</th>
-                                        <th>Customer</th>
-                                        <th>Plan Name</th>
-                                        <th>Card Type</th>
-                                        <th>Payment Type</th>
-                                        <th>Amount</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>{{ __('transaction') }}</th>
+                                        <th>{{ __('customer') }}</th>
+                                        <th>{{ __('Plan_Name') }}</th>
+                                        <th>{{ __('Card_Type') }}</th>
+                                        <th>{{ __('Payment_Type') }}</th>
+                                        <th>{{ __('amount') }}</th>
+                                        <th>{{ __('date') }}</th>
+                                        <th>{{ __('status') }}</th>
+                                        <th>{{ __('action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -70,7 +70,7 @@ Transaction History
                                         </td>
                                     </tr>
                                     @endforeach
-                                    
+
                                 </tbody>
                             </table>
                         </div>

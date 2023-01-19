@@ -7,17 +7,17 @@
 @section('Product Management','open')
 
 @section('title')
-    @lang('product.list_page_title')
+{{ __('admin_list_page_title') }}
 @endsection
 
 @section('page-name')
-    @lang('product.list_page_sub_title')
+{{ __('admin_list_page_sub_title') }}
 @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">@lang('product.breadcrumb_title')    </a>
+    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
     </li>
-    <li class="breadcrumb-item active">@lang('product.breadcrumb_sub_title')
+    <li class="breadcrumb-item active">{{ __('admin_breadcrumb_sub_title') }}
     </li>
 @endsection
 
@@ -171,9 +171,9 @@
         function addValue(input){
             //select all checkboxes with name userid that are checked
             var checkboxes = document.querySelectorAll("input[name='product_id[]']:checked")
-            
+
             var values = "";
-            
+
             //append values of each checkbox into a variable (seperated by commas)
             for(var i=0; i<checkboxes.length; i++){
                 values += checkboxes[i]
@@ -181,10 +181,10 @@
 
             //remove last comma
             values = values.slice(0,values.length-1)
-            
+
             //set the value of input box
             document.getElementById("showProductId").value = values;
-            
+
         }
 
     </script>
@@ -192,11 +192,11 @@
         $('.selectall').click(function() {
             if ($(this).is(':checked')) {
                 $('input:checkbox').prop('checked', true);
-                
+
                 var checkboxes = document.querySelectorAll("input[name='product_id[]']:checked")
-                
+
                 var values = "";
-                
+
                 //append values of each checkbox into a variable (seperated by commas)
                 for(var i=0; i<checkboxes.length; i++){
                     values += checkboxes[i]
@@ -204,7 +204,7 @@
 
                 //remove last comma
                 values = values.slice(0,values.length-1)
-                
+
                 //set the value of input box
                 document.getElementById("showProductId").value = values;
 

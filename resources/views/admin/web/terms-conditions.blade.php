@@ -1,20 +1,20 @@
 @extends('admin.layout.master')
 
-@section('Web Setting','open')
+@section('Web Setting', 'open')
 
-@section('terms_condition','active')
+@section('terms_condition', 'active')
 
 @section('title')
-    @lang('web_setting.terms_condition_title')
+    {{ __('terms_condition_title') }}
 @endsection
 
 @section('page-name')
-    @lang('web_setting.terms_condition_title')
+    {{ __('terms_condition_title') }}
 @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="#">@lang('admin_role.breadcrumb_title')  </a></li>
-    <li class="breadcrumb-item active">@lang('web_setting.terms_condition_title')    </li>
+    <li class="breadcrumb-item"><a href="#">{{ __('admin_breadcrumb_title') }}</a></li>
+    <li class="breadcrumb-item active">{{ __('terms_condition_title') }} </li>
 @endsection
 
 <!--push from page-->
@@ -41,34 +41,34 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body card-dashboard">
-                                <form action="{{route('admin.terms.conditions.update', $terms->id)}}" method="POST">
+                                <form action="{{ route('admin.terms.conditions.update', $terms->id) }}" method="POST">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="package">Details ( En )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="desc"  placeholder="Details English">{{$terms->details_en}}</textarea>
+                                                <label for="package">{{ __('des') }}</label>
+                                                <textarea cols="30" rows="5" class="form-control" name="desc" placeholder="Details English">{{ $terms->details_en }}</textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label for="package">Details ( SL )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="desc1"  placeholder="Details SL">{{$terms->details_sl}}</textarea>
+                                                <label for="package">{{ __('des') }}</label>
+                                                <textarea cols="30" rows="5" class="form-control" name="desc1" placeholder="Details SL">{{ $terms->details_sl }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="package">Quick  Rules ( En )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="rules_en"  placeholder="Details English">{{$terms->rules_en}}</textarea>
+                                                <label for="package">{{ __('quick_rules_title') }}</label>
+                                                <textarea cols="30" rows="5" class="form-control" name="rules_en" placeholder="Details English">{{ $terms->rules_en }}</textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label for="package">Quick  Rules ( SL )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="rules_sl"  placeholder="Details SL">{{$terms->rules_sl}}</textarea>
+                                                <label for="package">{{ __('quick_rules_title') }}</label>
+                                                <textarea cols="30" rows="5" class="form-control" name="rules_sl" placeholder="Details SL">{{ $terms->rules_sl }}</textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="form-actions text-center mt-3">
                                         <button type="submit" class="btn btn-success mr-1">
-                                            Update
+                                            {{ __('update') }}
                                         </button>
                                     </div>
                                 </form>
@@ -79,10 +79,11 @@
                 <div class="col-md-6">
                     <div class="card card-sm">
                         <div class="card-header">
-                            <h4>Demo Image</h4>
+                            <h4>{{ __('demo_image') }}</h4>
                         </div>
                         <div class="card-body">
-                            <img width="650" height="1000" src="{{asset('assets/images/about-us/about.jpg')}}" alt="">
+                            <img width="650" height="1000" src="{{ asset('assets/images/about-us/about.jpg') }}"
+                                alt="">
                         </div>
                     </div>
                 </div>
@@ -92,12 +93,12 @@
 @endsection
 <!--push from page-->
 @push('custom_js')
-    <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
-    <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('app-assets/pages/customer.js')}}"></script>
+    <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js') }}"></script>
+    <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('app-assets/pages/customer.js') }}"></script>
     <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
     <script>
-            CKEDITOR.replace('desc');
-            CKEDITOR.replace('desc1');
+        CKEDITOR.replace('desc');
+        CKEDITOR.replace('desc1');
     </script>
 @endpush('custom_js')

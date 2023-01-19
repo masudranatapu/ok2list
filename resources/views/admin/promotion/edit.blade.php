@@ -7,8 +7,8 @@
 @section('page-name') {{ __('promotion_title') }}@endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="#">@lang('admin_role.breadcrumb_title') </a></li>
-    <li class="breadcrumb-item active">@lang('promotion.edit_promotion') </li>
+    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
+    <li class="breadcrumb-item active">{{ __('edit_promotion') }}</li>
 @endsection
 
 <!--push from page-->
@@ -49,7 +49,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="package">Promotion Name</label>
+                                            <label for="package">{{ __('name') }}</label>
                                             <input type="text" class="form-control" name="package"
                                                 value="{{ $data['row']->promotion->name ?? '' }}" readonly>
                                         </div>
@@ -57,14 +57,14 @@
 
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="package">Days</label>
+                                            <label for="package">{{ __('days') }}</label>
                                             <input type="text" class="form-control" name="day"
                                                 value="{{ $data['row']->day_limit }}">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="package">Price (₦)</label>
+                                            <label for="package">{{ __('price') }} (₦)</label>
                                             <input type="text" class="form-control" name="price"
                                                 value="{{ $data['row']->price }}">
                                         </div>
@@ -79,7 +79,7 @@
                                     </a>
                                     <a href="">
                                         <button type="submit" class="btn btn-success mr-1">
-                                            Update
+                                            {{ __('Update') }}
                                         </button>
                                     </a>
 

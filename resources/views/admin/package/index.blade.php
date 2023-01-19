@@ -8,24 +8,24 @@
 
 
 @section('title')
-    @lang('package.list_page_title')
+    {{ __('package_package_menu') }}
 @endsection
 
 @section('page-name')
-    @lang('package.list_page_sub_title')
+    {{ __('package_list_page_title') }}
 @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="#">@lang('customer.breadcrumb_title')</a>
+    <li class="breadcrumb-item"><a href="#">{{ __('admin_breadcrumb_title') }}</a>
     </li>
-    <li class="breadcrumb-item active">@lang('package.list_page_title'){{ __('list_page_title') }}
+    <li class="breadcrumb-item active">{{ __('admin_breadcrumb_sub_title') }}
     </li>
 @endsection
 
 @php
     $roles = userRolePermissionArray();
     $rows = $data['rows'] ?? null;
-    
+
 @endphp
 
 @section('content')
@@ -61,18 +61,18 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">SL</th>
-                                                <th>Name</th>
-                                                <th>Price</th>
-                                                <th>Support</th>
-                                                <th title="Discount on Promotiom">Discount</th>
-                                                <td>Package Duration</td>
-                                                <td>Add Limit</td>
-                                                <th>SMS</th>
-                                                <th>Email</th>
-                                                <th>Shop Page</th>
-                                                <th>Analytics</th>
-                                                <th>Active</th>
-                                                <th>Action</th>
+                                                <th>{{ __('name') }}</th>
+                                                <th>{{ __('price') }}</th>
+                                                <th>{{ __('support1') }}</th>
+                                                <th title="Discount on Promotiom">{{ __('discount') }}</th>
+                                                <td>{{ __('package_duration') }}</td>
+                                                <td>{{ __('add_limit') }}</td>
+                                                <th>{{ __('sms') }}</th>
+                                                <th>{{ __('email') }}</th>
+                                                <th>{{ __('shop_page') }}</th>
+                                                <th>{{ __('analytics') }}</th>
+                                                <th>{{ __('active') }}</th>
+                                                <th>{{ __('action') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

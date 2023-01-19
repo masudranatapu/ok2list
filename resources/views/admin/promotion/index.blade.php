@@ -16,9 +16,10 @@
 @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="#">@lang('promotion.dashboard')</a>
+    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
     </li>
-    <li class="breadcrumb-item active">'
+    <li class="breadcrumb-item active">
+        {{ __('promotion_title') }}
     </li>
 @endsection
 
@@ -51,11 +52,11 @@
                                         id="indextable">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">@lang('promotion.sl')</th>
-                                                <th>@lang('promotion.name')</th>
-                                                <th>@lang('promotion.price')</th>
-                                                <th>@lang('promotion.duration')</th>
-                                                <th style="width: 120px;" class="text-center">@lang('promotion.action')</th>
+                                                <th class="text-center">{{ __('sl') }}</th>
+                                                <th>{{ __('name') }}</th>
+                                                <th>{{ __('price') }}</th>
+                                                <th>{{ __('duration') }}</th>
+                                                <th style="width: 120px;" class="text-center">{{ __('action') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>

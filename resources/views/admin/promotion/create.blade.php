@@ -52,8 +52,8 @@ $method_name = request()->route()->getActionMethod();
                     <div class="card-content collapse show">
                         <div class="card-body card-dashboard">
                             {!! Form::open([ 'route' => 'admin.customer.store', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true , 'novalidate', 'autocomplete' => 'off']) !!}
-                          
-                                                           
+
+
 
                             <div class="row">
                                 <div class="col-md-6">
@@ -94,7 +94,7 @@ $method_name = request()->route()->getActionMethod();
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <div class="form-actions text-center mt-3">
                                 <a href="{{ route('admin.customer.list') }}">
@@ -105,7 +105,7 @@ $method_name = request()->route()->getActionMethod();
                                 <button type="submit" class="btn btn-primary">
                                     <i class="la la-check-square-o"></i>@lang('form.btn_save')
                                 </button>
-                                
+
 
                             </div>
                             {!! Form::close() !!}

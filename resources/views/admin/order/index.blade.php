@@ -6,12 +6,12 @@
     @lang('vendor.list_page_title')
 @endsection
 @section('page-name')
-    @lang('vendor.list_page_sub_title')    
+    @lang('vendor.list_page_sub_title')
 @endsection
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">@lang('vendor.breadcrumb_title')    </a>
     </li>
-    <li class="breadcrumb-item active">@lang('vendor.breadcrumb_sub_title')    
+    <li class="breadcrumb-item active">@lang('vendor.breadcrumb_sub_title')
     </li>
 @endsection
 @php
@@ -27,7 +27,7 @@
                             @if(hasAccessAbility('new_role', $roles))
                             <a class="text-white" href="{{route('admin.vendor.new')}}">
                                 <button type="button" class="btn btn-round btn-sm btn-primary">
-                                    <i class="ft-plus text-white"></i> @lang('vendor.role_create_btn')    
+                                    <i class="ft-plus text-white"></i> @lang('vendor.role_create_btn')
                                 </button>
                             </a>
                             @endif

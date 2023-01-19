@@ -11,7 +11,7 @@
                 @if (hasAccessAbility('view_product', $roles))
                     <li class="nav-item @yield('product_list')"><a class="menu-item"
                             href="{{ route('admin.product.list') }}"><i></i><span
-                                data-i18n="@yield('product_list')">@lang('left_menu.product_list')</span></a></li>
+                                data-i18n="@yield('product_list')">{{ __('product_list') }}</span></a></li>
                 @endif
 
 
@@ -34,7 +34,7 @@
     @if (hasAccessAbility('view_promotion', $roles))
         <li class="nav-item @yield('Promotion')">
             <a href="#"><i class="la la-list"></i><span class="menu-title"
-                    data-i18n="promotion_list">@lang('promotion_title'){{ __('promotion_title') }}</span></a>
+                    data-i18n="promotion_list">{{ __('promotion_title') }}</span></a>
             <ul class="menu-content">
                 <li class="nav-item @yield('promotion_list')"><a class="menu-item"
                         href="{{ route('admin.promotion.list') }}"><i></i><span
@@ -58,49 +58,49 @@
     </li>
 
     <li class="nav-item @yield('main_components')"><a class="menu-item" href="#"><i class="la la-calendar"></i><span
-                class="menu-title" data-i18n="@yield('main_components')">@lang('left_menu.main_components')</span></a>
+                class="menu-title" data-i18n="@yield('main_components')">{{ __('main_components') }}</span></a>
         <ul class="menu-content">
             <ul class="menu-content">
                 @if (hasAccessAbility('view_category', $roles))
                     <li class="@yield('category')"><a class="menu-item"
                             href="{{ route('product.category.list') }}"><i></i><span
-                                data-i18n="@yield('category')">@lang('left_menu.category')</span></a></li>
+                                data-i18n="@yield('category')">{{ __('category') }}</span></a></li>
                 @endif
                 @if (hasAccessAbility('view_sub_category', $roles))
                     <li class="@yield('sub_category')"><a class="menu-item"
                             href="{{ route('admin.sub_category.list') }}"><i></i><span
-                                data-i18n="@yield('sub_category')">@lang('left_menu.sub_category')</span></a></li>
+                                data-i18n="@yield('sub_category')">{{ __('sub_category') }}</span></a></li>
                 @endif
 
                 @if (hasAccessAbility('view_brand', $roles))
                     <li class="@yield('product_brand') @yield('brand')"><a class="menu-item"
                             href="{{ route('admin.brand.list') }}"><i></i><span
-                                data-i18n="@yield('product_brand')">@lang('left_menu.product_brand')</span></a></li>
+                                data-i18n="@yield('product_brand')">{{ __('product_brand') }}</span></a></li>
                 @endif
 
                 @if (hasAccessAbility('view_modal', $roles))
                     <li class="@yield('product_model')"><a class="menu-item" href="{{ route('admin.product-model') }}"><span
-                                data-i18n="@yield('product_model')">@lang('left_menu.product_model')</span></a></li>
+                                data-i18n="@yield('product_model')">{{ __('product_model') }}</span></a></li>
                 @endif
 
                 @if (hasAccessAbility('view_city', $roles))
                     <li class="@yield('cities')"><a class="menu-item"
                             href="{{ route('admin.city.list') }}"><i></i><span
-                                data-i18n="@yield('cities')">@lang('left_menu.cities')</span></a></li>
+                                data-i18n="@yield('cities')">{{ __('cities') }}</span></a></li>
                 @endif
 
                 {{-- @if (hasAccessAbility('view_division', $roles))
-                <li class="@yield('divisions')"><a class="menu-item" href="{{route('admin.division.list')}}"><i></i><span data-i18n="@yield('divisions')">@lang('left_menu.divisions')</span></a></li>
+                <li class="@yield('divisions')"><a class="menu-item" href="{{route('admin.division.list')}}"><i></i><span data-i18n="@yield('divisions')">{{ __('divisions') }}</span></a></li>
                 @endif --}}
 
                 @if (hasAccessAbility('view_area', $roles))
                     <li class="@yield('area')"><a class="menu-item"
                             href="{{ route('admin.area.list') }}"><i></i><span
-                                data-i18n="@yield('area')">@lang('left_menu.area')</span></a></li>
+                                data-i18n="@yield('area')">{{ __('area') }}</span></a></li>
                 @endif
 
                 {{-- @if (hasAccessAbility('view_product_type', $roles))
-                <li class="@yield('product_type')"><a class="menu-item" href="{{route('admin.product_type.list')}}"><i></i><span data-i18n="@yield('product_type')">@lang('left_menu.product_type')</span></a></li>
+                <li class="@yield('product_type')"><a class="menu-item" href="{{route('admin.product_type.list')}}"><i></i><span data-i18n="@yield('product_type')">{{ __('product_type') }}</span></a></li>
                 @endif --}}
 
             </ul>
@@ -112,14 +112,14 @@
         class="nav-item {{ Request::is('admin/languages') || Request::is('admin/languages/create') || Request::is('admin/languages/*') ? 'active' : '' }}">
         <a href="{{ route('languages.index') }}">
             <i class="la la-list"></i>
-            <span class="menu-title" data-i18n="#">Languages</span>
+            <span class="menu-title" data-i18n="#">{{ __('languages') }}</span>
         </a>
     </li>
     <li
         class="nav-item {{ Request::is('admin/currency') || Request::is('admin/currency/create') || Request::is('admin/currency/*') ? 'active' : '' }}">
         <a href="{{ route('currency.index') }}">
             <i class="la la-money"></i>
-            <span class="menu-title" data-i18n="#">Currency</span>
+            <span class="menu-title" data-i18n="#">{{  __('currency') }}</span>
         </a>
     </li>
     @if (hasAccessAbility('view_customer', $roles))
@@ -154,14 +154,14 @@
         <li class=" nav-item @yield('Admin Mangement')">
             <a href="#">
                 <i class="la la-user-plus"></i>
-                <span class="menu-title" data-i18n="@lang('left_menu.admin_management')">@lang('left_menu.admin_management')</span>
+                <span class="menu-title" data-i18n="{{ __('admin_management') }}">{{ __('admin_management') }}</span>
             </a>
             <ul class="menu-content">
                 @if (hasAccessAbility('view_admin_user', $roles))
                     <li class="@yield('admin-user')">
                         <a href="{{ route('admin.admin-user') }}">
                             <i></i>
-                            <span class="menu-title" data-i18n="{{ 'admin_user' }}">@lang('left_menu.admin_user')</span>
+                            <span class="menu-title" data-i18n="{{ __('admin_user') }}">{{ __('admin_user') }}</span>
                         </a>
                     </li>
                 @endif
@@ -169,7 +169,7 @@
                     <li class=" nav-item @yield('user-group')">
                         <a href="{{ route('admin.user-group') }}">
                             <i></i>
-                            <span class="menu-title" data-i18n="@lang('left_menu.user_category')">Group</span>
+                            <span class="menu-title" data-i18n="{{ __('group') }}">{{ __('group') }}</span>
                         </a>
                     </li>
                 @endif
@@ -179,7 +179,7 @@
                         <a href="{{ route('admin.assign-access') }}">
                             <i></i>
                             <span class="menu-title"
-                                  data-i18n="@lang('left_menu.assign_access')">@lang('left_menu.assign_access')</span>
+                                  data-i18n="{{ __('assign_access') }}">{{ __('assign_access') }}</span>
                         </a>
                     </li>
                 @endif
@@ -201,7 +201,7 @@
                         <li class="@yield('role')">
                             <a class="menu-item" href="{{ route('admin.role') }}">
                                 <i></i>
-                                <span data-i18n="@lang('left_menu.role')">@lang('left_menu.role')</span>
+                                <span data-i18n="{{ __('role') }}">{{ __('role') }}</span>
                             </a>
                         </li>
                     @endif
@@ -209,21 +209,19 @@
                         <li class="@yield('permission-group')">
                             <a class="menu-item" href="{{ route('admin.permission-group') }}">
                                 <i></i>
-                                <span data-i18n="@lang('left_menu.menus')">@lang('left_menu.menus')</span>
+                                <span data-i18n="{{ __('menus') }}">{{ __('menus') }}</span>
                             </a>
                         </li>
                     @endif
                     @if (hasAccessAbility('view_action', $roles))
                         <li class="@yield('permission')"><a class="menu-item"
                                 href="{{ route('admin.permission') }}"><i></i><span
-                                    data-i18n="@lang('left_menu.actions')">@lang('left_menu.actions')</span></a>
+                                    data-i18n="{{ __('actions') }}">{{ __('actions') }}</span></a>
                         </li>
                     @endif
                 </ul>
             </li>
         @endif
-
-
 
         <li class=" nav-item @yield('Web Setting')">
             <a href="#">
@@ -235,7 +233,7 @@
                     <li class="@yield('client_query')">
                         <a class="menu-item" href="{{ route('admin.client.query') }}">
                             <i></i>
-                            <span data-i18n="client_query">Client Quries</span>
+                            <span data-i18n="client_query">{{ __('client_quries') }}</span>
                         </a>
                     </li>
                 @endif
@@ -244,13 +242,13 @@
                     <li class="@yield('faq')">
                         <a class="menu-item" href="{{ route('admin.faq.list') }}">
                             <i></i>
-                            <span data-i18n="faq">FAQ</span>
+                            <span data-i18n="faq">{{ __('faq') }}</span>
                         </a>
                     </li>
                     <li class="@yield('site-setting')">
                         <a class="menu-item" href="{{ route('site.website') }}">
                             <i></i>
-                            <span data-i18n="faq">Site Setting</span>
+                            <span data-i18n="faq">{{ __('site_setting') }}</span>
                         </a>
                     </li>
                 @endif
@@ -258,7 +256,7 @@
                 <li class="@yield('site-ads')">
                     <a class="menu-item" href="{{ route('site.ads') }}">
                         <i></i>
-                        <span data-i18n="faq">Website Ads</span>
+                        <span data-i18n="faq">{{ __('website_ads') }}</span>
                     </a>
                 </li>
 
@@ -269,7 +267,7 @@
                     <li class="@yield('about_us')">
                         <a class="menu-item" href="{{ route('admin.about.us') }}">
                             <i></i>
-                            <span data-i18n="about_us">About Us</span>
+                            <span data-i18n="about">{{ __('about') }}</span>
                         </a>
                     </li>
                 @endif
@@ -287,7 +285,7 @@
                     <li class="@yield('terms_condition')">
                         <a class="menu-item" href="{{ route('admin.terms.conditions') }}">
                             <i></i>
-                            <span data-i18n="terms_condition">Terms & Conditions</span>
+                            <span data-i18n="{{ __('t_conditions') }}">{{ __('t_conditions') }}</span>
                         </a>
                     </li>
                 @endif
@@ -296,7 +294,7 @@
                     <li class="@yield('privacy_policy')">
                         <a class="menu-item" href="{{ route('admin.privacy.policy') }}">
                             <i></i>
-                            <span data-i18n="privacy_policy">Privacy Policy</span>
+                            <span data-i18n="{{ __('privacy_policy') }}">{{ __('privacy_policy') }}</span>
                         </a>
                     </li>
                 @endif
@@ -305,7 +303,7 @@
                     <li class="@yield('quick_rules')">
                         <a class="menu-item" href="{{ route('admin.quick.rules') }}">
                             <i></i>
-                            <span data-i18n="quick_rules">Quick Rules</span>
+                            <span data-i18n="{{ __('quick_rules') }}">{{ __('quick_rules') }}</span>
                         </a>
                     </li>
                 @endif
@@ -313,21 +311,21 @@
                 <li class="@yield('promotions')">
                     <a class="menu-item" href="{{ route('admin.promotions') }}">
                         <i></i>
-                        <span data-i18n="quick_rules">Promotions</span>
+                        <span data-i18n="{{ __('promotions') }}">{{ __('promotions') }}</span>
                     </a>
                 </li>
 
                 <li class="@yield('promite')">
                     <a class="menu-item" href="{{ route('admin.promote') }}">
                         <i></i>
-                        <span data-i18n="quick_rules">Promote</span>
+                        <span data-i18n="{{ __('promote') }}">{{ __('promote') }}</span>
                     </a>
                 </li>
 
                 <li class="@yield('sidebar')">
                     <a class="menu-item" href="{{ route('admin.sidebar') }}">
                         <i></i>
-                        <span data-i18n="quick_rules">Sidebar Info</span>
+                        <span data-i18n="{{ __('sidebar_info') }}">{{ __('sidebar_info') }}</span>
                     </a>
                 </li>
 
@@ -335,7 +333,7 @@
                     <li class="@yield('howto_sell_first')">
                         <a class="menu-item" href="{{ route('admin.howtosell.fast') }}">
                             <i></i>
-                            <span data-i18n="howto_sell_first">How to Sell Fast</span>
+                            <span data-i18n="{{ __('how_to_sell_fast') }}">{{ __('how_to_sell_fast') }}</span>
                         </a>
                     </li>
                 @endif
@@ -344,7 +342,7 @@
                     <li class="@yield('why_membership')">
                         <a class="menu-item" href="{{ route('admin.why.membership') }}">
                             <i></i>
-                            <span data-i18n="why_membership">Why membership</span>
+                            <span data-i18n="{{ __('why_mem') }}">{{ __('why_mem') }}</span>
                         </a>
                     </li>
                 @endif
@@ -353,7 +351,7 @@
                     <li class="@yield('footer')">
                         <a class="menu-item" href="{{ route('admin.footer') }}">
                             <i></i>
-                            <span data-i18n="footer">Footer</span>
+                            <span data-i18n="{{ __('footer_title') }}">{{ __('footer_title') }}</span>
                         </a>
                     </li>
                 @endif
@@ -361,7 +359,7 @@
                 @if (hasAccessAbility('view_copy_right', $roles))
                     <li class="@yield('copy_right')">
                         <a class="menu-item" href="{{ route('admin.copy.right') }}">
-                            <i></i><span data-i18n="copy_right">Copyright</span>
+                            <i></i><span data-i18n="{{ __('copy_right_title') }}">{{ __('copy_right_title') }}</span>
                         </a>
                     </li>
                 @endif
