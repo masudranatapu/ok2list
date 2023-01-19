@@ -100,7 +100,7 @@ Dashboard
                         <div class="card-body">
                             <div class="media d-flex">
                                 <div class="media-body text-left">
-                                    <h3 class="red">₦ {{ $total_package_sell ?? 0 }}</h3>
+                                    <h3 class="red"> {{ adminChangeCurrency( $total_package_sell ?? 0 ) }}</h3>
                                     <h6>Total Package Sell </h6>
                                 </div>
                                 <div>
@@ -120,8 +120,8 @@ Dashboard
                         <div class="card-body">
                             <div class="media d-flex">
                                 <div class="media-body text-left">
-                                    <h3 class="primary">₦ {{ $total_promotion_sell ?? 0 }}</h3>
-                                    <h6>Total Promoted Ads</h6>
+                                    <h3 class="primary">{{ adminChangeCurrency($total_promotion_sell ?? 0) }}</h3>
+                                    <h6>Earning from Promoted Ads</h6>
                                 </div>
                                 <div>
                                     <i class="icon-list loaded primary font-large-2 float-right"></i>
@@ -140,7 +140,7 @@ Dashboard
                         <div class="card-body">
                             <div class="media d-flex">
                                 <div class="media-body text-left">
-                                    <h3 class="secondary">₦ {{ $total_sell ?? 0 }}</h3>
+                                    <h3 class="secondary">{{ adminChangeCurrency( $total_sell ?? 9 ) }}</h3>
                                     <h6>Total Earnings</h6>
                                 </div>
                                 <div>
