@@ -4,7 +4,7 @@
     </li>
     @if(hasAccessAbility('view_product', $roles))
     <li class=" nav-item @yield('Product Management')">
-        <a href="#"><i class="la la-list"></i><span class="menu-title" data-i18n="{{__('product')}}">{{__('product')}}</span></a>
+        <a href="#"><i class="la la-list"></i><span class="menu-title" data-i18n="{{__('product')}}">@lang('left_menu.product'){{__('product')}}</span></a>
         <ul class="menu-content">
             @if(hasAccessAbility('view_product', $roles))
             <li class="nav-item @yield('product_list')"><a class="menu-item" href="{{ route('admin.product.list') }}"><i></i><span data-i18n="@yield('product_list')">@lang('left_menu.product_list')</span></a></li>
