@@ -1,23 +1,25 @@
 @extends('admin.layout.master')
-@section('admin-user','active')
+@section('admin-user', 'active')
 @section('title')
-    Admin | Edit
+    {{ __('admin_user_edit') }}
 @endsection
 @section('page-name')
-    Edit Admin User
+    {{ __('admin_user_edit') }}
 @endsection
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a>
+    <li class="breadcrumb-item">
+        <a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
     </li>
-    <li class="breadcrumb-item"><a href="{{ route('admin.admin-user') }}"> Admin User </a>
+    <li class="breadcrumb-item"><a href="{{ route('admin.admin-user') }}"> {{ __('admin_user') }} </a>
     </li>
-    <li class="breadcrumb-item active">Edit Admin User
+    <li class="breadcrumb-item active">
+        {{ __('admin_user_edit') }}
     </li>
 @endsection
 @section('content')
     <div class="col-md-12">
 
-        @if($errors->all())
+        @if ($errors->all())
             @foreach ($errors->all() as $error)
                 <div>{{ $error }}</div>
             @endforeach
@@ -39,7 +41,13 @@
             <div class="card-content collapse show">
 
                 <div class="card-body">
-                    {!! Form::open([ 'route' => ['admin.admin-user.update', $user->id], 'method' => 'post', 'class' => 'form-horizontal', 'files' => true , 'novalidate']) !!}
+                    {!! Form::open([
+                        'route' => ['admin.admin-user.update', $user->id],
+                        'method' => 'post',
+                        'class' => 'form-horizontal',
+                        'files' => true,
+                        'novalidate',
+                    ]) !!}
                     @csrf
                     <div class="form-body">
                         <h4 class="form-section"><i class="la la-eye"></i> About User</h4>
@@ -48,12 +56,17 @@
                                 <div class="form-group">
                                     <label>First Name</label>
                                     <div class="controls">
-                                        {!! Form::text('first_name', $user->first_name,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter first name', 'tabindex' => 1 ]) !!}
+                                        {!! Form::text('first_name', $user->first_name, [
+                                            'class' => 'form-control mb-1',
+                                            'data-validation-required-message' => 'This field is required',
+                                            'placeholder' => 'Enter first name',
+                                            'tabindex' => 1,
+                                        ]) !!}
                                     </div>
                                     @if ($errors->has('first_name'))
                                         <span class="alert alert-danger">
-                                                <strong>{{ $errors->first('first_name') }}</strong>
-                                            </span>
+                                            <strong>{{ $errors->first('first_name') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
                             </div>
@@ -62,13 +75,18 @@
                                 <div class="form-group">
                                     <label>Last Name</label>
                                     <div class="controls">
-                                        {!! Form::text('last_name', $user->last_name,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter last name', 'tabindex' => 1 ]) !!}
+                                        {!! Form::text('last_name', $user->last_name, [
+                                            'class' => 'form-control mb-1',
+                                            'data-validation-required-message' => 'This field is required',
+                                            'placeholder' => 'Enter last name',
+                                            'tabindex' => 1,
+                                        ]) !!}
                                     </div>
                                 </div>
                                 @if ($errors->has('last_name'))
                                     <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('last_name') }}</strong>
-                                        </span>
+                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                         </div>
@@ -77,20 +95,29 @@
                                 <div class="form-group">
                                     <label>Designation</label>
                                     <div class="controls">
-                                        {!! Form::text('designation', $user->designation,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter designation', 'tabindex' => 1 ]) !!}
+                                        {!! Form::text('designation', $user->designation, [
+                                            'class' => 'form-control mb-1',
+                                            'data-validation-required-message' => 'This field is required',
+                                            'placeholder' => 'Enter designation',
+                                            'tabindex' => 1,
+                                        ]) !!}
                                     </div>
                                 </div>
                                 @if ($errors->has('designation'))
                                     <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('designation') }}</strong>
-                                        </span>
+                                        <strong>{{ $errors->first('designation') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Status</label>
                                     <div class="controls">
-                                        {!! Form::select('status', ['1' => 'Yes', '0' => 'No'], $user->status, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select status', 'data-validation-required-message' => 'This field is required']) !!}
+                                        {!! Form::select('status', ['1' => 'Yes', '0' => 'No'], $user->status, [
+                                            'class' => 'form-control mb-1',
+                                            'placeholder' => 'Select status',
+                                            'data-validation-required-message' => 'This field is required',
+                                        ]) !!}
                                     </div>
                                     @if ($errors->has('status'))
                                         <div class="alert alert-danger">
@@ -110,12 +137,17 @@
                             <div class="form-group">
                                 <label>Username</label>
                                 <div class="controls">
-                                    {!! Form::text('username', $user->username,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter username', 'tabindex' => 1 ]) !!}
+                                    {!! Form::text('username', $user->username, [
+                                        'class' => 'form-control mb-1',
+                                        'data-validation-required-message' => 'This field is required',
+                                        'placeholder' => 'Enter username',
+                                        'tabindex' => 1,
+                                    ]) !!}
                                 </div>
                                 @if ($errors->has('username'))
                                     <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('username') }}</strong>
-                                        </span>
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                         </div>
@@ -123,12 +155,17 @@
                             <div class="form-group">
                                 <label>Contact Number</label>
                                 <div class="controls">
-                                    {!! Form::text('mobile_no', $user->mobile_no,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter contact number', 'tabindex' => 1 ]) !!}
+                                    {!! Form::text('mobile_no', $user->mobile_no, [
+                                        'class' => 'form-control mb-1',
+                                        'data-validation-required-message' => 'This field is required',
+                                        'placeholder' => 'Enter contact number',
+                                        'tabindex' => 1,
+                                    ]) !!}
                                 </div>
                                 @if ($errors->has('mobile_no'))
                                     <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('mobile_no') }}</strong>
-                                        </span>
+                                        <strong>{{ $errors->first('mobile_no') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                         </div>
@@ -136,12 +173,17 @@
                     <div class="form-group">
                         <label>Email</label>
                         <div class="controls">
-                            {!! Form::text('email', $user->email,[ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter email', 'tabindex' => 1 ]) !!}
+                            {!! Form::text('email', $user->email, [
+                                'class' => 'form-control mb-1',
+                                'data-validation-required-message' => 'This field is required',
+                                'placeholder' => 'Enter email',
+                                'tabindex' => 1,
+                            ]) !!}
                         </div>
                         @if ($errors->has('email'))
                             <span class="alert alert-danger">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
                         @endif
                     </div>
 
@@ -150,12 +192,16 @@
                             <div class="form-group">
                                 <label>Gender</label>
                                 <div class="controls">
-                                    {!! Form::select('gender', ['1' => 'Male', '0' => 'Female'] , $user->gender, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select gender', 'data-validation-required-message' => 'This field is required']) !!}
+                                    {!! Form::select('gender', ['1' => 'Male', '0' => 'Female'], $user->gender, [
+                                        'class' => 'form-control mb-1',
+                                        'placeholder' => 'Select gender',
+                                        'data-validation-required-message' => 'This field is required',
+                                    ]) !!}
                                 </div>
                                 @if ($errors->has('gender'))
                                     <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('gender') }}</strong>
-                                        </span>
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                         </div>
@@ -163,12 +209,16 @@
                             <div class="form-group">
                                 <label>Can Login</label>
                                 <div class="controls">
-                                    {!! Form::select('can_login', ['1' => 'Yes', '0' => 'No'] , $user->can_login, [ 'class' => 'form-control mb-1', 'placeholder' => 'Select who can login', 'data-validation-required-message' => 'This field is required']) !!}
+                                    {!! Form::select('can_login', ['1' => 'Yes', '0' => 'No'], $user->can_login, [
+                                        'class' => 'form-control mb-1',
+                                        'placeholder' => 'Select who can login',
+                                        'data-validation-required-message' => 'This field is required',
+                                    ]) !!}
                                 </div>
                                 @if ($errors->has('can_login'))
                                     <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('can_login') }}</strong>
-                                        </span>
+                                        <strong>{{ $errors->first('can_login') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                         </div>
@@ -178,7 +228,11 @@
                             <div class="form-group">
                                 <label>Password</label>
                                 <div class="controls">
-                                    {!! Form::password('password',[ 'class' => 'form-control mb-1', 'placeholder' => 'Enter New password', 'tabindex' => 1 ]) !!}
+                                    {!! Form::password('password', [
+                                        'class' => 'form-control mb-1',
+                                        'placeholder' => 'Enter New password',
+                                        'tabindex' => 1,
+                                    ]) !!}
                                 </div>
                                 @if ($errors->has('password'))
                                     <span class="alert alert-danger">
@@ -190,7 +244,7 @@
 
                     </div>
                     <div class="row">
-                        {{--<div class="col-md-6">
+                        {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label>Role name</label>
                                 <div class="controls">
@@ -202,25 +256,29 @@
                                         </span>
                                 @endif
                             </div>
-                        </div>--}}
+                        </div> --}}
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>@lang('form.admin_user_form_field_group_name')  </label>
+                                <label>{{ __('admin_user_form_field_group_name') }}</label>
                                 <div class="controls">
-                                    {!! Form::select('user_group', $userGroup, $user->authRole->user_group_id ?? '', [ 'class' => 'form-control mb-1', 'placeholder' => 'Select Group name']) !!}
+                                    {!! Form::select('user_group', $userGroup, $user->authRole->user_group_id ?? '', [
+                                        'class' => 'form-control mb-1',
+                                        'placeholder' => 'Select Group name',
+                                    ]) !!}
                                 </div>
                                 @if ($errors->has('user_group'))
                                     <span class="alert alert-danger">
-                                            <strong>{{ $errors->first('user_group') }}</strong>
-                                        </span>
+                                        <strong>{{ $errors->first('user_group') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                         </div>
                         <div class="form-group">
                             <h5>Profile Pic<span class="required"></span></h5>
                             <div class="controls">
-                                <img align="middle" width="150" height="150" src="{{ $user->profile_pic_url }}" alt="Profile_pic">
-                                {!! Form::file('profile_pic', ['class' => 'form-control mb-1']); !!}
+                                <img align="middle" width="150" height="150" src="{{ $user->profile_pic_url }}"
+                                    alt="Profile_pic">
+                                {!! Form::file('profile_pic', ['class' => 'form-control mb-1']) !!}
                             </div>
                             @if ($errors->has('profile_pic'))
                                 <div class="alert alert-danger">
@@ -232,7 +290,7 @@
 
 
                     <div class="form-actions text-center">
-                        <a href="{{ route('admin.admin-user')}}">
+                        <a href="{{ route('admin.admin-user') }}">
                             <button type="button" class="btn btn-warning mr-1">
                                 <i class="ft-x"></i> Cancel
                             </button>

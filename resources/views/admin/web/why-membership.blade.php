@@ -27,7 +27,7 @@
     <div class="content-body">
         <section id="pagination">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="card card-sm">
                         <div class="card-header">
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
@@ -50,10 +50,6 @@
                                                 <label for="package">{{ __('des') }}</label>
                                                 <textarea cols="30" rows="5" class="form-control" name="desc" placeholder="Details English">{{ $membership->description }}</textarea>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="package">{{ __('des') }}</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="desc1" placeholder="Details SL">{{ $membership->description_sl }}</textarea>
-                                            </div>
                                         </div>
                                     </div>
                                     <hr>
@@ -64,17 +60,6 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card card-sm">
-                        <div class="card-header">
-                            <h4>{{ __('demo_image') }}</h4>
-                        </div>
-                        <div class="card-body">
-                            <img width="650" height="1000" src="{{ asset('assets/images/about-us/about.jpg') }}"
-                                alt="">
                         </div>
                     </div>
                 </div>

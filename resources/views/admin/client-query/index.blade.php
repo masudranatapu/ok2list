@@ -3,12 +3,14 @@
 @section('Web Setting', 'open')
 @section('client_query', 'active')
 
-@section('title') @lang('web_setting.client_query_title') @endsection
-@section('page-name') @lang('web_setting.client_query_title') @endsection
+@section('title') {{ __('client_query_title') }} @endsection
+@section('page-name') {{ __('client_query_title') }} @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="#">@lang('admin_role.breadcrumb_title') </a></li>
-    <li class="breadcrumb-item active">@lang('web_setting.client_query_title') </li>
+    <li class="breadcrumb-item">
+        <a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
+    </li>
+    <li class="breadcrumb-item active">{{ __('client_query_title') }} </li>
 @endsection
 
 <!--push from page-->

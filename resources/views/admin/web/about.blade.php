@@ -1,14 +1,15 @@
 @extends('admin.layout.master')
 
-@section('Web Setting','open')
-@section('about_us','active')
+@section('Web Setting', 'open')
+@section('about_us', 'active')
 
-@section('title') @lang('about.about_title') @endsection
-@section('page-name') @lang('about.about_title') @endsection
+@section('title') {{ __('about') }} @endsection
+@section('page-name') {{ __('about') }} @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="#">@lang('admin_role.breadcrumb_title')  </a></li>
-    <li class="breadcrumb-item active">@lang('about.about_title')    </li>
+    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
+    </li>
+    <li class="breadcrumb-item active">{{ __('about') }} </li>
 @endsection
 
 @push('custom_css')
@@ -19,7 +20,7 @@
     <div class="content-body">
         <section id="pagination">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="card card-sm">
                         <div class="card-header">
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
@@ -33,7 +34,8 @@
                             </div>
                         </div>
                         <div class="card-content collapse show">
-                            <form action="{{route('admin.about.us.update', $about->id)}}" enctype="multipart/form-data" method="POST">
+                            <form action="{{ route('admin.about.us.update', $about->id) }}" enctype="multipart/form-data"
+                                method="POST">
                                 @csrf
                                 <div class="card-body card-dashboard">
                                     <div class="row">
@@ -45,57 +47,58 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <img width="120" class="img-thumbnail" src="{{asset($about->image)}}" alt="about image">
+                                                <img width="120" class="img-thumbnail" src="{{ asset($about->image) }}"
+                                                    alt="about image">
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="package">Details ( En )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="desc"  placeholder="Details English">{{$about->details_en}}</textarea>
+                                                <label for="package">Details</label>
+                                                <textarea cols="30" rows="5" class="form-control" name="desc" placeholder="Details English">{{ $about->details_en }}</textarea>
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        {{-- <div class="col-12">
                                             <div class="form-group">
                                                 <label for="package">Details ( Sl )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="desc1"  placeholder="Details Sl">{{$about->details_sl}}</textarea>
+                                                <textarea cols="30" rows="5" class="form-control" name="desc1" placeholder="Details Sl">{{ $about->details_sl }}</textarea>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="package">Mission ( En )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="mission_en" placeholder="Mission English">{{$about->mission_en}}</textarea>
+                                                <label for="package">Mission</label>
+                                                <textarea cols="30" rows="5" class="form-control" name="mission_en" placeholder="Mission English">{{ $about->mission_en }}</textarea>
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        {{-- <div class="col-12">
                                             <div class="form-group">
                                                 <label for="package">Mission ( Sl )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="mission_sl" placeholder="Mission Sl">{{$about->mission_sl}}</textarea>
+                                                <textarea cols="30" rows="5" class="form-control" name="mission_sl" placeholder="Mission Sl">{{ $about->mission_sl }}</textarea>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="package">Vision ( En )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="vision_en" placeholder="Vision English">{{$about->vision_en}}</textarea>
+                                                <label for="package">Vision</label>
+                                                <textarea cols="30" rows="5" class="form-control" name="vision_en" placeholder="Vision English">{{ $about->vision_en }}</textarea>
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        {{-- <div class="col-12">
                                             <div class="form-group">
                                                 <label for="package">Vision ( Sl )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="vision_sl" placeholder="Vision SL">{{$about->vision_sl}}</textarea>
+                                                <textarea cols="30" rows="5" class="form-control" name="vision_sl" placeholder="Vision SL">{{ $about->vision_sl }}</textarea>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="package">Our Values ( En )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="our_values_en" placeholder="Our Values English">{{$about->our_values_en}}</textarea>
+                                                <label for="package">Our Values</label>
+                                                <textarea cols="30" rows="5" class="form-control" name="our_values_en" placeholder="Our Values English">{{ $about->our_values_en }}</textarea>
                                             </div>
                                         </div>
-                                        <div class="col-12">
+                                        {{-- <div class="col-12">
                                             <div class="form-group">
                                                 <label for="package">Our Values ( Sl )</label>
-                                                <textarea cols="30" rows="5" class="form-control" name="our_values_sl" placeholder="Our Values Sl">{{$about->our_values_sl}}</textarea>
+                                                <textarea cols="30" rows="5" class="form-control" name="our_values_sl" placeholder="Our Values Sl">{{ $about->our_values_sl }}</textarea>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <hr>
                                     <div class="form-actions text-center mt-3">
@@ -108,28 +111,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card card-sm">
-                        <div class="card-header">
-                            <h4>Demo Image</h4>
-                        </div>
-                        <div class="card-body">
-                            <img width="650" height="1000" src="{{asset('assets/images/about-us/about.jpg')}}" alt="">
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     </div>
 @endsection
 
 @push('custom_js')
-    <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
-    <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('app-assets/pages/customer.js')}}"></script>
+    <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js') }}"></script>
+    <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('app-assets/pages/customer.js') }}"></script>
     <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
     <script>
-            CKEDITOR.replace('desc');
-            CKEDITOR.replace('desc1');
+        CKEDITOR.replace('desc');
+        CKEDITOR.replace('desc1');
     </script>
 @endpush('custom_js')

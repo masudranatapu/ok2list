@@ -3,12 +3,14 @@
 @section('Web Setting', 'open')
 @section('faq', 'active')
 
-@section('title') @lang('web_setting.faq_title') @endsection
-@section('page-name') @lang('web_setting.faq_title') @endsection
+@section('title') {{ __('faq_title') }} @endsection
+@section('page-name') {{ __('faq_title') }} @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="#">@lang('admin_role.breadcrumb_title') </a></li>
-    <li class="breadcrumb-item active">@lang('web_setting.faq_title') </li>
+    <li class="breadcrumb-item">
+        <a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
+    </li>
+    <li class="breadcrumb-item active">{{ __('faq_title') }} </li>
 @endsection
 
 <!--push from page-->

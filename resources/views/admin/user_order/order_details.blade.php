@@ -2,12 +2,17 @@
 
 @section('order', 'active')
 
-@section('title') Order Details @endsection
-@section('page-name') Order Details @endsection
+@section('title')
+    {{ __('orders') }}
+@endsection
+@section('page-name')
+    {{ __('orders') }}
+@endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="#">@lang('admin_role.breadcrumb_title') </a></li>
-    <li class="breadcrumb-item active">Order Details </li>
+    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
+    </li>
+    <li class="breadcrumb-item active">{{ __('order_details') }} </li>
 @endsection
 @push('custom_css')
     <script src="{{ asset('js/html2pdf.bundle.min.js') }}"></script>
@@ -65,8 +70,8 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="invoice_info">
-                                        <img src="{{ asset($setting->logo ?? 'uploads/2022/12/1671873605-logo2.png') }}" alt=""
-                                            class="text-center" width="200px">
+                                        <img src="{{ asset($setting->logo ?? 'uploads/2022/12/1671873605-logo2.png') }}"
+                                            alt="" class="text-center" width="200px">
                                         <address>
                                             {{ $site_settings->website_title }}<br>
                                             {{ $site_settings->address }}
@@ -157,7 +162,8 @@
                                     <tr>
                                         <td class="text-center"></td>
                                         <td>
-                                            <img src="{{ asset($order->product->photo ?? 'assets/img/default_thumb.png') }}" alt="product" width="150ppx">
+                                            <img src="{{ asset($order->product->photo ?? 'assets/img/default_thumb.png') }}"
+                                                alt="product" width="150ppx">
                                         </td>
                                         <td class="text-center">
                                             {{ $order->product->ad_title }}
@@ -173,7 +179,7 @@
                                         <td class="text-center">Tax</td>
                                         <td></td>
                                         <td class="text-right">
-                                             {{ $order->tax ?? '0' }}
+                                            {{ $order->tax ?? '0' }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -202,9 +208,9 @@
                                         <td colspan="4" class="font-weight-bold text-uppercase text-right">Paid</td>
                                         <td class="font-weight-bold text-right">
                                             @if ($order->payment_status == 'paid')
-                                            ₦ {{ $order->amount ?? '' }}
+                                                ₦ {{ $order->amount ?? '' }}
                                             @else
-                                            ₦ 0
+                                                ₦ 0
                                             @endif
                                         </td>
                                     </tr>
@@ -213,9 +219,9 @@
                                         <td colspan="4" class="font-weight-bold text-uppercase text-right">Due</td>
                                         <td class="font-weight-bold text-right">
                                             @if ($order->payment_status == 'unpaid')
-                                            ₦ {{ $order->amount ?? '' }}
+                                                ₦ {{ $order->amount ?? '' }}
                                             @else
-                                            ₦ 0
+                                                ₦ 0
                                             @endif
                                         </td>
                                     </tr>

@@ -1,27 +1,25 @@
 @extends('admin.layout.master')
-@section('permission-group','active')
-@section('Role Management','open')
+@section('permission-group', 'active')
+@section('Role Management', 'open')
 @section('title')
-    @lang('admin_menu.new_page_title')
+    {{ __('add_menu') }}
 @endsection
 @section('page-name')
-    @lang('admin_menu.new_page_sub_title')
+    {{ __('add_menu') }}
 @endsection
 @section('breadcrumb')
     <li class="breadcrumb-item">
-        <a href="{{ url('dashboard') }}">@lang('admin_menu.breadcrumb_title')</a>
-    </li>
-    <li class="breadcrumb-item">
-        <a href="{{ route('admin.permission-group') }}">@lang('admin_menu.breadcrumb_sub_title')</a>
+        <a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
     </li>
     <li class="breadcrumb-item active">
-        @lang('admin_menu.breadcrumb_title_active_1')
+        {{ __('add_menu') }}
     </li>
 @endsection
 @section('content')
     <div class="card" style="height: 281.5px;">
         <div class="card-header">
-            <h4 class="card-title" id="basic-layout-colored-form-control"><i class="ft-plus text-primary"></i> @lang('form.new_menu_form_title')</h4>
+            <h4 class="card-title" id="basic-layout-colored-form-control"><i
+                    class="ft-plus text-primary"></i>{{ __('new_menu_form_title') }}</h4>
             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
             <div class="heading-elements">
                 <ul class="list-inline mb-0">
@@ -34,14 +32,25 @@
         </div>
         <div class="card-content collapse show">
             <div class="card-body">
-                {!! Form::open([ 'route' => 'admin.permission-group.store', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true , 'novalidate']) !!}
+                {!! Form::open([
+                    'route' => 'admin.permission-group.store',
+                    'method' => 'post',
+                    'class' => 'form-horizontal',
+                    'files' => true,
+                    'novalidate',
+                ]) !!}
                 @csrf
                 <div class="form-body">
                     <div class="col-md-6 offset-3">
                         <div class="form-group">
-                            <label>@lang('form.new_menu_form_filed_name')</label>
+                            <label>{{ __('new_menu_form_filed_name') }}</label>
                             <div class="controls">
-                                {!! Form::text('permission_group_name', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' =>__('form.field_required'), 'placeholder' => __('form.new_menu_form_placeholder'), 'tabindex' => 1 ]) !!}
+                                {!! Form::text('permission_group_name', null, [
+                                    'class' => 'form-control mb-1',
+                                    'data-validation-required-message' => __('field_required'),
+                                    'placeholder' => __('new_menu_form_placeholder'),
+                                    'tabindex' => 1,
+                                ]) !!}
                             </div>
                             @if ($errors->has('permission_group_name'))
                                 <div class="alert alert-danger">
@@ -53,11 +62,11 @@
                     <div class="form-actions text-center mt-3">
                         <a href="{{ route('admin.permission-group') }}">
                             <button type="button" class="btn btn-warning mr-1">
-                                <i class="ft-x"></i>  @lang('form.btn_cancle')
+                                <i class="ft-x"></i>{{ __('btn_cancle') }}
                             </button>
                         </a>
                         <button type="submit" class="btn btn-primary">
-                            <i class="la la-check-square-o"></i> @lang('form.btn_save')
+                            <i class="la la-check-square-o"></i>{{ __('btn_save') }}
                         </button>
                     </div>
                 </div>

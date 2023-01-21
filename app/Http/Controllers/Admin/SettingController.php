@@ -63,13 +63,9 @@ class SettingController extends BaseController
         DB::table('page_about_us')->where('id', $id)->update([
             'image' => $image_url,
             'details_en' => $request->desc,
-            'details_sl' => $request->desc1,
             'mission_en' => $request->mission_en,
-            'mission_sl' => $request->mission_sl,
             'vision_en' => $request->vision_en,
-            'vision_sl' => $request->vision_sl,
             'our_values_en' => $request->our_values_en,
-            'our_values_sl' => $request->our_values_sl,
         ]);
         return redirect()->back()->with('flashMessageSuccess','Sucessfully Updated');
 
@@ -90,9 +86,7 @@ class SettingController extends BaseController
     {
         DB::table('page_terms_conditions')->where('id', $id)->update([
             'details_en' => $request->desc,
-            'details_sl' => $request->desc1,
             'rules_en' => $request->rules_en,
-            'rules_sl' => $request->rules_sl,
         ]);
         return redirect()->back()->with('flashMessageSuccess','Sucessfully Updated');
     }
@@ -104,9 +98,7 @@ class SettingController extends BaseController
     {
         DB::table('page_privacy_policy')->where('id', $id)->update([
             'details_en' => $request->desc,
-            'details_sl' => $request->desc1,
             'rules_en' => $request->rules_en,
-            'rules_sl' => $request->rules_sl,
         ]);
         return redirect()->back()->with('flashMessageSuccess','Sucessfully Updated');
     }
@@ -130,18 +122,6 @@ class SettingController extends BaseController
             'eight_en' => $request->eight_en,
             'nine_en' => $request->nine_en,
             'ten_en' => $request->ten_en,
-            'title_sl' => $request->title_sl,
-            'sub_title_sl' => $request->sub_title_sl,
-            'one_sl' => $request->one_sl,
-            'two_sl' => $request->two_sl,
-            'three_sl' => $request->three_sl,
-            'four_sl' => $request->four_sl,
-            'five_sl' => $request->five_sl,
-            'six_sl' => $request->six_sl,
-            'seven_sl' => $request->seven_sl,
-            'eight_sl' => $request->eight_sl,
-            'nine_sl' => $request->nine_sl,
-            'ten_sl' => $request->ten_sl,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -163,7 +143,6 @@ class SettingController extends BaseController
     {
         DB::table('page_membership')->where('id', $id)->update([
             'description' => $request->desc,
-            'description_sl' => $request->desc1,
         ]);
         return redirect()->back()->with('flashMessageSuccess','Sucessfully Updated');
     }
@@ -185,43 +164,24 @@ class SettingController extends BaseController
     {
         DB::table('site_settings')->where('id', $id)->update([
             'section_one_name_en' => $request->section_one_name_en,
-            'section_one_name_sl' => $request->section_one_name_sl,
             'about_en' => $request->about_en,
             'contact_us_en' => $request->contact_us_en,
             'terms_conditions_en' => $request->terms_conditions_en,
             'privacy_policy_en' => $request->privacy_policy_en,
             'sitemap_en' => $request->sitemap_en,
-            'about_sl' => $request->about_sl,
-            'contact_us_sl' => $request->contact_us_sl,
-            'terms_conditions_sl' => $request->terms_conditions_sl,
-            'privacy_policy_sl' => $request->privacy_policy_sl,
-            'sitemap_sl' => $request->sitemap_sl,
             'section_two_en' => $request->section_two_en,
-            'section_two_sl' => $request->section_two_sl,
             'how_to_sell_fast_en' => $request->how_to_sell_fast_en,
             'membership_en' => $request->membership_en,
             'promote_your_ad_en' => $request->promote_your_ad_en,
             'promotions_en' => $request->promotions_en,
             'faq_en' => $request->faq_en,
-            'how_to_sell_fast_sl' => $request->how_to_sell_fast_sl,
-            'membership_sl' => $request->membership_sl,
-            'promote_your_ad_sl' => $request->promote_your_ad_sl,
-            'promotions_sl' => $request->promotions_sl,
-            'faq_sl' => $request->faq_sl,
             'section_three_name_en' => $request->section_three_name_en,
-            'section_three_name_sl' => $request->section_three_name_sl,
             'facebook_en' => $request->facebook_en,
             'instagram_en' => $request->instagram_en,
             'twitter_en' => $request->twitter_en,
             'linkedin_en' => $request->linkedin_en,
             'whatsapp_en' => $request->whatsapp_en,
             'youtube_en' => $request->youtube_en,
-            'facebook_sl' => $request->facebook_sl,
-            'instagram_sl' => $request->instagram_sl,
-            'twitter_sl' => $request->twitter_sl,
-            'linkedin_sl' => $request->linkedin_sl,
-            'whatsapp_sl' => $request->whatsapp_sl,
-            'youtube_sl' => $request->youtube_sl,
             'facebook_link' => $request->facebook_link,
             'instagram_link' => $request->instagram_link,
             'twitter_link' => $request->twitter_link,
@@ -229,9 +189,7 @@ class SettingController extends BaseController
             'whatsapp_link' => $request->whatsapp_link,
             'youtube_link' => $request->youtube_link,
             'section_four_en' => $request->section_four_en,
-            'section_four_sl' => $request->section_four_sl,
             'content_en' => $request->content_en,
-            'content_sl' => $request->content_sl,
         ]);
 
         return redirect()->back()->with('flashMessageSuccess','Sucessfully Updated');

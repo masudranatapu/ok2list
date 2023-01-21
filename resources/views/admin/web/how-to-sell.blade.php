@@ -17,7 +17,6 @@
     <li class="breadcrumb-item active">{{ __('howto_sell_title') }} </li>
 @endsection
 
-<!--push from page-->
 @push('custom_css')
     <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 @endpush('custom_css')
@@ -26,7 +25,7 @@
     <div class="content-body">
         <section id="pagination">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="card card-sm">
                         <div class="card-header">
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
@@ -58,12 +57,6 @@
                                             <textarea name="desc">{!! $data['row']->description ?? null !!}</textarea>
                                         </div>
                                     </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="package">{{ __('des') }}</label>
-                                            <textarea name="desc1">{!! $data['row']->description_sl ?? null !!}</textarea>
-                                        </div>
-                                    </div>
                                 </div>
                                 <hr>
                                 <div class="form-actions text-center mt-3">
@@ -76,22 +69,11 @@
                         {!! Form::close() !!}
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card card-sm">
-                        <div class="card-header">
-                            <h4>{{ __('demo_image') }}</h4>
-                        </div>
-                        <div class="card-body">
-                            <img width="650" height="1000" src="{{ asset('assets/images/about-us/about.jpg') }}"
-                                alt="">
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     </div>
 @endsection
-<!--push from page-->
+
 @push('custom_js')
     <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js') }}"></script>
     <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.js') }}"></script>
@@ -100,7 +82,6 @@
     <script>
         CKEDITOR.replace('desc');
         CKEDITOR.replace('desc1');
-        // CKEDITOR.replace('desc2');
-        // CKEDITOR.replace('desc3');
+
     </script>
 @endpush('custom_js')

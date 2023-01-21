@@ -1,21 +1,19 @@
 @extends('admin.layout.master')
 
 @section('title')
-    Currency
+    {{ __('currency') }}
 @endsection
 
 @section('page-name')
-    Currency
+    {{ __('currency') }}
 @endsection
 
 @section('breadcrumb')
     <li class="breadcrumb-item">
-        <a href="{{ route('admin.dashboard') }}">
-            Dashboard
-        </a>
+        <a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
     </li>
     <li class="breadcrumb-item active">
-        Currency
+        {{ __('currency') }}
     </li>
 @endsection
 
@@ -29,19 +27,24 @@
                             <div class="col-lg-6 col-md-12 mb-2 mb-lg-0">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <h3>Currency <span class="badge bg-success">{{ $currencies->count() }}</span></h3>
+                                        <h3>{{ __('currency') }} <span
+                                                class="badge bg-success">{{ $currencies->count() }}</span></h3>
                                     </div>
                                     <div class="col-md-9">
                                         <form action="{{ route('setDefault.currency') }}" method="get">
                                             <div class="row g-0">
                                                 <div class="col-md-7 text-right">
-                                                    <label style="margin-top: 0.7rem;">Select Your default Currency : </label>
+                                                    <label style="margin-top: 0.7rem;">{{ __('defualt_set_curr') }} :
+                                                    </label>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <select name="id" class="form-control" onchange="this.form.submit()">
+                                                    <select name="id" class="form-control"
+                                                        onchange="this.form.submit()">
                                                         <option disabled selected>{{ __('Currency') }}</option>
                                                         @foreach ($currencies as $currency)
-                                                            <option {{ ($currency->default_currencies == 1) ? 'selected' : '' }} value="{{ $currency->id }}">
+                                                            <option
+                                                                {{ $currency->default_currencies == 1 ? 'selected' : '' }}
+                                                                value="{{ $currency->id }}">
                                                                 {{ $currency->code }} ( {{ $currency->symbol }} )
                                                             </option>
                                                         @endforeach
@@ -55,7 +58,7 @@
                             <div class="col-lg-6 col-md-12 text-right">
                                 <a href="{{ route('currency.create') }}" class="btn btn-success">
                                     <i class="la la-plus-circle"></i>
-                                    Add Currency
+                                    {{ __('add_new') }}
                                 </a>
                             </div>
                         </div>
@@ -92,18 +95,25 @@
                                             <td>{{ $currency->conversion_rate }}</td>
                                             <td class="d-flex justify-content-center align-items-center">
                                                 @if ($currency->code == 'USD')
-                                                    <a href="javascript:void(0)" class="btn btn-warning btn-sm mt-0 mr-2" data-toggle="tooltip" title="{{ __('you_can_not_delete_or_edit_this_currency') }}">
+                                                    <a href="javascript:void(0)" class="btn btn-warning btn-sm mt-0 mr-2"
+                                                        data-toggle="tooltip"
+                                                        title="{{ __('you_can_not_delete_or_edit_this_currency') }}">
                                                         <i class="la la-cog"></i>
                                                     </a>
                                                 @endif
                                                 @if ($currency->code != 'USD')
-                                                    <a href="{{ route('currency.edit', $currency->id) }}" class="btn btn-info btn-sm mt-0 mr-2">
+                                                    <a href="{{ route('currency.edit', $currency->id) }}"
+                                                        class="btn btn-info btn-sm mt-0 mr-2">
                                                         <i class="la la-edit"></i>
                                                     </a>
-                                                    <form action="{{ route('currency.destroy', $currency->id) }}" class="d-inline" method="POST">
+                                                    <form action="{{ route('currency.destroy', $currency->id) }}"
+                                                        class="d-inline" method="POST">
                                                         @method('DELETE')
                                                         @csrf
-                                                        <button data-toggle="tooltip" data-placement="top" title="{{ __('Delete Currency') }}" onclick="return confirm('{{ __('are_you_sure_want_to_delete_this_item') }}');" class="btn btn-sm bg-danger">
+                                                        <button data-toggle="tooltip" data-placement="top"
+                                                            title="{{ __('Delete Currency') }}"
+                                                            onclick="return confirm('{{ __('are_you_sure_want_to_delete_this_item') }}');"
+                                                            class="btn btn-sm bg-danger">
                                                             <i class="la la-trash"></i>
                                                         </button>
                                                     </form>
@@ -113,10 +123,10 @@
                                     @empty
                                         <tr>
                                             <td colspan="10" class="text-center">
-                                                <h5 class="pt-3">No data</h5>
+                                                <h5 class="pt-3">{{ __('no_data') }}</h5>
                                                 <a class="btn btn-success mb-3" href="{{ route('currency.create') }}">
                                                     <i class="la la-plus-circle"></i>
-                                                    Create Currency
+                                                    {{ __('add_new') }}
                                                 </a>
                                             </td>
                                         </tr>
@@ -132,10 +142,7 @@
 @endsection
 
 @push('custom_css')
-
 @endpush
 
 @push('custom_js')
-
-
 @endpush

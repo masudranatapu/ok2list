@@ -41,15 +41,15 @@ class PageController extends BaseController
     public function postHowToSellFast(Request $request) {
 
         $check = DB::table('page_how_sell_fast')->first();
+
         if($check){
-            DB::table('page_how_sell_fast')->where('id',$check->id)->update(['description' => $request->desc, 'description_sl' => $request->desc1]);
+            DB::table('page_how_sell_fast')->where('id',$check->id)->update(['description' => $request->desc]);
         }else{
-            DB::table('page_how_sell_fast')->insert(['description' => $request->desc, 'description_sl' => $request->desc1]);
+            DB::table('page_how_sell_fast')->insert(['description' => $request->desc]);
         }
 
-
-
         return redirect()->back()->with('flashMessageSuccess', 'Updated successfully');
+
     }
 
     public function admingetPromotions()
@@ -59,12 +59,10 @@ class PageController extends BaseController
     }
     public function admingetPromotionsUpdate(Request $request, $id)
     {
-        
         DB::table('page_promotions')->where('id', $id)->update([
             'description' => $request->desc,
-            'description_sl' => $request->desc1,
         ]);
-        
+
         return redirect()->back()->with('flashMessageSuccess', 'Updated successfully');
     }
     public function admingetPromote()
@@ -74,11 +72,10 @@ class PageController extends BaseController
     }
     public function admingetPromoteUpdate(Request $request, $id)
     {
-        
         DB::table('page_promote')->where('id', $id)->update([
             'description' => $request->desc,
-            'description_sl' => $request->desc1,
         ]);
+
         return redirect()->back()->with('flashMessageSuccess', 'Updated successfully');
     }
 
@@ -87,17 +84,16 @@ class PageController extends BaseController
         $sidebar = DB::table('page_sidebar_info')->first();
         return view('admin.web.sidebar',compact('sidebar'));
     }
-    
+
     public function admingetSidebarUpdate(Request $request, $id)
     {
         DB::table('page_sidebar_info')->where('id', $id)->update([
             'secure_trading_en' => $request->secure_trading_en,
-            'secure_trading_sl' => $request->secure_trading_sl,
             'support_en' => $request->support_en,
-            'support_sl' => $request->support_sl,
             'easy_trading_en' => $request->easy_trading_en,
-            'easy_trading_sl' => $request->easy_trading_sl,
         ]);
+
         return redirect()->back()->with('flashMessageSuccess', 'Updated successfully');
+
     }
 }

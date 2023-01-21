@@ -1,18 +1,17 @@
 @extends('admin.layout.master')
-@section('role','active')
-@section('Role Management','open')
+@section('role', 'active')
+@section('Role Management', 'open')
 @section('title')
-    Role
+    {{ __('role_create_btn') }}
 @endsection
 @section('page-name')
-    Role Management
+    {{ __('role_create_btn') }}
 @endsection
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a>
+    <li class="breadcrumb-item">
+        <a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
     </li>
-    <li class="breadcrumb-item"><a href="{{ route('admin.role') }}">Role</a>
-    </li>
-    <li class="breadcrumb-item active">New Role
+    <li class="breadcrumb-item active"> {{ __('role_create_btn') }}
     </li>
 @endsection
 @section('content')
@@ -32,7 +31,13 @@
         </div>
         <div class="card-content collapse show">
             <div class="card-body">
-                {!! Form::open([ 'route' => 'admin.role.store', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true , 'novalidate']) !!}
+                {!! Form::open([
+                    'route' => 'admin.role.store',
+                    'method' => 'post',
+                    'class' => 'form-horizontal',
+                    'files' => true,
+                    'novalidate',
+                ]) !!}
                 @csrf
                 <div class="form-body">
                     <div class="row">
@@ -40,7 +45,12 @@
                             <div class="form-group">
                                 <label><strong>Role Name :</strong></label>
                                 <div class="controls">
-                                    {!! Form::text('role_name', null, [ 'class' => 'form-control mb-1', 'data-validation-required-message' => 'This field is required', 'placeholder' => 'Enter group name', 'tabindex' => 1 ]) !!}
+                                    {!! Form::text('role_name', null, [
+                                        'class' => 'form-control mb-1',
+                                        'data-validation-required-message' => 'This field is required',
+                                        'placeholder' => 'Enter group name',
+                                        'tabindex' => 1,
+                                    ]) !!}
                                 </div>
                                 @if ($errors->has('role_name'))
                                     <div class="alert alert-danger">
@@ -54,39 +64,42 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover">
                         <thead class="bg-primary bg-darken-1 text-white text-center">
-                        <tr>
+                            <tr>
                             <tr>
                                 <th>Menu</th>
                                 <th colspan="6">Action</th>
                             </tr>
-                        </tr>
+                            </tr>
                         </thead>
                         <tbody class="text-center">
-                             @foreach($groups as $group)
-
+                            @foreach ($groups as $group)
                                 <tr>
                                     <td>
                                         {{ $group->group_name }}
                                     </td>
-                                    @for($i = 0; $i < 5; $i++)
+                                    @for ($i = 0; $i < 5; $i++)
                                         <td style="vertical-align: middle">
-                                            @if(isset($group->permissions[$i]->name) && $group->permissions[$i]->name != '')
-                                            <label class="m-checkbox">
-                                                <input name="permission[]" type="checkbox" value="{{ $group->permissions[$i]->name }}">
-                                                <span>{{ $group->permissions[$i]->display_name }}</span>
-                                            </label>
-                                            @else {{'--' }}
+                                            @if (isset($group->permissions[$i]->name) && $group->permissions[$i]->name != '')
+                                                <label class="m-checkbox">
+                                                    <input name="permission[]" type="checkbox"
+                                                        value="{{ $group->permissions[$i]->name }}">
+                                                    <span>{{ $group->permissions[$i]->display_name }}</span>
+                                                </label>
+                                            @else
+                                                {{ '--' }}
                                             @endif
                                         </td>
                                     @endfor
                                     <td>
-                                        @for($i = 5; $i < count($group->permissions); $i++)
-                                            @if(isset($group->permissions[$i]->name) && $group->permissions[$i]->name != '')
+                                        @for ($i = 5; $i < count($group->permissions); $i++)
+                                            @if (isset($group->permissions[$i]->name) && $group->permissions[$i]->name != '')
                                                 <label class="checkbox-inline">
-                                                    <input name="permission[]" type="checkbox" value="{{ $group->permissions[$i]->name }}">
-                                                     {{ $group->permissions[$i]->display_name }}
-                                                </label> <br/>
-                                            @else {{'--' }}
+                                                    <input name="permission[]" type="checkbox"
+                                                        value="{{ $group->permissions[$i]->name }}">
+                                                    {{ $group->permissions[$i]->display_name }}
+                                                </label> <br />
+                                            @else
+                                                {{ '--' }}
                                             @endif
                                         @endfor
                                     </td>
@@ -97,8 +110,10 @@
                     </table>
                 </div>
                 <div class="form-actions text-center">
-                    <a href="{{ route('admin.role') }}" class="btn btn-warning mr-1" title="Cancel"> <i class="ft-x"></i> @lang('form.btn_cancle')</a>
-                    <button type="submit" class="btn btn-primary bg-darken-1 text-white" title="Save"><i class="la la-check-square-o"></i> @lang('form.btn_save') </button>
+                    <a href="{{ route('admin.role') }}" class="btn btn-warning mr-1" title="Cancel"> <i class="ft-x"></i>
+                        @lang('form.btn_cancle')</a>
+                    <button type="submit" class="btn btn-primary bg-darken-1 text-white" title="Save"><i
+                            class="la la-check-square-o"></i> @lang('form.btn_save') </button>
                 </div>
                 {!! Form::close() !!}
             </div>

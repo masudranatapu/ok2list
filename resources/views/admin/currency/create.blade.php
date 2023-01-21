@@ -1,21 +1,19 @@
 @extends('admin.layout.master')
 
 @section('title')
-    Currency
+    {{ __('add_new_curr') }}
 @endsection
 
 @section('page-name')
-    Currency
+    {{ __('add_new_curr') }}
 @endsection
 
 @section('breadcrumb')
     <li class="breadcrumb-item">
-        <a href="{{ route('admin.dashboard') }}">
-            Dashboard
-        </a>
+        <a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
     </li>
     <li class="breadcrumb-item active">
-        Currency
+        {{ __('add_new_curr') }}
     </li>
 @endsection
 
@@ -27,12 +25,12 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-lg-6 col-md-12 mb-2 mb-lg-0">
-                                <h3>Create currency</h3>
+                                <h3> {{ __('add_new_curr') }}</h3>
                             </div>
                             <div class="col-lg-6 col-md-12 text-right">
                                 <a href="{{ route('currency.index') }}" class="btn btn-success">
                                     <i class="la la-arrow-left"></i>
-                                    Back
+                                    {{ __('back') }}
                                 </a>
                             </div>
                         </div>

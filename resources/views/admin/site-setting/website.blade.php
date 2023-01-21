@@ -8,12 +8,14 @@
 @endpush
 
 @section('Category', 'active')
-@section('title') Websettings @endsection
-@section('page-name') Websettings @endsection
+@section('title') {{ __('web_settings') }} @endsection
+@section('page-name') {{ __('web_settings') }} @endsection
 
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">@lang('admin_role.breadcrumb_title')</a></li>
-    <li class="breadcrumb-item active">Websettings</li>
+    <li class="breadcrumb-item">
+        <a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
+    </li>
+    <li class="breadcrumb-item active">{{ __('web_settings') }}</li>
 @endsection
 
 @section('content')

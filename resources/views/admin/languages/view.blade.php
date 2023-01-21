@@ -1,21 +1,19 @@
 @extends('admin.layout.master')
 
 @section('title')
-    Translate Languages
+    {{ __('trans_languages') }}
 @endsection
 
 @section('page-name')
-    Translate Languages
+    {{ __('trans_languages') }}
 @endsection
 
 @section('breadcrumb')
     <li class="breadcrumb-item">
-        <a href="{{ route('admin.dashboard') }}">
-            Dashboard
-        </a>
+        <a href="{{ route('admin.dashboard') }}">{{ __('admin_breadcrumb_title') }}</a>
     </li>
     <li class="breadcrumb-item active">
-        Translate Languages
+        {{ __('trans_languages') }}
     </li>
 @endsection
 
@@ -27,12 +25,12 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-lg-6 col-md-12 mb-2 mb-lg-0">
-                                <h3>Translate Languages</h3>
+                                <h3>{{ __('trans_languages') }}</h3>
                             </div>
                             <div class="col-lg-6 col-md-12 text-right">
                                 <a href="{{ route('languages.index') }}" class="btn btn-success">
                                     <i class="la la-arrow-left"></i>
-                                    Back
+                                    {{ __('back') }}
                                 </a>
                             </div>
                         </div>
@@ -52,8 +50,10 @@
                                                 </td>
                                                 <td>
                                                     <span class="d-flex">
-                                                        <input type="text" class="form-control value" style="width:100%"  name="{{ $key }}" value="{{ $value }}">
-                                                        <button type="button" onclick="AutoTrans('{{ $key }}', '{{ $value }}', '{{ $languages->code }}')"
+                                                        <input type="text" class="form-control value" style="width:100%"
+                                                            name="{{ $key }}" value="{{ $value }}">
+                                                        <button type="button"
+                                                            onclick="AutoTrans('{{ $key }}', '{{ $value }}', '{{ $languages->code }}')"
                                                             class="btn btn-sm ml-1 bg-info text-white">
                                                             Translate
                                                         </button>
@@ -79,7 +79,6 @@
 @endsection
 
 @push('custom_css')
-
 @endpush
 
 @push('custom_js')
@@ -132,6 +131,5 @@
             });
 
         }
-
     </script>
 @endpush

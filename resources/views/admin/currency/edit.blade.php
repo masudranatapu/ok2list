@@ -1,11 +1,11 @@
 @extends('admin.layout.master')
 
 @section('title')
-    Currency
+    {{ __('edit_curr') }}
 @endsection
 
 @section('page-name')
-    Currency
+    {{ __('edit_curr') }}
 @endsection
 
 @section('breadcrumb')
@@ -15,7 +15,7 @@
         </a>
     </li>
     <li class="breadcrumb-item active">
-        Currency
+        {{ __('edit_curr') }}
     </li>
 @endsection
 
@@ -27,7 +27,7 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-lg-6 col-md-12 mb-2 mb-lg-0">
-                                <h3>Edit currency</h3>
+                                <h3>Edit {{ __('edit_curr') }}</h3>
                             </div>
                             <div class="col-lg-6 col-md-12 text-right">
                                 <a href="{{ route('currency.index') }}" class="btn btn-success">
