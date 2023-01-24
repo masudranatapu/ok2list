@@ -140,9 +140,6 @@ $tabindex = 1;
                                     {!! $errors->first('password', '<label class="help-block text-danger">:message</label>') !!}
                                 </div>
                             </div>
-
-
-
                             <div class="row">
                                 <div class="col-12">
                                     <div class="user-option">
@@ -158,7 +155,8 @@ $tabindex = 1;
                                     </div>
                                 </div>
                             </div>
-                            <div class="login_btn">{{ __('register') }}</button>
+                            <div class="login_btn">
+                                <button type="submit" class="btn w-100">{{ __('register') }}</button>
                             </div>
                             <div class="sign_up text-center">
                                 <p> {{ __('already_reg') }}<a href="{{ route('login') }}">{{ __('login') }}</a></p>

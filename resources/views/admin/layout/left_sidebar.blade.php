@@ -253,12 +253,12 @@
                     </li>
                 @endif
 
-                <li class="@yield('site-ads')">
+                {{-- <li class="@yield('site-ads')">
                     <a class="menu-item" href="{{ route('site.ads') }}">
                         <i></i>
                         <span data-i18n="faq">{{ __('website_ads') }}</span>
                     </a>
-                </li>
+                </li> --}}
 
 
 
