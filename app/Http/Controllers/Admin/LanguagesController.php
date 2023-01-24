@@ -77,10 +77,10 @@ class LanguagesController extends Controller
             $baseFile = base_path('resources/lang/en.json');
             $fileName = base_path('resources/lang/' . Str::slug($request->code) . '.json');
             copy($baseFile, $fileName);
-            
+
             Toastr::success('Language successfully create :-)','Success');
             return redirect()->route('languages.index');
-            
+
         } else {
 
             Toastr::error('Someting went worng. Please try again :-)','Success');
@@ -129,7 +129,7 @@ class LanguagesController extends Controller
     {
         //
         $languages = Language::findOrFail($id);
-        
+
         $request->validate(
             [
                 'name' => "required|unique:languages,name,{$languages->id}",
@@ -188,14 +188,14 @@ class LanguagesController extends Controller
         if (file_exists(base_path('resources/lang/' . $languages->code . '.json'))) {
             unlink(base_path('resources/lang/' . $languages->code . '.json'));
         }
-        
+
         $languages->delete();
 
         Toastr::info('Language successfully delete :-)','Success');
         return redirect()->back();
 
     }
-    
+
     public function setDefaultLanguage(Request $request)
     {
 
@@ -206,7 +206,7 @@ class LanguagesController extends Controller
         Language::where('code', $request->code)->update([
             'default_lang' => 1,
         ]);
-        
+
 
         if (session()->get('set_lang') != $request->code) {
             session()->put('set_lang', $request->code ?? 'en');
@@ -217,10 +217,10 @@ class LanguagesController extends Controller
         return redirect()->back();
 
     }
-    
+
     public function languageSetting($code)
     {
-        
+
         $path = base_path('resources/lang/' . $code . '.json');
         $languages = Language::where('code', $code)->first();
         $translations = json_decode(file_get_contents($path), true);
@@ -248,11 +248,11 @@ class LanguagesController extends Controller
         $updated = file_put_contents(base_path('resources/lang/' . $language->code . '.json'), json_encode($translations, JSON_UNESCAPED_UNICODE));
 
         $updated ? Toastr::success('Translations updated successfully:-)','Success') : Toastr::success('Something is worng. Please try again :-)','Success');
-        
+
         return redirect()->back();
-        
+
     }
-    
+
     public function autoTransSingle(Request $request)
     {
         $text = autoTransLation($request->lang, $request->text);
@@ -273,7 +273,7 @@ class LanguagesController extends Controller
             $autoTransValue = $tr->translate($value);
             $afterTrans[$key] = $autoTransValue;
         }
-        
+
         return response()->json(['data' => $afterTrans]);
     }
 

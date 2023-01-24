@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Models\Language as langModel;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 
@@ -24,11 +25,12 @@ class Language
         //     App::setLocale('en');
         // }
         // return $next($request);
-        
+        $language = langModel::where('default_lang', 1)->first();
+
         if (session()->has('set_lang')) {
             app()->setLocale(session('set_lang'));
         } else {
-            app()->setLocale(env('APP_DEFAULT_LANGUAGE'));
+            app()->setLocale($language->code);
         }
 
         return $next($request);
