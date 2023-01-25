@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="single-cta">
                                     <h4>{{ __('need_help') }}</h4>
-                                    <p>info@ok2list.com</p>
+                                    <p>info@listorbuy.org</p>
                                 </div>
                             </div>
                         </div>

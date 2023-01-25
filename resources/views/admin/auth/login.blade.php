@@ -6,8 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="ok2list.com admin login">
-    <meta name="keywords" content="ok2list admin login">
+    <meta name="description" content="listorbuy.org admin login">
+    <meta name="keywords" content="listorbuy admin login">
     <meta name="author" content="PIXINVENT">
     <title>Admin - Login</title>
     <link rel="icon" type="image/png" sizes="192x192" href="{{ ('assets/images/favicon/favicon.png') }} ">

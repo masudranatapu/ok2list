@@ -201,8 +201,8 @@
             </div>
             <div class="modal-body doorstep_content">
                 <h1 class="heading--2eONR undefined title--2CEq5 header-main--3f5qf block--3v-Ow">Quick, safe and easy
-                    - from OK2LIST to your doorstep! </h1>
-                <p class="sub-main--gAGCF">Buy from our trusted members directly on OK2LIST without leaving your home.
+                    - from listorbuy to your doorstep! </h1>
+                <p class="sub-main--gAGCF">Buy from our trusted members directly on listorbuy without leaving your home.
                     Just click on Order Online to place an order, <br /> and the item will be delivered to your
                     doorstep. </p>
                 <p class="sub-info--2uOFM">When you buy using Doorstep Delivery, you are covered by our <span

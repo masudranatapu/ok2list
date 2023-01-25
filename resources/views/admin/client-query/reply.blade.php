@@ -45,7 +45,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="package">From</label>
-                                            <input type="text" value="support@ok2list.com" class="form-control"
+                                            <input type="text" value="support@listorbuy.org" class="form-control"
                                                 name="name">
                                         </div>
                                     </div>
@@ -66,7 +66,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="package">Message</label>
-                                            <textarea name="desc">hello ok2list, this is rony</textarea>
+                                            <textarea name="desc">hello listorbuy, this is rony</textarea>
                                         </div>
                                     </div>
                                 </div>

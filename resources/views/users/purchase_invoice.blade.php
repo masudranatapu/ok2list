@@ -50,7 +50,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="invoice_info">
-                                        <p class="h3">Ok2list</p>
+                                        <p class="h3">Listorby</p>
                                         <address>
                                             {{ $site_settings->website_title }}<br>
                                             {{ $site_settings->address }}

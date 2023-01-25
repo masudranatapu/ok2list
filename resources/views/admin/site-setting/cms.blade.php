@@ -54,7 +54,7 @@
                                </div>
                                 <div class="col-md-6 mb-2">
                                    <label class="form-label">Footer Banner Subtitle</label>
-                                   <textarea name="" class="form-control" cols="30" rows="3" placeholder="Post your ad for free on ok2list.lk"></textarea>
+                                   <textarea name="" class="form-control" cols="30" rows="3" placeholder="Post your ad for free on listorbuy.org"></textarea>
                                </div>
                                <div class="col-12">
                                    <button type="submit" class="btn btn-primary">Update Home Setting</button>
