@@ -18,6 +18,7 @@ use App\Payments;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use App\Models\Customer;
 
 class RegisterController extends Controller
 {
@@ -45,9 +46,24 @@ class RegisterController extends Controller
     protected function redirectTo()
     {
 
+
         if (Auth::user()) {
 
             $user = Auth::user();
+
+            $settings = DB::table('site_settings')->first();
+
+            if($settings->email_verification == 0) {
+
+                $user = Customer::where('id', $user->id)->first();
+                $user->is_verified = 1;
+                $user->update();
+
+                Toastr::success('Welcome back to your account.', 'Success', ["positionClass" => "toast-top-right"]);
+                return url('/dashboard-overview');
+
+            }
+
             $password = Session::get('secret');
 
             $details = [
@@ -62,11 +78,13 @@ class RegisterController extends Controller
                 'user_id' => $user->id
             ];
 
-            if (setting()->app_mode == "live") {
+            // if (setting()->app_mode == "live") {
 
-                Notification::send($user, new WellComeNotification($details));
+                $user->notify(new WellComeNotification($details));
+                // Notification::send($user, new WellComeNotification($details));
                 // dd('send');
-            }
+
+            // }
         }
         $this->guard()->logout();
 
@@ -103,6 +121,8 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:ss_customers'],
             'password' => ['required', 'string', 'min:6'],
             'promotion' => ['nullable', 'integer'],
+        ], [
+            'email.unique' => 'This email already used',
         ]);
     }
 

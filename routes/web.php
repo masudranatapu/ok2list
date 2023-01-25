@@ -33,6 +33,7 @@ Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/resent-verified-token/', 'HomeController@resentVerifyToken')->name('resent-verify-user');
 Route::get('/verify/user/{token}', 'HomeController@verifyUser')->name('verify-user');
 Route::get('/about-us', 'CommonController@getAboutUs')->name('about-us');
 Route::get('/contact-us', 'CommonController@getContactUs')->name('contact-us');

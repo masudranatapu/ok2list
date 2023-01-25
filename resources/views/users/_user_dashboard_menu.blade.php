@@ -77,7 +77,16 @@ $curent_route = request()
                         @csrf
                     </form>
                 @else
-                    <h3 class="alert alert-danger pendinguser">{{ __('pending_massage') }}</h3>
+                    <li><a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                    </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <h3 class="alert alert-danger pendinguser">
+                        {{ __('pending_massage') }}
+                        <a class="mt-2" href="{{ route('resent-verify-user') }}">{{ __('resent_totke') }}</a>
+                    </h3>
                 @endif
                 </li>
             </ul>

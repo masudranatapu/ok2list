@@ -73,6 +73,15 @@
                                     <textarea name="map_address" placeholder="Map address" class="form-control" cols="30" rows="4">{{ $setting->map_address }}</textarea>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <label class="form-label">Email Verification</label>
+                                    <select name="email_verification" class="form-control">
+                                        <option value="1" @if($setting->email_verification == 1) selected @endif>Yes</option>
+                                        <option value="0" @if($setting->email_verification == 0) selected @endif>No</option>
+                                    </select>
+                                </div>
+                            </div>
                             {{-- <div class="col-md-6">
                                 <div class="mb-2">
                                     <label class="form-label">Android App Link</label>
