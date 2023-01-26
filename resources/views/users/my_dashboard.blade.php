@@ -31,7 +31,7 @@ $seller_type_combo = Config::get('static_arrays.seller_type') ?? [];
                         <div class="col-xl-9">
                             <div class="user-pro-section">
                                 <div class="profile-details section">
-                                    <h2>@lang('web.dashboard_overview')</h2>
+                                    <h2>{{ __('verify_account') }}</h2>
                                     <h3 class="alert alert-danger pendinguser">{{ __('pending_massage') }} <a class="mt-2"
                                             href="{{ route('resent-verify-user') }}">{{ __('resent_token') }}</a></h3>
                                 </div>
