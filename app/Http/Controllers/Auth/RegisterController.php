@@ -86,7 +86,8 @@ class RegisterController extends Controller
         }
         $this->guard()->logout();
 
-        Toastr::success('Thanks for your Signup, Please Check your mail and verify', 'Success', ["positionClass" => "toast-top-right"]);
+        //Toastr::success('Thanks for your Signup, Please Check Your mail and Verify', 'Success', ["positionClass" => "toast-top-right"]);
+        Toastr::success('Thanks for your Signup, Login Please !!', 'Success', ["positionClass" => "toast-top-right"]);
 
         if (request()->input('referer') == null) {
             return url()->previous();
@@ -155,7 +156,7 @@ class RegisterController extends Controller
             'status' => "Free",
             'add_limit' => $packages->ad_limit_in_montrh,
             'amount' => 0,
-            'is_verified' => 0,
+            'is_verified' => 1,
             'validated_on' => Carbon::now(),
             'created_by' => $user->id,
             'expired_on' => $packageExpired,
