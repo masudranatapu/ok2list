@@ -13,8 +13,12 @@ use App\Http\Controllers\CommonController as Common;
 use App\Http\Controllers\BaseController;
 use App\Models\Customer;
 use App\Models\User;
+use App\Notifications\WellComeNotification;
 use App\Repositories\Admin\Dashboard\DashboardInterface;
-use Toastr;
+use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Brian2694\Toastr\Facades\Toastr;
 
 class HomeController extends Controller
 {
@@ -130,6 +134,40 @@ class HomeController extends Controller
     public function getPendingAds(Request $request)
     {
         return view('users.pending_ads');
+    }
+
+    public function resentVerifyToken()
+    {
+        if (Auth::user()) {
+
+            $user = Auth::user();
+            $password = Session::get('secret');
+
+            $details = [
+                'subject' => 'Welcome to ok2list',
+                'greeting' => 'Hi ' . $user->name . ',',
+                'body' => 'Welcome to ok2list.lk',
+                'email' => 'Your email is : ' . $user->email,
+                'password' => 'Your Password is : ' . $password,
+                'thanks' => 'Thank you for using ok2list.lk',
+                'actionText' => 'Click Here to Verify',
+                'actionURL' => url('verify/user/' . $user->random_token),
+                'user_id' => $user->id
+            ];
+
+            // if (setting()->app_mode == "live") {
+
+                $user->notify(new WellComeNotification($details));
+                // Notification::send($user, new WellComeNotification($details));
+
+            // }
+
+        }
+
+        Toastr::success('Verified token successfully send. Please Check your mail and verify', 'Success', ["positionClass" => "toast-top-right"]);
+
+        return redirect()->back();
+
     }
 
     public function verifyUser($token)

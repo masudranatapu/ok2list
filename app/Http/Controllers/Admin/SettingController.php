@@ -306,6 +306,7 @@ class SettingController extends BaseController
             'website_email' => $request->website_email,
             'phone' => $request->phone,
             'address' => $request->address,
+            'email_verification' => $request->email_verification,
             'map_address' => $request->map_address,
             'facebook_link' => $request->facebook_link,
             'twitter_link' => $request->twitter_link,

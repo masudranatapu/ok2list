@@ -66,7 +66,7 @@ $tabindex = 1;
                         <div class="col-md-7 col-lg-5">
                             <div class="login_form">
                                 {{-- <div class="social_login">
-                                    <p>{{ __('iread') }}<a href="{{route('terms-conditions')}}">{{ __('t_conditions') }}</a> and <a href="{{ route('privacy-policy')}}">{{ __('privacy_policy') }}</a>{{ __('before_proceed') }}</p>    
+                                    <p>{{ __('iread') }}<a href="{{route('terms-conditions')}}">{{ __('t_conditions') }}</a> and <a href="{{ route('privacy-policy')}}">{{ __('privacy_policy') }}</a>{{ __('before_proceed') }}</p>
                                     <div class="social_login_btn">
                                         <div class="row">
                                             <div class="col-6">
@@ -142,7 +142,7 @@ $tabindex = 1;
                                     <button type="submit" class="btn w-100">{{ __('login') }}</button>
                                 </div>
                                 <div class="sign_up text-center">
-                                    <p><a href="{{ route('register') }}">{{ __('register') }}</a></p>
+                                    <p><span>Don't have an account , </span><a href="{{ route('register') }}">{{ __('register') }}</a></p>
                                 </div>
                                 {!! Form::close() !!}
                             </div>
