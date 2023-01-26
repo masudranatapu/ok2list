@@ -11,8 +11,6 @@ class CheckPermission
 {
     public function handle($request, Closure $next, $permission = null)
     {
-        // Set last activity
-        // Session::put('last_active', date('Y-m-d H:i:s'));
 
         $access = new Access();
 

@@ -159,7 +159,7 @@ Route::get('/test', 'AdPostController@test')->name('test');
 //         return redirect()->route('admin.dashboard');
 //     }
 
-//     return redirect()->route('admin.login');
+//     return redirect()->route('login');
 // });
 
 Route::get('admin', ['as' => 'admin.login', 'uses' => 'Admin\AdminAuthController@getLogin']);
