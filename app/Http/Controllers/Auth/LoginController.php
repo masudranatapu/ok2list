@@ -93,7 +93,7 @@ class LoginController extends Controller
                 'actionURL' => url('/'),
                 'user_id' => $user->id
             ];
-           Notification::send($user, new WellComeNotification($details));
+          // Notification::send($user, new WellComeNotification($details));
            /*end send mail*/
         return redirect()->to('/');
 

@@ -110,7 +110,7 @@ class ProductAbstract implements ProductInterface
                 'thanks' => 'Thank you and stay with ok2list.lk',
             ];
             // Notification::send($user, new UserPostAdNotification($details));
-            Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
+            // Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
         }
 
 
@@ -124,7 +124,7 @@ class ProductAbstract implements ProductInterface
                 'thanks' => 'Thank you and stay with ok2list.lk',
             ];
             // Notification::send($user, new UserPostAdNotification($details));
-            Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
+           // Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
         }
 
         return $this->formatResponse(true, 'Product updated successfully !', 'admin.product.list');
@@ -175,7 +175,7 @@ class ProductAbstract implements ProductInterface
     public function delete(int $id)
     {
         $data =  Product::find($id);
-        
+
         $data->delete();
         return $this->formatResponse(true, 'Product deleted successfully !', 'admin.product.list');
 

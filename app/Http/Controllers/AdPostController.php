@@ -187,7 +187,7 @@ class AdPostController extends Controller
                 'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            Notification::send($user, new UserPostAdNotification($details));
+           // Notification::send($user, new UserPostAdNotification($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -202,7 +202,7 @@ class AdPostController extends Controller
                 'thanks' => 'Thank you and stay with Listorbuy.org',
             ];
 
-            Notification::send($user, new AdminPostAdNotification($admindetails));
+           // Notification::send($user, new AdminPostAdNotification($admindetails));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -242,7 +242,7 @@ class AdPostController extends Controller
                 'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            Notification::send($user, new UserPostAdNotification($details));
+           // Notification::send($user, new UserPostAdNotification($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -257,7 +257,7 @@ class AdPostController extends Controller
                 'thanks' => 'Thank you and stay with Listorbuy.org',
             ];
 
-            Notification::send($user, new AdminPostAdNotification($admindetails));
+           // Notification::send($user, new AdminPostAdNotification($admindetails));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -300,7 +300,7 @@ class AdPostController extends Controller
                 'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            Notification::send($user, new UserPostAdNotification($details));
+           // Notification::send($user, new UserPostAdNotification($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -315,7 +315,7 @@ class AdPostController extends Controller
                 'thanks' => 'Thank you and stay with Listorbuy.org',
             ];
 
-            Notification::send($user, new AdminPostAdNotification($admindetails));
+           // Notification::send($user, new AdminPostAdNotification($admindetails));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -358,7 +358,7 @@ class AdPostController extends Controller
                 'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            Notification::send($user, new UserPostAdNotification($details));
+           // Notification::send($user, new UserPostAdNotification($details));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -396,7 +396,7 @@ class AdPostController extends Controller
                 'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            Notification::send($user, new UserPostAdNotification($details));
+           // Notification::send($user, new UserPostAdNotification($details));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -430,7 +430,7 @@ class AdPostController extends Controller
                 'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            Notification::send($user, new UserPostAdNotification($details));
+           // Notification::send($user, new UserPostAdNotification($details));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -463,7 +463,7 @@ class AdPostController extends Controller
                 'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            Notification::send($user, new UserPostAdNotification($details));
+           // Notification::send($user, new UserPostAdNotification($details));
         }
         // dd($this->resp);
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -497,7 +497,7 @@ class AdPostController extends Controller
                 'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            Notification::send($user, new UserPostAdNotification($details));
+           // Notification::send($user, new UserPostAdNotification($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -512,7 +512,7 @@ class AdPostController extends Controller
                 'thanks' => 'Thank you and stay with Listorbuy.org',
             ];
 
-            Notification::send($user, new AdminPostAdNotification($admindetails));
+           // Notification::send($user, new AdminPostAdNotification($admindetails));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
