@@ -85,7 +85,7 @@ $curent_route = request()
                     </form>
                     <h3 class="alert alert-danger pendinguser">
                         {{ __('pending_massage') }}
-                        <a class="mt-2" href="{{ route('resent-verify-user') }}">{{ __('resent_totke') }}</a>
+                        <a class="mt-2" href="{{ route('resent-verify-user') }}">{{ __('resent_token') }}</a>
                     </h3>
                 @endif
                 </li>
