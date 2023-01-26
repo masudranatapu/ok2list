@@ -646,5 +646,6 @@
     "package_price": "Package Price",
     "package_action": "Action",
     "package_duration": "Package Duration",
-    "Shop_Page": "Shop Page"
+    "Shop_Page": "Shop Page",
+    "resent_token" : "Resend Verfication Link"
 }
