@@ -74,7 +74,7 @@
             <div class="row align-items-center">
                 <div class="col-sm-8">
                     <h2 class="title">{{ __('something_to_sel') }}</h2>
-                    <h4>{{ __('free_on_ok2list') }}</h4>
+                    <h4>{{ __('free_on_listorbuy') }}</h4>
                 </div>
                 <div class="col-sm-4">
                     <div class="free_post_btn float-sm-right">

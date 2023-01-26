@@ -144,12 +144,12 @@ class HomeController extends Controller
             $password = Session::get('secret');
 
             $details = [
-                'subject' => 'Welcome to ok2list',
+                'subject' => 'Welcome to Listorbuy',
                 'greeting' => 'Hi ' . $user->name . ',',
-                'body' => 'Welcome to ok2list.lk',
+                'body' => 'Welcome to Listorbuy.org',
                 'email' => 'Your email is : ' . $user->email,
                 'password' => 'Your Password is : ' . $password,
-                'thanks' => 'Thank you for using ok2list.lk',
+                'thanks' => 'Thank you for using Listorbuy.org',
                 'actionText' => 'Click Here to Verify',
                 'actionURL' => url('verify/user/' . $user->random_token),
                 'user_id' => $user->id
