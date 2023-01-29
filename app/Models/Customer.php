@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use DB;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Customer extends Model
 {
-   
+
+    use Notifiable;
     public $timestamps      = false;
     // const CREATED_AT     = 'create_dttm';
     // const UPDATED_AT     = 'update_dttm';
@@ -15,7 +17,7 @@ class Customer extends Model
 
       protected $table = 'ss_customers';
 
-    
+
     protected $fillable = [
         'name', 'email', 'password','google_id','random_token',
     ];
@@ -28,13 +30,13 @@ class Customer extends Model
         return $this->hasOne('App\Models\Package', 'pk_no', 'package_id');
     }
 
-    
 
-    
- 
 
-    
-    
 
-    
+
+
+
+
+
+
 }

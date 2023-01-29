@@ -158,7 +158,7 @@ class HomeController extends Controller
             // if (setting()->app_mode == "live") {
 
                 $user->notify(new WellComeNotification($details));
-                // Notification::send($user, new WellComeNotification($details));
+                Notification::send($user, new WellComeNotification($details));
 
             // }
 
