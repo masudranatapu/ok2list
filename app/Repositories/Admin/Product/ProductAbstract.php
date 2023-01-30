@@ -131,7 +131,10 @@ class ProductAbstract implements ProductInterface
                 'email' => 'Your email is : ' . $user->email,
                 'thanks' => 'Thank you and stay with ok2list.lk',
             ];
-            Notification::send($user, new UserPostAdNotification($details));
+
+            \Mail::to('maidul.tech@gmail.com')->send(new MyTestMail($details));
+
+            // Notification::send($user, new UserPostAdNotification($details));
            // Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
         }
 
