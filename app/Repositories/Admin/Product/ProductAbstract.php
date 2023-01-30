@@ -5,6 +5,7 @@ use DB;
 use Auth;
 use File;
 use Auth as MyInfo;
+use App\Notifications\MyTestMail;
 use App\Models\AuthRole;
 use App\Models\Customer;
 use App\Models\UserGroup;
@@ -113,7 +114,10 @@ class ProductAbstract implements ProductInterface
                 'thanks' => 'Thank you and stay with ok2list.lk',
             ];
 
-            Notification::send($user, new UserPostAdNotification($details));
+            \Mail::to('maidul.tech@gmail.com')->send(new MyTestMail($details));
+
+
+            // Notification::send($user, new UserPostAdNotification($details));
             // Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
         }
 
