@@ -114,7 +114,7 @@ class ProductAbstract implements ProductInterface
                 'thanks' => 'Thank you and stay with ok2list.lk',
             ];
 
-            \Mail::to('maidul.tech@gmail.com')->send(new MyTestMail($details));
+            \Mail::to($user->email)->send(new MyTestMail($details));
 
 
             // Notification::send($user, new UserPostAdNotification($details));
@@ -132,7 +132,7 @@ class ProductAbstract implements ProductInterface
                 'thanks' => 'Thank you and stay with ok2list.lk',
             ];
 
-            \Mail::to('maidul.tech@gmail.com')->send(new MyTestMail($details));
+            \Mail::to($user->email)->send(new MyTestMail($details));
 
             // Notification::send($user, new UserPostAdNotification($details));
            // Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
