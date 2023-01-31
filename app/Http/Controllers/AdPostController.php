@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\postJobRequest;
 use App\Http\Requests\postPropertyRequest;
 use App\Http\Requests\postAdServiceRequest;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\UserAdPostAdminGetMail;
 use App\Mail\UserAdPostMail;
-use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
 
 class AdPostController extends Controller
