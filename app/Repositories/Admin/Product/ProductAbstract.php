@@ -126,7 +126,7 @@ class ProductAbstract implements ProductInterface
             $details = [
                 'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => $user->name . ' your posted ads was delete by ok2list authority. The resion is ' . $request->rejected_reason . ' Please ads a post with our trams and condition.',
+                'body' => $user->name . ' your posted ads was delete by '.' '.$setting->website_title. ' ' .'authority. The resion is ' . $request->rejected_reason . ' Please ads a post with our trams and condition.',
                 'email' => 'Your email is : ' . $user->email,
                 'thanks' => 'Thank you and stay with'. ' '. $setting->website_title,
                 'site_url' => route('home'),
@@ -155,9 +155,26 @@ class ProductAbstract implements ProductInterface
 
     public function delete(int $id)
     {
+        $setting = setting();
         $data =  Product::find($id);
 
+        $user = Customer::where('id', $data->customer_pk_no)->first();
+
+        $details = [
+            'subject' => 'Message from '. ' ' . $setting->website_title,
+            'greeting' => 'Hi ' . $user->name . ', ',
+            'body' => $user->name . ' your posted ads was delete by '.' '.$setting->website_title. ' ' .'authority',
+            'email' => 'Your email is : ' . $user->email,
+            'thanks' => 'Thank you and stay with'. ' '. $setting->website_title,
+            'site_url' => route('home'),
+            'site_name' => $setting->website_title,
+            'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+        ];
+
+        Mail::to($user->email)->send(new ProductStatusChnageMail($details));
+
         $data->delete();
+
         return $this->formatResponse(true, 'Product deleted successfully !', 'admin.product.list');
     }
 

@@ -9,8 +9,9 @@ use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use Illuminate\Notifications\Notification;
-use App\Notifications\WellComeNotification;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WellComeMail;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -78,26 +79,32 @@ class LoginController extends Controller
         $getInfo = Socialite::driver('facebook')->user();
 
         $user = $this->createUser($getInfo);
+
         auth()->login($user);
-        //send email
+
         $user = Auth::user();
+
         $password = 'N/A';
 
+        $setting = setting();
+
         $details = [
-            'subject' => 'Welcome to Listorbuy.org',
+            'subject' => 'Welcome to '.' ' .$setting->website_title,
             'greeting' => 'Hi ' . $user->name . ',',
-            'body' => 'Welcome to Listorbuy.org',
+            'body' => 'Welcome to'.' ' .$setting->website_title,
             'email' => 'Your email is : ' . $user->email,
             'password' => 'Your Password is : ' . $password,
-            'thanks' => 'Thank you for using Listorbuy.org',
+            'thanks' => 'Thank you and stay with '.' '. $setting->website_title,
             'actionText' => 'Click Here to Visit',
-            'actionURL' => url('/'),
-            'user_id' => $user->id
+            'actionURL' => route('home'),
+            'site_url' => route('home'),
+            'site_name' => $setting->website_title,
+            'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
         ];
 
-        Notification::send($user, new WellComeNotification($details));
-
+        Mail::to($user->email)->send(new WellComeMail($details));
         return redirect()->to('/');
+
     }
 
 
@@ -126,9 +133,6 @@ class LoginController extends Controller
     {
         try {
             $user = Socialite::driver('google')->user();
-            // $user = $this->createUser($getInfo);
-            // Auth::login($user);
-            // return redirect('/');
 
             $finduser = User::where('google_id', $user->id)->first();
 
@@ -138,22 +142,22 @@ class LoginController extends Controller
             } else {
 
                 $newUser = User::create([
-
                     'name' => $user->name,
                     'email' => $user->email,
                     'google_id' => $user->id,
                     'is_verified' => 1,
                     'password' => encrypt('12345678')
-
                 ]);
 
                 Auth::login($newUser);
 
                 return redirect('/');
             }
+
         } catch (Exception $e) {
 
             return redirect('/');
         }
+
     }
 }

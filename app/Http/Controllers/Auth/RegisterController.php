@@ -19,6 +19,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use App\Models\Customer;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WellComeMail;
 
 class RegisterController extends Controller
 {
@@ -60,25 +62,30 @@ class RegisterController extends Controller
                 $user->update();
 
                 Toastr::success('Welcome back to your account.', 'Success', ["positionClass" => "toast-top-right"]);
+
                 return url('/dashboard-overview');
 
             }
 
             $password = Session::get('secret');
 
+            $setting = setting();
+
             $details = [
-                'subject' => 'Welcome to Listorbuy.org',
+                'subject' => 'Welcome to '.' ' .$setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ',',
-                'body' => 'Welcome to Listorbuy.org',
+                'body' => 'Thanks for register '.' ' .$setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
                 'password' => 'Your Password is : ' . $password,
-                'thanks' => 'Thank you for using Listorbuy.org',
+                'thanks' => 'Thank you and stay with '.' '. $setting->website_title,
                 'actionText' => 'Click Here to Verify',
                 'actionURL' => url('verify/user/' . $user->random_token),
-                'user_id' => $user->id
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-            Notification::send($user, new WellComeNotification($details));
+            Mail::to($user->email)->send(new WellComeMail($details));
 
         }
         $this->guard()->logout();

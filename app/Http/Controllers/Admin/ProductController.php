@@ -15,11 +15,13 @@ use App\Models\ProductModel;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
-use DB;
 use App\Traits;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\UserPostAdNotification;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\DB;
+use App\Models\Customer;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ProductStatusChnageMail;
+use Carbon\Carbon;
 
 class ProductController extends BaseController
 {
@@ -160,12 +162,36 @@ class ProductController extends BaseController
     }
     public function getDeleteallSelected(Request $request)
     {
+        $setting = setting();
         if($request->productid) {
 
-            $productsid = explode(",",$request->productid);
-            // dd($productsid);
+            $productsid = explode(",", $request->productid);
+
+            foreach ($productsid as $key => $product) {
+
+                $data =  Product::find($product);
+
+                $user = Customer::where('id', $data->customer_pk_no)->first();
+
+                $details = [
+                    'subject' => 'Message from '. ' ' . $setting->website_title,
+                    'greeting' => 'Hi ' . $user->name . ', ',
+                    'body' => $user->name . ' your posted ads was delete by '.' '.$setting->website_title. ' ' .'authority',
+                    'email' => 'Your email is : ' . $user->email,
+                    'thanks' => 'Thank you and stay with'. ' '. $setting->website_title,
+                    'site_url' => route('home'),
+                    'site_name' => $setting->website_title,
+                    'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                ];
+
+                Mail::to($user->email)->send(new ProductStatusChnageMail($details));
+
+            }
+
             DB::table('prd_master')->whereIn('pk_no', $productsid)->delete();
+
             Toastr::success('Selected product has been deleted :-)','successs');
+
             return redirect()->back();
 
         }else {

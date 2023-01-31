@@ -11,7 +11,6 @@ use App\Product;
 use App\Category;
 use App\Division;
 use App\Payments;
-use Carbon\Carbon;
 use App\ProductType;
 use App\ProductModel;
 use Illuminate\Http\Request;
@@ -22,12 +21,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\postJobRequest;
 use App\Http\Requests\postPropertyRequest;
 use App\Http\Requests\postAdServiceRequest;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\UserPostAdNotification;
-use App\Notifications\AdminPostAdNotification;
-use App\Http\Requests\postElectronicMobilRequest;
-
-
+use App\Mail\UserAdPostAdminGetMail;
+use App\Mail\UserAdPostMail;
+use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class AdPostController extends Controller
 {
@@ -160,9 +157,8 @@ class AdPostController extends Controller
 
     public function postAdJob(postJobRequest $request)
     {
-
+        $setting = setting();
         $check_mobile_number = $this->productModel->checkMobileNumber($request);
-        // dd($request->mobile1);
 
         if ($check_mobile_number === false) {
             $msg        = 'Your Mobile number is not valid';
@@ -180,43 +176,56 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Posting ads on Listorbuy',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You posted an job ads on Listorbuy.org ',
+                'body' => 'You posted a job ads on '. ' ' .$setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using Listorbuy.org',
+                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-           Notification::send($user, new UserPostAdNotification($details));
+            Mail::to($user->email)->send(new UserAdPostMail($details));
+
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
 
         if ($admin) {
+
             $user = Auth::user();
+
             $admindetails = [
-                'subject' => 'Message from Listorbuy',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $admin->username . ', ',
-                'body' => $user->name . ' was posted an job on Listorbuy.org. Please see what he posted on Listorbuy. And Approved ' . $user->name . ' ads.',
+                'body' => $user->name . ' was posted on'.' '.$setting->website_title.'. '.'Please see what he posted on'.' '.$setting->website_title.' '.'And Approved ' . $user->name . ' ads.',
                 'email' => 'His email is : ' . $user->email,
-                'thanks' => 'Thank you and stay with Listorbuy.org',
+                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-           Notification::send($user, new AdminPostAdNotification($admindetails));
+            Mail::to($admin->email)->send(new UserAdPostAdminGetMail($admindetails));
+
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
 
         $id = $this->resp->data->prod_pk_no;
+
         if ($this->resp->status) {
             return redirect()->route('promoted-ads.create', $id)->with($this->resp->redirect_class, $this->resp->msg);
         } else {
             return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
         }
+
     }
 
     public function postAdProperty(postPropertyRequest $request)
     {
+        $setting = setting();
         $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
         if ($check_mobile_number === false) {
@@ -235,29 +244,38 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Posting ads on Listorbuy',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You posted a property ads on Listorbuy.org ',
+                'body' => 'You posted a property ads on '. ' ' .$setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using Listorbuy.org',
+                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-           Notification::send($user, new UserPostAdNotification($details));
+            Mail::to($user->email)->send(new UserAdPostMail($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
 
         if ($admin) {
+
             $user = Auth::user();
+
             $admindetails = [
-                'subject' => 'Message from Listorbuy',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $admin->username . ', ',
-                'body' => $user->name . ' was posted an job on Listorbuy.org. Please see what he posted on Listorbuy. And Approved ' . $user->name . ' ads.',
+                'body' => $user->name . ' was posted an property on'.' '.$setting->website_title.'. '.'Please see what he posted on'.' '.$setting->website_title.' '.'And Approved ' . $user->name . ' ads.',
                 'email' => 'His email is : ' . $user->email,
-                'thanks' => 'Thank you and stay with Listorbuy.org',
+                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-           Notification::send($user, new AdminPostAdNotification($admindetails));
+            Mail::to($admin->email)->send(new UserAdPostAdminGetMail($admindetails));
+
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -275,6 +293,7 @@ class AdPostController extends Controller
 
     public function postAdService(postAdServiceRequest $request)
     {
+        $setting = setting();
         $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
         if ($check_mobile_number === false) {
@@ -293,29 +312,38 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Posting ads on Listorbuy',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You posted a service ads on Listorbuy.org ',
+                'body' => 'You posted a service ads on '. ' ' .$setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using Listorbuy.org',
+                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-           Notification::send($user, new UserPostAdNotification($details));
+            Mail::to($user->email)->send(new UserAdPostMail($details));
+
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
 
         if ($admin) {
+
             $user = Auth::user();
+
             $admindetails = [
-                'subject' => 'Message from Listorbuy',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $admin->username . ', ',
-                'body' => $user->name . ' was posted an Service ads on Listorbuy.org. Please see what he posted on Listorbuy. And Approved ' . $user->name . ' ads.',
+                'body' => $user->name . ' was posted on'.' '.$setting->website_title.'. '.'Please see what he posted on'.' '.$setting->website_title.' '.'And Approved ' . $user->name . ' ads.',
                 'email' => 'His email is : ' . $user->email,
-                'thanks' => 'Thank you and stay with Listorbuy.org',
+                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-           Notification::send($user, new AdminPostAdNotification($admindetails));
+            Mail::to($admin->email)->send(new UserAdPostAdminGetMail($admindetails));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -330,9 +358,9 @@ class AdPostController extends Controller
         }
     }
 
-
     public function updatePostAdService(postAdServiceRequest $request, $id)
     {
+        $setting = setting();
         $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
         if ($check_mobile_number === false) {
@@ -351,14 +379,18 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Update ads on Listorbuy',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You updated an ads on Listorbuy.org ',
+                'body' => 'You updated an ads on '. ' ' .$setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using Listorbuy.org',
+                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-           Notification::send($user, new UserPostAdNotification($details));
+            Mail::to($user->email)->send(new UserAdPostMail($details));
+
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -369,17 +401,7 @@ class AdPostController extends Controller
 
     public function updatePostGeneral(postAdRequest $request, $id)
     {
-
-        // $check_mobile_number = $this->productModel->checkMobileNumber($request);
-        // dd($check_mobile_number);
-        // if ($check_mobile_number === false) {
-        //     $msg        = 'Your Mobile number is not valid';
-        //     $msg_title  = 'Invalid Data';
-        //     Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
-        //     return redirect()->back()->withInput($request->input());
-
-        // }
-
+        $setting = setting();
         $this->resp     = $this->productModel->updatePostGeneral($request, $id);
         $msg            = $this->resp->msg;
         $msg_title      = $this->resp->msg_title;
@@ -389,14 +411,18 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Update ads on Listorbuy',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You updated an ads on Listorbuy.org ',
+                'body' => 'You updated an ads on '. ' ' .$setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using Listorbuy.org',
+                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-           Notification::send($user, new UserPostAdNotification($details));
+            Mail::to($user->email)->send(new UserAdPostMail($details));
+
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -405,6 +431,7 @@ class AdPostController extends Controller
 
     public function updatePostProperty(postPropertyRequest $request, $id)
     {
+        $setting = setting();
         $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
         if ($check_mobile_number === false) {
@@ -419,18 +446,20 @@ class AdPostController extends Controller
         $msg_title      = $this->resp->msg_title;
 
         if (Auth::user()) {
-
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Update ads on Listorbuy',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You updated an ads on Listorbuy.org ',
+                'body' => 'You updated an ads on '. ' ' .$setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using Listorbuy.org',
+                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-           // Notification::send($user, new UserPostAdNotification($details));
+            Mail::to($user->email)->send(new UserAdPostMail($details));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -438,6 +467,7 @@ class AdPostController extends Controller
     }
     public function updatePostJob(postJobRequest $request, $id)
     {
+        $setting = setting();
         $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
         if ($check_mobile_number === false) {
@@ -456,16 +486,20 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Update ads on Listorbuy',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You updated an ads on Listorbuy.org ',
+                'body' => 'You updated an ads on '. ' ' .$setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using Listorbuy.org',
+                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-           Notification::send($user, new UserPostAdNotification($details));
+            Mail::to($user->email)->send(new UserAdPostMail($details));
+
         }
-        // dd($this->resp);
+
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
         return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
     }
@@ -477,10 +511,9 @@ class AdPostController extends Controller
         return view('users.my_ads', compact('data'));
     }
 
-
-
     public function getMyAdDelete($id)
     {
+        $setting = setting();
         $this->resp     = $this->productModel->getMyAdDelete($id);
         $msg            = $this->resp->msg;
         $msg_title      = $this->resp->msg_title;
@@ -490,29 +523,39 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Delete ads from Listorbuy',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You ware deleted an ads form Listorbuy.org ',
+                'body' => 'You ware deleted an ads form '. ' ' .$setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using Listorbuy.org',
+                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-           Notification::send($user, new UserPostAdNotification($details));
+            Mail::to($user->email)->send(new UserAdPostMail($details));
+
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
 
         if ($admin) {
+
             $user = Auth::user();
+
             $admindetails = [
-                'subject' => 'Message from Listorbuy',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $admin->username . ', ',
-                'body' => $user->name . ' was deleted an ads form Listorbuy.org',
+                'body' => $user->name . ' was deleted an ads from '.' '.$setting->website_title,
                 'email' => 'His email is : ' . $user->email,
-                'thanks' => 'Thank you and stay with Listorbuy.org',
+                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-           Notification::send($user, new AdminPostAdNotification($admindetails));
+            Mail::to($admin->email)->send(new UserAdPostAdminGetMail($admindetails));
+
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -530,7 +573,6 @@ class AdPostController extends Controller
         if ($subcat_slug == null) {
             return view('ad_post.edit_post_category_selection', compact('data'));
         }
-        // dd($this->resp->data->area_id);
 
         if ($this->resp->status == true) {
 
@@ -549,7 +591,7 @@ class AdPostController extends Controller
                 $city_divi_col = 'division_pk_no';
             }
             $data['selected_area_combo']    = Area::where($city_divi_col, $this->resp->data->city_division_pk_no)->pluck('name', 'pk_no');
-            // dd($data);
+
             $data['product_type_combo']     = ProductType::where('scat_pk_no', request()->get('category'))->pluck('name', 'pk_no');
 
 

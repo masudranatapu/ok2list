@@ -18,8 +18,9 @@ use Illuminate\Support\Facades\Session;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\WellComeNotification;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ResendVerifiyMail;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -142,21 +143,24 @@ class HomeController extends Controller
         if (Auth::user()) {
 
             $user = Auth::user();
-            $password = Session::get('secret');
+
+            $setting = setting();
 
             $details = [
-                'subject' => 'Welcome to Listorbuy',
+                'subject' => 'Welcome to '.' ' .$setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ',',
-                'body' => 'Welcome to Listorbuy.org',
+                'body' => 'Request for verified you account from '.' ' .$setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'password' => 'Your Password is : ' . $password,
-                'thanks' => 'Thank you for using Listorbuy.org',
+                'thanks' => 'Thank you and stay with '.' '. $setting->website_title,
                 'actionText' => 'Click Here to Verify',
                 'actionURL' => url('verify/user/' . $user->random_token),
-                'user_id' => $user->id
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-            Notification::send($user, new WellComeNotification($details));
+            Mail::to($user->email)->send(new ResendVerifiyMail($details));
+
         }
 
         Toastr::success('Verified token successfully send. Please Check your mail and verify', 'Success', ["positionClass" => "toast-top-right"]);
@@ -166,11 +170,26 @@ class HomeController extends Controller
 
     public function verifyUser($token)
     {
-        $user = Customer::where('random_token', $token)->first();
-        $user->is_verified = 1;
-        $user->update();
-        Toastr::success('Successfully Verified.Please Login', 'Success', ["positionClass" => "toast-top-right"]);
-        return redirect('/login');
+        if (Auth::user()) {
+
+            $user = Customer::where('random_token', $token)->first();
+            $user->is_verified = 1;
+            $user->update();
+
+            Toastr::success('Successfully verified you account.', 'Success', ["positionClass" => "toast-top-right"]);
+
+            return redirect('/dashboard-overview');
+
+
+        }else {
+
+            $user = Customer::where('random_token', $token)->first();
+            $user->is_verified = 1;
+            $user->update();
+            Toastr::success('Successfully verified you account. Please Login to your account.', 'Success', ["positionClass" => "toast-top-right"]);
+            return redirect('/login');
+
+        }
     }
 
     public function cc(Request $request)
