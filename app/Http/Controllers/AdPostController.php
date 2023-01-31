@@ -124,20 +124,60 @@ class AdPostController extends Controller
     public function postAdGeneral(postAdRequest $request)
     {
 
-        if (setting()->app_mode == "live") {
+        $setting = setting();
+        // if (setting()->app_mode == "live") {
 
-            $check_mobile_number = $this->productModel->checkMobileNumber($request);
-            if ($check_mobile_number === false) {
-                $msg        = 'Your Mobile number is not valid';
-                $msg_title  = 'Invalid Data';
-                Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
-                return redirect()->back()->withInput($request->input());
-            }
-        }
+        //     $check_mobile_number = $this->productModel->checkMobileNumber($request);
+        //     if ($check_mobile_number === false) {
+        //         $msg        = 'Your Mobile number is not valid';
+        //         $msg_title  = 'Invalid Data';
+        //         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
+        //         return redirect()->back()->withInput($request->input());
+        //     }
+        // }
 
         $this->resp     = $this->productModel->postAdGeneral($request);
         $msg            = $this->resp->msg;
         $msg_title      = $this->resp->msg_title;
+
+        if (Auth::user()) {
+
+            $user = Auth::user();
+
+            $details = [
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
+                'greeting' => 'Hi ' . $user->name . ', ',
+                'body' => 'You posted an ads on ' . ' ' . $setting->website_title,
+                'email' => 'Your email is : ' . $user->email,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+            ];
+
+            Mail::to($user->email)->send(new UserAdPostMail($details));
+        }
+
+        $admin = DB::table('auths')->where('id', 1)->first();
+
+        if ($admin) {
+
+            $user = Auth::user();
+
+            $admindetails = [
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
+                'greeting' => 'Hi ' . $admin->username . ', ',
+                'body' => $user->name . ' was posted an ads on' . ' ' . $setting->website_title . '. ' . 'Please see what he posted on' . ' ' . $setting->website_title . ' ' . 'And Approved ' . $user->name . ' ads.',
+                'email' => 'His email is : ' . $user->email,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+            ];
+
+            Mail::to($admin->email)->send(new UserAdPostAdminGetMail($admindetails));
+        }
+
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
 
@@ -158,14 +198,15 @@ class AdPostController extends Controller
     public function postAdJob(postJobRequest $request)
     {
         $setting = setting();
-        $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
-        if ($check_mobile_number === false) {
-            $msg        = 'Your Mobile number is not valid';
-            $msg_title  = 'Invalid Data';
-            Toastr::error($msg, $msg_title, ["positionClass" => "toast-top-right"]);
-            return redirect()->back()->withInput($request->input());
-        }
+        // $check_mobile_number = $this->productModel->checkMobileNumber($request);
+
+        // if ($check_mobile_number === false) {
+        //     $msg        = 'Your Mobile number is not valid';
+        //     $msg_title  = 'Invalid Data';
+        //     Toastr::error($msg, $msg_title, ["positionClass" => "toast-top-right"]);
+        //     return redirect()->back()->withInput($request->input());
+        // }
 
         $this->resp     = $this->productModel->postAdJob($request);
         $msg            = $this->resp->msg;
@@ -176,18 +217,17 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Message from '. ' ' . $setting->website_title,
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You posted a job ads on '. ' ' .$setting->website_title,
+                'body' => 'You posted a job ads on ' . ' ' . $setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
                 'site_url' => route('home'),
                 'site_name' => $setting->website_title,
-                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
             Mail::to($user->email)->send(new UserAdPostMail($details));
-
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -197,18 +237,17 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $admindetails = [
-                'subject' => 'Message from '. ' ' . $setting->website_title,
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $admin->username . ', ',
-                'body' => $user->name . ' was posted on'.' '.$setting->website_title.'. '.'Please see what he posted on'.' '.$setting->website_title.' '.'And Approved ' . $user->name . ' ads.',
+                'body' => $user->name . ' was posted a job ads on' . ' ' . $setting->website_title . '. ' . 'Please see what he posted on' . ' ' . $setting->website_title . ' ' . 'And Approved ' . $user->name . ' ads.',
                 'email' => 'His email is : ' . $user->email,
-                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
                 'site_url' => route('home'),
                 'site_name' => $setting->website_title,
-                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
             Mail::to($admin->email)->send(new UserAdPostAdminGetMail($admindetails));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -220,20 +259,20 @@ class AdPostController extends Controller
         } else {
             return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
         }
-
     }
 
     public function postAdProperty(postPropertyRequest $request)
     {
         $setting = setting();
-        $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
-        if ($check_mobile_number === false) {
-            $msg        = 'Your Mobile number is not valid';
-            $msg_title  = 'Invalid Data';
-            Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
-            return redirect()->back()->withInput($request->input());
-        }
+        // $check_mobile_number = $this->productModel->checkMobileNumber($request);
+
+        // if ($check_mobile_number === false) {
+        //     $msg        = 'Your Mobile number is not valid';
+        //     $msg_title  = 'Invalid Data';
+        //     Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
+        //     return redirect()->back()->withInput($request->input());
+        // }
 
         $this->resp     = $this->productModel->postAdProperty($request);
         $msg            = $this->resp->msg;
@@ -244,14 +283,14 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Message from '. ' ' . $setting->website_title,
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You posted a property ads on '. ' ' .$setting->website_title,
+                'body' => 'You posted a property ads on ' . ' ' . $setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
                 'site_url' => route('home'),
                 'site_name' => $setting->website_title,
-                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
             Mail::to($user->email)->send(new UserAdPostMail($details));
@@ -264,18 +303,17 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $admindetails = [
-                'subject' => 'Message from '. ' ' . $setting->website_title,
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $admin->username . ', ',
-                'body' => $user->name . ' was posted an property on'.' '.$setting->website_title.'. '.'Please see what he posted on'.' '.$setting->website_title.' '.'And Approved ' . $user->name . ' ads.',
+                'body' => $user->name . ' was posted an property ads on' . ' ' . $setting->website_title . '. ' . 'Please see what he posted on' . ' ' . $setting->website_title . ' ' . 'And Approved ' . $user->name . ' ads.',
                 'email' => 'His email is : ' . $user->email,
-                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
                 'site_url' => route('home'),
                 'site_name' => $setting->website_title,
-                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
             Mail::to($admin->email)->send(new UserAdPostAdminGetMail($admindetails));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -294,14 +332,15 @@ class AdPostController extends Controller
     public function postAdService(postAdServiceRequest $request)
     {
         $setting = setting();
-        $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
-        if ($check_mobile_number === false) {
-            $msg        = 'Your Mobile number is not valid';
-            $msg_title  = 'Invalid Data';
-            Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
-            return redirect()->back()->withInput($request->input());
-        }
+        // $check_mobile_number = $this->productModel->checkMobileNumber($request);
+
+        // if ($check_mobile_number === false) {
+        //     $msg        = 'Your Mobile number is not valid';
+        //     $msg_title  = 'Invalid Data';
+        //     Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
+        //     return redirect()->back()->withInput($request->input());
+        // }
 
         $this->resp     = $this->productModel->postAdService($request);
         $msg            = $this->resp->msg;
@@ -312,18 +351,17 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Message from '. ' ' . $setting->website_title,
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You posted a service ads on '. ' ' .$setting->website_title,
+                'body' => 'You posted a service ads on ' . ' ' . $setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
                 'site_url' => route('home'),
                 'site_name' => $setting->website_title,
-                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
             Mail::to($user->email)->send(new UserAdPostMail($details));
-
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -333,14 +371,14 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $admindetails = [
-                'subject' => 'Message from '. ' ' . $setting->website_title,
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $admin->username . ', ',
-                'body' => $user->name . ' was posted on'.' '.$setting->website_title.'. '.'Please see what he posted on'.' '.$setting->website_title.' '.'And Approved ' . $user->name . ' ads.',
+                'body' => $user->name . ' was posted a service ads on' . ' ' . $setting->website_title . '. ' . 'Please see what he posted on' . ' ' . $setting->website_title . ' ' . 'And Approved ' . $user->name . ' ads.',
                 'email' => 'His email is : ' . $user->email,
-                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
                 'site_url' => route('home'),
                 'site_name' => $setting->website_title,
-                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
             Mail::to($admin->email)->send(new UserAdPostAdminGetMail($admindetails));
@@ -361,14 +399,15 @@ class AdPostController extends Controller
     public function updatePostAdService(postAdServiceRequest $request, $id)
     {
         $setting = setting();
-        $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
-        if ($check_mobile_number === false) {
-            $msg        = 'Your Mobile number is not valid';
-            $msg_title  = 'Invalid Data';
-            Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
-            return redirect()->back()->withInput($request->input());
-        }
+        // $check_mobile_number = $this->productModel->checkMobileNumber($request);
+
+        // if ($check_mobile_number === false) {
+        //     $msg        = 'Your Mobile number is not valid';
+        //     $msg_title  = 'Invalid Data';
+        //     Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
+        //     return redirect()->back()->withInput($request->input());
+        // }
 
         $this->resp     = $this->productModel->updatePostAdService($request, $id);
         $msg            = $this->resp->msg;
@@ -379,18 +418,17 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Message from '. ' ' . $setting->website_title,
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You updated an ads on '. ' ' .$setting->website_title,
+                'body' => 'You updated an ads on ' . ' ' . $setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
                 'site_url' => route('home'),
                 'site_name' => $setting->website_title,
-                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
             Mail::to($user->email)->send(new UserAdPostMail($details));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -402,6 +440,16 @@ class AdPostController extends Controller
     public function updatePostGeneral(postAdRequest $request, $id)
     {
         $setting = setting();
+
+        // $check_mobile_number = $this->productModel->checkMobileNumber($request);
+
+        // if ($check_mobile_number === false) {
+        //     $msg        = 'Your Mobile number is not valid';
+        //     $msg_title  = 'Invalid Data';
+        //     Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
+        //     return redirect()->back()->withInput($request->input());
+        // }
+
         $this->resp     = $this->productModel->updatePostGeneral($request, $id);
         $msg            = $this->resp->msg;
         $msg_title      = $this->resp->msg_title;
@@ -411,18 +459,17 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Message from '. ' ' . $setting->website_title,
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You updated an ads on '. ' ' .$setting->website_title,
+                'body' => 'You updated an ads on ' . ' ' . $setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
                 'site_url' => route('home'),
                 'site_name' => $setting->website_title,
-                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
             Mail::to($user->email)->send(new UserAdPostMail($details));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -432,14 +479,15 @@ class AdPostController extends Controller
     public function updatePostProperty(postPropertyRequest $request, $id)
     {
         $setting = setting();
-        $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
-        if ($check_mobile_number === false) {
-            $msg        = 'Your Mobile number is not valid';
-            $msg_title  = 'Invalid Data';
-            Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
-            return redirect()->back()->withInput($request->input());
-        }
+        // $check_mobile_number = $this->productModel->checkMobileNumber($request);
+
+        // if ($check_mobile_number === false) {
+        //     $msg        = 'Your Mobile number is not valid';
+        //     $msg_title  = 'Invalid Data';
+        //     Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
+        //     return redirect()->back()->withInput($request->input());
+        // }
 
         $this->resp     = $this->productModel->updatePostProperty($request, $id);
         $msg            = $this->resp->msg;
@@ -449,14 +497,14 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Message from '. ' ' . $setting->website_title,
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You updated an ads on '. ' ' .$setting->website_title,
+                'body' => 'You updated an ads on ' . ' ' . $setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
                 'site_url' => route('home'),
                 'site_name' => $setting->website_title,
-                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
             Mail::to($user->email)->send(new UserAdPostMail($details));
@@ -468,14 +516,15 @@ class AdPostController extends Controller
     public function updatePostJob(postJobRequest $request, $id)
     {
         $setting = setting();
-        $check_mobile_number = $this->productModel->checkMobileNumber($request);
 
-        if ($check_mobile_number === false) {
-            $msg        = 'Your Mobile number is not valid';
-            $msg_title  = 'Invalid Data';
-            Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
-            return redirect()->back()->withInput($request->input());
-        }
+        // $check_mobile_number = $this->productModel->checkMobileNumber($request);
+
+        // if ($check_mobile_number === false) {
+        //     $msg        = 'Your Mobile number is not valid';
+        //     $msg_title  = 'Invalid Data';
+        //     Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
+        //     return redirect()->back()->withInput($request->input());
+        // }
 
         $this->resp     = $this->productModel->updatePostJob($request, $id);
         $msg            = $this->resp->msg;
@@ -486,18 +535,17 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Message from '. ' ' . $setting->website_title,
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You updated an ads on '. ' ' .$setting->website_title,
+                'body' => 'You updated an ads on ' . ' ' . $setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
                 'site_url' => route('home'),
                 'site_name' => $setting->website_title,
-                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
             Mail::to($user->email)->send(new UserAdPostMail($details));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -523,18 +571,17 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Message from '. ' ' . $setting->website_title,
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You ware deleted an ads form '. ' ' .$setting->website_title,
+                'body' => 'You ware deleted an ads form ' . ' ' . $setting->website_title,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
                 'site_url' => route('home'),
                 'site_name' => $setting->website_title,
-                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
             Mail::to($user->email)->send(new UserAdPostMail($details));
-
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -544,18 +591,17 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $admindetails = [
-                'subject' => 'Message from '. ' ' . $setting->website_title,
+                'subject' => 'Message from ' . ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $admin->username . ', ',
-                'body' => $user->name . ' was deleted an ads from '.' '.$setting->website_title,
+                'body' => $user->name . ' was deleted an ads from ' . ' ' . $setting->website_title,
                 'email' => 'His email is : ' . $user->email,
-                'thanks' => 'Thank you for using '. ' ' .$setting->website_title,
+                'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
                 'site_url' => route('home'),
                 'site_name' => $setting->website_title,
-                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+                'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
             Mail::to($admin->email)->send(new UserAdPostAdminGetMail($admindetails));
-
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
