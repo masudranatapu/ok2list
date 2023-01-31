@@ -107,7 +107,7 @@ class ProductAbstract implements ProductInterface
             }
             $user = Customer::where('id', $product->customer_pk_no)->first();
             $details = [
-                'subject' => 'Message from ok2list',
+                'subject' => 'Message from listorbuy.org',
                 'greeting' => 'Hi ' . $user->name . ', ',
                 'body' => $user->name . ' your posted ads status is now '. $status,
                 'email' => 'Your email is : ' . $user->email,
