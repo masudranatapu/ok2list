@@ -83,17 +83,17 @@ class LoginController extends Controller
            $password = 'N/A';
 
            $details = [
-                'subject' => 'Welcome to ok2list',
+                'subject' => 'Welcome to Listorbuy.org',
                 'greeting' => 'Hi '.$user->name.',',
-                'body' => 'Welcome to ok2list.com',
+                'body' => 'Welcome to Listorbuy.org',
                 'email' => 'Your email is : '.$user->email,
                 'password' => 'Your Password is : '.$password,
-                'thanks' => 'Thank you for using ok2list.com',
+                'thanks' => 'Thank you for using Listorbuy.org',
                 'actionText' => 'Click Here to Visit',
                 'actionURL' => url('/'),
                 'user_id' => $user->id
             ];
-           //Notification::send($user, new WellComeNotification($details));
+          Notification::send($user, new WellComeNotification($details));
            /*end send mail*/
         return redirect()->to('/');
 

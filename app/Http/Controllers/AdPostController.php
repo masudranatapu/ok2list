@@ -180,14 +180,14 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Posting ads on ok2list',
+                'subject' => 'Posting ads on Listorbuy',
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You posted an job ads on ok2list.lk ',
+                'body' => 'You posted an job ads on Listorbuy.org ',
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using ok2list.lk',
+                'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            //Notification::send($user, new UserPostAdNotification($details));
+           Notification::send($user, new UserPostAdNotification($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -195,14 +195,14 @@ class AdPostController extends Controller
         if ($admin) {
             $user = Auth::user();
             $admindetails = [
-                'subject' => 'Message from ok2list',
+                'subject' => 'Message from Listorbuy',
                 'greeting' => 'Hi ' . $admin->username . ', ',
-                'body' => $user->name . ' was posted an job on ok2list.lk. Please see what he posted on ok2list. And Approved ' . $user->name . ' ads.',
+                'body' => $user->name . ' was posted an job on Listorbuy.org. Please see what he posted on Listorbuy. And Approved ' . $user->name . ' ads.',
                 'email' => 'His email is : ' . $user->email,
-                'thanks' => 'Thank you and stay with ok2list.lk',
+                'thanks' => 'Thank you and stay with Listorbuy.org',
             ];
 
-            //Notification::send($user, new AdminPostAdNotification($admindetails));
+           Notification::send($user, new AdminPostAdNotification($admindetails));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -235,14 +235,14 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Posting ads on ok2list',
+                'subject' => 'Posting ads on Listorbuy',
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You posted a property ads on ok2list.lk ',
+                'body' => 'You posted a property ads on Listorbuy.org ',
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using ok2list.lk',
+                'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            //Notification::send($user, new UserPostAdNotification($details));
+           Notification::send($user, new UserPostAdNotification($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -250,14 +250,14 @@ class AdPostController extends Controller
         if ($admin) {
             $user = Auth::user();
             $admindetails = [
-                'subject' => 'Message from ok2list',
+                'subject' => 'Message from Listorbuy',
                 'greeting' => 'Hi ' . $admin->username . ', ',
-                'body' => $user->name . ' was posted an job on ok2list.lk. Please see what he posted on ok2list. And Approved ' . $user->name . ' ads.',
+                'body' => $user->name . ' was posted an job on Listorbuy.org. Please see what he posted on Listorbuy. And Approved ' . $user->name . ' ads.',
                 'email' => 'His email is : ' . $user->email,
-                'thanks' => 'Thank you and stay with ok2list.lk',
+                'thanks' => 'Thank you and stay with Listorbuy.org',
             ];
 
-            //Notification::send($user, new AdminPostAdNotification($admindetails));
+           Notification::send($user, new AdminPostAdNotification($admindetails));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -293,14 +293,14 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Posting ads on ok2list',
+                'subject' => 'Posting ads on Listorbuy',
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You posted a service ads on ok2list.lk ',
+                'body' => 'You posted a service ads on Listorbuy.org ',
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using ok2list.lk',
+                'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            //Notification::send($user, new UserPostAdNotification($details));
+           Notification::send($user, new UserPostAdNotification($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -308,14 +308,14 @@ class AdPostController extends Controller
         if ($admin) {
             $user = Auth::user();
             $admindetails = [
-                'subject' => 'Message from ok2list',
+                'subject' => 'Message from Listorbuy',
                 'greeting' => 'Hi ' . $admin->username . ', ',
-                'body' => $user->name . ' was posted an Service ads on ok2list.lk. Please see what he posted on ok2list. And Approved ' . $user->name . ' ads.',
+                'body' => $user->name . ' was posted an Service ads on Listorbuy.org. Please see what he posted on Listorbuy. And Approved ' . $user->name . ' ads.',
                 'email' => 'His email is : ' . $user->email,
-                'thanks' => 'Thank you and stay with ok2list.lk',
+                'thanks' => 'Thank you and stay with Listorbuy.org',
             ];
 
-            //Notification::send($user, new AdminPostAdNotification($admindetails));
+           Notification::send($user, new AdminPostAdNotification($admindetails));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -351,14 +351,14 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Update ads on ok2list',
+                'subject' => 'Update ads on Listorbuy',
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You updated an ads on ok2list.lk ',
+                'body' => 'You updated an ads on Listorbuy.org ',
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using ok2list.lk',
+                'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            //Notification::send($user, new UserPostAdNotification($details));
+           Notification::send($user, new UserPostAdNotification($details));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -389,14 +389,14 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Update ads on ok2list',
+                'subject' => 'Update ads on Listorbuy',
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You updated an ads on ok2list.lk ',
+                'body' => 'You updated an ads on Listorbuy.org ',
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using ok2list.lk',
+                'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            //Notification::send($user, new UserPostAdNotification($details));
+           Notification::send($user, new UserPostAdNotification($details));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -423,14 +423,14 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Update ads on ok2list',
+                'subject' => 'Update ads on Listorbuy',
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You updated an ads on ok2list.lk ',
+                'body' => 'You updated an ads on Listorbuy.org ',
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using ok2list.lk',
+                'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            //Notification::send($user, new UserPostAdNotification($details));
+           // Notification::send($user, new UserPostAdNotification($details));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -456,14 +456,14 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Update ads on ok2list',
+                'subject' => 'Update ads on Listorbuy',
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You updated an ads on ok2list.lk ',
+                'body' => 'You updated an ads on Listorbuy.org ',
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using ok2list.lk',
+                'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            //Notification::send($user, new UserPostAdNotification($details));
+           Notification::send($user, new UserPostAdNotification($details));
         }
         // dd($this->resp);
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);
@@ -490,14 +490,14 @@ class AdPostController extends Controller
             $user = Auth::user();
 
             $details = [
-                'subject' => 'Delete ads from ok2list',
+                'subject' => 'Delete ads from Listorbuy',
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => 'You ware deleted an ads form ok2list.lk ',
+                'body' => 'You ware deleted an ads form Listorbuy.org ',
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you for using ok2list.lk',
+                'thanks' => 'Thank you for using Listorbuy.org',
             ];
 
-            //Notification::send($user, new UserPostAdNotification($details));
+           Notification::send($user, new UserPostAdNotification($details));
         }
 
         $admin = DB::table('auths')->where('id', 1)->first();
@@ -505,14 +505,14 @@ class AdPostController extends Controller
         if ($admin) {
             $user = Auth::user();
             $admindetails = [
-                'subject' => 'Message from ok2list',
+                'subject' => 'Message from Listorbuy',
                 'greeting' => 'Hi ' . $admin->username . ', ',
-                'body' => $user->name . ' was deleted an ads form ok2list.lk',
+                'body' => $user->name . ' was deleted an ads form Listorbuy.org',
                 'email' => 'His email is : ' . $user->email,
-                'thanks' => 'Thank you and stay with ok2list.lk',
+                'thanks' => 'Thank you and stay with Listorbuy.org',
             ];
 
-            //Notification::send($user, new AdminPostAdNotification($admindetails));
+           Notification::send($user, new AdminPostAdNotification($admindetails));
         }
 
         Toastr::success($msg, $msg_title, ["positionClass" => "toast-top-right"]);

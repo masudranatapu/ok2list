@@ -5,16 +5,19 @@ use DB;
 use Auth;
 use File;
 use Auth as MyInfo;
+use App\Notifications\MyTestMail;
 use App\Models\AuthRole;
+use App\Models\Customer;
 use App\Models\UserGroup;
 use App\Models\ProdImgLib;
 use App\Traits\RepoResponse;
 use App\Models\ProductVariant;
 use App\Models\AdminUser as User;
 use App\Models\Product as Product;
-use App\Repositories\Admin\Auth\AuthAbstract;
+use Illuminate\Broadcasting\Channel;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\UserPostAdNotification;
+use App\Repositories\Admin\Auth\AuthAbstract;
 
 class ProductAbstract implements ProductInterface
 {
@@ -62,6 +65,7 @@ class ProductAbstract implements ProductInterface
     {
 
 
+
         DB::beginTransaction();
         try{
             $product = Product::find($id);
@@ -101,21 +105,25 @@ class ProductAbstract implements ProductInterface
             } else {
                 $status = "Pending";
             }
-            $user = DB::table('ss_customers')->find($product->customer_pk_no);
+            $user = Customer::where('id', $product->customer_pk_no)->first();
             $details = [
-                'subject' => 'Message from ok2list',
+                'subject' => 'Message from listorbuy.org',
                 'greeting' => 'Hi ' . $user->name . ', ',
                 'body' => $user->name . ' your posted ads status is now '. $status,
                 'email' => 'Your email is : ' . $user->email,
                 'thanks' => 'Thank you and stay with ok2list.lk',
             ];
+
+            \Mail::to($user->email)->send(new MyTestMail($details));
+
+
             // Notification::send($user, new UserPostAdNotification($details));
-            Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
+            // Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
         }
 
 
         if ($request->is_delete == 1) {
-            $user = DB::table('ss_customers')->find($product->customer_pk_no);
+            $user = Customer::find($product->customer_pk_no);
             $details = [
                 'subject' => 'Message from ok2list',
                 'greeting' => 'Hi ' . $user->name . ', ',
@@ -123,8 +131,11 @@ class ProductAbstract implements ProductInterface
                 'email' => 'Your email is : ' . $user->email,
                 'thanks' => 'Thank you and stay with ok2list.lk',
             ];
+
+            \Mail::to($user->email)->send(new MyTestMail($details));
+
             // Notification::send($user, new UserPostAdNotification($details));
-            Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
+           // Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
         }
 
         return $this->formatResponse(true, 'Product updated successfully !', 'admin.product.list');
@@ -175,7 +186,7 @@ class ProductAbstract implements ProductInterface
     public function delete(int $id)
     {
         $data =  Product::find($id);
-        
+
         $data->delete();
         return $this->formatResponse(true, 'Product deleted successfully !', 'admin.product.list');
 

@@ -67,28 +67,27 @@ class RegisterController extends Controller
             $password = Session::get('secret');
 
             $details = [
-                'subject' => 'Welcome to ok2list',
+                'subject' => 'Welcome to Listorbuy.org',
                 'greeting' => 'Hi ' . $user->name . ',',
-                'body' => 'Welcome to ok2list.lk',
+                'body' => 'Welcome to Listorbuy.org',
                 'email' => 'Your email is : ' . $user->email,
                 'password' => 'Your Password is : ' . $password,
-                'thanks' => 'Thank you for using ok2list.lk',
+                'thanks' => 'Thank you for using Listorbuy.org',
                 'actionText' => 'Click Here to Verify',
                 'actionURL' => url('verify/user/' . $user->random_token),
                 'user_id' => $user->id
             ];
 
-            // if (setting()->app_mode == "live") {
-
+             if (setting()->app_mode == "live") {
                 //$user->notify(new WellComeNotification($details));
-                // Notification::send($user, new WellComeNotification($details));
-                // dd('send');
+               Notification::send($user, new WellComeNotification($details));
 
-            // }
+             }
         }
         $this->guard()->logout();
 
-        Toastr::success('Thanks for your Signup, Please Check your mail and verify', 'Success', ["positionClass" => "toast-top-right"]);
+        //Toastr::success('Thanks for your Signup, Please Check Your mail and Verify', 'Success', ["positionClass" => "toast-top-right"]);
+        Toastr::success('Thanks for your Signup, Login Please !!', 'Success', ["positionClass" => "toast-top-right"]);
 
         if (request()->input('referer') == null) {
             return url()->previous();
@@ -157,7 +156,7 @@ class RegisterController extends Controller
             'status' => "Free",
             'add_limit' => $packages->ad_limit_in_montrh,
             'amount' => 0,
-            'is_verified' => 0,
+            'is_verified' => 1,
             'validated_on' => Carbon::now(),
             'created_by' => $user->id,
             'expired_on' => $packageExpired,

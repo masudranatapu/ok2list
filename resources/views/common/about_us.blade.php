@@ -39,7 +39,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="about-text">
-                                <h3>{{ __('about_us') }} {{ __('ok2list_title') }}</h3>
+                                <h3>{{ __('about_us') }} {{ __('listorbuy_title') }}</h3>
                                 <div class="description-paragraph">
                                     @if ($data['about'])
                                         @if (app()->getLocale() == 'en')

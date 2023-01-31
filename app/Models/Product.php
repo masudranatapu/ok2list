@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
+use Illuminate\Notifications\Notifiable;
 
 class Product extends Model
 {
@@ -16,7 +17,7 @@ class Product extends Model
 
     protected $fillable = ['ad_title','promotion','promotion_to'];
 
-    
+
     public function category() {
         return $this->belongsTo('App\Models\Category', 'f_cat_pk_no');
     }
@@ -36,7 +37,7 @@ class Product extends Model
         return $this->belongsTo('App\Models\City', 'pk_no');
     }
 
-   
+
 
     public function allPhotos() {
         return $this->hasMany('App\Models\ProductImg', 'f_prd_master_no')->orderBy('serial_no','asc');
@@ -47,8 +48,8 @@ class Product extends Model
         return $this->hasMany('App\Models\Report', 'prod_pk_no');
     }
 
-    
-    
 
-    
+
+
+
 }

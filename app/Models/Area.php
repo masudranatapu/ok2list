@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Area extends Model
 {
+
     protected $table        = 'ss_areas';
     protected $primaryKey   = 'pk_no';
 
-   
+
     protected $fillable = ['city_division', 'name'];
 
 
@@ -20,7 +21,7 @@ class Area extends Model
     public function division() {
         return $this->belongsTo('App\Models\Division', 'division_pk_no');
     }
-   
+
 
 
 }

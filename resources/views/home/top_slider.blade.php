@@ -4,7 +4,7 @@
          <!-- banner -->
          <div class="col-sm-12 ">
              <div class="banner">
-                 <h1 class="title"><span style="color:#fff;">{{ __('ok2list_title') }}</span>
+                 <h1 class="title"><span style="color:#fff;">{{ __('listorbuy_title') }}</span>
                      {{ __('online_mega') }}</h1>
                  <h3>
                      <span id="break">{{ __('buy_and_sell') }}</span> {{ __('Ex') }}

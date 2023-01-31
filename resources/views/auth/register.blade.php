@@ -159,7 +159,7 @@ $tabindex = 1;
                                 <button type="submit" class="btn w-100">{{ __('register') }}</button>
                             </div>
                             <div class="sign_up text-center">
-                                <p> {{ __('already_reg') }}<a href="{{ route('login') }}">{{ __('login') }}</a></p>
+                                <p> {{ __('already_reg') }} <a href="{{ route('login') }}">{{ __('login') }}</a></p>
                             </div>
                             {!! Form::close() !!}
                         </div>
