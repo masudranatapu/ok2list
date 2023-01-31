@@ -1,11 +1,9 @@
 <?php
+
 namespace App\Repositories\Admin\Product;
 
-use DB;
-use Auth;
 use File;
 use Auth as MyInfo;
-use App\Notifications\MyTestMail;
 use App\Models\AuthRole;
 use App\Models\Customer;
 use App\Models\UserGroup;
@@ -14,10 +12,12 @@ use App\Traits\RepoResponse;
 use App\Models\ProductVariant;
 use App\Models\AdminUser as User;
 use App\Models\Product as Product;
-use Illuminate\Broadcasting\Channel;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\UserPostAdNotification;
 use App\Repositories\Admin\Auth\AuthAbstract;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ProductStatusChnageMail;
+use Carbon\Carbon;
 
 class ProductAbstract implements ProductInterface
 {
@@ -38,16 +38,16 @@ class ProductAbstract implements ProductInterface
     {
 
 
-        if($request->ad_promotion_type == 'Top'){
-            $data = Product::where('promotion', 'Top')->orderBy('is_active','desc')->get();
-        }elseif($request->ad_promotion_type == 'Feature'){
-            $data = Product::where('promotion', 'Feature')->orderBy('is_active','desc')->get();
-        }elseif($request->ad_promotion_type == 'Urgent'){
-            $data = Product::where('promotion', 'Urgent')->orderBy('is_active','desc')->get();
-        }elseif($request->ad_promotion_type == 'Basic'){
-            $data = Product::where('promotion', 'Basic')->orderBy('is_active','desc')->get();
-        }else{
-            $data = Product::orderBy('is_active','desc')->get();
+        if ($request->ad_promotion_type == 'Top') {
+            $data = Product::where('promotion', 'Top')->orderBy('is_active', 'desc')->get();
+        } elseif ($request->ad_promotion_type == 'Feature') {
+            $data = Product::where('promotion', 'Feature')->orderBy('is_active', 'desc')->get();
+        } elseif ($request->ad_promotion_type == 'Urgent') {
+            $data = Product::where('promotion', 'Urgent')->orderBy('is_active', 'desc')->get();
+        } elseif ($request->ad_promotion_type == 'Basic') {
+            $data = Product::where('promotion', 'Basic')->orderBy('is_active', 'desc')->get();
+        } else {
+            $data = Product::orderBy('is_active', 'desc')->get();
         }
 
         return $this->formatResponse(true, '', 'admin', $data);
@@ -55,47 +55,43 @@ class ProductAbstract implements ProductInterface
 
     public function postStore($request)
     {
-
+        // poststore
     }
-
-
-
 
     public function postUpdate($request, int $id)
     {
-
-
+        $setting = setting();
 
         DB::beginTransaction();
-        try{
-            $product = Product::find($id);
-            $check  = Product::where('pk_no', '!=', $id)->where('url_slug',$request->url_slug)->first();
-            if(!empty($check)){
-                 return $this->formatResponse(false, 'Url slug already existed in the product list !', 'admin.product.list');
-            }
-        if($request->is_active == '2'){
-            $product->comments            = $request->rejected_reason;
-        }
+            try {
+                $product = Product::find($id);
+                $check  = Product::where('pk_no', '!=', $id)->where('url_slug', $request->url_slug)->first();
+                if (!empty($check)) {
+                    return $this->formatResponse(false, 'Url slug already existed in the product list !', 'admin.product.list');
+                }
+                if ($request->is_active == '2') {
+                    $product->comments            = $request->rejected_reason;
+                }
 
-        $product->is_active           = $request->is_active;
-        $product->is_delete          = $request->is_delete;
-        if($request->is_delete == 1){
-            $product->deleted_by   = Auth::user()->pk_no;
-        }
-        $product->url_slug            = $request->url_slug;
-        // $product->promotion           = $request->promotion;
-        $product->approved_by         = MyInfo::user()->id;
-        $product->approved_at         = date('Y-m-d H:i:s');
-        $product->update();
-        } catch (\Exception $e) {
-            DB::rollback();
-            return $this->formatResponse(false, 'Unable to update product !', 'admin.product.list');
-        }
+                $product->is_active           = $request->is_active;
+                $product->is_delete          = $request->is_delete;
+                if ($request->is_delete == 1) {
+                    $product->deleted_by   = Auth::user()->pk_no;
+                }
+                $product->url_slug            = $request->url_slug;
+                $product->approved_by         = MyInfo::user()->id;
+                $product->approved_at         = date('Y-m-d H:i:s');
+                $product->update();
+            } catch (\Exception $e) {
+                DB::rollback();
+                return $this->formatResponse(false, 'Unable to update product !', 'admin.product.list');
+            }
         DB::commit();
 
         $product = Product::findOrFail($id);
         $active = $product->is_active;
         if ($active) {
+
             if ($active == 1) {
                 $status = "Activeted";
             } elseif ($active == 2) {
@@ -105,37 +101,41 @@ class ProductAbstract implements ProductInterface
             } else {
                 $status = "Pending";
             }
+
             $user = Customer::where('id', $product->customer_pk_no)->first();
+
             $details = [
-                'subject' => 'Message from listorbuy.org',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
-                'body' => $user->name . ' your posted ads status is now '. $status,
+                'body' => $user->name . ' your posted ads status is now ' . $status,
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you and stay with ok2list.lk',
+                'thanks' => 'Thank you and stay with'. ' '. $setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-            \Mail::to($user->email)->send(new MyTestMail($details));
+            Mail::to($user->email)->send(new ProductStatusChnageMail($details));
 
-
-            // Notification::send($user, new UserPostAdNotification($details));
-            // Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
         }
 
-
         if ($request->is_delete == 1) {
+
             $user = Customer::find($product->customer_pk_no);
+
             $details = [
-                'subject' => 'Message from ok2list',
+                'subject' => 'Message from '. ' ' . $setting->website_title,
                 'greeting' => 'Hi ' . $user->name . ', ',
                 'body' => $user->name . ' your posted ads was delete by ok2list authority. The resion is ' . $request->rejected_reason . ' Please ads a post with our trams and condition.',
                 'email' => 'Your email is : ' . $user->email,
-                'thanks' => 'Thank you and stay with ok2list.lk',
+                'thanks' => 'Thank you and stay with'. ' '. $setting->website_title,
+                'site_url' => route('home'),
+                'site_name' => $setting->website_title,
+                'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
             ];
 
-            \Mail::to($user->email)->send(new MyTestMail($details));
+            Mail::to($user->email)->send(new ProductStatusChnageMail($details));
 
-            // Notification::send($user, new UserPostAdNotification($details));
-           // Notification::route('mail', $user->email)->notify(new UserPostAdNotification($details));
         }
 
         return $this->formatResponse(true, 'Product updated successfully !', 'admin.product.list');
@@ -152,36 +152,6 @@ class ProductAbstract implements ProductInterface
 
         return $this->formatResponse(false, 'Did not found data !', 'admin.product.list', null);
     }
-    /*
-
-    public function postUrlSlugUpdate($request)
-    {
-
-        DB::beginTransaction();
-
-        try {
-            $product = Product::find($request->prod_pk_no);
-
-            $check  = Product::where('pk_no', '!=', $product->pk_no)->where('url_slug',$request->q)->first();
-            if(!empty($check)){
-                 return $this->formatResponse(false, 'Url slug already existed in the product list !', 'admin.product.list');
-            }
-
-            $product->url_slug = $request->q;
-            $product->update();
-
-        } catch (\Exception $e) {
-
-
-            DB::rollback();
-            return $this->formatResponse(false, 'Unable to update url slug !', 'admin.product.list');
-
-        }
-        DB::commit();
-
-        return $this->formatResponse(true, 'Url slug updated successfully !', 'admin.product.list');
-    }
-    */
 
     public function delete(int $id)
     {
@@ -189,34 +159,28 @@ class ProductAbstract implements ProductInterface
 
         $data->delete();
         return $this->formatResponse(true, 'Product deleted successfully !', 'admin.product.list');
-
     }
 
     public function getSearchList($request)
     {
-
+        // getSearchList
     }
-
 
     public function deleteImage(int $id)
     {
-
+        // deleteImage
     }
 
 
 
     public function postStoreProductVariant($request)
     {
-
+        // postStoreProductVariant
     }
 
 
     public function postUpdateProductVariant($request, int $id)
     {
-
+        // postUpdateProductVariant
     }
-
-
-
-
 }

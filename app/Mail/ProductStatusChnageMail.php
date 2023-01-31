@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Notifications;
+namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class MyTestMail extends Mailable
+class ProductStatusChnageMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,7 +31,7 @@ class MyTestMail extends Mailable
     public function build()
     {
         return $this->subject($this->details['subject'])
-                    ->view('emails.myTestMail');
-    }
+                    ->view('emails.productstatusmail');
 
+    }
 }

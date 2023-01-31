@@ -78,11 +78,8 @@ class RegisterController extends Controller
                 'user_id' => $user->id
             ];
 
-             if (setting()->app_mode == "live") {
-                //$user->notify(new WellComeNotification($details));
-               Notification::send($user, new WellComeNotification($details));
+            Notification::send($user, new WellComeNotification($details));
 
-             }
         }
         $this->guard()->logout();
 

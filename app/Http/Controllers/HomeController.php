@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use DB;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
@@ -13,12 +12,14 @@ use App\Http\Controllers\CommonController as Common;
 use App\Http\Controllers\BaseController;
 use App\Models\Customer;
 use App\Models\User;
-use App\Notifications\WellComeNotification;
 use App\Repositories\Admin\Dashboard\DashboardInterface;
-use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\WellComeNotification;
 
 class HomeController extends Controller
 {
@@ -155,19 +156,12 @@ class HomeController extends Controller
                 'user_id' => $user->id
             ];
 
-            // if (setting()->app_mode == "live") {
-
-                $user->notify(new WellComeNotification($details));
-                Notification::send($user, new WellComeNotification($details));
-
-            // }
-
+            Notification::send($user, new WellComeNotification($details));
         }
 
         Toastr::success('Verified token successfully send. Please Check your mail and verify', 'Success', ["positionClass" => "toast-top-right"]);
 
         return redirect()->back();
-
     }
 
     public function verifyUser($token)
@@ -181,11 +175,11 @@ class HomeController extends Controller
 
     public function cc(Request $request)
     {
-        \Artisan::call('cache:clear');
-        \Artisan::call('view:clear');
-        \Artisan::call('route:clear');
-        \Artisan::call('config:clear');
-        \Artisan::call('config:cache');
+        Artisan::call('cache:clear');
+        Artisan::call('view:clear');
+        Artisan::call('route:clear');
+        Artisan::call('config:clear');
+        Artisan::call('config:cache');
 
         return 'DONE';
     }
