@@ -11,10 +11,13 @@ use App\Repositories\Admin\Customer\CustomerInterface;
 use App\Models\Country;
 use App\Models\City;
 use App\Models\Division;
-use DB;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CustomerStatusMail;
+use Illuminate\Support\Facades\DB;
 use Validator;
+use Carbon\Carbon;
 
 
 class CustomerController extends BaseController
@@ -78,20 +81,43 @@ class CustomerController extends BaseController
 
     public function postUpdate(CustomerRequest $request, $id)
     {
+        $setting = setting();
+
         $this->resp = $this->customer->postUpdate($request, $id);
+
+        $user = Customer::where('id', $request->pk_no)->first();
+
+        if($request->is_active == 1) {
+            $isactive = 'You are now active user on'.' '.$setting->website_title;
+        }else {
+            $isactive = 'You are now inactive user on'.' '.$setting->website_title. '. ' .'Wait for '.' '.$setting->website_title.' '.'authority for active approval';
+        }
+
+        $details = [
+            'subject' => 'Message from ' . ' ' . $setting->website_title,
+            'greeting' => 'Hi ' . $user->name . ', ',
+            'body' => $isactive,
+            'email' => 'Your email is : ' . $user->email,
+            'thanks' => 'Thank you for using ' . ' ' . $setting->website_title,
+            'site_url' => route('home'),
+            'site_name' => $setting->website_title,
+            'copyright' => Carbon::now()->format('Y') . ' ' . $setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+        ];
+
+        Mail::to($user->email)->send(new CustomerStatusMail($details));
 
         return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
     }
 
     public function getDelete($id)
     {
-        
+
         $this->resp = $this->customer->delete($id);
 
         return redirect()->route($this->resp->redirect_to)->with($this->resp->redirect_class, $this->resp->msg);
 
     }
-    
+
     public function active($id)
     {
         $this->resp = $this->customer->active($id);

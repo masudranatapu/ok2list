@@ -185,7 +185,6 @@ class ProductController extends BaseController
                 ];
 
                 Mail::to($user->email)->send(new ProductStatusChnageMail($details));
-
             }
 
             DB::table('prd_master')->whereIn('pk_no', $productsid)->delete();
