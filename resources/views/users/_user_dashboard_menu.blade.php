@@ -58,7 +58,7 @@ $curent_route = request()
                     </li>
 
                     <li class="{{ $curent_route == 'promoted-ads' ? 'active' : '' }}"><a
-                            href="{{ route('promotedads') }}"> {{ __('promote-ads') }}</a></li>
+                            href="{{ route('promotedads') }}"> {{ __('promote_ad') }}</a></li>
                     <li class="{{ $curent_route == 'purchase-history' ? 'active' : '' }}">
                         <a href="{{ route('purchase-history') }}">{{ __('purchasehistory') }}</a>
                     </li>
