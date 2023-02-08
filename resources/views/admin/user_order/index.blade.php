@@ -47,7 +47,7 @@
                                             @foreach ($orders as $item)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->product->ad_title }}</td>
+                                                    <td>{{ $item->product->ad_title ?? '' }}</td>
                                                     <td>{{ $item->transaction_number }}</td>
                                                     <td> <a
                                                             href="{{ url('admin/customer') }}">{{ $item->user->name ?? '' }}</a>

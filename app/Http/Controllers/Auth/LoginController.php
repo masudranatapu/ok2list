@@ -1,15 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use Socialite;
 use App\User;
-use Auth;
-use Notification;
-use App\Notifications\WellComeNotification;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WellComeMail;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -38,26 +40,26 @@ class LoginController extends Controller
     public function showLoginForm()
     {
 
-        return view ('auth.login');
+        return view('auth.login');
     }
 
 
     public function redirectTo()
     {
-        if (request()->has('referer'))
-        {
-            if(request()->get('referer') == 'package'){
-                if(request()->get('pakid')){
+        if (request()->has('referer')) {
+            if (request()->get('referer') == 'package') {
+                if (request()->get('pakid')) {
                     // return redirect()->route('payment.gateway');
-                    $this->redirectTo = '/payment/gateway?pakid='.request()->get('pakid');
+                    $this->redirectTo = '/payment/gateway?pakid=' . request()->get('pakid');
                 }
-            }else{
+            } else {
 
                 $this->redirectTo = request()->get('referer');
             }
         }
 
         return $this->redirectTo ?? '/';
+
     }
 
 
@@ -69,7 +71,7 @@ class LoginController extends Controller
 
     public function handleProviderCallback()
     {
-        if(request()->get('error') ) {
+        if (request()->get('error')) {
 
             return redirect()->to('/');
         }
@@ -77,43 +79,49 @@ class LoginController extends Controller
         $getInfo = Socialite::driver('facebook')->user();
 
         $user = $this->createUser($getInfo);
-        auth()->login($user);
-        //send email
-           $user = Auth::user();
-           $password = 'N/A';
 
-           $details = [
-                'subject' => 'Welcome to Listorbuy.org',
-                'greeting' => 'Hi '.$user->name.',',
-                'body' => 'Welcome to Listorbuy.org',
-                'email' => 'Your email is : '.$user->email,
-                'password' => 'Your Password is : '.$password,
-                'thanks' => 'Thank you for using Listorbuy.org',
-                'actionText' => 'Click Here to Visit',
-                'actionURL' => url('/'),
-                'user_id' => $user->id
-            ];
-          Notification::send($user, new WellComeNotification($details));
-           /*end send mail*/
+        auth()->login($user);
+
+        $user = Auth::user();
+
+        $password = 'N/A';
+
+        $setting = setting();
+
+        $details = [
+            'subject' => 'Welcome to '.' ' .$setting->website_title,
+            'greeting' => 'Hi ' . $user->name . ',',
+            'body' => 'Welcome to'.' ' .$setting->website_title,
+            'email' => 'Your email is : ' . $user->email,
+            'password' => 'Your Password is : ' . $password,
+            'thanks' => 'Thank you and stay with '.' '. $setting->website_title,
+            'actionText' => 'Click Here to Visit',
+            'actionURL' => route('home'),
+            'site_url' => route('home'),
+            'site_name' => $setting->website_title,
+            'copyright' => Carbon::now()->format('Y') . ' ' .$setting->copyright . ' ' . $setting->website_title . ' ' . 'All rights reserved.',
+        ];
+
+        Mail::to($user->email)->send(new WellComeMail($details));
         return redirect()->to('/');
 
     }
 
 
     public function createUser($getInfo)
-       {
-           $user = User::where('email', $getInfo->email)->first();
-           if (!$user) {
-               $user = User::create([
-                   'name' => $getInfo->name,
-                   'email' => $getInfo->email,
-                   'is_verified' => 1,
-                   //'provider' => $provider,
-                   //'provider_id' => $getInfo->id
-               ]);
-           }
-           return $user;
-       }
+    {
+        $user = User::where('email', $getInfo->email)->first();
+        if (!$user) {
+            $user = User::create([
+                'name' => $getInfo->name,
+                'email' => $getInfo->email,
+                'is_verified' => 1,
+                //'provider' => $provider,
+                //'provider_id' => $getInfo->id
+            ]);
+        }
+        return $user;
+    }
 
     public function redirectToGoogle()
     {
@@ -125,47 +133,31 @@ class LoginController extends Controller
     {
         try {
             $user = Socialite::driver('google')->user();
-            // $user = $this->createUser($getInfo);
-            // Auth::login($user);
-            // return redirect('/');
 
             $finduser = User::where('google_id', $user->id)->first();
 
-            if($finduser){
+            if ($finduser) {
                 Auth::login($finduser);
                 return redirect('/');
-            }else{
+            } else {
 
                 $newUser = User::create([
-
                     'name' => $user->name,
                     'email' => $user->email,
-                    'google_id'=> $user->id,
+                    'google_id' => $user->id,
                     'is_verified' => 1,
                     'password' => encrypt('12345678')
-
                 ]);
 
                 Auth::login($newUser);
 
                 return redirect('/');
-
             }
-
-
 
         } catch (Exception $e) {
 
-             return redirect('/');
-
+            return redirect('/');
         }
 
     }
-
-
-
-
-
-
-
 }

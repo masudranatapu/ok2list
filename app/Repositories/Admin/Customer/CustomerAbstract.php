@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories\Admin\Customer;
 
 use DB;
@@ -15,12 +16,11 @@ class CustomerAbstract implements CustomerInterface
     public function __construct(Customer $customer)
     {
         $this->customer = $customer;
-
     }
 
     public function getPaginatedList($request, int $per_page = 5)
     {
-        $data = $this->customer->where('is_delete',0)->orderBy('id', 'desc')->orderBy('name', 'desc')->get();
+        $data = $this->customer->where('is_delete', 0)->orderBy('id', 'desc')->orderBy('name', 'desc')->get();
         return $this->formatResponse(true, '', 'admin.customer.index', $data);
     }
 
@@ -52,7 +52,6 @@ class CustomerAbstract implements CustomerInterface
             $customer->password        = Hash::make($request->password);
             $customer->is_active       = 1;
             $customer->save();
-
         } catch (\Exception $e) {
             DB::rollback();
             return $this->formatResponse(false, 'Customer not created successfully !', 'admin.customer.list');
@@ -76,12 +75,11 @@ class CustomerAbstract implements CustomerInterface
         }
 
 
+        if ($customer->update()) {
+            return $this->formatResponse(true, 'Customer Information has been Updated successfully', 'admin.customer.list');
+        }
 
-            if ($customer->update()) {
-                return $this->formatResponse(true, 'Customer Information has been Updated successfully', 'admin.customer.list');
-            }
-
-            return $this->formatResponse(false, 'Unable to update Customer Information !', 'admin.customer.list');
+        return $this->formatResponse(false, 'Unable to update Customer Information !', 'admin.customer.list');
     }
 
     public function delete($pk_no)
@@ -90,13 +88,12 @@ class CustomerAbstract implements CustomerInterface
 
         $prdmaster = DB::table('prd_master')->where('customer_pk_no', $customer->id)->get();
         // return $prdmaster;
-        if($prdmaster->count() > 0) {
-            return $this->formatResponse(false,'Unable to Delete Customer Information','admin.customer.list');
-        }else {
+        if ($prdmaster->count() > 0) {
+            return $this->formatResponse(false, 'Unable to Delete Customer Information', 'admin.customer.list');
+        } else {
             $customer->delete();
             return $this->formatResponse(true, 'Successfully Delete Customer Information', 'admin.customer.list');
         }
-
     }
     public function active($pk_no)
     {
@@ -105,6 +102,6 @@ class CustomerAbstract implements CustomerInterface
         if ($customer->update()) {
             return $this->formatResponse(true, 'Successfully active Customer Information', 'admin.customer.list');
         }
-        return $this->formatResponse(false,'Unable to active Customer Information','admin.customer.list');
+        return $this->formatResponse(false, 'Unable to active Customer Information', 'admin.customer.list');
     }
 }

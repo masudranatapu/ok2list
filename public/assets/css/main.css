@@ -485,12 +485,13 @@ textarea {
     transition: 0.3s;
     background: #ee1d23;
     position: absolute;
-    right: 0;
-    top: 0px;
+    right: 13px;
+    top: 1px;
     border-radius: 50%;
     opacity: 100%;
     color: #fff;
     border: 3px solid #fff;
+    z-index: 5;
 }
 
 .all-category-list button.close:hover {
@@ -616,8 +617,8 @@ textarea {
 
 .banner-form i.fa.fa-tag {
     position: absolute;
-    top: 14px;
-    left: 213px;
+    top: 15px;
+    left: 9px;
     z-index: 90;
     color: #000;
 }
@@ -670,7 +671,7 @@ textarea {
     position: absolute;
     right: 20px;
     top: 50%;
-    margin-top: -8px;
+    /* margin-top: -8px; */
 }
 
 .price-range .category-dropdown i {
@@ -1725,7 +1726,7 @@ div#page-content p {
 }
 
 #banner-two {
-    padding: 90px 0 90px;
+    padding: 90px 10px 90px;
     margin-bottom: 22px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -4469,9 +4470,9 @@ p.mt-2.loginor {
     FAQ Page
  ========================================================================== */
 
-.faq-page {
+/* .faq-page {
     margin-bottom: 60px;
-}
+} */
 
 .faq-page .breadcrumb {
     margin: 0;
@@ -4513,7 +4514,7 @@ section#main h2.h3.title {
 }
 
 #main.contact-us {
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
     padding-top: 10px;
 }
 
@@ -5117,7 +5118,7 @@ section#main h2.h3.title {
 
 .page {
     background-color: #f7f7f7;
-    padding-bottom: 70px;
+    padding-bottom: 0px;
 }
 
 .page .section-title {
@@ -7173,7 +7174,8 @@ p#staticBackdropLabel {
     font-weight: bold;
 }
 
-.language_dropdown, .currency_dropdown{
+.language_dropdown,
+.currency_dropdown {
     border: 1px solid #DDD;
     font-size: 14px;
     border-radius: 50px;
@@ -7181,9 +7183,12 @@ p#staticBackdropLabel {
 }
 
 @media screen and (max-width:991px) {
-    .language_dropdown, .currency_dropdown {
+
+    .language_dropdown,
+    .currency_dropdown {
         margin: 8px 0px;
     }
+
     .mobile_post_btn {
         display: inline-block !important;
         float: right;
@@ -7194,5 +7199,3 @@ p#staticBackdropLabel {
     }
 
 }
-
-
