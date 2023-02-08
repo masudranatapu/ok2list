@@ -615,7 +615,7 @@ textarea {
     text-align: left;
 }
 
-.banner-form i.fa.fa-tag {
+/* .banner-form i.fa.fa-tag {
     position: absolute;
     top: 15px;
     left: 9px;
@@ -625,15 +625,15 @@ textarea {
 
 .banner-form-full i.fa.fa-tag {
     left: 227px;
-}
+} */
 
-.banner-form i.fa.fa-map-marker {
+/* .banner-form i.fa.fa-map-marker {
     position: absolute;
     top: 14px;
     left: 15px;
     z-index: 90;
     color: #000;
-}
+} */
 
 .breadcrumb-section {
     background: #fff;
@@ -669,9 +669,12 @@ textarea {
 
 .category-dropdown i {
     position: absolute;
-    right: 20px;
-    top: 50%;
-    /* margin-top: -8px; */
+    top: 14px;
+    left: 9px;
+    vertical-align: middle;
+    width: 13px !important;
+    text-align: center;
+    color: #212121;
 }
 
 .price-range .category-dropdown i {
@@ -4503,7 +4506,6 @@ section#main h2.h3.title {
     border-bottom: 1px dotted #ddd;
     font-weight: normal;
 }
-
 
 /* ==========================================================================
     Contact Us
