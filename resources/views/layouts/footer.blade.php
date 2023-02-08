@@ -1,5 +1,5 @@
 @php
-    $setting = setting();
+$setting = setting();
 @endphp
 <footer id="footer" class="clearfix">
     <section class="footer-top clearfix">
@@ -11,30 +11,30 @@
                         <ul>
                             <li><a href="{{ route('about-us') }}">
                                     @if (app()->getLocale() == 'sl')
-                                        {{ $setting->about_sl }}
+                                    {{ $setting->about_sl }}
                                     @else
-                                        {{ $setting->about_en }}
+                                    {{ $setting->about_en }}
                                     @endif
                                 </a></li>
                             <li><a href="{{ route('contact-us') }}">
                                     @if (app()->getLocale() == 'sl')
-                                        {{ $setting->contact_us_sl }}
+                                    {{ $setting->contact_us_sl }}
                                     @else
-                                        {{ $setting->contact_us_en }}
+                                    {{ $setting->contact_us_en }}
                                     @endif
                                 </a></li>
                             <li><a href="{{ route('terms-conditions') }}">
                                     @if (app()->getLocale() == 'sl')
-                                        {{ $setting->terms_conditions_sl }}
+                                    {{ $setting->terms_conditions_sl }}
                                     @else
-                                        {{ $setting->terms_conditions_en }}
+                                    {{ $setting->terms_conditions_en }}
                                     @endif
                                 </a></li>
                             <li><a href="{{ route('privacy-policy') }}">
                                     @if (app()->getLocale() == 'sl')
-                                        {{ $setting->privacy_policy_sl }}
+                                    {{ $setting->privacy_policy_sl }}
                                     @else
-                                        {{ $setting->privacy_policy_en }}
+                                    {{ $setting->privacy_policy_en }}
                                     @endif
                                 </a></li>
                             <!-- <li><a href="{{ route('site-map') }}">
@@ -60,16 +60,16 @@
                                 </a></li> -->
                             <li><a href="{{ route('packages') }}">
                                     @if (app()->getLocale() == 'sl')
-                                        {{ $setting->membership_sl }}
+                                    {{ $setting->membership_sl }}
                                     @else
-                                        {{ $setting->membership_en }}
+                                    {{ $setting->membership_en }}
                                     @endif
                                 </a></li>
                             <li><a href="{{ route('promote-ads') }}">
                                     @if (app()->getLocale() == 'sl')
-                                        {{ $setting->promote_your_ad_sl }}
+                                    {{ $setting->promote_your_ad_sl }}
                                     @else
-                                        {{ $setting->promote_your_ad_en }}
+                                    {{ $setting->promote_your_ad_en }}
                                     @endif
                                 </a></li>
                             <li><a href="{{ route('doorstep-delivery') }}">
@@ -77,9 +77,9 @@
                                 </a></li>
                             <li><a href="{{ route('faq') }}">
                                     @if (app()->getLocale() == 'sl')
-                                        {{ $setting->faq_sl }}
+                                    {{ $setting->faq_sl }}
                                     @else
-                                        {{ $setting->faq_en }}
+                                    {{ $setting->faq_en }}
                                     @endif
                                 </a></li>
                         </ul>
@@ -90,76 +90,73 @@
                         <h3>{{ __('follow_us_on') }}</h3>
                         <ul>
                             @if ($setting->facebook_link)
-                                <li>
-                                    <a target="_blank" href="{{ $setting->facebook_link }}"><i
-                                            class="fa fa-facebook-official"></i>
-                                        @if (app()->getLocale() == 'sl')
-                                            {{ $setting->facebook_sl }}
-                                        @else
-                                            {{ $setting->facebook_en }}
-                                        @endif
-                                    </a>
-                                </li>
+                            <li>
+                                <a target="_blank" href="{{ $setting->facebook_link }}"><i
+                                        class="fa fa-facebook-official"></i>
+                                    @if (app()->getLocale() == 'sl')
+                                    {{ $setting->facebook_sl }}
+                                    @else
+                                    {{ $setting->facebook_en }}
+                                    @endif
+                                </a>
+                            </li>
                             @endif
                             @if ($setting->twitter_link)
-                                <li>
-                                    <a target="_blank" href="{{ $setting->twitter_link }}"><i
-                                            class="fa fa-twitter-square"></i>
-                                        @if (app()->getLocale() == 'sl')
-                                            {{ $setting->twitter_sl }}
-                                        @else
-                                            {{ $setting->twitter_en }}
-                                        @endif
-                                    </a>
-                                </li>
+                            <li>
+                                <a target="_blank" href="{{ $setting->twitter_link }}"><i
+                                        class="fa fa-twitter-square"></i>
+                                    @if (app()->getLocale() == 'sl')
+                                    {{ $setting->twitter_sl }}
+                                    @else
+                                    {{ $setting->twitter_en }}
+                                    @endif
+                                </a>
+                            </li>
                             @endif
                             @if ($setting->instagram_link)
-                                <li>
-                                    <a target="_blank" href="{{ $setting->instagram_link }}"><i
-                                            class="fa fa-instagram"></i>
-                                        @if (app()->getLocale() == 'sl')
-                                            {{ $setting->instagram_sl }}
-                                        @else
-                                            {{ $setting->instagram_en }}
-                                        @endif
-                                    </a>
-                                </li>
+                            <li>
+                                <a target="_blank" href="{{ $setting->instagram_link }}"><i class="fa fa-instagram"></i>
+                                    @if (app()->getLocale() == 'sl')
+                                    {{ $setting->instagram_sl }}
+                                    @else
+                                    {{ $setting->instagram_en }}
+                                    @endif
+                                </a>
+                            </li>
                             @endif
                             @if ($setting->linkedin_link)
-                                <li>
-                                    <a target="_blank" href="{{ $setting->linkedin_link }}"><i
-                                            class="fa fa-linkedin"></i>
-                                        @if (app()->getLocale() == 'sl')
-                                            {{ $setting->linkedin_sl }}
-                                        @else
-                                            {{ $setting->linkedin_en }}
-                                        @endif
-                                    </a>
-                                </li>
+                            <li>
+                                <a target="_blank" href="{{ $setting->linkedin_link }}"><i class="fa fa-linkedin"></i>
+                                    @if (app()->getLocale() == 'sl')
+                                    {{ $setting->linkedin_sl }}
+                                    @else
+                                    {{ $setting->linkedin_en }}
+                                    @endif
+                                </a>
+                            </li>
                             @endif
                             @if ($setting->whatsapp_link)
-                                <li>
-                                    <a target="_blank" href="{{ $setting->whatsapp_link }}"><i
-                                            class="fa fa-whatsapp"></i>
-                                        @if (app()->getLocale() == 'sl')
-                                            {{ $setting->whatsapp_sl }}
-                                        @else
-                                            {{ $setting->whatsapp_en }}
-                                        @endif
-                                    </a>
-                                </li>
+                            <li>
+                                <a target="_blank" href="{{ $setting->whatsapp_link }}"><i class="fa fa-whatsapp"></i>
+                                    @if (app()->getLocale() == 'sl')
+                                    {{ $setting->whatsapp_sl }}
+                                    @else
+                                    {{ $setting->whatsapp_en }}
+                                    @endif
+                                </a>
+                            </li>
                             @endif
                             @if ($setting->youtube_link)
-                                <li>
-                                    <a target="_blank" href="{{ $setting->youtube_link }}"><i
-                                            class="fa fa-youtube-play"></i>
-                                        @if (app()->getLocale() == 'sl')
-                                            {{ $setting->youtube_sl }}
-                                        @else
-                                            {{ $setting->youtube_en }}
-                                        @endif
-                                    </a>
-                                </li>
+                            <li>
+                                <a target="_blank" href="{{ $setting->youtube_link }}"><i
+                                        class="fa fa-youtube-play"></i>
+                                    @if (app()->getLocale() == 'sl')
+                                    {{ $setting->youtube_sl }}
+                                    @else
+                                    {{ $setting->youtube_en }}
+                                    @endif
+                                </a>
+                            </li>
                             @endif
                         </ul>
                     </div>
@@ -173,23 +170,24 @@
                             {{ __('newsletter_info') }}
                         </p>
                         {!! Form::open([
-                            'route' => 'subscribe',
-                            'method' => 'post',
-                            'class' => 'form-contact',
-                            'files' => false,
-                            'novalidate',
-                            'autocomplete' => 'off',
+                        'route' => 'subscribe',
+                        'method' => 'post',
+                        'class' => 'form-contact',
+                        'files' => false,
+                        'novalidate',
+                        'autocomplete' => 'off',
                         ]) !!}
                         <div class="form-group">
                             <div class="controls">
                                 {!! Form::email('email', old('email'), [
-                                    'class' => 'form-control',
-                                    'id' => 'email',
-                                    'placeholder' => 'email...',
-                                    'data-validation-required-message' => 'This field is required',
-                                    'tabindex' => 5,
+                                'class' => 'form-control',
+                                'id' => 'email',
+                                'placeholder' => 'email...',
+                                'data-validation-required-message' => 'This field is required',
+                                'tabindex' => 5,
                                 ]) !!}
-                                {!! $errors->first('email', '<label class="help-block text-danger">:message</label>') !!}
+                                {!! $errors->first('email', '<label class="help-block text-danger">:message</label>')
+                                !!}
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">{{ __('subscriptbe') }}</button>

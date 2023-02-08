@@ -12,7 +12,7 @@ $category_query = $data['category_query'] ?? null;
 <!-- category modal -->
 <div class="modal all-category-list fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content customized_content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -81,7 +81,7 @@ $category_query = $data['category_query'] ?? null;
 <!-- division and city modal -->
 <div class="modal all-category-list fade" id="divisioncitymodal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content customized_content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -192,7 +192,7 @@ $category_query = $data['category_query'] ?? null;
 <!-- Modal Choose Ads Posting Category-->
 <div class="modal fade categoryselectmodal" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <p class="modal-title" id="staticBackdropLabel">{{ __('choose') }}</p>

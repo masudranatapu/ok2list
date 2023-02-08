@@ -631,13 +631,13 @@ $cate = DB::table('prd_category')
     <section id="something-sell" class="clearfix parallax-section"
         style="background-image: url('{{ asset('post-bg.jpg') }}');">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-sm-8">
+            <div class="row align-items-center  text-md-left text-center">
+                <div class="col-md-8">
                     <h2 class="title">{{ __('something_to_sel') }}</h2>
                     <h4>{{ __('free_on_listorbuy') }}</h4>
                 </div>
-                <div class="col-sm-4">
-                    <div class="free_post_btn float-sm-right">
+                <div class="col-md-4">
+                    <div class="free_post_btn float-md-right">
                         @if (!empty($payments))
                             @if ($payments->status != 'Due')
                                 <a href="javascript:;" data-toggle="modal" data-target="#staticBackdrop"
