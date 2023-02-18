@@ -298,6 +298,10 @@
         top: 8px !important;
     }
 
+    .user_header .navbar-toggler {
+        top: 31px !important;
+    }
+
     .banner_search {
         width: 79% !important;
     }
@@ -1696,6 +1700,10 @@
         display: block;
         width: 100%;
         text-align: center;
+    }
+
+    .user_header a.navbar-brand {
+        text-align: left !important;
     }
 
     .mobile_post_btn {
