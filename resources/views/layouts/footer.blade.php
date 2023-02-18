@@ -1,7 +1,7 @@
 @php
 $setting = setting();
 @endphp
-<footer id="footer" class="clearfix">
+<footer id="footer" class="clearfix d-none d-md-block">
     <section class="footer-top clearfix">
         <div class="container">
             <div class="row">

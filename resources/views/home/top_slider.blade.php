@@ -28,7 +28,8 @@
                         <input type="text" class="form-control" placeholder='{{ __(' type') }}' name="keywords">
                         <button type="submit" class="form-control" value="Search">{{ __('search') }}</button>
                     </form>
-                </div><!-- banner-form -->
+                </div>
+                <!-- banner-form -->
             </div>
         </div><!-- banner -->
     </div><!-- row -->

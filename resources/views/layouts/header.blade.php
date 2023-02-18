@@ -15,7 +15,7 @@
 $languages = App\Models\Language::get();
 $currencies = App\Models\Currency::get();
 @endphp
-<header id="header" class="clearfix">
+<header id="header" class="clearfix @Auth user_header @endauth">
     @php
     $setting = App\SiteSetting::first();
     @endphp
