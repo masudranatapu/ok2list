@@ -8,7 +8,7 @@
                     {{ __('online_mega') }}</h1>
                 <h3>
                     <span id="break">{{ __('buy_and_sell') }}</span> {{ __('Ex') }}
-                    <span class="typewrite" data-period="2000" data-type='[ "{{ __(' c_p') }}", "{{ __('c_pp') }}"
+                    <span class="typewrite" data-period="2000" data-type='[ "{{ __('c_p') }}", "{{ __('c_pp') }}"
                         , "{{ __('p_h') }}" , "{{ __('job') }}" ]'>
                         <span class="wrap"></span></span>
                 </h3>
