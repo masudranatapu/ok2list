@@ -186,23 +186,23 @@ class UserController extends Controller
     }
 
 
-    public function deleteAccount(User $customer)
-    {
-        // $ads = DB::table('prd_master')->where("customer_pk_no", $customer->id)->first();
-        // foreach($ads as $ad){
-        //     $image = DB::table('prd_img_library')->where('f_prd_master_no', $ad->pk_no)->first();
-        //     Log::alert($image);
-        //     if(file_exists(public_path($image->img_name))){
-        //         unlink(public_path($image->img_name));
-        //     }
-        //     $image->delete();
-        // }
-        // $ads->delete();
+    // public function deleteAccount(User $customer)
+    // {
+    //     // $ads = DB::table('prd_master')->where("customer_pk_no", $customer->id)->first();
+    //     // foreach($ads as $ad){
+    //     //     $image = DB::table('prd_img_library')->where('f_prd_master_no', $ad->pk_no)->first();
+    //     //     Log::alert($image);
+    //     //     if(file_exists(public_path($image->img_name))){
+    //     //         unlink(public_path($image->img_name));
+    //     //     }
+    //     //     $image->delete();
+    //     // }
+    //     // $ads->delete();
 
-        $customer->delete();
-        Auth::user()->logout();
-        return redirect()->route('users.login');
-    }
+    //     $customer->delete();
+    //     Auth::user()->logout();
+    //     return redirect()->route('users.login');
+    // }
 
 
 
