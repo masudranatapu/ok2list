@@ -14,9 +14,4 @@ class ProductImg extends Model
 
     protected $fillable = [ 'img_name', 'serial_no'];
 
-
-
-
-  
-    
 }

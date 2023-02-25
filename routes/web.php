@@ -89,7 +89,7 @@ Route::get('/ads/{area?}/{category?}', 'AdsController@getAdsList')->name('ads.li
 //user shop route
 Route::get('/create-shop', ['as' => 'create-shop', 'uses' => 'ShopController@getCreateShop', 'middleware' => 'checkPackage']);
 
-Route::delete('account-delete/{customer}', ['as' => 'account.delete', 'uses' => 'UserController@deleteAccount']);
+Route::delete('account-delete/{id}', ['as' => 'account.delete', 'uses' => 'UserController@deleteAccount']);
 
 
 

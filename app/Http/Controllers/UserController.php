@@ -7,6 +7,7 @@ use App\Http\Requests\updatePasswordRequest;
 use Illuminate\Http\Request;
 use App\City;
 use App\Models\Order;
+use App\Models\ProductImg;
 use App\Payments;
 use App\User;
 use Brian2694\Toastr\Facades\Toastr;
@@ -185,25 +186,30 @@ class UserController extends Controller
         }
     }
 
+    public function deleteAccount($id)
+    {
+        $user = User::where('id', $id)->first();
+        // dd($user);
+        $userproducts = Product::where('customer_pk_no', $id)->get();
+        foreach ($userproducts as $products) {
+            $product = Product::where('pk_no', $products->pk_no)->first();
 
-    // public function deleteAccount(User $customer)
-    // {
-    //     // $ads = DB::table('prd_master')->where("customer_pk_no", $customer->id)->first();
-    //     // foreach($ads as $ad){
-    //     //     $image = DB::table('prd_img_library')->where('f_prd_master_no', $ad->pk_no)->first();
-    //     //     Log::alert($image);
-    //     //     if(file_exists(public_path($image->img_name))){
-    //     //         unlink(public_path($image->img_name));
-    //     //     }
-    //     //     $image->delete();
-    //     // }
-    //     // $ads->delete();
+            $productimages = ProductImg::where('f_prd_master_no', $product->pk_no)->get();
 
-    //     $customer->delete();
-    //     Auth::user()->logout();
-    //     return redirect()->route('users.login');
-    // }
+            if($productimages){
+                foreach ($productimages as $images) {
+                    $images->delete();
+                }
+            }
 
+            $product->delete();
+        }
 
+        $user->delete();
+
+        Toastr::success("Your account successfully delete");
+        return redirect()->route('home');
+
+    }
 
 }
